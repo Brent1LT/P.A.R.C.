@@ -22,7 +22,7 @@ app.use("/api/users", users);
 
 app.use(passport.initialize());
 require('./config/passport')(passport);
-app.use('/api/users/current', users)
+app.use('/api/users/current', users);
 
 
 const port = process.env.PORT || 5000;
