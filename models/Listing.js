@@ -8,20 +8,17 @@ const ListingSchema = new Schema ({
   },
 
   longitude: {
-    type: String
+    type: Number
   },
 
   latitude: {
-    type: String
-  },
-
-  address: {
-    type: String
+    type: Number
   },
 
   price: {
     type: Number,
-    required: true
+    required: true,
+    default: 15
   },
 
   // NOT BOOKING DATE
