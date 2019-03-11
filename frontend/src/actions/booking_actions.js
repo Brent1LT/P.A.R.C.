@@ -45,18 +45,18 @@ const clearBookingErrors = () => {
 export const createBooking = (booking) => (dispatch) => {
   return (BookingApiUtil.createBooking(booking).then(
     (booking) => dispatch(receiveBooking(booking)),
-    (error) => dispatch(receiveBookingErrors(error.responseJSON)),
+    // (error) => dispatch(receiveBookingErrors(error.responseJSON)),
   ));
 };
 export const fetchAllUserBookings = (user) => (dispatch) => {
   return (BookingApiUtil.fetchAllUserBookings(user).then(
     (bookings) => dispatch(receiveBooking(bookings)),
-    (error) => dispatch(receiveBookingErrors(error.responseJSON)),
+    // (error) => dispatch(receiveBookingErrors(error.responseJSON)),
   ));
 };
 export const deleteBooking = (id) => (dispatch) => {
   return (BookingApiUtil.deleteBooking(id).then(
     (id) => dispatch(removeBooking(id)),
-    (error) => dispatch(receiveBookingErrors(error.responseJSON)),
+    // (error) => dispatch(receiveBookingErrors(error.responseJSON)),
   ));
 };
