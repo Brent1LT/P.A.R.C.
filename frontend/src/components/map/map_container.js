@@ -2,7 +2,9 @@ import { connect } from 'react-redux';
 import GoogleMap from './map';
 
 const mapStateToProps = (state) => {
-  return ({});
+  return ({
+    listings: state.entities.listings,
+  });
 };
 const mapDispatchToProps = (dispatch) => {
   return ({});

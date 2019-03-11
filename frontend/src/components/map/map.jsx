@@ -38,6 +38,8 @@ class GoogleMap extends Component {
       'marginRight': 'auto',
     };
 
+    // Change this return setup to use a .map ieteration over the listings
+    // Then we can use this component dynamically for splash, index & show
     return (
       <Map
         item
