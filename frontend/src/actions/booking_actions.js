@@ -15,10 +15,10 @@ const receiveBooking = (booking) => {
     booking,
   });
 };
-const receiveAllUserBookings = (user) => {
+const receiveAllUserBookings = (bookings) => {
   return ({
     type: RECEIVE_ALL_USER_BOOKINGS,
-    user,
+    bookings,
   });
 };
 const removeBooking = (id) => {
