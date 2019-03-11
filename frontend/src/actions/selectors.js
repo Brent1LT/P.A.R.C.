@@ -1,7 +1,8 @@
 //THIS NEEDS TO BE IMPORTED TO LISTING INDEX CONTAINER AND MAP STATE TO PROPS pass in state
+import axios from 'axios';
 
 
-export const filterListings = (state) => {
+const filterListings = (state) => {
     let result = [];
     let listings = state.entities.listings;
     let search = state.ui.search;
@@ -34,3 +35,4 @@ const geocodeRequest = (address) => {
     })
 }
 
+export default filterListings 
