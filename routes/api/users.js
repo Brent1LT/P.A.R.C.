@@ -27,8 +27,8 @@ router.post('/register', (req, res) => {
         const newUser = new User({
           email: req.body.email,
           password: req.body.password,
-          username: req.body.username,
-          name: req.body.name,
+          firstname: req.body.firstname,
+          lastname: req.body.lastname,
         });
 
         bcrypt.genSalt(10, (err, salt) => {
@@ -76,22 +76,39 @@ router.post('/login', (req, res) => {
       bcrypt.compare(password, user.password)
         .then(isMatch => {
           if (isMatch) {
-            res.json({ msg: 'Success' });
+            const payload ={
+              id: user.id,
+              firstname: user.firstname,
+              lastname: user.lastname,
+            };
+
+            jwt.sign(
+              payload, 
+              keys.secretOrKey,
+              {expiresIn: 3600},
+              (err, token) =>{
+                res.json({
+                  success: true,
+                  token: 'Bearer ' + token
+                });
+              } 
+            );
           } else {
             // And here:
             errors.password = 'Incorrect password'
             return res.status(400).json(errors);
           }
-        })
-    })
-})
+        });
+    });
+});
 
 // private auth route
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
   res.json({
     id: req.user.id,
-    handle: req.user.handle,
-    email: req.user.email
+    firstname: req.user.firstname,
+    email: req.user.email,
+    lastname: req.user.lastname
   });
 });
 
