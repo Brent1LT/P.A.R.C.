@@ -60,8 +60,11 @@ class GoogleMap extends Component {
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
         >
-          123 Broadway Street, SF, CA 12345 <br />
-          800-555-1234
+          <p>
+            123 Broadway Street<br />
+            SF, CA 12345<br />
+            800-555-1234
+          </p>
         </InfoWindow>
       </Map>
     );
