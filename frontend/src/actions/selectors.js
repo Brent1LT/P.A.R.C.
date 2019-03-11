@@ -23,7 +23,7 @@ const geocodeRequest = (address) => {
     {
         params:{
             address: address,
-            key: "will need a key here"
+            key: "AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U"
         }
     }).then( (response) => { //response is the object the api returns
         //refer to this if you need help
