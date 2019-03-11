@@ -2,14 +2,15 @@ import { connect } from 'react-redux';
 import BookingForm from './booking_form';
 import {
   createBooking,
-  fetchAllUserBookings,
+  // fetchAllUserBookings,
   deleteBooking,
 } from '../../actions/booking_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return ({
     currentUser: state.session.user,
-    formType: 'Create a Booking',
+    listingId: ownProps.listingId,
+    formType: 'Make a Booking',
   });
 };
 const mapDispatchToProps = (dispatch) => {
