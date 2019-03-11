@@ -6,6 +6,9 @@ export const createBooking = (booking) => {
 export const fetchAllUserBookings = (user) => {
   axios.get(`/api/bookings/user/${user.id}/`);
 };
+export const fetchAllListingBookings = (listing) => {
+  axios.get(`/api/bookings/listing/${listing.id}/`);
+};
 export const deleteBooking = (id) => {
   axios.delete(`/api/bookings/delete/${id}`);
 };
