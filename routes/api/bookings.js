@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const passport = require('passport');
-const Booking = require('../../models/Booking')
-const validateBookingInput = require('../../validations/bookings')
+const Booking = require('../../models/Booking');
+const validateBookingsInput = require('../../validations/bookings');
 
 router.post('/',
   passport.authenticate('jwt', { session: false }),
@@ -22,7 +22,7 @@ router.post('/',
   }
 );
 
-router.get(`/listings/:id/bookings`,
+router.get(`/:bookingId`,
   (req, res) => {
     const bookings = Booking.find({ listing: req.params.id })
     .then(bookings => res.json(bookings))
