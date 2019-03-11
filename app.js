@@ -25,6 +25,9 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 app.use("/api/listings/new", listings);
 app.use('/api/users/current', users);
+app.use('/api/bookings/delete/:id', bookings);
+app.use('/api/bookings/:userId', bookings);
+app.use('/api/bookings/:listingId', bookings);
 
 
 const port = process.env.PORT || 5000;

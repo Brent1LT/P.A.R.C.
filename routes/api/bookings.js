@@ -12,7 +12,7 @@ router.post('/:listingId',
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    let startDate = new Date(req.body.startDate)
+    let startDate = new Date(req.body.startDate);
     let endDate = new Date(req.body.endDate);
 
     const newBooking = new Booking ({
@@ -40,7 +40,7 @@ router.get(`/:userId`,
 
 router.delete(`/delete/:id`,
   Booking.findByIdAndRemove({_id: req.params.id},
-    function(err, item){
+    function(err){
       if(err) res.json(err);
       else res.json('Successfully removed');
   })
