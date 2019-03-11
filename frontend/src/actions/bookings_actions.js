@@ -3,6 +3,8 @@ import * as BookingApiUtil from '../util/booking_api_util';
 export const RECEIVE_BOOKING = `RECEIVE_BOOKING`;
 export const RECEIVE_ALL_USER_BOOKINGS = `RECEIVE_ALL_USER_BOOKINGS`;
 export const REMOVE_BOOKING = `REMOVE_BOOKING`;
+export const RECEIVE_BOOKING_ERRORS = `RECEIVE_BOOKING_ERRORS`;
+export const CLEAR_BOOKING_ERRORS = `CLEAR_BOOKING_ERRORS`;
 
 /* ---------------------------------------------
 // NORMAL ACTION CREATORS
@@ -25,7 +27,36 @@ const removeBooking = (id) => {
     id,
   });
 };
+const receiveBookingErrors = (errors) => {
+  return ({
+    type: RECEIVE_BOOKING_ERRORS,
+    errors,
+  });
+};
+const clearBookingErrors = () => {
+  return ({
+    type: CLEAR_BOOKING_ERRORS,
+  });
+};
 
 /* ---------------------------------------------
 // THUNK ACTION CREATORS
 --------------------------------------------- */
+export const createBooking = (booking) => (dispatch) => {
+  return (BookingApiUtil.createBooking(booking).then(
+    (booking) => dispatch(receiveBooking(booking)),
+    (error) => dispatch(receiveBookingErrors(error.responseJSON)),
+  ));
+};
+export const fetchAllUserBookings = (user) => (dispatch) => {
+  return (BookingApiUtil.fetchAllUserBookings(user).then(
+    (bookings) => dispatch(receiveBooking(bookings)),
+    (error) => dispatch(receiveBookingErrors(error.responseJSON)),
+  ));
+};
+export const deleteBooking = (id) => (dispatch) => {
+  return (BookingApiUtil.deleteBooking(id).then(
+    (id) => dispatch(removeBooking(id)),
+    (error) => dispatch(receiveBookingErrors(error.responseJSON)),
+  ));
+};

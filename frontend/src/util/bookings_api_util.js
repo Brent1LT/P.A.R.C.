@@ -1,10 +1,5 @@
 import axios from 'axios';
 
-// create
-// index
-  // /api/bookings/user/:user_id/
-// delete
-
 export const createBooking = (booking) => {
   axios.post(`/api/bookings/new/`, booking);
 };
