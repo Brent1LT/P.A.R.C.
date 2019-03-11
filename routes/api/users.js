@@ -18,7 +18,7 @@ router.post('/register', (req, res) => {
   if (!isValid) {
     return res.status(400).json(errors);
   }
-  
+
   User.findOne({email: req.body.email})
     .then(user => {
       if (user){
@@ -83,7 +83,7 @@ router.post('/login', (req, res) => {
             };
 
             jwt.sign(
-              payload, 
+              payload,
               keys.secretOrKey,
               //expires in 3 hours
               {expiresIn: 10800},
@@ -92,11 +92,11 @@ router.post('/login', (req, res) => {
                   success: true,
                   token: 'Bearer ' + token
                 });
-              } 
+              }
             );
           } else {
             // And here:
-            errors.password = 'Incorrect password'
+            errors.password = 'Incorrect password';
             return res.status(400).json(errors);
           }
         });
