@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import GoogleMap from './map';
+import GoogleMapFinal from './map';
 
 const mapStateToProps = (state) => {
   return ({
@@ -11,5 +11,5 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const GoogleMapContainer =
-  connect(mapStateToProps, mapDispatchToProps)(GoogleMap);
+  connect(mapStateToProps, mapDispatchToProps)(GoogleMapFinal);
 export default GoogleMapContainer;

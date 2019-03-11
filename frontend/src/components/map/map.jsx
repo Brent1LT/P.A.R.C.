@@ -48,7 +48,7 @@ class GoogleMap extends Component {
         google={this.props.google}
         onClick={this.onMapClick}
         zoom={14}
-        initialCenter={ {lat: 37.760649, lng: -122.4245714} }
+        initialCenter={ {lat: 37.7565536, lng: -122.4145126} }
       >
         <Marker
           onClick={this.onMarkerClick}
@@ -68,8 +68,6 @@ class GoogleMap extends Component {
   };
 };
 
-const googleMapApiKey = "AIzaSyBYavEW50q1upq8t8CZ232YwGY-OfyjSBY";
-
 export default GoogleApiWrapper({
-  api: (process.env.googleMapApiKey)
+  apiKey: ('AIzaSyBYavEW50q1upq8t8CZ232YwGY-OfyjSBY')
 })(GoogleMap);
