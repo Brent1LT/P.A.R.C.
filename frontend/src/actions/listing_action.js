@@ -21,7 +21,7 @@ const receiveAllListings = listings => {
     })
 }
 
-const deleteListing = (listing) => {
+const removeListing = (listing) => {
     return({
         type: DELETE_LISTING,
         listing
@@ -49,10 +49,7 @@ export const createListing = listing => dispatch => {
     ListingApiUtil.createListing(listing).then(
         listing => {
             // same listing just sending to backend
-            dispatch(receiveListing(listing)),
-        errors => {
-            dispatch(receiveListingErrors(errors))
-        }
+            dispatch(receiveListing(listing))
     })
 }
 
@@ -61,10 +58,10 @@ export const fetchListing = id => dispatch => {
     ListingApiUtil.fetchListing(id).then(
         listing => {
             // listing is what is supplied by the backend 
-            dispatch(receiveListing(listing)),
-        errors => {
-            dispatch(receiveListingErrors(errors))
-        }
+            dispatch(receiveListing(listing))
+        // errors => {
+        //     dispatch(receiveListingErrors(errors))
+        // }
     })
 }
 
@@ -72,10 +69,10 @@ export const fetchListings = () => dispatch => {
     ListingApiUtil.fetchAllListings().then(
         listings => {
             //listings is what our backend is returning
-            dispatch(receiveAllListings(listings)),
-        errors => {
-            dispatch(receiveListingErrors(errors))
-        }
+            dispatch(receiveAllListings(listings))
+        // errors => {
+        //     dispatch(receiveListingErrors(errors))
+        // }
     })
 }
 
@@ -83,10 +80,10 @@ export const deleteListing = (id) => dispatch => {
     ListingApiUtil.deleteListing(id).then( 
         listing => {
             //backend will delete the listing
-            dispatch(deleteListing(listing)),
-        errors => {
-            dispatch(receiveListingErrors(errors))
-        }
+            dispatch(removeListing(listing))
+        // errors => {
+        //     dispatch(receiveListingErrors(errors))
+        // }
     })
 }
 
