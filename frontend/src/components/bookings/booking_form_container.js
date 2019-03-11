@@ -10,7 +10,6 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     currentUser: state.session.user,
     listingId: ownProps.listingId,
-    formType: 'Make a Booking',
   });
 };
 const mapDispatchToProps = (dispatch) => {

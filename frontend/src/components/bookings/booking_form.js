@@ -45,7 +45,7 @@ class BookingForm extends Component {
   render() {
     return (
       <div className="booking-form" style={{width: 300 +'px', height: 300 +'px'}} >
-        <h1>{this.props.formType}</h1>
+        <h3>Book This Spot</h3>
         <form onSubmit={this.handleSubmit}>
           <DateRangePicker
             startDate={this.state.startDate}
