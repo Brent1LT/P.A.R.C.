@@ -76,15 +76,31 @@ router.post('/login', (req, res) => {
       bcrypt.compare(password, user.password)
         .then(isMatch => {
           if (isMatch) {
-            res.json({ msg: 'Success' });
+            const payload ={
+              id: user.id,
+              firstname: user.firstname,
+              lastname: user.lastname,
+            };
+
+            jwt.sign(
+              payload, 
+              keys.secretOrKey,
+              {expiresIn: 3600},
+              (err, token) =>{
+                res.json({
+                  success: true,
+                  token: 'Bearer ' + token
+                });
+              } 
+            );
           } else {
             // And here:
             errors.password = 'Incorrect password'
             return res.status(400).json(errors);
           }
-        })
-    })
-})
+        });
+    });
+});
 
 // private auth route
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {

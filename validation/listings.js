@@ -1,31 +1,38 @@
 const Validator = require('validator');
-const validNum = require('./valid-num');
+const validText = require('./valid-text');
 
 module.exports = function validateListingInput(data) {
   let errors = {};
 
-  data.latitude = validNum(data.latitude) ? data.latitude : 'no';
-  data.longitude = validNum(data.longitude) ? data.longitude : 'no';
-  
-  if(!isFinite(data.latitude) || (Math.abs(data.latitude) > 90)){
-    errors.latitude = 'Not a valid latitude';
+  data.description = validText(data.description) ? data.description : '';
+
+  if(!Validator.isLength(data.description, {min: 5, max: 255})){
+    errors.description = 'Description must be between 5 and 255 characters';
   }
 
-  if (!Validator.isEmpty(data.latitude)){
-    errors.latitude = 'Latitude is required';
-  }
-  
-  if(!isFinite(data.longitude) || (Math.abs(data.longitude) > 180)){
-    errors.longitude = "Not a valude longitude";
+  if (Validator.isEmpty(data.description)) {
+    errors.description = 'Description is required';
   }
 
-  if (!Validator.isEmpty(data.longitude)){
-    errors.longitude = 'Longitude is required';
+  if(!isFinite(data.lat) || (Math.abs(data.lat) > 90)){
+    errors.lat = 'Not a valid latitude';
+  }
+
+  if (Validator.isEmpty(data.lat)){
+    errors.lat = 'Latitude is required';
+  }
+  
+  if(!isFinite(data.lng) || (Math.abs(data.lng) > 180)){
+    errors.lng = "Not a valid longitude";
+  }
+
+  if (Validator.isEmpty(data.lng)){
+    errors.lng = 'Longitude is required';
   }
 
   return {
     errors, 
-    isValid: Object.keys(erros).length === 0
+    isValid: Object.keys(errors).length === 0
   };
 
 };

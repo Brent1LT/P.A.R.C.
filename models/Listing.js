@@ -7,12 +7,19 @@ const ListingSchema = new Schema ({
     ref: 'users'
   },
 
-  longitude: {
-    type: Number
+  description:{
+    type: String,
+    required: true
   },
 
-  latitude: {
-    type: Number
+  lng: {
+    type: Number,
+    required: true
+  },
+
+  lat: {
+    type: Number,
+    required: true
   },
 
   price: {

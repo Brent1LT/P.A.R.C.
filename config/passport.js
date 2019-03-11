@@ -25,4 +25,3 @@ module.exports = passport => {
   );
 };
 
-// Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjODQ2ODAwMDdiNTI3Njg2ZjYxNDYzNSIsIm5hbWUiOiJrZW4iLCJpYXQiOjE1NTIxODEyNDgsImV4cCI6MTU1MjE4NDg0OH0.QIA5pcv3b7qB8t4Fr4D2rYNR - A8cd_rKroN6op9CNbM
