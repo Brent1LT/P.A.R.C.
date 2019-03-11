@@ -6,7 +6,14 @@ class ListingShow extends React.Component{
 
     }
 
+    componentDidMount(){
+        this.props.fetchListing();
+    }
+
     render(){
+        if(this.props.listing === undefined){
+            return null;
+        }
         return(
             <div>
                 <div>MAP GOES HERE</div>
@@ -23,3 +30,5 @@ class ListingShow extends React.Component{
         )
     }
 }
+
+export default ListingShow

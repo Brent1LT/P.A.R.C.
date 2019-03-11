@@ -7,6 +7,10 @@ class ListingIndex extends React.Component{
         super(props)
     }
 
+    componentDidMount(){
+        this.props.fetchListings();
+    }
+
     render(){
         if (this.props.listings === undefined) {
             return null;
