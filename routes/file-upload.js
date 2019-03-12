@@ -10,19 +10,18 @@ const singleUpload = upload.single("image");
 
 router.post("/image-upload",
   passport.authenticate("jwt", { session: false }),
+  upload.single('image'),
   (req, res) => {
-    const { isValid, errors } = validateListingInput(req.body);
-
-    if (!isValid) {
-      return res.status(400).json(errors);
-    }
-    singleUpload(req, res, err => {
-      return res.json({ imageUrl: req.file.location });
-    }).then(photo => {
-      Listing.findOne({ lat: req.body.lat, lng: req.body.lng })
+    
+      // let photo = res.json({ imageUrl: req.file.location });
+      console.log('form body', req.body)
+    Listing.findOne({street: req.body.street})
         .then(listing => {
           if (listing) {
-            return res.status(400).json({ address: 'This address is already listed' });
+            console.log("LISTING FOUND", listing)
+            return res
+              .status(400)
+              .json({ address: "This address is already listed" });
           } else {
             const newListing = new Listing({
               user: req.user.id,
@@ -30,46 +29,25 @@ router.post("/image-upload",
               lng: req.body.lng,
               price: req.body.price,
               description: req.body.description,
-              photo: photo.imageUrl
+              photo: req.file.location
             });
+            let formatted = JSON.parse(JSON.stringify(newListing));
+            console.log(formatted);
+            const { isValid, errors } = validateListingInput(formatted);
 
-            newListing
+            if (!isValid) {
+              return res.status(400).json(errors);
+            }
+            formatted
               .save()
-              .then(listing => res.json(listing));
+              .then(listing => res.json(listing))
+              .catch(err => res.status(400).json(err));
           }
-        });
-    });
+        })
+        .catch(err => console.log("FindOne Failed", err));
+ 
   }
 );
 
-
-// outer.post("/new",
-//   passport.authenticate('jwt', { session: false }),
-//   (req, res) => {
-//     const { isValid, errors } = validateListingInput(req.body);
-
-//     if (!isValid) {
-//       return res.status(400).json(errors);
-//     }
-
-//     Listing.findOne({ lat: req.body.lat, lng: req.body.lng })
-//       .then(listing => {
-//         if (listing) {
-//           return res.status(400).json({ address: 'This address is already listed' });
-//         } else {
-//           const newListing = new Listing({
-//             user: req.user.id,
-//             lat: req.body.lat,
-//             lng: req.body.lng,
-//             price: req.body.price,
-//             description: req.body.description
-//           });
-
-//           newListing
-//             .save()
-//             .then(listing => res.json(listing));
-//         }
-//       });
-//   });
 
 module.exports = router;

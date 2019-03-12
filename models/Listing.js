@@ -33,6 +33,23 @@ const ListingSchema = new Schema ({
     required: true
   },
 
+  street: {
+    type: String,
+    required: true
+  },
+
+  state: {
+    type: String
+  },
+
+  zip: {
+    type: Number
+  },
+
+  city: {
+    type: String
+  },
+
   // NOT BOOKING DATE
   // dateTime listing was created
   date: {
