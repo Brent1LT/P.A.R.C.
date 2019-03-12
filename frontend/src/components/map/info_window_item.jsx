@@ -11,7 +11,6 @@ class InfoWindowItem extends Component {
         <p>
           {this.props.listing.street}<br />
           {this.props.listing.city}, {this.props.listing.state} {this.props.listing.zip}<br />
-          1-800-555-1234
         </p>
       </InfoWindow>
     );

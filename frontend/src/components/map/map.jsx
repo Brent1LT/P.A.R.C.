@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
 import frontendKeys from '../../config/frontend_keys';
+import InfoWindowItem from './info_window_item';
 
 class GoogleMap extends Component {
   constructor(props) {
@@ -40,7 +41,10 @@ class GoogleMap extends Component {
     };
     // Change this return setup to use a .map iteration over the listings
     // Then we can use this component dynamically for splash, index & show
+    // debugger
     const markers = this.props.listings.map((listing) => {
+      const activeMarker = this.state.activeMarker;
+      const showingInfoWindow = this.state.showingInfoWindow;
       return (
         <Marker
           key={listing.id}
@@ -48,24 +52,33 @@ class GoogleMap extends Component {
           title={listing.street}
           position={{lat: listing.lat, lng: listing.lng}}
           name={listing.street}
-        />
+          >
+          <InfoWindow
+            marker={activeMarker}
+            visible={showingInfoWindow}
+            >
+            <p>
+              {listing.street}<br />
+              {listing.city}, {listing.state} {listing.zip}
+            </p>
+          </InfoWindow>
+        </Marker>
       );
     });
-    const infoWindows = this.props.listings.map((listing) => {
-      return (
-        <InfoWindow
-          key={listing.id}
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
-        >
-          <p>
-            {listing.street}<br />
-            {listing.city}, {listing.state} {listing.zip}<br />
-            1-800-555-1234
-          </p>
-        </InfoWindow>
-      );
-    });
+    // const infoWindows = this.props.listings.map((listing) => {
+    //   return (
+    //     <InfoWindow
+    //       key={listing.id}
+    //       marker={this.state.activeMarker}
+    //       visible={this.state.showingInfoWindow}
+    //     >
+    //       <p>
+    //         {listing.street}<br />
+    //         {listing.city}, {listing.state} {listing.zip}
+    //       </p>
+    //     </InfoWindow>
+    //   );
+    // });
     const currentStyle = this.props.style ? this.props.style : defaultStyle;
 
     return (
@@ -77,10 +90,9 @@ class GoogleMap extends Component {
           google={this.props.google}
           onClick={this.onMapClick}
           zoom={14}
-          initialCenter={ {lat: 37.7599043, lng: -122.4256016} }
-        >
+          initialCenter={{lat: 37.7599043, lng: -122.4256016}}
+          >
           {markers}
-          {infoWindows}
         </Map>
       </div>
     );

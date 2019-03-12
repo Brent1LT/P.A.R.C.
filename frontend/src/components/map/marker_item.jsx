@@ -7,7 +7,7 @@ class MarkerItem extends Component {
       <Marker
         onClick={this.props.onMarkerClick}
         title={this.props.listing.street}
-        position={ {lat: this.props.listing.lat, lng: this.props.listing.lng} }
+        position={{lat: this.props.listing.lat, lng: this.props.listing.lng}}
         name={this.props.listing.street}
       />
     );
