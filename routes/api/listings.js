@@ -7,12 +7,10 @@ const Listing = require("../../models/Listing");
 
 //index
 router.get("/", (req, res) => {
-  console.log("Hit me with a listing")
   Listing
     .find()
     .sort({ date: -1})
     .then(listings => {
-      console.log('List me')
       return res.json(listings)
     })
     .catch(err => res.status(400).json(err));
@@ -54,7 +52,10 @@ router.post("/new",
           price: req.body.price,
           description: req.body.description,
           photo: req.body.photo,
-          street: req.body.street
+          street: req.body.street,
+          zip: req.body.zip,
+          state: req.body.state,
+          city: req.body.city
         });
 
         newListing
