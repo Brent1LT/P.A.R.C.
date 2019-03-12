@@ -1,25 +1,27 @@
 import { connect } from 'react-redux';
 import filterBookings from '../../actions/selectors';
-import BookingForm from './booking_form';
+import BookingIndex from './booking_index';
 import {
   createBooking,
-  fetchAllListingBookings,
+  fetchAllUserBookings,
+  deleteBooking,
 } from '../../actions/booking_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return ({
     currentUser: state.session.user,
     listing: ownProps.listing,
-    bookings: filterBookings(state, ownProps.listing.id),
+    bookings: filterBookings(state, state.session.user.id),
   });
 };
 const mapDispatchToProps = (dispatch) => {
   return ({
     createBooking: (booking) => dispatch(createBooking(booking)),
-    fetchAllListingBookings: (listing) => dispatch(fetchAllListingBookings(listing)),
+    fetchAllUserBookings: () => dispatch(fetchAllUserBookings()),
+    deleteBooking: (id) => dispatch(deleteBooking(id)),
   });
 };
 
-const BookingFormContainer =
-  connect(mapStateToProps, mapDispatchToProps)(BookingForm);
-export default BookingFormContainer;
+const BookingIndexContainer =
+  connect(mapStateToProps, mapDispatchToProps)(BookingIndex);
+export default BookingIndexContainer;

@@ -22,10 +22,10 @@ const receiveAllUserBookings = (bookings) => {
     bookings,
   });
 };
-const receiveAllListingBookings = (listing) => {
+const receiveAllListingBookings = (bookings) => {
   return ({
     type: RECEIVE_ALL_LISTING_BOOKINGS,
-    listing,
+    bookings,
   });
 };
 const removeBooking = (id) => {
