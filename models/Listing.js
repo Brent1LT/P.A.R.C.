@@ -39,15 +39,18 @@ const ListingSchema = new Schema ({
   },
 
   state: {
-    type: String
+    type: String,
+    required: true
   },
 
   zip: {
-    type: Number
+    type: Number,
+    required: true
   },
 
   city: {
-    type: String
+    type: String,
+    required: true
   },
 
   // NOT BOOKING DATE

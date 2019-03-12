@@ -19,7 +19,7 @@ module.exports = function validateListingInput(data) {
     errors.lat = 'Not a valid latitude';
   }
 
-  if (Validator.isEmpty(data.lat)){
+  if (Validator.isEmpty(data.lat.toString())){
     errors.lat = 'Latitude is required';
   }
   
@@ -27,7 +27,7 @@ module.exports = function validateListingInput(data) {
     errors.lng = "Not a valid longitude";
   }
 
-  if (Validator.isEmpty(data.lng)){
+  if (Validator.isEmpty(data.lng.toString())){
     errors.lng = 'Longitude is required';
   }
 
