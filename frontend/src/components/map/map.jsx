@@ -32,42 +32,57 @@ class GoogleMap extends Component {
   };
 
   render() {
-    const style = {
+    const defaultStyle = {
       width: '65vw',
       height: '45vh',
       'marginLeft': 'auto',
       'marginRight': 'auto',
     };
-
-    // Change this return setup to use a .map ieteration over the listings
+    // Change this return setup to use a .map iteration over the listings
     // Then we can use this component dynamically for splash, index & show
-    return (
-      <Map
-        item
-        xs={12}
-        style={style}
-        google={this.props.google}
-        onClick={this.onMapClick}
-        zoom={14}
-        initialCenter={ {lat: 37.7565536, lng: -122.4145126} }
-      >
+    const markers = this.props.listings.map((listing) => {
+      return (
         <Marker
+          key={listing.id}
           onClick={this.onMarkerClick}
-          title={"Bueller's Orange Garage"}
-          position={ {lat: 37.7565536, lng: -122.4145126} }
-          name={"Bueller's Orange Garage"}
+          title={listing.street}
+          position={{lat: listing.lat, lng: listing.lng}}
+          name={listing.street}
         />
+      );
+    });
+    const infoWindows = this.props.listings.map((listing) => {
+      return (
         <InfoWindow
+          key={listing.id}
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
         >
           <p>
-            123 Broadway Street<br />
-            SF, CA 12345<br />
-            800-555-1234
+            {listing.street}<br />
+            {listing.city}, {listing.state} {listing.zip}<br />
+            1-800-555-1234
           </p>
         </InfoWindow>
-      </Map>
+      );
+    });
+    const currentStyle = this.props.style ? this.props.style : defaultStyle;
+
+    return (
+      <div className="map-container">
+        <Map
+          item
+          xs={12}
+          style={currentStyle}
+          google={this.props.google}
+          onClick={this.onMapClick}
+          zoom={14}
+          initialCenter={ {lat: 37.7599043, lng: -122.4256016} }
+        >
+          {markers}
+          {infoWindows}
+        </Map>
+      </div>
     );
   };
 };
@@ -75,3 +90,31 @@ class GoogleMap extends Component {
 export default GoogleApiWrapper({
   apiKey: (frontendKeys.googleMapApiKey)
 })(GoogleMap);
+
+// <Marker
+//   onClick={this.onMarkerClick}
+//   title={"Bueller's Orange Garage"}
+//   position={ {lat: 37.7565536, lng: -122.4145126} }
+//   name={"Bueller's Orange Garage"}
+// />
+// <InfoWindow
+//   marker={this.state.activeMarker}
+//   visible={this.state.showingInfoWindow}
+// >
+//   <p>
+//     123 Broadway Street<br />
+//     SF, CA 12345<br />
+//     800-555-1234
+//   </p>
+// </InfoWindow>
+
+// <InfoWindow
+//   marker={this.state.activeMarker}
+//   visible={this.props.visible}
+// >
+//   <p>
+//     {listing.street}<br />
+//     {listing.city}, {listing.state} {listing.zip}<br />
+//     1-800-555-1234
+//   </p>
+// </InfoWindow>

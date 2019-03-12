@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import GoogleMapFinal from './map';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return ({
-    listings: state.entities.listings,
+    listings: ownProps.listings,
+    style: ownProps.style,
   });
 };
 const mapDispatchToProps = (dispatch) => {
