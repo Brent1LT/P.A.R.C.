@@ -1,9 +1,11 @@
 import React from 'react';
 import {openModal, closeModal} from '../actions/modal_action';
 import {connect} from 'react-redux';
+import LoginFormContainer from './session/login_form_container';
+import SignupFormContainer from './session/signup_form_container';
 
 
-function Modal({ modal, closeModal})
+// function Modal({ modal, closeModal})
 
 const Modal = ({modal, closeModal}) => {
     if(!modal){

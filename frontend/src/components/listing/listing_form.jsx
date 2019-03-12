@@ -55,6 +55,7 @@ class ListingForm extends React.Component{
     // }
 
     render(){
+        return(
         <div className='entire-listing-form'>
             <form onSubmit={(e) => this.handleSubmit(e)}>
                 <h3>Address</h3>
@@ -70,8 +71,11 @@ class ListingForm extends React.Component{
                 <input type="text" value={this.state.description} onChange={this.update('description')}/>
                 <div>Price: </div>
                 <input type="text" value={this.state.price} />
+                <br/>
+                <input type="submit"/>
             </form>
         </div>
+        )
     }
 }
 

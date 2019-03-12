@@ -1,6 +1,6 @@
 import {RECEIVE_SEARCH} from '../actions/search_actions'
 
-export const searchReducer = (state = '', action ) => {
+const searchReducer = (state = '', action ) => {
     Object.freeze(state);
     switch(action.type){
         case RECEIVE_SEARCH:
@@ -9,3 +9,5 @@ export const searchReducer = (state = '', action ) => {
             return state;
     }
 }
+
+export default searchReducer;
