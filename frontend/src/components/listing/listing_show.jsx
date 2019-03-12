@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 import GoogleMapContainer from '../map/map';
 import BookingFormContainer from '../bookings/booking_form_container';
 
 class ListingShow extends React.Component{
   constructor(props){
-    super(props)
+    super(props);
   };
 
   componentDidMount(){
@@ -16,8 +16,9 @@ class ListingShow extends React.Component{
       return null;
     }
     return(
-      <div>
-          <GoogleMapContainer />
+      <div className="listing-show">
+          <h2>{this.props.listing.address.street} {this.props.listing.address.city}</h2>
+          <GoogleMapContainer listings={this.props.listing} />
           <div>
             <h2>{this.props.listing.street} {this.props.listing.city}</h2>
             <div>Description
