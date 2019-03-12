@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     currentUser: state.session.user,
     listing: ownProps.listing,
-    bookings: filterBookings(state, state.session.user.id),
+    bookings: filterBookings(state, state.session.user.id, 'user'),
   });
 };
 const mapDispatchToProps = (dispatch) => {

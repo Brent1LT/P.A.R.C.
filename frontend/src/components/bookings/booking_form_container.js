@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     currentUser: state.session.user,
     listing: ownProps.listing,
-    bookings: filterBookings(state, ownProps.listing.id),
+    bookings: filterBookings(state, ownProps.listing.id, 'listing'),
   });
 };
 const mapDispatchToProps = (dispatch) => {

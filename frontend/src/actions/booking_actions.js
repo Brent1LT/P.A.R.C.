@@ -67,6 +67,12 @@ export const fetchAllListingBookings = (listing) => (dispatch) => {
     // (error) => dispatch(receiveBookingErrors(error.responseJSON)),
   ));
 };
+export const fetchBooking = (id) => (dispatch) => {
+  return (BookingApiUtil.fetchBooking(id).then(
+    (booking) => dispatch(receiveBooking(booking)),
+    // (error) => dispatch(receiveBookingErrors(error.responseJSON)),
+  ));
+};
 export const deleteBooking = (id) => (dispatch) => {
   return (BookingApiUtil.deleteBooking(id).then(
     (id) => dispatch(removeBooking(id)),

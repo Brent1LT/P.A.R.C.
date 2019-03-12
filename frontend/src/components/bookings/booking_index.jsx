@@ -22,6 +22,7 @@ class BookingIndex extends Component {
         {bookingsArray.map((booking) => {
           return (
             <BookingIndexItem
+              listing={this.props.listing}
               booking={booking}
               key={booking.id}
               deleteBooking={this.props.deleteBooking}
