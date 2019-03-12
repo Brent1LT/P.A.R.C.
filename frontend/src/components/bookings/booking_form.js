@@ -54,29 +54,38 @@ class BookingForm extends Component {
     // ITERATE THROUGH THIS.PROPS.BOOKINGS
     // TO CREATE THE MOMENT RANGE OBJECTS AS SEEN BELOW
 
+    const BAD_DATES = []
     const moment = extendMoment(Moment);
-    const BAD_DATES = [
-      moment.range(
-        moment('2019-03-11', 'YYYY-MM-DD'),
-        moment('2019-03-13', 'YYYY-MM-DD').add(1, 'day'),
-      ),
-      moment.range(
-        moment('2019-03-15', 'YYYY-MM-DD'),
-        moment('2019-03-16', 'YYYY-MM-DD').add(1, 'day'),
-      ),
-      moment.range(
-        moment('2019-03-18', 'YYYY-MM-DD'),
-        moment('2019-03-19', 'YYYY-MM-DD').add(1, 'day'),
-      ),
-      moment.range(
-        moment('2019-03-21', 'YYYY-MM-DD'),
-        moment('2019-03-22', 'YYYY-MM-DD').add(1, 'day'),
-      ),
-      moment.range(
-        moment('2019-03-24', 'YYYY-MM-DD'),
-        moment('2019-03-26', 'YYYY-MM-DD').add(1, 'day'),
-      ),
-    ];
+    this.props.bookings.map(booking => {
+      BAD_DATES.push(moment.range(
+        moment(booking.startDate, 'YYYY-MM-DD'),
+        moment(booking.endDate, 'YYYY-MM-DD').add(1, 'day')
+      ))
+    })
+
+    // const moment = extendMoment(Moment);
+    // const BAD_DATES = [
+    //   moment.range(
+    //     moment('2019-03-11', 'YYYY-MM-DD'),
+    //     moment('2019-03-13', 'YYYY-MM-DD').add(1, 'day'),
+    //   ),
+    //   moment.range(
+    //     moment('2019-03-15', 'YYYY-MM-DD'),
+    //     moment('2019-03-16', 'YYYY-MM-DD').add(1, 'day'),
+    //   ),
+    //   moment.range(
+    //     moment('2019-03-18', 'YYYY-MM-DD'),
+    //     moment('2019-03-19', 'YYYY-MM-DD').add(1, 'day'),
+    //   ),
+    //   moment.range(
+    //     moment('2019-03-21', 'YYYY-MM-DD'),
+    //     moment('2019-03-22', 'YYYY-MM-DD').add(1, 'day'),
+    //   ),
+    //   moment.range(
+    //     moment('2019-03-24', 'YYYY-MM-DD'),
+    //     moment('2019-03-26', 'YYYY-MM-DD').add(1, 'day'),
+    //   ),
+    // ];
     const isBlocked = day => BAD_DATES.filter(d => d.contains(day, 'day')).length > 0;
 
     return (
