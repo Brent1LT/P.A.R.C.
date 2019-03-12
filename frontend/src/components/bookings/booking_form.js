@@ -19,11 +19,15 @@ class BookingForm extends Component {
     };
   };
 
+  componentDidMount() {
+    this.props.fetchAllListingBookings(this.props.listing.id);
+  };
+
   handleSubmit(e) {
     e.preventDefault();
     const booking = {
       user: this.state.user,
-      listingId: this.props.listingId,
+      listingId: this.props.listing.id,
       // the two dates below will be parsed into this format: "YYYY-MM-DD"
       startDate: this.state.startDate._d,
       endDate: this.state.endDate._d,
@@ -45,6 +49,11 @@ class BookingForm extends Component {
   };
 
   render() {
+    if (this.props.bookings === undefined) return null;
+
+    // ITERATE THROUGH THIS.PROPS.BOOKINGS
+    // TO CREATE THE MOMENT RANGE OBJECTS AS SEEN BELOW
+
     const moment = extendMoment(Moment);
     const BAD_DATES = [
       moment.range(

@@ -5,11 +5,11 @@ import BookingFormContainer from '../bookings/booking_form_container';
 class ListingShow extends React.Component{
   constructor(props){
     super(props)
-  }
+  };
 
   componentDidMount(){
     this.props.fetchListing();
-  }
+  };
 
   render(){
     if(this.props.listing === undefined){
@@ -28,8 +28,8 @@ class ListingShow extends React.Component{
           <div>IMAGE BELOW THIS</div>
           <img src="" alt=""/>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default ListingShow;

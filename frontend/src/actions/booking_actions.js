@@ -22,10 +22,10 @@ const receiveAllUserBookings = (bookings) => {
     bookings,
   });
 };
-const receiveAllListingBookings = (listing) => {
+const receiveAllListingBookings = (bookings) => {
   return ({
     type: RECEIVE_ALL_LISTING_BOOKINGS,
-    listing,
+    bookings,
   });
 };
 const removeBooking = (id) => {
@@ -64,6 +64,12 @@ export const fetchAllUserBookings = (user) => (dispatch) => {
 export const fetchAllListingBookings = (listing) => (dispatch) => {
   return (BookingApiUtil.fetchAllUserBookings(listing).then(
     (bookings) => dispatch(receiveAllListingBookings(bookings)),
+    // (error) => dispatch(receiveBookingErrors(error.responseJSON)),
+  ));
+};
+export const fetchBooking = (id) => (dispatch) => {
+  return (BookingApiUtil.fetchBooking(id).then(
+    (booking) => dispatch(receiveBooking(booking)),
     // (error) => dispatch(receiveBookingErrors(error.responseJSON)),
   ));
 };
