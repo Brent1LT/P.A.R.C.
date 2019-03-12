@@ -9,7 +9,7 @@ class MainPage extends React.Component {
       <div>
         <h1>P.A.R.C.</h1>
         <SearchContainer />
-        {/* <GoogleMapContainer /> */}
+        <GoogleMapContainer />
         <BookingFormContainer />
         <footer>
           Copyright &copy; 2019 B.V.G.S.

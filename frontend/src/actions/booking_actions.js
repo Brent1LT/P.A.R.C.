@@ -63,7 +63,7 @@ export const fetchAllUserBookings = (user) => (dispatch) => {
 };
 export const fetchAllListingBookings = (listing) => (dispatch) => {
   return (BookingApiUtil.fetchAllUserBookings(listing).then(
-    (listing) => dispatch(receiveAllListingBookings(listing)),
+    (bookings) => dispatch(receiveAllListingBookings(bookings)),
     // (error) => dispatch(receiveBookingErrors(error.responseJSON)),
   ));
 };

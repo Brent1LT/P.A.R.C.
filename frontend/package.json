@@ -8,6 +8,7 @@
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
+    "moment-range": "^4.0.2",
     "node-sass": "^4.11.0",
     "react": "^16.8.4",
     "react-dates": "^20.0.0",
