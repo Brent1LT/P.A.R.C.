@@ -5,9 +5,9 @@ import {logout} from '../../actions/session_actions'
 import Navbar from './navbar'
 
 const mapStateToProps = state => {
-    let id = state.session.user.id;
+    let userId = state.session.user.id;
     return({
-        sessionId: id
+        sessionId: userId
     })
 }   
 
