@@ -14,7 +14,11 @@ router.post("/image-upload",
   (req, res) => {
     
       // let photo = res.json({ imageUrl: req.file.location });
+
       console.log('form body', req.body)
+
+    
+      
     Listing.findOne({street: req.body.street})
         .then(listing => {
           if (listing) {
@@ -29,16 +33,17 @@ router.post("/image-upload",
               lng: req.body.lng,
               price: req.body.price,
               description: req.body.description,
+              street: req.body.street,
               photo: req.file.location
             });
-            let formatted = JSON.parse(JSON.stringify(newListing));
-            console.log(formatted);
-            const { isValid, errors } = validateListingInput(formatted);
+            // let formatted = JSON.parse(JSON.stringify(newListing));
+            // console.log(formatted);
+            const { isValid, errors } =  validateListingInput(newListing);
 
             if (!isValid) {
               return res.status(400).json(errors);
             }
-            formatted
+            newListing
               .save()
               .then(listing => res.json(listing))
               .catch(err => res.status(400).json(err));
