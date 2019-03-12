@@ -10,6 +10,9 @@ import configureStore from './store/store';
 // We will use this to parse the user's session token
 import jwt_decode from 'jwt-decode';
 
+// Importing the main SCSS/CSS file that will then import other stylesheets
+import './stylesheets/application.scss';
+
 // The session utility we just created
 import { setAuthToken } from './util/session_api_util';
 
