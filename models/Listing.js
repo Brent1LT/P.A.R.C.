@@ -28,6 +28,11 @@ const ListingSchema = new Schema ({
     default: 15
   },
 
+  photo: {
+    type: String,
+    required: true
+  },
+
   // NOT BOOKING DATE
   // dateTime listing was created
   date: {

@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const db = require('./config/keys').mongoURI;
 const passport = require('passport');
 
+const fileRoutes = require('./routes/file-upload');
 
 const app = express();
 
@@ -19,11 +20,13 @@ app.get('/', (req, res) => res.send('Hello!'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+
 app.use("/api/users", users);
 app.use("/api/listings", listings);
 
 app.use(passport.initialize());
 require('./config/passport')(passport);
+app.use('/file-upload', fileRoutes);
 app.use("/api/bookings", bookings);
 app.use("/api/listings/new", listings);
 app.use('/api/users/current', users);
