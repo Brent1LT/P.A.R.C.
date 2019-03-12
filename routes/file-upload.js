@@ -12,17 +12,10 @@ router.post("/image-upload",
   passport.authenticate("jwt", { session: false }),
   upload.single('image'),
   (req, res) => {
-    
-      // let photo = res.json({ imageUrl: req.file.location });
-
-      console.log('form body', req.body)
-
-    
-      
+      // let photo = res.json({ imageUrl: req.file.location });      
     Listing.findOne({street: req.body.street})
         .then(listing => {
           if (listing) {
-            console.log("LISTING FOUND", listing)
             return res
               .status(400)
               .json({ address: "This address is already listed" });
@@ -34,10 +27,11 @@ router.post("/image-upload",
               price: req.body.price,
               description: req.body.description,
               street: req.body.street,
+              city: req.body.city,
+              state: req.body.state,
+              zip: req.body.zip,
               photo: req.file.location
             });
-            // let formatted = JSON.parse(JSON.stringify(newListing));
-            // console.log(formatted);
             const { isValid, errors } =  validateListingInput(newListing);
 
             if (!isValid) {
