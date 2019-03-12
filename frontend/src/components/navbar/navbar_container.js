@@ -1,0 +1,21 @@
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
+import {openModal} from '../../actions/modal_action'
+import {logout} from '../../actions/session_actions'
+import Navbar from './navbar'
+
+const mapStateToProps = state => {
+    let id = state.session.user.id;
+    return({
+        sessionId: id
+    })
+}   
+
+const mapDispatchToProps = dispatch => {
+    return({
+        openModal: () => dispatch(openModal()),
+        logout: () => dispatch(logout())
+    })
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));
