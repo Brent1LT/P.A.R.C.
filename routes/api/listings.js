@@ -5,8 +5,6 @@ const passport = require("passport");
 const validateListingInput = require("../../validation/listings");
 const Listing = require("../../models/Listing");
 
-// router.get("/test", (req, res) => res.json({ msg: "This is the listings route" }));
-
 //index
 router.get("/", (req, res) => {
   Listing
@@ -16,7 +14,7 @@ router.get("/", (req, res) => {
     .catch(err => res.status(400).json(err));
 });
 
-//find all listings that a user has made 
+//find all listings that a user has made
 router.get('/user/:user_id', (req, res) => {
   Listing.find({user: req.params.user_id})
     .then(listings => res.json(listings))
@@ -29,12 +27,11 @@ router.get('/:id', (req, res) => {
     .then(listing => res.json(listing))
     .catch(err => res.status(400).json(err));
 });
-  
- 
+
 //create a listing
-router.post("/new", 
+router.post("/new",
   passport.authenticate('jwt', {session: false}),
-  (req, res) => {    
+  (req, res) => {
     const { isValid, errors } = validateListingInput(req.body);
 
     if (!isValid) {
@@ -60,7 +57,6 @@ router.post("/new",
       }
     });
 });
-
 
 //update a listing
 router.put('/update/:id',
