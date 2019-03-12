@@ -53,15 +53,17 @@ class GoogleMap extends Component {
           position={{lat: listing.lat, lng: listing.lng}}
           name={listing.street}
           >
-          <InfoWindow
-            marker={activeMarker}
-            visible={showingInfoWindow}
-            >
-            <p>
-              {listing.street}<br />
-              {listing.city}, {listing.state} {listing.zip}
-            </p>
-          </InfoWindow>
+          {/*
+            <InfoWindow
+              marker={activeMarker}
+              visible={showingInfoWindow}
+              >
+              <p>
+                {listing.street}<br />
+                {listing.city}, {listing.state} {listing.zip}
+              </p>
+            </InfoWindow>
+          */}
         </Marker>
       );
     });
