@@ -1,11 +1,15 @@
 import React from 'react'
-import { create } from 'domain';
+import {geocodeRequest} from '../../actions/selectors'
+
 
 class ListingForm extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            address={street: '', city: '', state: '', zip: ''},
+            street: '', 
+            city: '', 
+            state: '', 
+            zip: '',
             lat: 0,
             lng: 0,
             description: '',
@@ -14,11 +18,16 @@ class ListingForm extends React.Component{
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
-        this.updateAddress = this.updateAddress.bind(this);
     }
 
     handleSubmit(e){
         e.preventDefault();
+        let address = `${this.state.street} ${this.state.city} ${this.state.state}`
+        let coordinates = geocodeRequest(address)
+        this.setState({
+            lat: coordinates.lat,
+            lng: coordinates.lng
+        })
         let createdListing = Object.assign({}, this.state);
         this.props.createListing(createdListing);
     }
@@ -29,11 +38,6 @@ class ListingForm extends React.Component{
         })
     }
 
-    updateAddress(field){
-        return e => this.setState({
-            address: {[field]: e.currentTarget.value}
-        })
-    }
 
     // renderErrors() {
     //     // return null;
@@ -55,13 +59,13 @@ class ListingForm extends React.Component{
             <form onSubmit={(e) => this.handleSubmit(e)}>
                 <h3>Address</h3>
                 <div>Street: </div>
-                <input type="text" value={this.state.address.street} onChange={this.updateAddress('street')}/>
+                <input type="text" value={this.state.street} onChange={this.update('street')}/>
                 <div>City: </div>
-                <input type="text" value={this.state.address.city} onChange={this.updateAddress('city')} />
+                <input type="text" value={this.state.city} onChange={this.update('city')} />
                 <div>State: </div>
-                <input type="text" value={this.state.address.state} onChange={this.updateAddress('state')} />
+                <input type="text" value={this.state.state} onChange={this.update('state')} />
                 <div>Zip: </div>
-                <input type="text" value={this.state.address.zip} onChange={this.updateAddress('zip')} />
+                <input type="text" value={this.state.zip} onChange={this.update('zip')} />
                 <div>Description: </div>
                 <input type="text" value={this.state.description} onChange={this.update('description')}/>
                 <div>Price: </div>

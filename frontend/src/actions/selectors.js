@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 
-const filterListings = (state) => {
+export const filterListings = (state) => {
   let result = [];
   let listings = state.entities.listings;
   let search = state.ui.search;
@@ -16,14 +16,14 @@ const filterListings = (state) => {
   });
   return result;
 };
-const filterBookings = (state, id, type) => {
+export const filterBookings = (state, id, type) => {
   let bookings = state.entities.bookings;
   let bookingsArray = Object.values(bookings);
   // do a map or filter here to grab the entries that match the id (user or listing)
   const result = bookingsArray.filter((booking) => booking[type].id === id);
   return result;
 };
-const geocodeRequest = (address) => {
+export const geocodeRequest = (address) => {
   let coordinates = {};
   axios.get('https://maps.googleapis.com/maps/api/geocode/json?',
   {
@@ -41,4 +41,4 @@ const geocodeRequest = (address) => {
   })
 }
 
-export default filterListings;
+// export default filterListings;

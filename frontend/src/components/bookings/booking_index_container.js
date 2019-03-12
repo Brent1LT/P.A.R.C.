@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import filterBookings from '../../actions/selectors';
+import {filterBookings} from '../../actions/selectors';
 import BookingIndex from './booking_index';
 import {
   createBooking,
