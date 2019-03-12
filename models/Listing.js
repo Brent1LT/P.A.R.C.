@@ -28,6 +28,28 @@ const ListingSchema = new Schema ({
     default: 15
   },
 
+  photo: {
+    type: String,
+    required: true
+  },
+
+  street: {
+    type: String,
+    required: true
+  },
+
+  state: {
+    type: String
+  },
+
+  zip: {
+    type: Number
+  },
+
+  city: {
+    type: String
+  },
+
   // NOT BOOKING DATE
   // dateTime listing was created
   date: {
