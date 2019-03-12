@@ -19,7 +19,7 @@ class ListingShow extends React.Component{
       <div>
           <GoogleMapContainer />
           <div>
-            <h2>{this.props.listing.address.street} {this.props.listing.address.city}</h2>
+            <h2>{this.props.listing.street} {this.props.listing.city}</h2>
             <div>Description
               <div>{this.props.listing.description}</div>
             </div>

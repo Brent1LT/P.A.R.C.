@@ -55,9 +55,10 @@ class Navbar extends React.Component{
             <>
                 <header className='main-header'>
                     <div>
-                        <Link to='/' ><img src='' alt="" /></Link>
+                        
                         {/* just having it so if someone clicks logo it redirects */}
                         <div className='search-bar'>
+                            <h1>P.A.R.C.</h1>
                             <SearchContainer />
                         </div>
                     </div>
