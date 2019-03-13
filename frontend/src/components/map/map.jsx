@@ -33,6 +33,10 @@ class GoogleMap extends Component {
   };
 
   render() {
+    if (this.props.listings === undefined) {
+      return (null);
+    }
+
     const defaultStyle = {
       width: '65vw',
       height: '45vh',
