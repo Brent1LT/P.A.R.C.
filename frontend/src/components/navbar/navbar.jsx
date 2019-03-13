@@ -23,14 +23,14 @@ class Navbar extends React.Component{
     loggedInCheck(){
         if(this.props.id !== null){
             return (
-                <div>
-                    <a href=''
+                <div className='login-signup'>
+                    <a className='signin-stuff' href=''
                         onClick={e => {
                             this.handleEvent(e);
                             this.props.openModal("signup")
                         }}><p>Sign up</p>
                     </a>
-                    <a href=''
+                    <a className='signin-stuff' href=''
                         onClick={e => {
                             this.handleEvent(e);
                             this.props.openModal("login")
@@ -53,12 +53,12 @@ class Navbar extends React.Component{
     render(){
         return (
             <>
-                <header className='main-header'>
+                <header className='main-navbar'>
                     <div>
-                        
                         {/* just having it so if someone clicks logo it redirects */}
                         <div className='search-bar'>
-                            <h1>P.A.R.C.</h1>
+                            <img src="" alt=""/>
+                            <h1 className='main-logo'>P.A.R.C.</h1>
                             <SearchContainer />
                         </div>
                     </div>
