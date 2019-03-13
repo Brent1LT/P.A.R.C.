@@ -39,8 +39,6 @@ class GoogleMap extends Component {
       'marginLeft': 'auto',
       'marginRight': 'auto',
     };
-    // Change this return setup to use a .map iteration over the listings
-    // Then we can use this component dynamically for splash, index & show
 
     const markers = this.props.listings.map((listing) => {
       const activeMarker = this.state.activeMarker;
@@ -52,38 +50,30 @@ class GoogleMap extends Component {
           title={listing.street}
           position={{lat: listing.lat, lng: listing.lng}}
           name={listing.street}
-          >
-          {/*
-            <InfoWindow
-              marker={activeMarker}
-              visible={showingInfoWindow}
-              >
-              <p>
-                {listing.street}<br />
-                {listing.city}, {listing.state} {listing.zip}
-              </p>
-            </InfoWindow>
-          */}
-        </Marker>
+        />
       );
     });
-    // const infoWindows = this.props.listings.map((listing) => {
-    //   return (
-    //     <InfoWindow
-    //       key={listing.id}
+    const infoWindows = this.props.listings.map((listing) => {
+      return (
+        <InfoWindow
+          key={listing.id}
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}
+        >
+          <p>
+            {listing.street}<br />
+            {listing.city}, {listing.state} {listing.zip}
+          </p>
+        </InfoWindow>
+      );
+    });
 
-    //       marker={this.state.activeMarker}
-    //       visible={this.state.showingInfoWindow}
-    //     >
-    //       <p>
+    const zipped = [];
+    markers.forEach((m, i) => {
+      zipped.push(m);
+      zipped.push(infoWindows[i]);
+    });
 
-
-    //         {listing.street}<br />
-    //         {listing.city}, {listing.state} {listing.zip}
-    //       </p>
-    //     </InfoWindow>
-    //   );
-    // });
     const currentStyle = this.props.style ? this.props.style : defaultStyle;
 
     return (
@@ -97,7 +87,7 @@ class GoogleMap extends Component {
           zoom={14}
           initialCenter={{lat: 37.7599043, lng: -122.4256016}}
           >
-          {markers}
+          {zipped}
         </Map>
       </div>
     );

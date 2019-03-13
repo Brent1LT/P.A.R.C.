@@ -3,10 +3,6 @@ import ListingIndexItem from './listing_index_item';
 import GoogleMapContainer from '../map/map_container';
 
 class ListingIndex extends React.Component{
-  constructor(props){
-    super(props);
-  };
-
   componentDidMount(){
     this.props.fetchListings();
   };
@@ -21,7 +17,7 @@ class ListingIndex extends React.Component{
     return(
       <div className="listing-index">
         <h2>Listing Index Page</h2>
-        <GoogleMapContainer listings={this.props.listings} />
+        <GoogleMapContainer listings={listingsArray} />
         <div>
           <div>
             {listingsArray.map(listing => {
