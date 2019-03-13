@@ -6,7 +6,7 @@ import ListingIndex from './listing_index';
 
 const mapStateToProps = state => {
   return({
-    listings: filterListings(state),
+    listings: state.entities.listings,
   });
 };
 

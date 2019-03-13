@@ -1,18 +1,14 @@
 import axios from 'axios';
 
-
 export const createListing = listing => {
-    axios.post('/api/listings/new', listing );
-}
-
+  return axios.post('/api/listings/new', listing ).then(res => (res.data));
+};
 export const fetchListing = id => {
-    axios.get(`/api/listings/${id}`);
-}
-
+  return axios.get(`/api/listings/${id}`).then(res => (res.data));
+};
 export const fetchAllListings = () => {
-    axios.get('/api/listings/');
-}
-
+  return axios.get('/api/listings/').then(res => (res.data));
+};
 export const deleteListing = (id) => {
-    axios.delete(`/api/listings/delete/${id}`)
-}
+  return axios.delete(`/api/listings/delete/${id}`).then(res => (res.data));
+};

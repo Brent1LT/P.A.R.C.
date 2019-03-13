@@ -10,6 +10,8 @@ const passport = require('passport');
 const fileRoutes = require('./routes/file-upload');
 const app = express();
 
+// This logic is used for Heroku deployment
+// to make sure we don't have "run build" before pushing to Heroku
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
   app.get('/', (req, res) => {
