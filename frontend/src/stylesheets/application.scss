@@ -34,6 +34,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 2px 6px rgba(26, 26, 29, 0.08);
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
     font-size: 16px;
+    
 }   
 
 .main-navbar{
@@ -42,6 +43,8 @@
     background: #009900;
     border-radius: 3px;
     padding: 5px;
+    top: 0px;
+    position: sticky;
 }
 
 .login-signup{
@@ -66,9 +69,11 @@
 }
 
 footer{
-    margin-top: 80px;
+    margin-top: 300px;
     display: flex;
     justify-content: center;
+    position: sticky;
+    bottom: 10px;
 }
 
 .our-description{
