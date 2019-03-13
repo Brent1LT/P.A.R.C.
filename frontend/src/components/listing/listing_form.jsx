@@ -1,5 +1,6 @@
 import React from 'react'
-import {geocodeRequest} from '../../actions/selectors'
+import axios from 'axios'
+// import {geocodeRequest} from '../../actions/selectors'
 
 
 class ListingForm extends React.Component{
@@ -13,23 +14,55 @@ class ListingForm extends React.Component{
             lat: 0,
             lng: 0,
             description: '',
-            price: 15
+            price: 15,
+            photo: '',
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
+        this.geocodeRequest = this.geocodeRequest.bind(this);
+    }
+
+    geocodeRequest(address) {
+        // let coordinates;
+        return axios.get('https://maps.googleapis.com/maps/api/geocode/json',
+            {
+                params: {
+                    address: address,
+                    key: "AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U"
+                }
+            })
+            .then((response) => { //response is the object the api returns
+                //refer to this if you need help
+                //https://developers.google.com/maps/documentation/geocoding/intro
+                // console.log(response.data.results[0].geometry.location)
+                return response.data.results[0].geometry.location;
+                // debugger
+                // return coordinates;
+                //this is where we get an object with the results inside
+                //response.data.results[0].
+            })
+            // debugger
     }
 
     handleSubmit(e){
         e.preventDefault();
-        let address = `${this.state.street} ${this.state.city} ${this.state.state}`
-        let coordinates = geocodeRequest(address)
-        this.setState({
-            lat: coordinates.lat,
-            lng: coordinates.lng
-        })
-        let createdListing = Object.assign({}, this.state);
-        this.props.createListing(createdListing);
+        let address = `${this.state.street} ${this.state.city}, ${this.state.state}`
+        console.log(this.geocodeRequest(address))
+        this.geocodeRequest(address).then(response => {
+            console.log(response)
+            if (response === undefined) {
+
+            } else {
+                this.setState({
+                    lat: response.lat,
+                    lng: response.lng
+                })
+                let createdListing = Object.assign({}, this.state);
+                this.props.createListing(createdListing);
+            }
+           });
+        
     }
 
     update(field){
@@ -72,6 +105,8 @@ class ListingForm extends React.Component{
                 <div>Price: </div>
                 <input type="text" value={this.state.price} />
                 <br/>
+                <div>Photo:</div>
+                <input type="text" value={this.state.photo} onChange={this.update('photo')}/>
                 <input type="submit"/>
             </form>
         </div>

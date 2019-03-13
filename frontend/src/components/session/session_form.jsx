@@ -8,7 +8,7 @@ class SessionForm extends React.Component {
         this.state = {
             email: "",
             password: "",
-            password2: '',
+            password2: "",
             firstname: "",
             lastname: "",
         };
@@ -80,9 +80,9 @@ class SessionForm extends React.Component {
 
     changeModal() {
         if (this.props.formType === 'Sign up') {
-            return (<Link to="/login" onClick={(e) => this.props.otherForm()}>Log in</Link>)
+            return (<Link to="/login" onClick={(e) => this.props.otherForm('signup')}>Log in</Link>)
         } else {
-            return (<Link to="/signup" onClick={(e) => this.props.otherForm()}>Sign up</Link>)
+            return (<Link to="/signup" onClick={(e) => this.props.otherForm('login')}>Sign up</Link>)
         }
     }
 
@@ -93,8 +93,8 @@ class SessionForm extends React.Component {
         } else {
             message = "Dont have an account? "
         }
+        // debugger
         return (
-
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} >
                     <div onClick={this.props.closeModal}>x</div>
@@ -107,7 +107,7 @@ class SessionForm extends React.Component {
                             {message}
                             {this.props.otherForm}
                         </div>
-                        {this.renderErrors()}
+                        {/* {this.renderErrors()} */}
                     </div>
                 </form>
             </div>

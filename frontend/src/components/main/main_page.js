@@ -63,6 +63,7 @@ class MainPage extends React.Component {
 
     return (
       <div>
+
         <GoogleMapContainer listings={this.state.listings} />
         <footer>
           Copyright &copy; 2019 B.V.G.S.
