@@ -8,7 +8,7 @@ class SessionForm extends React.Component {
         this.state = {
             email: "",
             password: "",
-            password2: '',
+            password2: "",
             firstname: "",
             lastname: "",
         };
@@ -93,7 +93,7 @@ class SessionForm extends React.Component {
         } else {
             message = "Dont have an account? "
         }
-        debugger
+        // debugger
         return (
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} >
@@ -107,7 +107,7 @@ class SessionForm extends React.Component {
                             {message}
                             {this.props.otherForm}
                         </div>
-                        {this.renderErrors()}
+                        {/* {this.renderErrors()} */}
                     </div>
                 </form>
             </div>
