@@ -1,31 +1,23 @@
 import React from 'react';
-import { fetchListings } from '../../actions/listing_action';
-import SearchContainer from '../../components/navbar/search_container'
+import SearchContainer from '../../components/navbar/search_container';
 import GoogleMapContainer from '../map/map';
-import NavbarContainer from  '../../components/navbar/navbar_container'
+import NavbarContainer from  '../../components/navbar/navbar_container';
 
 class MainPage extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      listings: null,
-    };
-  };
-
   componentDidMount() {
-    this.setState({ listings: fetchListings() });
+    this.props.fetchListings();
+    // this.setState({ listings:  });
   };
 
   render() {
-    if (this.state.listings === undefined) {
+    if (this.props.listings === undefined) {
       return null;
       // can add a little loading screen here
     };
 
     return (
       <div className='map-and-info'>
-        <GoogleMapContainer listings={this.state.listings} />
+        <GoogleMapContainer listings={this.props.listings} />
         <br/>
         <div className='our-description'>
           <h2 className='home-title'>What is P.a.r.c.</h2>
