@@ -98,24 +98,31 @@ handleSubmit(e) {
   render(){
     return(
       <div className='entire-listing-form'>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <h3>Address</h3>
-          <div>Street: </div>
-          <input type="text" value={this.state.street} onChange={this.update('street')}/>
-          <div>City: </div>
-          <input type="text" value={this.state.city} onChange={this.update('city')} />
-          <div>State: </div>
-          <input type="text" value={this.state.state} onChange={this.update('state')} />
-          <div>Zip: </div>
-          <input type="text" value={this.state.zip} onChange={this.update('zip')} />
-          <div>Description: </div>
-          <input type="text" value={this.state.description} onChange={this.update('description')}/>
-          <div>Price: </div>
-          <input type="text" value={this.state.price} />
+      <h1 className='main-title-new'>Make your very own listing! </h1>
+      <div className='main-title-new'>You're one step away from earning yourself some extra cash! Please fill
+          out the form below so we can get you settled in and ready to see the cash
+          come in to your pockets. We hope that you spread the word and bring your 
+          friends and family as new users so they can start earning as well.
+      </div>
+        <form className='listing-form' onSubmit={(e) => this.handleSubmit(e)}>
+          <h3 className='listing-form-title'>Address</h3>
+          <div className='attribute-titles'>Street: </div>
+          <input id='text-box' type="text" value={this.state.street} placeholder='123 street...' onChange={this.update('street')}/>
+          <div className='attribute-titles'>City: </div>
+          <input id='text-box' type="text" value={this.state.city} placeholder='SF' onChange={this.update('city')} />
+          <div className='attribute-titles'>State: </div>
+          <input id='text-box' type="text" value={this.state.state} placeholder='CA' onChange={this.update('state')} />
+          <div className='attribute-titles'>Zip: </div>
+          <input id='text-box' type="text" value={this.state.zip} placeholder='12345' onChange={this.update('zip')} />
+          <div className='attribute-titles'>Description: </div>
+                <input id='text-box' type="text" value={this.state.description} placeholder='P.a.r.c is amazing' onChange={this.update('description')}/>
+          <div className='attribute-titles'>Price: </div>
+          <input id='text-box' type="text" value={this.state.price} />
           <br/>
-          <div>Photo:</div>
-          <input type="text" value={this.state.photo} onChange={this.update('photo')}/>
-          <input type="submit"/>
+          <div className='attribute-titles'>Photo:</div>
+          <input id='text-box' type="text" value={this.state.photo} onChange={this.update('photo')}/>
+          <br/>
+          <input className='photo-submit-button' type="submit"/>
         </form>
       </div>
     );

@@ -238,3 +238,40 @@ input#text-box{
     margin-left: 26px;
     margin-bottom: 20px
 }
+
+.listing-form-title{
+    padding-left: 30px
+}
+.listing-form{
+    // margin-left: 30px;
+    text-align: center;
+    border: 2px solid #009900;
+    margin: 0px 300px;
+    padding-right: 220px;
+    margin-right: 296px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    background: #009900
+}
+.attribute-titles{
+    padding-left: 30px;
+    color: white;
+    text-decoration: underline;
+    padding-bottom: 5px;
+}
+
+input.photo-submit-button{
+    width: 222px;
+    margin-left: 30px;
+    // padding: 20px;
+    font-size: 80px;
+}
+
+.main-title-new{
+    text-align: center;
+}
+
+.entire-listing-form{
+    margin: 0px 500px;
+    padding: 10px;
+}
