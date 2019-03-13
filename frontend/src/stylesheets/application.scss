@@ -18,3 +18,77 @@
 // @import "base/reset.scss";
 
 // Components
+
+
+.search-bar{
+    display: flex;
+    align-items: center;
+}
+
+.main-search-bar{
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 300px;
+    margin-left: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 2px 6px rgba(26, 26, 29, 0.08);
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    font-size: 16px;
+}   
+
+.main-navbar{
+    display: flex;
+    justify-content: space-between;
+    background: #009900;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.login-signup{
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+}
+
+.signin-stuff{
+    margin: 5px;
+}
+
+.signin-stuff:hover{
+    border-bottom: 2px solid black;
+}
+
+.gray-bar{
+    width: 100%;
+    height: 1px;
+    border-bottom: 2px solid lightgray;
+    margin-bottom: 30px;
+}
+
+footer{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.our-description{
+    margin-top: 500px;
+    margin-left: 220px;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    margin-right: 200px;
+}
+.main-description{
+    display: flex;
+    align-content: center;
+}
+.home-title{
+    text-align: center;
+}
+.description-content{
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 1550px;
+}
+.mini-titles{
+    text-decoration: underline;
+}

@@ -7,6 +7,7 @@ import ListingFormContainer from './listing/listing_form_container';
 import MainPage from './main/main_page';
 import NavBarContainer from './navbar/navbar_container'
 import Modal from './modal'
+import OurInfo from './our_info'
 
 const App = () => (
   <div>
@@ -23,6 +24,10 @@ const App = () => (
       {/* <ProtectedRoute exact path='/bookings' component={BookingsPage} /> */}
       {/* add components/routes here for login/signup modal? */}
     </Switch>
+      <Route exact path='/' component={OurInfo} />
+    <footer>
+      Copyright &copy; 2019 B.V.G.S.
+    </footer>
   </div>
 );
 
