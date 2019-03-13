@@ -5,58 +5,7 @@ import axios from 'axios';
 class ListingForm extends React.Component{
   constructor(props){
     super(props);
-
-<<<<<<< HEAD
-    geocodeRequest(address) {
-        // let coordinates;
-        return fetch(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U`,
-          {
-            method: "post",
-            // body: JSON.stringify({
-            //   params: {
-            //     address: address,
-            //     key: "AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U"
-            //   }
-            // })
-          }
-        )
-          .then(res => res.json())
-          .then(response => {
-              debugger
-            //response is the object the api returns
-            //refer to this if you need help
-            //https://developers.google.com/maps/documentation/geocoding/intro
-            // console.log(response.data.results[0].geometry.location)
-            return response.results[0].geometry.location;
-            // debugger
-            // return coordinates;
-            //this is where we get an object with the results inside
-            //response.data.results[0].
-          });
-            // debugger
-    }
-
-    handleSubmit(e){
-        e.preventDefault();
-        let address = `${this.state.street} ${this.state.city}, ${this.state.state}`
-        // console.log(this.geocodeRequest(address))
-        this.geocodeRequest(address).then(response => {
-            console.log(response)
-            if (response === undefined) {
-
-            } else {
-                this.setState({
-                    lat: response.lat,
-                    lng: response.lng
-                }, () => {
-                    let createdListing = Object.assign({}, this.state);
-                    this.props.createListing(createdListing);
-                })
-            }
-           });
         
-=======
     this.state = {
       street: '',
       city: '',
@@ -74,43 +23,56 @@ class ListingForm extends React.Component{
     this.geocodeRequest = this.geocodeRequest.bind(this);
   };
 
-  geocodeRequest(address) {
-    // let coordinates;
-    return axios.get('https://maps.googleapis.com/maps/api/geocode/json',
-      {params: {
-        address: address,
-        key: "AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U"
-      }})
-      .then((response) => { //response is the object the api returns
-        //refer to this if you need help
-        //https://developers.google.com/maps/documentation/geocoding/intro
-        // console.log(response.data.results[0].geometry.location)
-        return response.data.results[0].geometry.location;
-        // debugger
-        // return coordinates;
-        //this is where we get an object with the results inside
-        //response.data.results[0].
-      })
-      // debugger
->>>>>>> f53706ae3f408d338a7a56044ddd08749d9f2caa
-    }
 
-  handleSubmit(e){
+geocodeRequest(address) {
+    // let coordinates;
+    return fetch(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U`,
+        {
+            method: "post",
+            // body: JSON.stringify({
+            //   params: {
+            //     address: address,
+            //     key: "AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U"
+            //   }
+            // })
+        }
+    )
+        .then(res => res.json())
+        .then(response => {
+            debugger
+            //response is the object the api returns
+            //refer to this if you need help
+            //https://developers.google.com/maps/documentation/geocoding/intro
+            // console.log(response.data.results[0].geometry.location)
+            return response.results[0].geometry.location;
+            // debugger
+            // return coordinates;
+            //this is where we get an object with the results inside
+            //response.data.results[0].
+        });
+    // debugger
+}
+
+handleSubmit(e) {
     e.preventDefault();
     let address = `${this.state.street} ${this.state.city}, ${this.state.state}`
-    console.log(this.geocodeRequest(address))
+    // console.log(this.geocodeRequest(address))
     this.geocodeRequest(address).then(response => {
-      if (response !== undefined) {
-        this.setState({
-          lat: response.lat,
-          lng: response.lng
-        })
-        let createdListing = Object.assign({}, this.state);
-        this.props.createListing(createdListing);
-      }
-     }
-    );
-  };
+        console.log(response)
+        if (response === undefined) {
+
+        } else {
+            this.setState({
+                lat: response.lat,
+                lng: response.lng
+            }, () => {
+                let createdListing = Object.assign({}, this.state);
+                this.props.createListing(createdListing);
+            })
+        }
+    });
+}
 
   update(field){
     return e => this.setState({

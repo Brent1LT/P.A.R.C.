@@ -44,53 +44,6 @@ export const clearListingErrors = () => {
 
 //thunk action creators
 
-<<<<<<< HEAD
-export const createListing = listing => dispatch => (
-    //listing above             ^      is the listing the user creates
-    ListingApiUtil.createListing(listing).then(
-        listing => (
-            // same listing just sending to backend
-            dispatch(receiveListing(listing))
-    ))
-)
-
-export const fetchListing = id => dispatch => {
-    //supply an id for the axios call to check for
-    return ListingApiUtil.fetchListing(id).then(
-        listing => {
-            // listing is what is supplied by the backend 
-            dispatch(receiveListing(listing))
-        // errors => {
-        //     dispatch(receiveListingErrors(errors))
-        // }
-    })
-}
-
-export const fetchListings = () => dispatch => {
-    return ListingApiUtil.fetchAllListings().then(
-        listings => {
-            //listings is what our backend is returning
-            dispatch(receiveAllListings(listings))
-        // errors => {
-        //     dispatch(receiveListingErrors(errors))
-        // }
-    })
-}
-
-export const deleteListing = (id) => dispatch => {
-    return ListingApiUtil.deleteListing(id).then( 
-        listing => {
-            //backend will delete the listing
-            dispatch(removeListing(listing))
-        // errors => {
-        //     dispatch(receiveListingErrors(errors))
-        // }
-    })
-}
-
-
-
-=======
 export const createListing = listing => dispatch => {
   //listing above             ^      is the listing the user creates
   return (ListingApiUtil.createListing(listing).then(
@@ -133,4 +86,3 @@ export const deleteListing = (id) => dispatch => {
     // }
   }));
 };
->>>>>>> f53706ae3f408d338a7a56044ddd08749d9f2caa
