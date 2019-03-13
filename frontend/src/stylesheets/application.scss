@@ -20,6 +20,9 @@
 // Components
 
 
+
+//search bar and navbar
+// @@@@@@@@@@@@@@@@@@@@@@search bar and navbar@@@@@@@@@@@@@@@@@@@@@@@@
 .search-bar{
     display: flex;
     align-items: center;
@@ -55,10 +58,16 @@
 
 .signin-stuff{
     margin: 5px;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
 }
 
 .signin-stuff:hover{
-    border-bottom: 2px solid black;
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+    background: white;
+    color: #009900;
 }
 
 .gray-bar{
@@ -74,26 +83,123 @@ footer{
     justify-content: center;
     position: sticky;
     bottom: 10px;
+    z-index: -1;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+}
+
+.home-title{
+    font-size: 40px;
+    text-align: center;
+    color: #009900;
+    border: 1px solid #009900;
+    padding: 20px 0px;
+    border-radius: 5px;
+    background: whitesmoke;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+}
+
+.mini-titles{
+    font-size: 25px;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+}
+
+.map-and-info{
+    width: 100vh;
+    height: 100vh;
 }
 
 .our-description{
-    margin-top: 500px;
-    margin-left: 220px;
-    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    margin-left: 336px;
     margin-right: 200px;
+    width: 1248px;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    padding-top: 440px;
 }
+
 .main-description{
     display: flex;
-    align-content: center;
+    width: 1248px;
+    
 }
-.home-title{
-    text-align: center;
-}
+
 .description-content{
-    margin-left: 20px;
-    margin-right: 20px;
-    width: 1550px;
+    width: 1248px;
+    font-size: 22px;
+    padding-right: 10px;
+    border: 1px solid lightgreen;
+    padding: 20px;
+    background: #009900;
+    color: white;
 }
-.mini-titles{
-    text-decoration: underline;
+
+.for-left{
+    margin-left: 20px;
+}
+.for-right{
+    margin-right: 20px;
+}
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@--MODAL--@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  display: block;
+  border: 2px, solid red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.signup-form{
+    width: 300px;
+    height: 400px;
+}
+.log-form{
+    width: 300px;
+    height: 300px;
+
+}
+
+.signup-continue{
+    margin-left: 30px;
+    margin-top: 0px;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+}
+
+.close-modal-x{
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    border-radius: 50%;
+    border: 1px solid white;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+}
+
+.login-form-container{
+    border: 2px solid #009900;
+    background: white;
+
+}
+
+input#text-box{
+    width: 200px;
+    height: 18px;
+    border-radius: 3px;
+    align-self: center;
+    border: 1px solid lightgray;
+    font-size: 16px;
+    font-weight: 100;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 30px;
 }

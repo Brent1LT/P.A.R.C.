@@ -24,7 +24,7 @@ const App = () => (
       {/* <ProtectedRoute exact path='/bookings' component={BookingsPage} /> */}
       {/* add components/routes here for login/signup modal? */}
     </Switch>
-      <Route exact path='/' component={OurInfo} />
+      {/* <Route exact path='/' component={OurInfo} /> */}
     <footer>
       Copyright &copy; 2019 B.V.G.S.
     </footer>
