@@ -12,7 +12,7 @@ export const signup = (userData) => {
   return axios.post('/api/users/signup', userData);
 };
 export const login = (userData) => {
-  debugger
+  // debugger
   return axios.post('/api/users/login', userData);
 };
 

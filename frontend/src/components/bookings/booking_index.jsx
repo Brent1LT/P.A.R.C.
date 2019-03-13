@@ -7,7 +7,7 @@ class BookingIndex extends Component {
   };
 
   componentDidMount() {
-    this.props.fetchAllUserBookings();
+    this.props.fetchAllUserBookings(this.props.currentUser);
   };
 
   render() {
@@ -15,7 +15,7 @@ class BookingIndex extends Component {
       return null;
       // can add little loading screen here
     };
-    const bookingsArray = Object.value(this.props.bookings);
+    const bookingsArray = Object.values(this.props.bookings);
 
     return (
       <div className="booking-index">
