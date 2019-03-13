@@ -3,10 +3,6 @@ import GoogleMapContainer from '../map/map';
 import BookingFormContainer from '../bookings/booking_form_container';
 
 class ListingShow extends React.Component{
-  constructor(props){
-    super(props);
-  };
-
   componentDidMount(){
     this.props.fetchListing();
   };

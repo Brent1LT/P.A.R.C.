@@ -56,12 +56,12 @@ class BookingForm extends Component {
 
     const BAD_DATES = []
     const moment = extendMoment(Moment);
-    this.props.bookings.map(booking => {
+    this.props.bookings.map(booking => (
       BAD_DATES.push(moment.range(
         moment(booking.startDate, 'YYYY-MM-DD'),
         moment(booking.endDate, 'YYYY-MM-DD').add(1, 'day')
       ))
-    })
+    ))
 
     // const moment = extendMoment(Moment);
     // const BAD_DATES = [

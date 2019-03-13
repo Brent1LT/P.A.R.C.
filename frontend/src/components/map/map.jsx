@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
 import frontendKeys from '../../config/frontend_keys';
-import InfoWindowItem from './info_window_item';
+// import InfoWindowItem from './info_window_item';
 
 class GoogleMap extends Component {
   constructor(props) {

@@ -8,11 +8,12 @@ export const filterListings = (state) => {
   let search = state.ui.search;
   let listingsArray = Object.values(listings);
   let coordinates = geocodeRequest(search)
-  listingsArray.map(listing => {
+  let bogus = listingsArray.map(listing => {
     if  ((listing.lat <= coordinates.lat + .0055 || listing.lat >= coordinates.lat - .0055) &&
         (listing.lng <= coordinates.lng + .0083 || listing.longitude >= coordinates.lng - .0083)){
           result.push(listing);
     }
+    return null;
   });
   return result;
 };
