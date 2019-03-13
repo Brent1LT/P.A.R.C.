@@ -4,6 +4,9 @@ const passport = require('passport');
 const Booking = require('../../models/Booking');
 const validateBookingInput = require('../../validation/bookings');
 
+//reset
+router.get(`/test`, (req, res) => res.json({ msg: "This is the bookings route" }));
+
 router.post('/new',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
@@ -20,7 +23,7 @@ router.post('/new',
       endDate,
       offMarket: req.body.offMarket,
       listing: req.body.listingId,
-      user: req.body.userId
+      user: req.user.id
     });
 
     newBooking.save().then(booking => res.json(booking));

@@ -5,6 +5,10 @@ const passport = require("passport");
 const validateListingInput = require("../../validation/listings");
 const Listing = require("../../models/Listing");
 
+//reset
+router.get(`/test`, (req, res) => res.json({ msg: "This is the listings route" }));
+
+
 //index
 router.get("/", (req, res) => {
   Listing
