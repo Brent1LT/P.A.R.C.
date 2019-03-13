@@ -9,50 +9,12 @@ class MainPage extends React.Component {
     super(props);
 
     this.state = {
-      // listings: null,
-      listings: [
-        {
-          id: 1,
-          user: 'Brent',
-          description: 'Lorem ipsum stuffsum flotsam jetsam',
-          lat: 37.762721,
-          lng: -122.414530,
-          street: '123 Broadway St.',
-          city: 'SSF',
-          state: 'CA',
-          zip: 94105,
-          price: 15,
-        },
-        {
-          id: 2,
-          user: 'Sam',
-          description: 'Lorem ipsum stuffsum flotsam jetsam',
-          lat: 37.756709,
-          lng: -122.413692,
-          street: '345 Bueller St.',
-          city: 'SSF',
-          state: 'CA',
-          zip: 94105,
-          price: 15,
-        },
-        {
-          id: 3,
-          user: 'Vishal',
-          description: 'Lorem ipsum stuffsum flotsam jetsam',
-          lat: 37.764281,
-          lng: -122.427490,
-          street: '678 Harrison St.',
-          city: 'SSF',
-          state: 'CA',
-          zip: 94105,
-          price: 15,
-        },
-      ],
+      listings: null,
     };
   };
 
   componentDidMount() {
-    // this.setState({ listings: fetchListings() });
+    this.setState({ listings: fetchListings() });
   };
 
   render() {

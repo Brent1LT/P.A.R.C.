@@ -13,16 +13,27 @@ class ListingIndex extends React.Component{
       // can add little loading screen here
     }
     const listingsArray = Object.values(this.props.listings);
+    const listingMapStyle = {
+      width: '40%',
+      height: '100%',
+      'marginLeft': 'auto',
+      'marginRight': '6%',
+    };
 
     return(
       <div className="listing-index">
-        <h2>Listing Index Page</h2>
-        <GoogleMapContainer listings={listingsArray} />
+        <h1>Available Parking Spots</h1>
         <div>
-          <div>
-            {listingsArray.map(listing => {
-              return <ListingIndexItem listing={listing} key={listing.id}/>
-            })}
+          <GoogleMapContainer
+            listings={listingsArray}
+            style={listingMapStyle}
+          />
+          <div className="all-listings">
+            <div>
+              {listingsArray.map(listing => {
+                return <ListingIndexItem listing={listing} key={listing.id}/>
+              })}
+            </div>
           </div>
         </div>
       </div>
