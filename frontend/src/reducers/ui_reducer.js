@@ -5,7 +5,7 @@ import searchReducer from './search_reducer';
 
 const uiReducer =  combineReducers({
     modal: modalReducer,
-    search: searchReducer
+    search: searchReducer,
 });
 
 export default uiReducer;
