@@ -46,9 +46,10 @@ class SessionForm extends React.Component {
     signupCheck(formType) {
         if (formType === 'Sign up') {
             return (
-                <div>
+                <div className='signup-form'>
                     <br />
                     <br />
+                    <h2 className='signup-continue'>Sign up to continue</h2>
                     <input id='text-box' type="text" placeholder="First name" value={this.state.first_name} onChange={this.update('first_name')} />
                     <br />
                     <input id='text-box' type="text" placeholder="Last name" value={this.state.last_name} onChange={this.update('last_name')} />
@@ -63,8 +64,8 @@ class SessionForm extends React.Component {
         }
         else {
             return (
-                <div>
-                    <h2>Log in to continue</h2>
+                <div className='log-form'>
+                    <h2 className='signup-continue' >Log in to continue</h2>
                     <input id='text-box' type="text" placeholder="Email Address" value={this.state.email} onChange={this.update('email')} />
                     <br />
                     <input id='text-box' type="password" placeholder="Password" value={this.state.password} onChange={this.update('password')} />
@@ -97,13 +98,13 @@ class SessionForm extends React.Component {
         return (
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} >
-                    <div onClick={this.props.closeModal}>x</div>
+                    <div className='close-modal-x' onClick={this.props.closeModal}>x</div>
                     <div className="login-form">
                         {this.signupCheck(this.props.formType)}
                         <div>
-                            <button id="session-submit" type="submit" >{this.props.formType}</button>
+                        <button id="session-submit" type="submit" >{this.props.formType}</button>
                         </div>
-                        <div>
+                        <div className='change-forms'>
                             {message}
                             {this.props.otherForm}
                         </div>

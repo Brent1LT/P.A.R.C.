@@ -35,6 +35,7 @@ class Search extends React.Component{
             <div>
                 <form onSubmit={(e) => this.handleSubmit(e)}>
                     <input 
+                        className='main-search-bar'
                         type='text' 
                         value={this.state.searchField}
                         placeholder='Search...'

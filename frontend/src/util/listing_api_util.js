@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 export const createListing = listing => {
     return axios.post('/api/listings/new', listing );
 }
