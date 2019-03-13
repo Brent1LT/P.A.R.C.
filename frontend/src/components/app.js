@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import ListingIndexContainer from './listing/listing_index_container';
 import ListingShowContainer from './listing/listing_show_container';
 import ListingFormContainer from './listing/listing_form_container';
-import MainPage from './main/main_page';
+import MainPageContainer from './main/main_page_container';
 import NavBarContainer from './navbar/navbar_container'
 import BookingIndexContainer from '../components/bookings/booking_index_container'
 import Modal from './modal'
@@ -24,7 +24,7 @@ const App = () => (
       <ProtectedRoute exact path="/listings/new" component={ListingFormContainer} />
       {/* <ProtectedRoute exact path='/bookings' component={BookingIndexContainer} /> */}
       {/* add components/routes here for login/signup modal? */}
-      <Route exact path="/" component={MainPage} />
+      <Route exact path="/" component={MainPageContainer} />
     </Switch>
       {/* <Route exact path='/' component={OurInfo} /> */}
     <footer>

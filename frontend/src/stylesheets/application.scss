@@ -17,8 +17,15 @@
 // @import "base/fonts.scss";
 // @import "base/reset.scss";
 
-// Components
+// base styles
+$font-stack: Verdana, sans-serif;
 
+body {
+  font-family: $font-stack;
+}
+
+// Components
+@import './listings.scss';
 
 
 //search bar and navbar
@@ -37,8 +44,8 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 2px 6px rgba(26, 26, 29, 0.08);
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
     font-size: 16px;
-    
-}   
+
+}
 
 .main-navbar{
     display: flex;
@@ -127,7 +134,7 @@ footer{
 .main-description{
     display: flex;
     width: 1248px;
-    
+
 }
 
 .description-content{

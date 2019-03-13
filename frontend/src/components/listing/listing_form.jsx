@@ -5,7 +5,7 @@ import axios from 'axios';
 class ListingForm extends React.Component{
   constructor(props){
     super(props);
-        
+
     this.state = {
       street: '',
       city: '',
@@ -40,7 +40,6 @@ geocodeRequest(address) {
     )
         .then(res => res.json())
         .then(response => {
-            // debugger
             //response is the object the api returns
             //refer to this if you need help
             //https://developers.google.com/maps/documentation/geocoding/intro

@@ -1,1 +1,35 @@
 $parc-green: #009900;
+
+.listing-index {
+  h1 {
+    background-color: rgba(49, 153, 0, .5);
+    border-radius: 3px;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    text-align: center;
+    width: 90%;
+  }
+
+  .all-listings {
+    margin-left: 5%;
+
+    .listing-item {
+      align-items: center;
+      background-color: #ccc;
+      border-radius: 3px;
+      display: flex;
+      margin-bottom: 1em;
+      padding: 2em;
+      width: 45%;
+
+      .listing-info {
+        background-color: white;
+        border-radius: 3px;
+        margin-left: 2em;
+        padding: .5em 1em;
+
+        div { padding: .5em 0; }
+      }
+    }
+  }
+}
