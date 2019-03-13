@@ -1,5 +1,5 @@
-const frontendKeys = {
-  googleMapApiKey: "AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U",
-};
-
-module.exports = frontendKeys;
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./fe_keys_prod');
+} else {
+  module.exports = require('./fe_keys_dev');
+}

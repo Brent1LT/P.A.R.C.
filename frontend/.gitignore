@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/src/config/frontend_keys.js
+/src/config/fe_keys_dev.js
 /.pnp
 .pnp.js
 
