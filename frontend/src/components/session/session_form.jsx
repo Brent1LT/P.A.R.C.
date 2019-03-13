@@ -104,7 +104,7 @@ class SessionForm extends React.Component {
                         <div>
                         <button id="session-submit" type="submit" >{this.props.formType}</button>
                         </div>
-                        <div>
+                        <div className='change-forms'>
                             {message}
                             {this.props.otherForm}
                         </div>

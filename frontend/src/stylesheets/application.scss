@@ -162,11 +162,13 @@ footer{
 
 .signup-form{
     width: 300px;
-    height: 400px;
+    margin-top: -22px;
+    // height: 400px;
 }
 .log-form{
     width: 300px;
-    height: 300px;
+    margin-top: 15px;
+    // height: 300px;
 
 }
 
@@ -202,4 +204,22 @@ input#text-box{
     padding: 10px;
     margin-bottom: 10px;
     margin-left: 30px;
+}
+
+#session-submit{
+    width: 224px;
+    margin-left: 30px;
+    padding: 10px 0px;
+    margin-bottom: 10px;
+}
+
+#session-submit:hover{
+    cursor: pointer;
+    opacity: .7;
+}
+
+.change-forms{
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    margin-left: 26px;
+    margin-bottom: 20px
 }
