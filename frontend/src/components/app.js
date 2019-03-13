@@ -17,13 +17,13 @@ const App = () => (
       <Route to='/' component={NavBarContainer}/>
     </header>
     <Switch>
-      <AuthRoute exact path="/" component={MainPage} />
-      <ProtectedRoute exact path='/listings' component={ListingIndexContainer} />
+      <Route exact path='/listings' component={ListingIndexContainer} />
       {/* <ProtectedRoute exact path="/listings/:listingId" component={ListingShowContainer} /> */}
       {/* <Route exact path="/listings/:listingId" component={ListingShowContainer} /> */}
-      <Route exact path="/listings/new" component={ListingFormContainer} />
+      <ProtectedRoute exact path="/listings/new" component={ListingFormContainer} />
       {/* <ProtectedRoute exact path='/bookings' component={BookingsPage} /> */}
       {/* add components/routes here for login/signup modal? */}
+      <Route exact path="/" component={MainPage} />
     </Switch>
       {/* <Route exact path='/' component={OurInfo} /> */}
     <footer>
