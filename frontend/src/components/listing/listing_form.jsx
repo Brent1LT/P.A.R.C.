@@ -25,30 +25,38 @@ class ListingForm extends React.Component{
 
     geocodeRequest(address) {
         // let coordinates;
-        return axios.get('https://maps.googleapis.com/maps/api/geocode/json',
-            {
-                params: {
-                    address: address,
-                    key: "AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U"
-                }
-            })
-            .then((response) => { //response is the object the api returns
-                //refer to this if you need help
-                //https://developers.google.com/maps/documentation/geocoding/intro
-                // console.log(response.data.results[0].geometry.location)
-                return response.data.results[0].geometry.location;
-                // debugger
-                // return coordinates;
-                //this is where we get an object with the results inside
-                //response.data.results[0].
-            })
+        return fetch(
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U`,
+          {
+            method: "post",
+            // body: JSON.stringify({
+            //   params: {
+            //     address: address,
+            //     key: "AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U"
+            //   }
+            // })
+          }
+        )
+          .then(res => res.json())
+          .then(response => {
+              debugger
+            //response is the object the api returns
+            //refer to this if you need help
+            //https://developers.google.com/maps/documentation/geocoding/intro
+            // console.log(response.data.results[0].geometry.location)
+            return response.results[0].geometry.location;
+            // debugger
+            // return coordinates;
+            //this is where we get an object with the results inside
+            //response.data.results[0].
+          });
             // debugger
     }
 
     handleSubmit(e){
         e.preventDefault();
         let address = `${this.state.street} ${this.state.city}, ${this.state.state}`
-        console.log(this.geocodeRequest(address))
+        // console.log(this.geocodeRequest(address))
         this.geocodeRequest(address).then(response => {
             console.log(response)
             if (response === undefined) {
@@ -57,9 +65,10 @@ class ListingForm extends React.Component{
                 this.setState({
                     lat: response.lat,
                     lng: response.lng
+                }, () => {
+                    let createdListing = Object.assign({}, this.state);
+                    this.props.createListing(createdListing);
                 })
-                let createdListing = Object.assign({}, this.state);
-                this.props.createListing(createdListing);
             }
            });
         

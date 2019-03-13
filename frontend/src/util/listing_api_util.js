@@ -2,17 +2,31 @@ import axios from 'axios';
 
 
 export const createListing = listing => {
-    axios.post('/api/listings/new', listing );
+    return axios.post('/api/listings/new', listing );
 }
 
 export const fetchListing = id => {
-    axios.get(`/api/listings/${id}`);
+    return axios.get(`/api/listings/${id}`);
 }
 
 export const fetchAllListings = () => {
-    axios.get('/api/listings/');
+    return axios.get('/api/listings/');
 }
 
 export const deleteListing = (id) => {
-    axios.delete(`/api/listings/delete/${id}`)
+    return axios.delete(`/api/listings/delete/${id}`)
 }
+
+// changing content type header for file upload
+
+// fileUpload(file){
+//     const url = 'http://example.com/file-upload';
+//     const formData = new FormData();
+//     formData.append('file', file)
+//     const config = {
+//         headers: {
+//             'content-type': 'multipart/form-data'
+//         }
+//     }
+//     return post(url, formData, config)
+// }

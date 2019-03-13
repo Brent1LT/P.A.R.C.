@@ -44,18 +44,18 @@ export const clearListingErrors = () => {
 
 //thunk action creators
 
-export const createListing = listing => dispatch => {
+export const createListing = listing => dispatch => (
     //listing above             ^      is the listing the user creates
     ListingApiUtil.createListing(listing).then(
-        listing => {
+        listing => (
             // same listing just sending to backend
             dispatch(receiveListing(listing))
-    })
-}
+    ))
+)
 
 export const fetchListing = id => dispatch => {
     //supply an id for the axios call to check for
-    ListingApiUtil.fetchListing(id).then(
+    return ListingApiUtil.fetchListing(id).then(
         listing => {
             // listing is what is supplied by the backend 
             dispatch(receiveListing(listing))
@@ -66,7 +66,7 @@ export const fetchListing = id => dispatch => {
 }
 
 export const fetchListings = () => dispatch => {
-    ListingApiUtil.fetchAllListings().then(
+    return ListingApiUtil.fetchAllListings().then(
         listings => {
             //listings is what our backend is returning
             dispatch(receiveAllListings(listings))
@@ -77,7 +77,7 @@ export const fetchListings = () => dispatch => {
 }
 
 export const deleteListing = (id) => dispatch => {
-    ListingApiUtil.deleteListing(id).then( 
+    return ListingApiUtil.deleteListing(id).then( 
         listing => {
             //backend will delete the listing
             dispatch(removeListing(listing))

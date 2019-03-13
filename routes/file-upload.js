@@ -44,7 +44,6 @@ router.post("/image-upload",
           }
         })
         .catch(err => console.log("FindOne Failed", err));
- 
   }
 );
 
