@@ -26,7 +26,7 @@ class BookingForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const booking = {
-      user: this.state.user,
+      user: this.state.user.id,
       listingId: this.props.listing.id,
       // the two dates below will be parsed into this format: "YYYY-MM-DD"
       startDate: this.state.startDate._d,
