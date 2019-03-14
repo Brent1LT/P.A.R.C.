@@ -27,6 +27,9 @@ body {
 // Components
 @import './listings.scss';
 
+.main-logo{
+    color: white;
+}
 
 //search bar and navbar
 // @@@@@@@@@@@@@@@@@@@@@@search bar and navbar@@@@@@@@@@@@@@@@@@@@@@@@
@@ -240,7 +243,9 @@ input#text-box{
 }
 
 .listing-form-title{
-    padding-left: 30px
+    padding-left: 30px;
+    color: white;
+    text-decoration: underline;
 }
 .listing-form{
     // margin-left: 30px;
@@ -269,9 +274,21 @@ input.photo-submit-button{
 
 .main-title-new{
     text-align: center;
+    // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-shadow: 4px 4px rgba(0, 0, 0, 0.9);
 }
 
 .entire-listing-form{
     margin: 0px 500px;
     padding: 10px;
+    color: white;
+}
+
+#root{
+    background: url('https://img.sunset02.com/sites/default/files/styles/4_3_horizontal_inbody_900x506/public/image/2016/12/main/driveway-trees-jason-liske-0117.jpg') no-repeat center center fixed; 
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // -o-background-size: cover;
+    
+    background-size: cover;
 }
