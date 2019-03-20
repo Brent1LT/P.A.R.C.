@@ -32,8 +32,13 @@ class GoogleMap extends Component {
     }
   };
 
+  componentDidMount(){
+    this.props.fetchAllListings();
+  }
+
   render() {
-    if (this.props.listings === undefined) {
+    // debugger;
+    if (this.props.listings.length === 0) {
       return (null);
     }
 

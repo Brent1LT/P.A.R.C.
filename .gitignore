@@ -1,4 +1,5 @@
 /config/keys_dev.js
+<<<<<<< HEAD
 /frontend/node_modules
 /frontend/src/config/fe_keys_dev.js
 
@@ -26,3 +27,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+=======
+/node_modules
+/frontend/node_modules
+/frontend/src/config/fe_keys_dev.js
+>>>>>>> 1f0dbbb0e76963af6f1e0b73fb29429cd75b322c
