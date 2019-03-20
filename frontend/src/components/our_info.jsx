@@ -34,4 +34,4 @@ class OurInfo extends React.Component{
     }
 }
 
-export default OurInfo 
+export default OurInfo; 

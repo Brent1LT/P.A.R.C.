@@ -4,7 +4,6 @@ import { fetchListings } from '../../actions/listing_action';
 
 const mapStateToProps = (state, ownProps) => {
   let listings = Object.values(state.entities.listings);
-  // debugger;
   return ({
     listings,
     style: ownProps.style,
