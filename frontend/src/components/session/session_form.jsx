@@ -15,6 +15,7 @@ class SessionForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.changeModal = this.changeModal.bind(this);
+        this.demoLogin = this.demoLogin.bind(this);
     }
 
     handleSubmit(e) {
@@ -90,10 +91,10 @@ class SessionForm extends React.Component {
     demoLogin(e) {
         e.preventDefault();
         const user = {
-          username: '',
+          email: 'ilovebananas@cheese.com',
           password: 'thisisAfuckingPassword1'
         };
-        this.props.login(user);
+        this.props.login(user).then(this.props.closeModal);
     }
 
     render() {
