@@ -87,6 +87,15 @@ class SessionForm extends React.Component {
         }
     }
 
+    demoLogin(e) {
+        e.preventDefault();
+        const user = {
+          username: '',
+          password: 'thisisAfuckingPassword1'
+        };
+        this.props.login(user);
+    }
+
     render() {
         let message = ''
         if (this.props.formType === 'Sign up') {
@@ -94,7 +103,7 @@ class SessionForm extends React.Component {
         } else {
             message = "Dont have an account? "
         }
-        // debugger
+
         return (
             <div className="login-form-container">
                 <form onSubmit={this.handleSubmit} >
@@ -103,6 +112,11 @@ class SessionForm extends React.Component {
                         {this.signupCheck(this.props.formType)}
                         <div>
                         <button id="session-submit" type="submit" >{this.props.formType}</button>
+                        </div>
+                        <div className="demo-login">
+                            <button className="demo-button" onClick={this.demoLogin}>
+                                Demo Login
+                            </button>
                         </div>
                         <div className='change-forms'>
                             {message}
