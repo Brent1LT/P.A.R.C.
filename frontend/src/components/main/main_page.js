@@ -38,7 +38,7 @@ class MainPage extends React.Component {
             <div className='description-content for-left'>
               <h3 className='mini-titles'>Who are we?</h3>
               <p>
-                We are a team of 4 developers that love to code and want
+                We are a team of 3 developers that love to code and want
                 to provide a solution to the parking shortage that is happening
                 in cities. We hope to grow our idea and turn it into
                 something that can make a difference in the future.
