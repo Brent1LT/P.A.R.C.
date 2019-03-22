@@ -16,6 +16,10 @@ export const deleteListing = (id) => {
   return axios.delete(`/api/listings/delete/${id}`).then(res => (res.data));
 };
 
+export const createPhotoListing = listing => {
+  return axios.post('/file-upload/image-upload', listing).then(res => (res.data));
+};
+
 // changing content type header for file upload
 
 // fileUpload(file){
