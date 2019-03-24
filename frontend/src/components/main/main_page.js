@@ -6,14 +6,13 @@ import NavbarContainer from  '../../components/navbar/navbar_container';
 class MainPage extends React.Component {
   componentDidMount() {
     this.props.fetchListings();
-    // this.setState({ listings:  });
-  };
+  }
 
   render() {
     if (this.props.listings === undefined) {
       return null;
       // can add a little loading screen here
-    };
+    }
 
     return (
       <div className='map-and-info'>

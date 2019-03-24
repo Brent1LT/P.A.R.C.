@@ -53,6 +53,12 @@ export const createListing = listing => dispatch => {
   }));
 };
 
+export const createPhotoListing = listing => dispatch => {
+  return ListingApiUtil.createPhotoListing(listing).then(listing => {
+    dispatch(receiveListing(listing));
+  });
+};
+
 export const fetchListing = id => dispatch => {
   //supply an id for the axios call to check for
   return (ListingApiUtil.fetchListing(id).then(
