@@ -44,7 +44,6 @@ geocodeRequest(address) {
             //https://developers.google.com/maps/documentation/geocoding/intro
             // console.log(response.data.results[0].geometry.location)
             return response.results[0].geometry.location;
-            // debugger
             // return coordinates;
             //this is where we get an object with the results inside
             //response.data.results[0].
@@ -53,7 +52,8 @@ geocodeRequest(address) {
 
 handleSubmit(e) {
     e.preventDefault();
-    let address = `${this.state.street} ${this.state.city}, ${this.state.state}`
+
+    let address = `${this.state.street} ${this.state.city}, ${this.state.state}`;
     this.geocodeRequest(address).then(response => {
         if (response === undefined) {
 
@@ -127,7 +127,7 @@ handleFile(e){
       <h1 className='main-title-new'>Make your very own listing! </h1>
       <div className='main-title-new'>You're one step away from earning yourself some extra cash! Please fill
           out the form below so we can get you settled in and ready to see the cash
-          come in to your pockets. We hope that you spread the word and bring your 
+          come in to your pockets. We hope that you spread the word and bring your
           friends and family as new users so they can start earning as well.
       </div>
         <form className='listing-form' onSubmit={(e) => this.handleSubmit(e)}>
@@ -135,7 +135,7 @@ handleFile(e){
           <div className='attribute-titles'>Street: </div>
           <input id='text-box' type="text" value={this.state.street} placeholder='123 street...' onChange={this.update('street')}/>
           <div className='attribute-titles'>City: </div>
-          <input id='text-box' type="text" value={this.state.city} placeholder='SF' onChange={this.update('city')} />
+          <input id='text-box' type="text" value={this.state.city} placeholder='San Francisco' onChange={this.update('city')} />
           <div className='attribute-titles'>State: </div>
           <input id='text-box' type="text" value={this.state.state} placeholder='CA' onChange={this.update('state')} />
           <div className='attribute-titles'>Zip: </div>
