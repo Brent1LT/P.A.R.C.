@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
-import { Link } from 'react-router-dom'
-import SessionForm from './session_form'
+import { Link } from 'react-router-dom';
+import SessionForm from './session_form';
 import React from 'react';
-import { openModal, closeModal } from '../../actions/modal_action'
+import { openModal, closeModal } from '../../actions/modal_action';
 
 const mapStateToProps = (state) => {
   return {
@@ -23,7 +23,6 @@ const mapDispatchToProps = (dispatch) => {
       </Link>
     ),
     closeModal: () => dispatch(closeModal()),
-    // clearErrors: () => dispatch(clearErrors()),
   }
 }
 

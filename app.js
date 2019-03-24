@@ -31,9 +31,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/listings", listings);
+app.use("/api/users", users);
 app.use('/file-upload', fileRoutes);
 app.use("/api/bookings", bookings);
 app.use("/api/listings/new", listings);
+app.use('/api/users/current', users);
 
 const port = process.env.PORT || 5000;
 
