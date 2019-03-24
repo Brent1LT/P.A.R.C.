@@ -3,11 +3,10 @@ import {createListing} from '../../actions/listing_action'
 import ListingForm from './listing_form'
 
 const mapStateToProps = ({errors}) => {
-
     return{
         errors: errors.listing
-    }
-}
+    };
+};
 
 const mapDispatchToProps = dispatch => {
     return({

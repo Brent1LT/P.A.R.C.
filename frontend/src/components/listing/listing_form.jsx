@@ -45,20 +45,16 @@ geocodeRequest(address) {
             //https://developers.google.com/maps/documentation/geocoding/intro
             // console.log(response.data.results[0].geometry.location)
             return response.results[0].geometry.location;
-            // debugger
             // return coordinates;
             //this is where we get an object with the results inside
             //response.data.results[0].
         });
-    // debugger
 }
 
 handleSubmit(e) {
     e.preventDefault();
-    let address = `${this.state.street} ${this.state.city}, ${this.state.state}`
-    // console.log(this.geocodeRequest(address))
+    let address = `${this.state.street} ${this.state.city}, ${this.state.state}`;
     this.geocodeRequest(address).then(response => {
-        console.log(response)
         if (response === undefined) {
 
         } else {
@@ -68,7 +64,7 @@ handleSubmit(e) {
             }, () => {
                 let createdListing = Object.assign({}, this.state);
                 this.props.createListing(createdListing);
-            })
+            });
         }
     });
 }
@@ -101,7 +97,7 @@ handleSubmit(e) {
       <h1 className='main-title-new'>Make your very own listing! </h1>
       <div className='main-title-new'>You're one step away from earning yourself some extra cash! Please fill
           out the form below so we can get you settled in and ready to see the cash
-          come in to your pockets. We hope that you spread the word and bring your 
+          come in to your pockets. We hope that you spread the word and bring your
           friends and family as new users so they can start earning as well.
       </div>
         <form className='listing-form' onSubmit={(e) => this.handleSubmit(e)}>
@@ -109,7 +105,7 @@ handleSubmit(e) {
           <div className='attribute-titles'>Street: </div>
           <input id='text-box' type="text" value={this.state.street} placeholder='123 street...' onChange={this.update('street')}/>
           <div className='attribute-titles'>City: </div>
-          <input id='text-box' type="text" value={this.state.city} placeholder='SF' onChange={this.update('city')} />
+          <input id='text-box' type="text" value={this.state.city} placeholder='San Francisco' onChange={this.update('city')} />
           <div className='attribute-titles'>State: </div>
           <input id='text-box' type="text" value={this.state.state} placeholder='CA' onChange={this.update('state')} />
           <div className='attribute-titles'>Zip: </div>
@@ -117,7 +113,7 @@ handleSubmit(e) {
           <div className='attribute-titles'>Description: </div>
                 <input id='text-box' type="text" value={this.state.description} placeholder='P.a.r.c is amazing' onChange={this.update('description')}/>
           <div className='attribute-titles'>Price: </div>
-          <input id='text-box' type="text" value={this.state.price} />
+          <input id='text-box' type="text" value={this.state.price} onChange={this.update('price')}/>
           <br/>
           <div className='attribute-titles'>Photo:</div>
           <input id='text-box' type="text" value={this.state.photo} onChange={this.update('photo')}/>
