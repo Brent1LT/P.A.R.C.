@@ -3,10 +3,12 @@ import ListingShow from './listing_show';
 import { fetchListing } from '../../actions/listing_action';
 
 const mapStateToProps = (state, ownProps) => {
-  let id = ownProps.match.params.listingId;
-  let listing = state.entities.listings[id];
+  debugger;
+  let listingId = ownProps.match.params.listingId;
+  let listing = state.entities.listings[listingId];
   return({
     listing,
+    listingId
   });
 };
 const mapDispatchToProps = dispatch => {
