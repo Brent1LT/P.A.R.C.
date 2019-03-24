@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-// import {geocodeRequest} from '../../actions/selectors'
 
 class ListingForm extends React.Component{
   constructor(props){
@@ -15,7 +14,8 @@ class ListingForm extends React.Component{
       lng: 0,
       description: '',
       price: 15,
-      photo: '',
+      image: null,
+      imageUrl: null
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,7 +25,6 @@ class ListingForm extends React.Component{
 
 
 geocodeRequest(address) {
-    // let coordinates;
     return fetch(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U`,
         {
@@ -53,6 +52,7 @@ geocodeRequest(address) {
 
 handleSubmit(e) {
     e.preventDefault();
+
     let address = `${this.state.street} ${this.state.city}, ${this.state.state}`;
     this.geocodeRequest(address).then(response => {
         if (response === undefined) {
@@ -62,18 +62,48 @@ handleSubmit(e) {
                 lat: response.lat,
                 lng: response.lng
             }, () => {
-                let createdListing = Object.assign({}, this.state);
-                this.props.createListing(createdListing);
+                // let createdListing = Object.assign({}, this.state);
+                // this.props.createListing(createdListing);
+                const formData = new FormData();
+                formData.append('street', this.state.street);
+                formData.append('state', this.state.state);
+                formData.append('city', this.state.city);
+                formData.append('zip', this.state.zip);
+                formData.append('lat', this.state.lat);
+                formData.append('lng', this.state.lng);
+                formData.append('description', this.state.description);
+                formData.append('price', this.state.price);
+                formData.append('image', this.state.image);
+                
+                this.props.createPhotoListing(formData);
             });
         }
     });
+}
+
+// photoPreview(){
+//   return (
+//     <img className='photo-preview' src={this.state.imageUrl}/>
+//   )
+// }
+
+handleFile(e){
+    const fileReader = new FileReader();
+    const file = e.currentTarget.files[0];
+    if(file){
+      fileReader.readAsDataURL(file);
+    }
+    
+    fileReader.onloadend = () =>{
+      this.setState({image: file, imageUrl: fileReader.result});
+    };
 }
 
   update(field){
     return e => this.setState({
       [field]: e.currentTarget.value
     });
-  };
+  }
 
 
   // renderErrors() {
@@ -111,15 +141,14 @@ handleSubmit(e) {
           <div className='attribute-titles'>Zip: </div>
           <input id='text-box' type="text" value={this.state.zip} placeholder='12345' onChange={this.update('zip')} />
           <div className='attribute-titles'>Description: </div>
-                <input id='text-box' type="text" value={this.state.description} placeholder='P.a.r.c is amazing' onChange={this.update('description')}/>
+          <input id='text-box' type="text" value={this.state.description} placeholder='P.a.r.c is amazing' onChange={this.update('description')}/>
           <div className='attribute-titles'>Price: </div>
-          <input id='text-box' type="text" value={this.state.price} onChange={this.update('price')}/>
-          <br/>
+          <input id='text-box' type="text" value={this.state.price} />
           <div className='attribute-titles'>Photo:</div>
-          <input id='text-box' type="text" value={this.state.photo} onChange={this.update('photo')}/>
-          <br/>
+          <input id='text-box' type="file" onChange={this.handleFile.bind(this)} />
           <input className='photo-submit-button' type="submit"/>
         </form>
+        <img className='photo-preview' src={this.state.imageUrl} />
       </div>
     );
   };

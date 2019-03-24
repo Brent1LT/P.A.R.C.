@@ -37,7 +37,6 @@ class GoogleMap extends Component {
   }
 
   render() {
-    // debugger;
     if (this.props.listings.length === 0) {
       return (null);
     }
