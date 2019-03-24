@@ -3,7 +3,6 @@ import ListingShow from './listing_show';
 import { fetchListing } from '../../actions/listing_action';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger;
   let listingId = ownProps.match.params.listingId;
   let listing = state.entities.listings[listingId];
   return({
