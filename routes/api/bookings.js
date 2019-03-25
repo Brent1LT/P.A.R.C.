@@ -4,9 +4,6 @@ const passport = require('passport');
 const Booking = require('../../models/Booking');
 const validateBookingInput = require('../../validation/bookings');
 
-//reset
-router.get(`/test`, (req, res) => res.json({ msg: "This is the bookings route" }));
-
 router.post('/new',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
@@ -33,8 +30,9 @@ router.post('/new',
 router.get('/user/:userId',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    Booking.findById( req.params.userId )
-    .then(bookings => res.json(bookings))
+    Booking.find({ user: req.params.userId })
+    .then(bookings =>
+      res.json(bookings))
     .catch(err =>
       res.status(404).json({ nobookingsfound: "No bookings found for that user"}
       )

@@ -13,7 +13,11 @@ const listingReducer = (state = {}, action) => {
         case RECEIVE_LISTING:
             return Object.assign({}, state, {[action.listing._id]: action.listing})
         case RECEIVE_ALL_LISTINGS:
-            return action.listings;
+            let obj = {};
+            action.listings.map(listing => {
+                obj[listing._id] = listing;
+            });
+            return obj;
         case DELETE_LISTING:
             newState = Object.assign({}, state);
             delete newState[action.listing.id];
