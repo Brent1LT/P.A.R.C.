@@ -6,11 +6,12 @@ import ListingIndexContainer from './listing/listing_index_container';
 import ListingShowContainer from './listing/listing_show_container';
 import ListingFormContainer from './listing/listing_form_container';
 import MainPageContainer from './main/main_page_container';
-import NavBarContainer from './navbar/navbar_container'
-import BookingIndexContainer from '../components/bookings/booking_index_container'
-import Modal from './modal'
-import OurInfo from './our_info'
+import NavBarContainer from './navbar/navbar_container';
+import BookingIndexContainer from '../components/bookings/booking_index_container';
+import Modal from './modal';
+import OurInfo from './our_info';
 import "react-dates/initialize";
+
 
 const App = () => (
   <div>
@@ -20,14 +21,11 @@ const App = () => (
     </header>
     <Switch>
       <Route exact path='/listings' component={ListingIndexContainer} />
-      {/* <ProtectedRoute exact path="/listings/:listingId" component={ListingShowContainer} /> */}
       <ProtectedRoute exact path="/listings/new" component={ListingFormContainer} />
       <Route exact path="/listings/:listingId" component={ListingShowContainer} />
-      {/* <ProtectedRoute exact path='/bookings' component={BookingIndexContainer} /> */}
-      {/* add components/routes here for login/signup modal? */}
+      <ProtectedRoute exact path="/bookings/user/:userId" component={BookingIndexContainer} />
       <Route exact path="/" component={MainPageContainer} />
     </Switch>
-      {/* <Route exact path='/' component={OurInfo} /> */}
     <footer>
       Copyright &copy; 2019 B.V.G.S.
     </footer>

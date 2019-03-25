@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
+import { openModal, closeModal } from '../actions/modal_action';
 
 // Passed in from parent component or from mapStateToProps
 const Auth = ({ component: Component, path, loggedIn, exact }) => (
@@ -22,7 +23,7 @@ const Protected = ({ component: Component, loggedIn, ...rest }) => (
         <Component {...props} />
       ) : (
         // Redirect to the login page if the user is already authenticated
-        <Redirect to="/login" />
+        <Redirect to="/" />
       )
     }
   />
@@ -30,10 +31,15 @@ const Protected = ({ component: Component, loggedIn, ...rest }) => (
 
 // Use the isAuthenitcated slice of state to determine whether a user is logged in
 
-const mapStateToProps = state => (
-  {loggedIn: state.session.isAuthenticated}
-);
+const mapStateToProps = state => ({
+  loggedIn: state.session.isAuthenticated
+});
 
-export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
+const mapDispatchToProps = dispatch => ({
+  openModal: () => dispatch(openModal('login')),
+  closeModal: () => dispatch(closeModal())
+})
 
-export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));
+export const AuthRoute = withRouter(connect(mapStateToProps, mapDispatchToProps)(Auth));
+
+export const ProtectedRoute = withRouter(connect(mapStateToProps, mapDispatchToProps)(Protected));

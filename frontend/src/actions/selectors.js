@@ -17,6 +17,7 @@ export const filterListings = (state) => {
   });
   return result;
 };
+
 export const filterBookings = (state, id, type) => {
   let bookings = state.entities.bookings;
   let bookingsArray = Object.values(bookings);
@@ -25,7 +26,6 @@ export const filterBookings = (state, id, type) => {
   return result;
 };
 
-// debugger
 export const geocodeRequest = (address) => {
   let coordinates = {};
   axios.get('https://maps.googleapis.com/maps/api/geocode/json',
