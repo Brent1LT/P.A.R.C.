@@ -5,7 +5,7 @@ import GoogleMapContainer from '../map/map_container';
 class ListingIndex extends React.Component{
   componentDidMount(){
     this.props.fetchListings();
-  };
+  }
 
   render(){
     if (this.props.listings === undefined) {

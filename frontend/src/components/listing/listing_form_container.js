@@ -1,6 +1,6 @@
-import {connect} from 'react-redux'
-import {createListing, createPhotoListing} from '../../actions/listing_action'
-import ListingForm from './listing_form'
+import {connect} from 'react-redux';
+import {createPhotoListing} from '../../actions/listing_action';
+import ListingForm from './listing_form';
 
 const mapStateToProps = ({errors}) => {
     return{
@@ -10,7 +10,6 @@ const mapStateToProps = ({errors}) => {
 
 const mapDispatchToProps = dispatch => {
     return({
-        createListing: (listing) => dispatch(createListing(listing)),
         createPhotoListing: listing => dispatch(createPhotoListing(listing))
     });
 };
