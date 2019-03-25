@@ -9,6 +9,9 @@ import MainPageContainer from './main/main_page_container';
 import NavBarContainer from './navbar/navbar_container';
 import BookingIndexContainer from '../components/bookings/booking_index_container';
 import Modal from './modal';
+import OurInfo from './our_info';
+import "react-dates/initialize";
+
 
 const App = () => (
   <div>
