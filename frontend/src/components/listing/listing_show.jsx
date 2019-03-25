@@ -1,6 +1,7 @@
 import React from 'react';
 import GoogleMapContainer from '../map/map';
 import BookingFormContainer from '../bookings/booking_form_container';
+import "react-dates/initialize";
 
 class ListingShow extends React.Component{
   componentDidMount(){
