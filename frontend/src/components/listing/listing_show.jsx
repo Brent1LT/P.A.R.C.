@@ -13,7 +13,7 @@ class ListingShow extends React.Component{
     }
     return(
       <div className="listing-show">
-          <h2>{this.props.listing.address.street} {this.props.listing.address.city}</h2>
+          <h2>{this.props.listing.street} {this.props.listing.city}</h2>
           <GoogleMapContainer listings={this.props.listing} />
           <div>
             <h2>{this.props.listing.street} {this.props.listing.city}</h2>

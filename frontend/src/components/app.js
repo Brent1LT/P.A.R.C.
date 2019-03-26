@@ -21,7 +21,7 @@ const App = () => (
       <Route exact path='/listings' component={ListingIndexContainer} />
       {/* <ProtectedRoute exact path="/listings/:listingId" component={ListingShowContainer} /> */}
       <ProtectedRoute exact path="/listings/new" component={ListingFormContainer} />
-      <Route exact path="/listings/:listingId" component={ListingShowContainer} />
+      <Route path="/listings/:listingId" component={ListingShowContainer} />
       {/* <ProtectedRoute exact path='/bookings' component={BookingIndexContainer} /> */}
       {/* add components/routes here for login/signup modal? */}
       <Route exact path="/" component={MainPageContainer} />
