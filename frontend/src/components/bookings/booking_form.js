@@ -17,11 +17,12 @@ class BookingForm extends Component {
       offMarket: false,
       focusedInput: null,
     };
-  };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
   componentDidMount() {
     this.props.fetchAllListingBookings(this.props.listing); //listing.id
-  };
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -32,10 +33,10 @@ class BookingForm extends Component {
       startDate: this.state.startDate._d,
       endDate: this.state.endDate._d,
       offMarket: true,
-    }
+    };
     this.props.createBooking(booking)
       .then(this.resetState);
-  };
+  }
 
   resetState() {
     this.setState({
@@ -46,22 +47,22 @@ class BookingForm extends Component {
       offMarket: false,
       focusedInput: null,
     });
-  };
+  }
 
   render() {
     if (this.props.bookings === undefined) return null;
 
     // ITERATE THROUGH THIS.PROPS.BOOKINGS
     // TO CREATE THE MOMENT RANGE OBJECTS AS SEEN BELOW
-
-    const BAD_DATES = []
+    
+    const BAD_DATES = [];
     const moment = extendMoment(Moment);
     this.props.bookings.map(booking => (
       BAD_DATES.push(moment.range(
         moment(booking.startDate, 'YYYY-MM-DD'),
         moment(booking.endDate, 'YYYY-MM-DD').add(1, 'day')
       ))
-    ))
+    ));
 
     // const moment = extendMoment(Moment);
     // const BAD_DATES = [
