@@ -27,8 +27,14 @@ body {
 // Components
 @import './listings.scss';
 
-.main-logo{
+html header h1.main-logo{
     color: white;
+    // color: #FFFFFF;
+    text-decoration: none;
+}
+
+h1#main-logo{
+    text-decoration: none;
 }
 
 //search bar and navbar
@@ -111,8 +117,8 @@ footer{
     font-size: 40px;
     text-align: center;
     color: #009900;
-		border: 1px solid #009900;
-		width: 65vw;
+    border: 1px solid #009900;
+    width: 65vw;
     padding: 20px 0px;
     border-radius: 5px;
     background: whitesmoke;
@@ -126,9 +132,8 @@ footer{
 
 .map-and-info{
     width: 100vw;
-		height: 100vh;
+	height: 100vh;
     // margin-left: 17%;
-		
 }
 
 .our-description{
@@ -140,23 +145,23 @@ footer{
 
 .main-description{
     display: flex;
-    width: 1248px;
-
+    // width: 1248px;
+    flex-wrap: wrap;
 }
 
 .description-content{
-	width: 65vh;
-    // width: 1248px;
+	width: 58.5vh;
     font-size: 22px;
-    padding-right: 10px;
+    justify-content: center;
     border: 1px solid lightgreen;
     padding: 20px;
     background: #009900;
     color: white;
+    margin-top: 20px;
 }
 
 .for-left{
-    margin-left: 20px;
+    // margin-left: 20px;
 }
 .for-right{
     margin-right: 20px;

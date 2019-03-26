@@ -4,7 +4,8 @@ import GoogleMapContainer from '../map/map_container';
 import NavbarContainer from  '../../components/navbar/navbar_container';
 
 class MainPage extends React.Component {
-  componentDidMount() {
+  componentDid
+  Mount() {
     this.props.fetchListings();
   }
 

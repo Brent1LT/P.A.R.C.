@@ -14,7 +14,7 @@ class ListingIndexItem extends React.Component{
         </div>
       </div>
     )
-  };
+  }; 
 };
 
 export default ListingIndexItem;
