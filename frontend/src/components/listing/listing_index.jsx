@@ -1,6 +1,8 @@
 import React from 'react';
 import ListingIndexItem from './listing_index_item';
 import GoogleMapContainer from '../map/map_container';
+import {Link} from 'react-router-dom';
+
 
 class ListingIndex extends React.Component{
   componentDidMount(){
@@ -18,27 +20,28 @@ class ListingIndex extends React.Component{
       height: '100%',
       'marginLeft': 'auto',
       'marginRight': '6%',
+      'z-index': '0',
     };
 
     return(
+      <>
       <div className="listing-index">
         <h1>Available Parking Spots</h1>
         <div>
-          <div className='map-stuff'>
-            <GoogleMapContainer
-              listings={listingsArray}
-              style={listingMapStyle}
-            />
-          </div>
           <div className="all-listings">
             <div>
               {listingsArray.map(listing => {
-                return <ListingIndexItem listing={listing} key={listing.id}/>
+                return <ListingIndexItem href='' listing={listing} key={listing.id} />
               })}
             </div>
           </div>
+              <GoogleMapContainer listings={listingsArray} style={listingMapStyle} />
         </div>
       </div>
+
+{/* //make sure to move this */}
+
+      </>
     )
   }
 };

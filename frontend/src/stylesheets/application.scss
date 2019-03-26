@@ -310,3 +310,42 @@ input.photo-submit-button{
     
     background-size: cover;
 }
+
+
+
+// @@@@@@@@@@@@@@@@@@@@@@@@ SHOW PAGE @@@@@@@@@@@@@@@@@@@
+
+.show-info{
+    background: rgba(167, 201, 160, 0.4);
+    width: 40%;
+    margin-left: 40px;
+    color: white;
+    text-shadow:
+	    -1px -1px 0 #000,
+	    1px -1px 0 #000,
+	    -1px 1px 0 #000,
+        1px 1px 0 #000;
+    h2{
+        text-align: center;
+        margin-bottom: 10px;
+        color: rgb(200, 218, 9);
+    }
+
+    .show-listing-flex{
+        display: flex;
+
+        .parking-info{
+            font-size: 20px;
+            margin-left: 5%;
+            .promotion{
+                margin: 5% 0px;
+            
+                .fine-print{
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+
+    
+}
