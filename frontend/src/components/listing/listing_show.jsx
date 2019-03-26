@@ -21,7 +21,7 @@ class ListingShow extends React.Component{
     };
     return(
       <div className="listing-show">
-          {/* <GoogleMapContainer listings={[this.props.listing]} style={listingMapStyle} /> */}
+          <GoogleMapContainer listings={[this.props.listing]} style={listingMapStyle} />
           <div className='show-info'>
             <div className='show-listing-flex'>
               <img src={this.props.listing.photo} />

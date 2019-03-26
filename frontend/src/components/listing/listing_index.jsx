@@ -20,13 +20,15 @@ class ListingIndex extends React.Component{
       height: '100%',
       'marginLeft': 'auto',
       'marginRight': '6%',
-      'z-index': '0',
+      'zIndex': '0',
+      'position': 'sticky',
     };
 
     return(
       <>
       <div className="listing-index">
         <h1>Available Parking Spots</h1>
+              {/* <GoogleMapContainer listings={listingsArray} style={listingMapStyle} /> */}
         <div>
           <div className="all-listings">
             <div>
@@ -35,7 +37,6 @@ class ListingIndex extends React.Component{
               })}
             </div>
           </div>
-              <GoogleMapContainer listings={listingsArray} style={listingMapStyle} />
         </div>
       </div>
 

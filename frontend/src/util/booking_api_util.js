@@ -5,7 +5,6 @@ export const createBooking = (booking) => {
 };
 
 export const fetchAllUserBookings = (user) => {
-  debugger
   return axios.get(`/api/bookings/user/${user.id}/`);
 };
 

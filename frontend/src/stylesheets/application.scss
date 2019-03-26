@@ -317,7 +317,9 @@ input.photo-submit-button{
 
 .show-info{
     background: rgba(167, 201, 160, 0.4);
-    width: 40%;
+    border: 1px solid white;
+    border-radius: 4%;
+    width: 50%;
     margin-left: 40px;
     color: white;
     text-shadow:
@@ -334,11 +336,16 @@ input.photo-submit-button{
     .show-listing-flex{
         display: flex;
 
+        img{
+            width: 350px;
+            height: 350px;
+        }
+
         .parking-info{
             font-size: 20px;
             margin-left: 5%;
             .promotion{
-                margin: 5% 0px;
+                margin-top: 10%;
             
                 .fine-print{
                     font-size: 10px;
