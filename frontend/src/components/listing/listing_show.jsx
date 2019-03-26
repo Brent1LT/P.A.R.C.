@@ -17,11 +17,11 @@ class ListingShow extends React.Component{
       height: '60%',
       'marginLeft': 'auto',
       'marginRight': '6%',
-      'z-index': '0',
+      'zIndex': '0',
     };
     return(
       <div className="listing-show">
-          <GoogleMapContainer listings={[this.props.listing]} style={listingMapStyle} />
+          {/* <GoogleMapContainer listings={[this.props.listing]} style={listingMapStyle} /> */}
           <div className='show-info'>
             <div className='show-listing-flex'>
               <img src={this.props.listing.photo} />
@@ -36,10 +36,12 @@ class ListingShow extends React.Component{
                   each referall that you bring, you will get an extra 10% off*.
                   <div className='fine-print'>*is not stackable or redeamable yet</div>
                 </div>
-                {/* <BookingFormContainer /> */}
               </div>
             </div>
             
+          </div>
+          <div className='booking-form-container'>
+            <BookingFormContainer listing={this.props.listing}/>
           </div>
           
       </div>

@@ -349,3 +349,31 @@ input.photo-submit-button{
 
     
 }
+
+.booking-form-container{
+    margin-left: 2.1%;
+}
+
+.booking-form{
+    color: white;
+
+    h2{
+        color: rgb(200, 218, 9);
+        text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+    }
+    .booking-button{
+        margin-left: 5px;
+        padding: 9.2px;
+        padding-right: 25px;
+        padding-left: 25px;
+        text-align: center;
+    }
+    .booking-button:hover{
+        cursor: pointer;
+        opacity: .7;
+    }
+}
