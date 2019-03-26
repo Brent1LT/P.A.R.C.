@@ -28,21 +28,18 @@ class ListingIndex extends React.Component{
       <>
       <div className="listing-index">
         <h1>Available Parking Spots</h1>
-              {/* <GoogleMapContainer listings={listingsArray} style={listingMapStyle} /> */}
+            {/* <GoogleMapContainer listings={listingsArray} style={listingMapStyle} /> */}
         <div>
           <div className="all-listings">
             <div>
               {listingsArray.map(listing => {
-                return <ListingIndexItem href='' listing={listing} key={listing.id} />
+                return <ListingIndexItem listing={listing} key={listing.id} />
               })}
             </div>
           </div>
         </div>
       </div>
-
-{/* //make sure to move this */}
-
-      </>
+    </>
     )
   }
 };

@@ -4,8 +4,7 @@ import GoogleMapContainer from '../map/map_container';
 import NavbarContainer from  '../../components/navbar/navbar_container';
 
 class MainPage extends React.Component {
-  componentDid
-  Mount() {
+  componentDidMount() {
     this.props.fetchListings();
   }
 
@@ -20,12 +19,12 @@ class MainPage extends React.Component {
         <GoogleMapContainer listings={this.props.listings} />
         <br/>
         <div className='our-description'>
-          <h2 className='home-title'>What is P.a.r.c.</h2>
+          <h2 className='home-title'>What is P.A.R.C.</h2>
           <div className='main-description'>
             <div className='description-content for-right'>
-              <h3 className='mini-titles'>What does p.a.r.c do?</h3>
+              <h3 className='mini-titles'>What does P.A.R.C do?</h3>
               <p>
-                P.a.r.c. stands for Parking At Residential Communities.
+                P.A.R.C. stands for Parking At Residential Communities.
                 What is parc? Parc is an app where anyone with a private
                 parking spot or driveway can list it so some other
                 driver could park their car there for a low flat rate. Our

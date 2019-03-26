@@ -30,15 +30,8 @@ class ListingShow extends React.Component{
                 <div>{this.props.listing.street}, {this.props.listing.city}</div>
                 <div>{this.props.listing.state} {this.props.listing.zip} </div>
                 <div>Description: {this.props.listing.description}</div>
-
-                <div className='promotion'>If you make this booking today, we can give you 10% off. If you
-                  would like to save even more, refer us to your friends and family. For
-                  each referall that you bring, you will get an extra 10% off*.
-                  <div className='fine-print'>*is not stackable or redeamable yet</div>
-                </div>
               </div>
-            </div>
-            
+            </div>        
           </div>
           <div className='booking-form-container'>
             <BookingFormContainer listing={this.props.listing}/>

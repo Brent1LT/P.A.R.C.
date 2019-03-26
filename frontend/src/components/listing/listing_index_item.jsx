@@ -13,7 +13,7 @@ class ListingIndexItem extends React.Component{
           <div className="listing-info">
             <h3>Location:</h3>
             <div>{this.props.listing.street}</div>
-            <div>{this.props.listing.city}*{this.props.listing.state}</div>
+            <div>{this.props.listing.city}, {this.props.listing.state}</div>
             <div className='description-listing'>Description: {this.props.listing.description}</div>
             <Link id='go-to-parking' to={`/listings/${this.props.listing._id}`}>Go to this parking!</Link>
           </div>
