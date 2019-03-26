@@ -4,7 +4,8 @@ import GoogleMapContainer from '../map/map_container';
 import NavbarContainer from  '../../components/navbar/navbar_container';
 
 class MainPage extends React.Component {
-  componentDidMount() {
+  componentDid
+  Mount() {
     this.props.fetchListings();
   }
 
@@ -14,7 +15,7 @@ class MainPage extends React.Component {
       // can add a little loading screen here
     }
 
-    return (
+  return (
       <div className='map-and-info'>
         <GoogleMapContainer listings={this.props.listings} />
         <br/>

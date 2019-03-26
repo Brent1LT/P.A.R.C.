@@ -25,6 +25,7 @@ class Navbar extends React.Component{
         if(this.props.loggedIn === false){
             return (
                 <div className='login-signup'>
+                    <Link to='/listings' className='signin-stuff'><p>Parkings</p></Link> 
                     <a className='signin-stuff' href=''
                         onClick={e => {
                             this.handleEvent(e);
@@ -42,7 +43,7 @@ class Navbar extends React.Component{
         } else  {
             return(
                 <div className='login-signup'>
-                    {/* <Link to='/bookings'><p>Bookings</p></Link> */}
+                    <Link to='/listings' className='signin-stuff'><p>Parkings</p></Link> 
                     <a className='signin-stuff' href=''
                         onClick={this.logout}><p>Log Out</p>
                     </a>
@@ -59,7 +60,7 @@ class Navbar extends React.Component{
                         {/* just having it so if someone clicks logo it redirects */}
                         <div className='search-bar'>
                             <img src="" alt=""/>
-                            <h1 className='main-logo'>P.A.R.C.</h1>
+                            <Link to='/'><h1 id='main-logo' className='main-logo'>P.A.R.C.</h1></Link>
                             <SearchContainer />
                         </div>
                     </div>
