@@ -9,7 +9,7 @@ export const fetchAllUserBookings = (user) => {
 };
 
 export const fetchAllListingBookings = (listing) => {
-  return axios.get(`/api/bookings/listing/${listing.id}/`);
+  return axios.get(`/api/bookings/listing/${listing._id}/`);
 };
 
 export const fetchBooking = (id) => {
