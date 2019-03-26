@@ -24,10 +24,12 @@ class ListingIndex extends React.Component{
       <div className="listing-index">
         <h1>Available Parking Spots</h1>
         <div>
-          <GoogleMapContainer
-            listings={listingsArray}
-            style={listingMapStyle}
-          />
+          <div className='map-stuff'>
+            <GoogleMapContainer
+              listings={listingsArray}
+              style={listingMapStyle}
+            />
+          </div>
           <div className="all-listings">
             <div>
               {listingsArray.map(listing => {

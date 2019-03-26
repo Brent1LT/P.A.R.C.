@@ -179,9 +179,10 @@ footer{
   z-index: 10;
 }
 
+
 .modal-child {
   display: block;
-  border: 2px, solid red;
+//   border: 2px, solid red;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -221,7 +222,7 @@ footer{
 
 }
 
-input#text-box{
+input#text-box {
     width: 200px;
     height: 18px;
     border-radius: 3px;
@@ -234,7 +235,14 @@ input#text-box{
     margin-left: 30px;
 }
 
-#session-submit{
+#session-submit {
+    width: 224px;
+    margin-left: 30px;
+    padding: 10px 0px;
+    margin-bottom: 10px;
+}
+
+.demo-button{
     width: 224px;
     margin-left: 30px;
     padding: 10px 0px;

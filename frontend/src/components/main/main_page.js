@@ -15,7 +15,7 @@ class MainPage extends React.Component {
       // can add a little loading screen here
     }
 
-    return (
+  return (
       <div className='map-and-info'>
         <GoogleMapContainer listings={this.props.listings} />
         <br/>

@@ -25,6 +25,7 @@ class Navbar extends React.Component{
         if(this.props.loggedIn === false){
             return (
                 <div className='login-signup'>
+                    <Link to='/listings' className='signin-stuff'><p>Parkings</p></Link> 
                     <a className='signin-stuff' href=''
                         onClick={e => {
                             this.handleEvent(e);
@@ -42,7 +43,7 @@ class Navbar extends React.Component{
         } else  {
             return(
                 <div className='login-signup'>
-                    {/* <Link to='/bookings'><p>Bookings</p></Link> */}
+                    <Link to='/listings' className='signin-stuff'><p>Parkings</p></Link> 
                     <a className='signin-stuff' href=''
                         onClick={this.logout}><p>Log Out</p>
                     </a>
