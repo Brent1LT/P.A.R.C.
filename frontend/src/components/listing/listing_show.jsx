@@ -26,10 +26,14 @@ class ListingShow extends React.Component{
             <div className='show-listing-flex'>
               <img className='parking-images' src={this.props.listing.photo} />
               <div className='parking-info'>
-            <h2>Wanna book this spot?</h2>
+              <h2>Wanna book this spot?</h2>
                 <div>{this.props.listing.street}, {this.props.listing.city}</div>
                 <div>{this.props.listing.state} {this.props.listing.zip} </div>
                 <div>Description: {this.props.listing.description}</div>
+                <div>Flat Rate of: ${this.props.listing.price}</div>
+                <div>
+                  
+                </div>
               </div>
             </div>        
           </div>
