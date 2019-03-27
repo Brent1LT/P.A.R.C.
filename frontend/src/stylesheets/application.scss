@@ -146,7 +146,9 @@ footer{
 .main-description{
     display: flex;
     // width: 1248px;
-    flex-wrap: wrap;
+    width: 65vw;
+
+    // flex-wrap: wrap;
 }
 
 .description-content{

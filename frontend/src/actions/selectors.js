@@ -25,7 +25,6 @@ export const filterBookings = (state, id, type) => {
     return;
   }
   // do a map or filter here to grab the entries that match the id (user or listing)
-  debugger
   const result = bookingsArray.filter((booking) => booking[type].id === id);
   return result;
 };
