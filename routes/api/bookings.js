@@ -53,7 +53,7 @@ router.get(`/get`,
 );
 
 router.get(`/listing/:listingId`,
-  passport.authenticate('jwt', { session: false }),
+  // passport.authenticate('jwt', { session: false }),
   (req, res) => {
     Booking.find({ listing: req.params.listingId })
     .then(bookings => res.json(bookings))

@@ -8,7 +8,6 @@ import { extendMoment } from 'moment-range';
 class BookingForm extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       user: this.props.currentUser,
       listing: null,

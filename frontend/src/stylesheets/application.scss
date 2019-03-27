@@ -146,7 +146,9 @@ footer{
 .main-description{
     display: flex;
     // width: 1248px;
-    flex-wrap: wrap;
+    width: 65vw;
+
+    // flex-wrap: wrap;
 }
 
 .description-content{
@@ -318,7 +320,7 @@ input.photo-submit-button{
 .show-info{
     background: rgba(167, 201, 160, 0.4);
     border: 1px solid white;
-    border-radius: 4%;
+    border-radius: 2px;
     width: 50%;
     margin-left: 40px;
     color: white;
@@ -336,14 +338,22 @@ input.photo-submit-button{
     .show-listing-flex{
         display: flex;
 
-        img{
+        img.parking-images{
+            // box-sizing: border-box;
             width: 350px;
             height: 350px;
+        }
+        img.parking-images:hover{
+            // transform: scale(1.05) ;
+            width: 350px;
+            height: 350px;
+            // overflow: hidden;
         }
 
         .parking-info{
             font-size: 20px;
             margin-left: 5%;
+            margin-right: 5%;
             .promotion{
                 margin-top: 10%;
             

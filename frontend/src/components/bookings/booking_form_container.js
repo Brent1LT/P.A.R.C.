@@ -23,3 +23,4 @@ const mapDispatchToProps = (dispatch) => {
 const BookingFormContainer =
   connect(mapStateToProps, mapDispatchToProps)(BookingForm);
 export default BookingFormContainer;
+ 
