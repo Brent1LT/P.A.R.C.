@@ -10,34 +10,33 @@ class ListingIndex extends React.Component{
   }
 
   render(){
-    if (this.props.listings === undefined) {
+    if (Object.keys(this.props.listings).length === 0) {
       return null;
       // can add little loading screen here
     }
     const listingsArray = Object.values(this.props.listings);
     const listingMapStyle = {
       width: '40%',
-      height: '100%',
-      'marginLeft': 'auto',
+      height: '80%',
+      'marginLeft': '0',
       'marginRight': '6%',
       'zIndex': '0',
-      'position': 'sticky',
     };
 
     return(
       <>
       <div className="listing-index">
         <h1>Available Parking Spots</h1>
-            {/* <GoogleMapContainer listings={listingsArray} style={listingMapStyle} /> */}
-        <div>
           <div className="all-listings">
-            <div>
-              {listingsArray.map(listing => {
-                return <ListingIndexItem listing={listing} key={listing.id} />
-              })}
-            </div>
+            {/* {listingsArray.map(listing => {
+              return <ListingIndexItem listing={listing} key={listing.id} />
+            })} */}
+            <ListingIndexItem listing={listingsArray[0]} /> 
+          <div className='map-div'>
+            <GoogleMapContainer  listings={listingsArray} style={listingMapStyle} />
           </div>
-        </div>
+          </div>
+        
       </div>
     </>
     )

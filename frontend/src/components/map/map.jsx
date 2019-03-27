@@ -13,7 +13,7 @@ class GoogleMap extends Component {
     };
     this.onMarkerClick = this.onMarkerClick.bind(this);
     this.onMapClick = this.onMapClick.bind(this);
-  };
+  }
 
   onMarkerClick(props, marker, e) {
     this.setState({
@@ -21,7 +21,7 @@ class GoogleMap extends Component {
       activeMarker: marker,
       showingInfoWindow: true,
     });
-  };
+  }
 
   onMapClick(props) {
     if (this.state.showingInfoWindow) {
@@ -30,7 +30,7 @@ class GoogleMap extends Component {
         activeMarker: null,
       });
     }
-  };
+  }
 
   componentDidMount(){
     if(this.props.listings.length != 1){
@@ -85,7 +85,6 @@ class GoogleMap extends Component {
     });
 
     const currentStyle = this.props.style ? this.props.style : defaultStyle;
-
     return (
       <div className="map-container">
         <Map

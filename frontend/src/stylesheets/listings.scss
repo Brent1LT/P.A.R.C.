@@ -16,7 +16,9 @@ $parc-green: #009900;
 
   .all-listings {
     margin-left: 5%;
-  
+    display: grid;
+    grid-template-columns: 50% 50%;
+    display: flex;
     .listing-item {
       align-items: center;
       background: rgba(167, 201, 160, 0.4);
@@ -25,7 +27,7 @@ $parc-green: #009900;
       margin-bottom: 1em;
       padding: .5em;
       padding-left: 20px;
-      height: 10%;
+      height: 100%;
       width: 30%;
       cursor: pointer;
 
@@ -73,4 +75,15 @@ $parc-green: #009900;
     }
       
   }
+}
+
+.map-div{
+  height: 50%;
+  width: 70%;
+  padding-left: 10%;
+}
+
+.map-container{
+  height: 50%;
+  width: 50%;
 }

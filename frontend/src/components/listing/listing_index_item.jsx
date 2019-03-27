@@ -9,7 +9,7 @@ class ListingIndexItem extends React.Component{
     
     return(
         <div className="listing-item" >
-          <img className='parking-logo' src="https://images.vexels.com/media/users/3/128399/isolated/lists/4c21120637e7ad87ca7d800c3d24eb21-parking-round-service-icon.png" alt=""/>
+          <img className='parking-logo' src={this.props.listing.photo}/>
           <div className="listing-info">
             <h3>Location:</h3>
             <div>{this.props.listing.street}</div>
