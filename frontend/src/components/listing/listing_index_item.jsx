@@ -2,11 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 class ListingIndexItem extends React.Component{
-
-
-  
-  render() {
-    
+  render() { 
     return(
         <div className="listing-item" >
           <img className='parking-logo' src={this.props.listing.photo}/>
