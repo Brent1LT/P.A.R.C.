@@ -16,7 +16,7 @@ class ListingIndex extends React.Component{
     }
     const listingsArray = Object.values(this.props.listings);
     const listingMapStyle = {
-      width: '40%',
+      width: '80%',
       height: '80%',
       'marginLeft': '0',
       'marginRight': '6%',
@@ -26,18 +26,18 @@ class ListingIndex extends React.Component{
     return(
       <>
       <div className="listing-index">
-        <h1>Available Parking Spots</h1>
+        {/* <h1>Available Parking Spots</h1> */}
+          <div className='map-div'>
+            <GoogleMapContainer  listings={listingsArray} style={listingMapStyle} />
+          </div>
+      </div>
           <div className="all-listings">
             {/* {listingsArray.map(listing => {
               return <ListingIndexItem listing={listing} key={listing.id} />
             })} */}
             <ListingIndexItem listing={listingsArray[0]} /> 
-          <div className='map-div'>
-            <GoogleMapContainer  listings={listingsArray} style={listingMapStyle} />
-          </div>
           </div>
         
-      </div>
     </>
     )
   }
