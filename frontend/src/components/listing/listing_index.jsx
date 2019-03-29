@@ -5,6 +5,17 @@ import {Link} from 'react-router-dom';
 
 
 class ListingIndex extends React.Component{
+  constructor(props){
+    super(props);
+
+    this.state = {
+      listing: null
+    };
+  }
+
+  changeListing(listing) {
+    this.setState({listing});
+  }
   componentDidMount(){
     this.props.fetchListings();
   }
@@ -15,6 +26,10 @@ class ListingIndex extends React.Component{
       // can add little loading screen here
     }
     const listingsArray = Object.values(this.props.listings);
+    if(this.state.listing === null){
+      this.setState({listing: listingsArray[0]});
+      return null;
+    }
     const listingMapStyle = {
       width: '80%',
       height: '80%',
@@ -28,14 +43,14 @@ class ListingIndex extends React.Component{
       <div className="listing-index">
         {/* <h1>Available Parking Spots</h1> */}
           <div className='map-div'>
-            <GoogleMapContainer  listings={listingsArray} style={listingMapStyle} />
+            <GoogleMapContainer changeListing={this.changeListing} listings={listingsArray} style={listingMapStyle} />
           </div>
       </div>
           <div className="all-listings">
             {/* {listingsArray.map(listing => {
               return <ListingIndexItem listing={listing} key={listing.id} />
             })} */}
-            <ListingIndexItem listing={listingsArray[8]} /> 
+            <ListingIndexItem listing={this.state.listing} /> 
           </div>
         
     </>
