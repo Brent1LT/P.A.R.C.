@@ -8,9 +8,6 @@ const keys = require("../../config/keys");
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 
-//public splash
-router.get(`/test`, (req, res) => res.json({ msg: "This is the users route" }));
-
 //public signup
 router.post('/register', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
