@@ -8,25 +8,31 @@ import axios from 'axios';
 
 class ListingIndex extends React.Component{
   constructor(props){
-    super(props)
+    super(props);
     this.geocodeRequest.bind(this);
     this.filterListings.bind(this);
+
+    this.state = {
+      listing: null
+    };
   }
 
+
+  changeListing(listing) {
+    this.setState({listing});
+  }
   componentDidMount(){
     this.props.fetchListings();
   }
 
 
 
-  filterListings = (state) => {
+  filterListings(state){
     let result = [];
     let listings = state.entities.listings;
     let search = state.ui.search;
-    debugger;
     let listingsArray = Object.values(listings);
     let coordinates = { lat: 0, lng: 0 }
-    debugger
     this.geocodeRequest(search).then(response => {
       coordinates.lat = response.lat;
       coordinates.lng = response.lng;
@@ -38,9 +44,11 @@ class ListingIndex extends React.Component{
       });
       console.log(result);
       return result;
-    })
-  };
-  geocodeRequest = (address) => {
+    });
+  }
+
+  
+  geocodeRequest(address){
     return fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U`,
       {
@@ -53,17 +61,20 @@ class ListingIndex extends React.Component{
   }
 
   render(){
-    debugger
     if (Object.keys(this.props.listings).length === 0) {
       return null;
       // can add little loading screen here
     }
     const listingsArray = Object.values(this.props.listings);
+    if(this.state.listing === null){
+      this.setState({listing: listingsArray[0]});
+      return null;
+    }
     const listingMapStyle = {
       width: '80%',
       height: '80%',
-      'marginLeft': '0',
-      'marginRight': '6%',
+      'marginLeft': 'auto',
+      'marginRight': 'auto',
       'zIndex': '0',
     };
 
@@ -72,14 +83,14 @@ class ListingIndex extends React.Component{
       <div className="listing-index">
         {/* <h1>Available Parking Spots</h1> */}
           <div className='map-div'>
-            <GoogleMapContainer  listings={listingsArray} style={listingMapStyle} />
+            <GoogleMapContainer changeListing={this.changeListing} listings={listingsArray} style={listingMapStyle} />
           </div>
       </div>
           <div className="all-listings">
             {/* {listingsArray.map(listing => {
               return <ListingIndexItem listing={listing} key={listing.id} />
             })} */}
-            <ListingIndexItem listing={listingsArray[0]} /> 
+            <ListingIndexItem listing={this.state.listing} /> 
           </div>
         
     </>
