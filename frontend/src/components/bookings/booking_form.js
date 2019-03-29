@@ -15,8 +15,11 @@ class BookingForm extends Component {
       endDate: null,
       offMarket: false,
       focusedInput: null,
+      errors: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.createBooking = this.createBooking.bind(this);
+    this.errorDates = this.errorDates.bind(this);
   }
 
   componentDidMount() {
@@ -28,11 +31,24 @@ class BookingForm extends Component {
     const booking = {
       user: this.state.user.id,
       listingId: this.props.listing.id,
-      // the two dates below will be parsed into this format: "YYYY-MM-DD"
+      //The two dates below will be parsed into this format: "YYYY-MM-DD"
       startDate: this.state.startDate._d,
       endDate: this.state.endDate._d,
       offMarket: true,
     };
+
+    if (this.errorDates(booking)) {
+      this.state.errors = true;
+    } else {
+      this.createBooking(booking);
+    }
+  }
+
+  errorDates(booking) {
+
+  }
+
+  createBooking(booking) {
     this.props.createBooking(booking)
       .then(this.resetState);
   }
@@ -53,7 +69,6 @@ class BookingForm extends Component {
 
     // ITERATE THROUGH THIS.PROPS.BOOKINGS
     // TO CREATE THE MOMENT RANGE OBJECTS AS SEEN BELOW
-    
     const BAD_DATES = [];
     const moment = extendMoment(Moment);
     this.props.bookings.map(booking => (
@@ -68,6 +83,9 @@ class BookingForm extends Component {
     return (
       <div className="booking-form" style={{width: 400 +'px', height: 400 +'px'}} >
         <h2>Book This Spot</h2>
+        <div hidden={!this.state.errors}>
+          THIS IS A FUCKING ERROR
+        </div>
         <form className='form-booking' onSubmit={this.handleSubmit}>
           <DateRangePicker
             required={true}

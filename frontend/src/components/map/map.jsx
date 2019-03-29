@@ -1,36 +1,37 @@
 import React, { Component } from 'react';
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
 import frontendKeys from '../../config/frontend_keys';
-// import InfoWindowItem from './info_window_item';
 
 class GoogleMap extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showingInfoWindow: false,
+      showingInfoWindow: true,
       activeMarker: {},
       selectedPlace: {},
     };
+
     this.onMarkerClick = this.onMarkerClick.bind(this);
     this.onMapClick = this.onMapClick.bind(this);
-  };
+  }
 
   onMarkerClick(props, marker, e) {
     this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true,
+    selectedPlace: props.title,
+    activeMarker: marker,
+    showingInfoWindow: true,
     });
-  };
+  }
 
-  onMapClick(props) {
+  onMapClick() {
     if (this.state.showingInfoWindow) {
       this.setState({
+        selectedPlace: {},
         showingInfoWindow: false,
         activeMarker: null,
       });
     }
-  };
+  }
 
   componentDidMount(){
     if(this.props.listings.length != 1){
@@ -51,8 +52,6 @@ class GoogleMap extends Component {
     };
 
     const markers = this.props.listings.map((listing) => {
-      const activeMarker = this.state.activeMarker;
-      const showingInfoWindow = this.state.showingInfoWindow;
       return (
         <Marker
           key={listing.id}
@@ -63,6 +62,7 @@ class GoogleMap extends Component {
         />
       );
     });
+
     const infoWindows = this.props.listings.map((listing) => {
       return (
         <InfoWindow
@@ -83,9 +83,9 @@ class GoogleMap extends Component {
       zipped.push(m);
       zipped.push(infoWindows[i]);
     });
+    // debugger
 
     const currentStyle = this.props.style ? this.props.style : defaultStyle;
-
     return (
       <div className="map-container">
         <Map
@@ -97,7 +97,8 @@ class GoogleMap extends Component {
           zoom={14}
           initialCenter={{lat: 37.7599043, lng: -122.4256016}}
           >
-          {zipped}
+          { markers }
+          { infoWindows }
         </Map>
       </div>
     );
@@ -108,31 +109,3 @@ class GoogleMap extends Component {
 export default GoogleApiWrapper({
   apiKey: (frontendKeys.googleMapApiKey)
 })(GoogleMap);
-
-// <Marker
-//   onClick={this.onMarkerClick}
-//   title={"Bueller's Orange Garage"}
-//   position={ {lat: 37.7565536, lng: -122.4145126} }
-//   name={"Bueller's Orange Garage"}
-// />
-// <InfoWindow
-//   marker={this.state.activeMarker}
-//   visible={this.state.showingInfoWindow}
-// >
-//   <p>
-//     123 Broadway Street<br />
-//     SF, CA 12345<br />
-//     800-555-1234
-//   </p>
-// </InfoWindow>
-
-// <InfoWindow
-//   marker={this.state.activeMarker}
-//   visible={this.props.visible}
-// >
-//   <p>
-//     {listing.street}<br />
-//     {listing.city}, {listing.state} {listing.zip}<br />
-//     1-800-555-1234
-//   </p>
-// </InfoWindow>

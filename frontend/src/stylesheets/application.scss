@@ -302,12 +302,13 @@ input.photo-submit-button{
 }
 
 #root{
-    background: url('https://img.sunset02.com/sites/default/files/styles/4_3_horizontal_inbody_900x506/public/image/2016/12/main/driveway-trees-jason-liske-0117.jpg') no-repeat center center fixed; 
+    // background: url('https://img.sunset02.com/sites/default/files/styles/4_3_horizontal_inbody_900x506/public/image/2016/12/main/driveway-trees-jason-liske-0117.jpg') no-repeat center center fixed; 
     // -webkit-background-size: cover;
     // -moz-background-size: cover;
     // -o-background-size: cover;
-    
+    background-color: floralwhite;
     background-size: cover;
+    z-index: -1;
 }
 
 
