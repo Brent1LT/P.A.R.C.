@@ -25,7 +25,7 @@ class BookingIndexItem extends Component {
         <div>{this.props.booking.endDate}</div>
         <h3>Cost per Day</h3>
         <div>{this.props.listing.price}</div>
-        <button onClick={this.handleClick}>Add a delete action here</button>
+        <button onClick={this.handleClick}>Delete Booking</button>
       </div>
     );
   };
