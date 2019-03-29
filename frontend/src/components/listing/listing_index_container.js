@@ -5,9 +5,10 @@ import {filterListings} from '../../actions/selectors';
 import ListingIndex from './listing_index';
 
 const mapStateToProps = state => {
+  // filterListings(state)
   return({
     // listings: state.entities.listings,
-    listings: filterListings(state)
+    listings: state.entities.listings
   });
 };
 
