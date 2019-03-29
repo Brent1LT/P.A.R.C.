@@ -27,7 +27,7 @@ class ListingIndex extends React.Component{
     let listingsArray = Object.values(listings);
     let coordinates = { lat: 0, lng: 0 }
     debugger
-    geocodeRequest(search).then(response => {
+    this.geocodeRequest(search).then(response => {
       coordinates.lat = response.lat;
       coordinates.lng = response.lng;
       listingsArray.map(listing => {
