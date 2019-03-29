@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     currentUser: state.session.user,
     listing: ownProps.listing,
-    bookings: filterBookings(state, ownProps.listing._id, 'listing'),
+    bookings: state.entities.bookings,
   });
 };
 const mapDispatchToProps = (dispatch) => {
@@ -23,4 +23,3 @@ const mapDispatchToProps = (dispatch) => {
 const BookingFormContainer =
   connect(mapStateToProps, mapDispatchToProps)(BookingForm);
 export default BookingFormContainer;
- 
