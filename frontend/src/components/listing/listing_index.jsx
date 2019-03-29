@@ -4,7 +4,12 @@ import GoogleMapContainer from '../map/map_container';
 import {Link} from 'react-router-dom';
 
 
+
 class ListingIndex extends React.Component{
+  constructor(props){
+    super(props)
+  }
+
   componentDidMount(){
     this.props.fetchListings();
   }

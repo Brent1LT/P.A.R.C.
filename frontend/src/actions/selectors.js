@@ -9,6 +9,7 @@ export const filterListings = (state) => {
   let search = state.ui.search;
   let listingsArray = Object.values(listings);
   let coordinates = {lat: 0, lng: 0}
+  debugger
   geocodeRequest(search).then(response => {
     coordinates.lat = response.lat;
     coordinates.lng = response.lng;
@@ -17,10 +18,11 @@ export const filterListings = (state) => {
           (listing.lng <= coordinates.lng + .0083 && listing.lng >= coordinates.lng - .0083)){
             result.push(listing);
       }
-      return null;
     });
+    console.log(result);
     return result;
   })
+  console.log("filterListings")
 };
 
 export const filterBookings = (state, id, type) => {
@@ -34,24 +36,6 @@ export const filterBookings = (state, id, type) => {
   return result;
 };
 
-// export const geocodeRequest = (address) => {
-//   let coordinates = {};
-//   axios.get('https://maps.googleapis.com/maps/api/geocode/json',
-//     {
-//       params: {
-//         address: address,
-//         key: "AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U"
-//       }
-//     }).then((response) => { //response is the object the api returns
-//       //refer to this if you need help
-//       //https://developers.google.com/maps/documentation/geocoding/intro
-//       debugger
-//       coordinates = response.data.results[0].geometry.location;
-//       return coordinates;
-//       //this is where we get an object with the results inside
-//       //response.data.results[0].
-//     })
-// }
 
 const geocodeRequest = (address) => {
   return fetch(
@@ -61,14 +45,7 @@ const geocodeRequest = (address) => {
     }
   ).then(res => res.json())
     .then(response => {
-      //response is the object the api returns
-      //refer to this if you need help
-      //https://developers.google.com/maps/documentation/geocoding/intro
-      // console.log(response.data.results[0].geometry.location)
       return response.results[0].geometry.location;
-      // return coordinates;
-      //this is where we get an object with the results inside
-      //response.data.results[0].
     });
 }
 
