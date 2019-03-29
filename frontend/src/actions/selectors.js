@@ -65,7 +65,7 @@ const geocodeRequest = (address) => {
       //refer to this if you need help
       //https://developers.google.com/maps/documentation/geocoding/intro
       // console.log(response.data.results[0].geometry.location)
-      return response.results[0].geometry.location;
+      return response.data.results[0].geometry.location;
       // return coordinates;
       //this is where we get an object with the results inside
       //response.data.results[0].
