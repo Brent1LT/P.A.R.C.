@@ -6,7 +6,6 @@ export const filterListings = (state) => {
   let result = [];
   let listings = state.entities.listings;
   let search = state.ui.search;
-  debugger;
   let listingsArray = Object.values(listings);
   let coordinates = geocodeRequest(search)
   let bogus = listingsArray.map(listing => {
