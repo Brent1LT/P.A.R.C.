@@ -25,7 +25,9 @@ class ListingIndex extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchListings();
+    this.props.fetchListings().then(action =>{
+      this.setState({ listing: action.listings[0] });
+    });
   }
 
 
@@ -64,13 +66,13 @@ class ListingIndex extends React.Component{
   }
 
   render(){
+    // debugger
     if (Object.keys(this.props.listings).length === 0) {
       return null;
       // can add little loading screen here
     }
     const listingsArray = Object.values(this.props.listings);
     if(this.state.listing === null){
-      this.setState({listing: listingsArray[0]});
       return null;
     }
     const listingMapStyle = {
@@ -80,6 +82,7 @@ class ListingIndex extends React.Component{
       'marginRight': 'auto',
       'zIndex': '0',
     };
+    
 
     return(
       <>
