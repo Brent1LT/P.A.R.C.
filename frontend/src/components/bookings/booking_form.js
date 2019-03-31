@@ -97,9 +97,6 @@ class BookingForm extends Component {
     return (
       <div className="booking-form" style={{width: 400 +'px', height: 400 +'px'}} >
         <h2>Book This Spot</h2>
-        <div hidden={!this.state.errors}>
-          THIS IS A FUCKING ERROR
-        </div>
         <form className='form-booking' onSubmit={this.handleSubmit}>
           <DateRangePicker
             required={true}

@@ -31,7 +31,8 @@ class ListingShow extends React.Component{
               <h2>Take a look at this!</h2>
                 <div>{this.props.listing.street}, {this.props.listing.city}</div>
                 <div>{this.props.listing.state} {this.props.listing.zip} </div>
-                <div>Description: {this.props.listing.description}</div>
+                <div>Description: </div>
+                <div>{this.props.listing.description}</div>
                 <div>Flat Rate of: ${this.props.listing.price}</div>
                 <div>
                   

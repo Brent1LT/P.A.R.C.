@@ -337,7 +337,6 @@ input.photo-submit-button{
     border: 1px solid white;
     border-radius: 2px;
     width: 100%;
-    text-align: center;
     div{
         margin-bottom: 5px
     }
@@ -346,13 +345,15 @@ input.photo-submit-button{
         margin-bottom: 10px;
         color: rgb(9, 65, 218);
     }
-
     .show-listing-flex{
         display: flex;
-
+        width: 45%;
+        margin: auto;
         .parking-info{
+            text-align: center;
             font-size: 20px;
-            margin-left: 20%;
+            // margin-left: 20%;
+            // margin-right: 5%;
             .promotion{
                 margin-top: 10%;
             
@@ -362,8 +363,6 @@ input.photo-submit-button{
             }
         }
     }
-
-    
 }
 
 .booking-form-container{
@@ -376,14 +375,9 @@ input.photo-submit-button{
 
 .booking-form{
     color: white;
-
+    
     h2{
         color: rgb(9, 65, 218);
-        // text-shadow:
-        //     -1px -1px 0 #000,
-        //     1px -1px 0 #000,
-        //     -1px 1px 0 #000,
-        //     1px 1px 0 #000;
     }
     .booking-button{
         margin-left: 5px;
@@ -395,5 +389,15 @@ input.photo-submit-button{
     .booking-button:hover{
         cursor: pointer;
         opacity: .7;
+    }
+}
+
+.DateRangePickerInput__showClearDates {
+    padding-right: 15px;
+}
+
+.DateInput{
+    #end-date-field{
+        border-left: 1px solid lightgray;
     }
 }
