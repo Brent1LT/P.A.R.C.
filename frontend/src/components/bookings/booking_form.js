@@ -20,6 +20,7 @@ class BookingForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.createBooking = this.createBooking.bind(this);
     this.errorDates = this.errorDates.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   componentDidMount() {
@@ -30,7 +31,7 @@ class BookingForm extends Component {
     e.preventDefault();
     const booking = {
       user: this.state.user.id,
-      listingId: this.props.listing.id,
+      listingId: this.props.listing._id,
       //The two dates below will be parsed into this format: "YYYY-MM-DD"
       startDate: this.state.startDate._d,
       endDate: this.state.endDate._d,
@@ -39,13 +40,26 @@ class BookingForm extends Component {
 
     if (this.errorDates(booking)) {
       this.state.errors = true;
+      this.resetState();
     } else {
       this.createBooking(booking);
     }
   }
 
   errorDates(booking) {
-
+    let thing = false;
+    Object.keys(this.props.bookings).forEach((id) => {
+      if (booking.startDate <= this.props.bookings[id].endDate &&
+          booking.startDate >= this.props.bookings[id].startDate) {
+          thing =  true;
+        } else if (booking.endDate <= this.props.bookings[id].endDate &&
+                   booking.endDate >= this.props.bookings[id].startDate) {
+          thing =  true;
+        } else {
+          thing =  false;
+        }
+    });
+    return thing;
   }
 
   createBooking(booking) {
@@ -66,15 +80,15 @@ class BookingForm extends Component {
 
   render() {
     if (this.props.bookings === undefined) return null;
-
     // ITERATE THROUGH THIS.PROPS.BOOKINGS
     // TO CREATE THE MOMENT RANGE OBJECTS AS SEEN BELOW
     const BAD_DATES = [];
     const moment = extendMoment(Moment);
-    this.props.bookings.map(booking => (
+
+    Object.keys(this.props.bookings).map(booking => (
       BAD_DATES.push(moment.range(
-        moment(booking.startDate, 'YYYY-MM-DD'),
-        moment(booking.endDate, 'YYYY-MM-DD').add(1, 'day')
+        moment(this.props.bookings[booking].startDate, 'YYYY-MM-DD'),
+        moment(this.props.bookings[booking].endDate, 'YYYY-MM-DD').add(1, 'day')
       ))
     ));
 
