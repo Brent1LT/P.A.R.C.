@@ -22,8 +22,9 @@ class GoogleMap extends Component {
     activeMarker: marker,
     showingInfoWindow: true,
     });
-
-    this.props.changeListing(props.id);
+    if(this.props.changeListing){
+      this.props.changeListing(props.id);
+    }
     
   }
 
