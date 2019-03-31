@@ -18,9 +18,9 @@ module.exports = function validateBookingInput(data) {
   }
 
   let currentDate = new Date();
-  if (currentDate > startDate) {
-    errors.text = "Booking must start today or in the future.";
-  }
+  // if (currentDate > startDate) {
+  //   errors.text = "Booking must start today or in the future.";
+  // }
 
   return {
     errors,

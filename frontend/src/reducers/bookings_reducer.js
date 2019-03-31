@@ -20,15 +20,15 @@ const BookingReducer = (oldState={}, action) => {
       action.bookings.data.map(booking => {
         obj[booking._id] = booking;
       });
-      
+
       return (obj);
     case RECEIVE_ALL_LISTING_BOOKINGS:
-      // return (action.bookings);
       let object = {};
-
+// debugger
       action.bookings.data.map(booking => {
         object[booking._id] = booking;
       });
+
       return (object);
     case REMOVE_BOOKING:
       newState = merge({}, oldState);

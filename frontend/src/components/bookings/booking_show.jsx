@@ -4,16 +4,16 @@ class BookingShow extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-  };
+  }
 
   componentDidMount() {
     this.props.fetchBooking(this.props.id);
-  };
+  }
 
   handleClick(e) {
     e.preventDefault();
     this.props.deleteBooking(this.props.id);
-  };
+  }
 
   render() {
     if (this.props.booking === undefined) return null;
