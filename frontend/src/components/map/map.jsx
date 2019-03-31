@@ -50,7 +50,7 @@ class GoogleMap extends Component {
 
     const defaultStyle = {
       width: '65vw',
-      height: '45vh',
+      height: '50vh',
       'marginLeft': 'auto',
       'marginRight': 'auto',
     };
