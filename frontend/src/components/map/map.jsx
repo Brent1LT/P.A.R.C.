@@ -24,7 +24,7 @@ class GoogleMap extends Component {
     if(this.props.changeListing){
       this.props.changeListing(props.id);
     }
-    
+
   }
 
   onMapClick() {
