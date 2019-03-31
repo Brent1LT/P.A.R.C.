@@ -16,11 +16,15 @@ class GoogleMap extends Component {
   }
 
   onMarkerClick(props, marker, e) {
+    // debugger
     this.setState({
     selectedPlace: props.title,
     activeMarker: marker,
     showingInfoWindow: true,
     });
+
+    this.props.changeListing(props.id);
+    
   }
 
   onMapClick() {
@@ -59,6 +63,7 @@ class GoogleMap extends Component {
           title={listing.street}
           position={{lat: listing.lat, lng: listing.lng}}
           name={listing.street}
+          id={listing._id}
         />
       );
     });

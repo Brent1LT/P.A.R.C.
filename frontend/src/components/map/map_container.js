@@ -7,6 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     listings,
     style: ownProps.style,
+    changeListing: ownProps.changeListing
   });
 };
 const mapDispatchToProps = (dispatch) => {

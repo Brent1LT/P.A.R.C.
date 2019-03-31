@@ -15,12 +15,15 @@ class ListingIndex extends React.Component{
     this.state = {
       listing: null
     };
+    this.changeListing = this.changeListing.bind(this);
   }
 
 
-  changeListing(listing) {
-    this.setState({listing});
+  changeListing(id) {
+    let newListing = this.props.listings[id];
+    this.setState({listing: newListing});
   }
+
   componentDidMount(){
     this.props.fetchListings();
   }
