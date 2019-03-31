@@ -21,6 +21,10 @@ class GoogleMap extends Component {
     activeMarker: marker,
     showingInfoWindow: true,
     });
+    if(this.props.changeListing){
+      this.props.changeListing(props.id);
+    }
+    
   }
 
   onMapClick() {
@@ -59,6 +63,7 @@ class GoogleMap extends Component {
           title={listing.street}
           position={{lat: listing.lat, lng: listing.lng}}
           name={listing.street}
+          id={listing._id}
         />
       );
     });
@@ -83,7 +88,6 @@ class GoogleMap extends Component {
       zipped.push(m);
       zipped.push(infoWindows[i]);
     });
-    // debugger
 
     const currentStyle = this.props.style ? this.props.style : defaultStyle;
     return (

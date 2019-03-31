@@ -2,7 +2,6 @@ const Validator = require('validator');
 const validText = require('./valid-text');
 
 module.exports = function validateListingInput(data) {
-  // console.log('from validator', data)
   let errors = {};
 
   data.description = validText(data.description) ? data.description : '';

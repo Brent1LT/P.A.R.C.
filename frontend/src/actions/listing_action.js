@@ -55,16 +55,14 @@ export const clearListingErrors = () => {
 
 export const createPhotoListing = listing => dispatch => {
   return ListingApiUtil.createPhotoListing(listing).then(listing => {
-    dispatch(receiveListing(listing));
+    return dispatch(receiveListing(listing));
   });
 };
 
 export const fetchListing = id => dispatch => {
-  //supply an id for the axios call to check for
   return (ListingApiUtil.fetchListing(id).then(
     listing => {
-      // listing is what is supplied by the backend
-      dispatch(receiveListing(listing))
+      return dispatch(receiveListing(listing));
     // errors => {
     //   dispatch(receiveListingErrors(errors))
     // }
@@ -74,8 +72,7 @@ export const fetchListing = id => dispatch => {
 export const fetchListings = () => dispatch => {
   return (ListingApiUtil.fetchAllListings().then(
     listings => {
-      //listings is what our backend is returning
-      dispatch(receiveAllListings(listings))
+      return dispatch(receiveAllListings(listings));
     // errors => {
     //   dispatch(receiveListingErrors(errors))
     // }
@@ -85,8 +82,7 @@ export const fetchListings = () => dispatch => {
 export const deleteListing = (id) => dispatch => {
   return (ListingApiUtil.deleteListing(id).then(
     listing => {
-      //backend will delete the listing
-      dispatch(removeListing(listing))
+      return dispatch(removeListing(listing));
     // errors => {
     //   dispatch(receiveListingErrors(errors))
     // }

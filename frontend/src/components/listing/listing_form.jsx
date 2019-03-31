@@ -79,7 +79,6 @@ handleSubmit(e) {
             });
         }
     });
-    debugger
 }
 
 // photoPreview(){
