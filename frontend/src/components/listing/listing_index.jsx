@@ -66,7 +66,6 @@ class ListingIndex extends React.Component{
   }
 
   render(){
-    // debugger
     if (Object.keys(this.props.listings).length === 0) {
       return null;
       // can add little loading screen here
