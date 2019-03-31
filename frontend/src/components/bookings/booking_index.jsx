@@ -24,8 +24,6 @@ class BookingIndex extends Component {
     return (
       <div className="booking-index">
         {bookingsArray.map((booking) => {
-          // console.log(this.props.listings)
-          // console.log(bookings)
           return (
             <BookingIndexItem
               listing={this.props.listings[booking.listing]}

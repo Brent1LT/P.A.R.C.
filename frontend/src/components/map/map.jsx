@@ -16,7 +16,6 @@ class GoogleMap extends Component {
   }
 
   onMarkerClick(props, marker, e) {
-    // debugger
     this.setState({
     selectedPlace: props.title,
     activeMarker: marker,
@@ -89,7 +88,6 @@ class GoogleMap extends Component {
       zipped.push(m);
       zipped.push(infoWindows[i]);
     });
-    // debugger
 
     const currentStyle = this.props.style ? this.props.style : defaultStyle;
     return (
