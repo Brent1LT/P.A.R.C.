@@ -12,12 +12,18 @@ const app = express();
 
 // This logic is used for Heroku deployment
 // to make sure we don't have "run build" before pushing to Heroku
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('frontend/build'));
-  app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
-}
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static('frontend/build'));
+//   app.get('/', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+//   });
+// }
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static('frontend/build'));
+//   app.get('/', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+//   });
+// }
 
 mongoose
 .connect(db, {useNewUrlParser: true})
