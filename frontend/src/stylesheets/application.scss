@@ -314,44 +314,45 @@ input.photo-submit-button{
 
 
 // @@@@@@@@@@@@@@@@@@@@@@@@ SHOW PAGE @@@@@@@@@@@@@@@@@@@
+.listing-show{
+    width: 50%;
+    margin: auto;
+}
+
+.show-image-container{
+    margin: auto;
+    width: 100%;
+}
+
+.parking-images{
+    // box-sizing: border-box;
+    width: 90%;
+    height: 80%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
 
 .show-info{
     background: rgba(167, 201, 160, 0.4);
     border: 1px solid white;
     border-radius: 2px;
-    width: 50%;
-    margin-left: 40px;
-    color: white;
-    text-shadow:
-	    -1px -1px 0 #000,
-	    1px -1px 0 #000,
-	    -1px 1px 0 #000,
-        1px 1px 0 #000;
+    width: 100%;
+    text-align: center;
+    div{
+        margin-bottom: 5px
+    }
     h2{
         text-align: center;
         margin-bottom: 10px;
-        color: rgb(200, 218, 9);
+        color: rgb(9, 65, 218);
     }
 
     .show-listing-flex{
         display: flex;
 
-        img.parking-images{
-            // box-sizing: border-box;
-            width: 350px;
-            height: 350px;
-        }
-        img.parking-images:hover{
-            // transform: scale(1.05) ;
-            width: 350px;
-            height: 350px;
-            // overflow: hidden;
-        }
-
         .parking-info{
             font-size: 20px;
-            margin-left: 5%;
-            margin-right: 5%;
+            margin-left: 20%;
             .promotion{
                 margin-top: 10%;
             
@@ -366,19 +367,23 @@ input.photo-submit-button{
 }
 
 .booking-form-container{
-    margin-left: 2.1%;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
 }
+
 
 .booking-form{
     color: white;
 
     h2{
-        color: rgb(200, 218, 9);
-        text-shadow:
-            -1px -1px 0 #000,
-            1px -1px 0 #000,
-            -1px 1px 0 #000,
-            1px 1px 0 #000;
+        color: rgb(9, 65, 218);
+        // text-shadow:
+        //     -1px -1px 0 #000,
+        //     1px -1px 0 #000,
+        //     -1px 1px 0 #000,
+        //     1px 1px 0 #000;
     }
     .booking-button{
         margin-left: 5px;

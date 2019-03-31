@@ -91,7 +91,7 @@ class ListingIndex extends React.Component{
             <GoogleMapContainer changeListing={this.changeListing} listings={listingsArray} style={listingMapStyle} />
           </div>
       </div>
-          <div className="all-listings">
+          <div id='goHere' className="all-listings">
             {/* {listingsArray.map(listing => {
               return <ListingIndexItem listing={listing} key={listing.id} />
             })} */}
