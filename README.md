@@ -23,7 +23,7 @@ it proved to be an integral feature of our app. It also helps with scalability
 since we don't need to host all the images in the database which would increase 
 server-load.
 
-![AWS image](https://github.com/Brent1LT/P.A.R.C./documents/design_docs/readme-s3.png)
+![AWS image](https://github.com/Brent1LT/P.A.R.C./blob/master/documents/assets/design_docs/readme-s3.png)
 ```
 router.post("/image-upload",
   passport.authenticate("jwt", { session: false }),
