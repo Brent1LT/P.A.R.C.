@@ -11,8 +11,61 @@ The beta version took 6 days from start to finish.
 * Users can create and view listings
 * Users can rent parkings spots
 * Users can create accounts with salted passwords
+* Users can view their bookings
 
-## HIGHLIGHTED FEATURE 1
+
+## AWS S3 Integration
+Adding Amazon Web Services was a huge part of application and allowed our users
+to add a photo onto their listing. This was difficult to implement due to the fact 
+that there are hardly any guides available online and I had to collaborate with 
+several other developers in order to get it fully functional. Once it was functional,
+it proved to be an integral feature of our app. It also helps with scalability 
+since we don't need to host all the images in the database which would increase 
+server-load.
+
+![AWS image](https://github.com/Brent1LT/P.A.R.C./tree/master/documents/readme-s3.png)
+```
+router.post("/image-upload",
+  passport.authenticate("jwt", { session: false }),
+  upload.single('image'),
+  (req, res) => {
+      // let photo = res.json({ imageUrl: req.file.location });   
+       
+    Listing.findOne({street: req.body.street})
+        .then(listing => {
+          if (listing) {
+            return res
+              .status(400)
+              .json({ address: "This address is already listed" });
+          } else {
+            const newListing = new Listing({
+              user: req.user.id,
+              lat: req.body.lat,
+              lng: req.body.lng,
+              price: req.body.price,
+              description: req.body.description,
+              street: req.body.street,
+              city: req.body.city,
+              state: req.body.state,
+              zip: req.body.zip,
+              photo: req.file.location
+            });
+            const { isValid, errors } =  validateListingInput(newListing);
+
+            if (!isValid) {
+              return res.status(400).json(errors);
+            }
+            newListing
+              .save()
+              .then(listing => res.json(listing))
+              .catch(err => res.status(400).json(err));
+          }
+        })
+        .catch(err => console.log("FindOne Failed", err));
+  }
+);
+```
+
 
 ## HIGHLIGHTED FEATURE 2
 ``` render() {
