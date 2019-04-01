@@ -1,74 +1,76 @@
-# parc
-An application/website that gives users the ability to host a private parking spot (e.g. driveway, garage) and for other users to book those parking spots for a time frame (hourly, daily, weekly, monthly, etc).
+# PARC
 
-## Proposal
-### Title
-P.A.R.C.
-* Parking At Residential Communities
+[Live Site](https://lets-parc.herokuapp.com)
 
-### Members
-* Brent Bumann, Gabriel Lujan, Sam Ardrey, Vishal Sandhu
+PARC is a garage-share website. It uses MongoDB, Express, React and Node.js.
 
-### Description
-* An application/website that gives users the ability to host a private parking spot (e.g. driveway, garage) and for other users to book those parking spots for a specified time frame (hourly, daily, weekly, monthly, etc).
+The beta version took 6 days from start to finish.
 
-### Backup Idea
-* Paper Smash Bros.
-  * Think “Paper Mario” meets “Super Smash Bros.”
+## Features
 
-## Timeline & Division of Work
-### MVP’s
-1) User Auth
-2) Search
-3) Map / Locations
-4) Listings
-5) Bookings
+* Users can create and view listings
+* Users can rent parkings spots
+* Users can create accounts with salted passwords
 
-### Sample State & Schema Layout
-* Entities
-  * Users
-    * :create, :show, :update (potentially)
-  * Listings
-    * :index, :show, :create, :delete
-    * user_id
-    * has_one / has_many :location
-    * has_many_attached :photos
-    * searchable?
-  * Bookings
-    * availability
-    * user_id
-    * listing_id
-    * daily / hourly
-    * calendar
-* Session
-  * user_id
-* Errors
-  * User Auth
-  * Bookings
-* UI
-  * Modal
-  * Search Selector(s)
+## HIGHLIGHTED FEATURE 1
 
-### Timeline & Breakdown of MVP's
-1) Day One - User Auth
-  * Backend (Brent, Sam)
-    * MVC Framework
-    * Controllers, Actions, Schema, Seeds
-  * Frontend (Gabe, Vishal)
-    * Bootstrap
-    * Session Slice, Reducers, Thunks
+## HIGHLIGHTED FEATURE 2
+``` render() {
+    if (this.props.bookings === undefined) return null;
+    // ITERATE THROUGH THIS.PROPS.BOOKINGS
+    // TO CREATE THE MOMENT RANGE OBJECTS AS SEEN BELOW
+    const BAD_DATES = [];
+    const moment = extendMoment(Moment);
 
-2) Day Two - Search
-  * AJAX calls (Vishal)
-  * Setting up API/utils (Brent)
-  * Selectors (Sam)
-  * Components & Containers (Gabe)
+    Object.keys(this.props.bookings).map(booking => (
+      BAD_DATES.push(moment.range(
+        moment(this.props.bookings[booking].startDate, 'YYYY-MM-DD'),
+        moment(this.props.bookings[booking].endDate, 'YYYY-MM-DD').add(1, 'day')
+      ))
+    ));
 
-3) Day Three - Map (Brent, Vishal, Gabe, Sam)
-  * Google API
-  * Embedding
+    const isBlocked = day => BAD_DATES.filter(d => d.contains(day, 'day')).length > 0;
 
-4) Day Four - Listings & Bookings
-  * Forms Components & Containers (Gabe)
-  * Splash Page Components (Sam)
-  * CSS (Brent & Vishal)
+    return (
+      <div className="booking-form" style={{width: 400 +'px', height: 400 +'px'}} >
+        <h2>Book This Spot</h2>
+        <div hidden={!this.state.errors}>
+          THIS IS A FUCKING ERROR
+        </div>
+        <form className='form-booking' onSubmit={this.handleSubmit}>
+          <DateRangePicker
+            required={true}
+            small={true}
+            startDate={this.state.startDate}
+            startDateId="start-date-field"
+            startDatePlaceholderText="Start Date"
+            endDate={this.state.endDate}
+            endDateId="end-date-field"
+            endDatePlaceholderText="End Date"
+            onDatesChange={({startDate, endDate}) => this.setState({ startDate, endDate })}
+            showClearDates={true}
+            isDayBlocked={isBlocked}
+            focusedInput={this.state.focusedInput}
+            onFocusChange={focusedInput => this.setState({ focusedInput })}
+            hideKeyboardShortcutsPanel={true}
+          />
+          <button className="booking-button">Book Me!</button>
+        </form>
+      </div>
+    );
+  };
+}; ```
+
+## Project Design
+Our goal in creating PARC was to create a quick, stable MERN stack build that utilized an external API--google maps. We gave ourselves 6 days to learn and utilize the stack.
+
+## Technologies
+On the backend, MongoDB, Node.js, Express and Heroku were chosen for ease and versatility.
+
+For the front, Redux was used for state and reducers, React for components and Axios for backend and API calls.
+
+Images were hosted using AWS S3.
+
+## Planned Features
+* Cleanup bookings
+* Redesign UI
