@@ -26,12 +26,14 @@ class Navbar extends React.Component{
                 <div className='login-signup'>
                     <Link to='/listings' className='signin-stuff'><p>Parkings</p></Link> 
                     <a className='signin-stuff'
+                        href=''
                         onClick={e => {
                             this.handleEvent(e);
                             this.props.openModal("signup")
                         }}><p>Sign up</p>
                     </a>
                     <a className='signin-stuff'
+                        href=''
                         onClick={e => {
                             this.handleEvent(e);
                             this.props.openModal("login")
