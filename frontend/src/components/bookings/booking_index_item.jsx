@@ -16,7 +16,7 @@ class BookingIndexItem extends Component {
       <div className="booking-index-item">
         {/* ADD A SRC FOR THIS IMG */}
         {/* USE THE ATTACHED LISTING IMG */}
-        <img src={this.props.listing.photo} />
+        <img alt="" src={this.props.listing.photo} />
         <h3>Booked Listing</h3>
         <div>{this.props.listing.street}</div>
         <h3>Start Date</h3>

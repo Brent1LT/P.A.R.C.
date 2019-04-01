@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 class ListingForm extends React.Component{
   constructor(props){
@@ -74,7 +73,7 @@ handleSubmit(e) {
                 formData.append('description', this.state.description);
                 formData.append('price', this.state.price);
                 formData.append('image', this.state.image);
-                
+
                 this.props.createPhotoListing(formData);
             });
         }
@@ -93,7 +92,7 @@ handleFile(e){
     if(file){
       fileReader.readAsDataURL(file);
     }
-    
+
     fileReader.onloadend = () =>{
       this.setState({image: file, imageUrl: fileReader.result});
     };
@@ -150,7 +149,7 @@ handleFile(e){
           </div>
           <input className='photo-submit-button' type="submit"/>
         </form>
-        <img className='photo-preview' src={this.state.imageUrl} />
+        <img alt="" className='photo-preview' src={this.state.imageUrl} />
       </div>
     );
   };

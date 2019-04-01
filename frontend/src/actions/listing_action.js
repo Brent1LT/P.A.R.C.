@@ -3,7 +3,7 @@ import * as ListingApiUtil from '../util/listing_api_util';
 export const RECEIVE_LISTING = 'RECEIVE_LISTING';
 export const RECEIVE_ALL_LISTINGS = 'RECEIVE_ALL_LISTINGS';
 export const DELETE_LISTING = 'DELETE_LISTING';
-export const RECEIVE_LISTING_ERRORS = 'RECEIVE_LISTING_ERRORS';
+// export const RECEIVE_LISTING_ERRORS = 'RECEIVE_LISTING_ERRORS';
 export const CLEAR_LISTING_ERRORS = 'CLEAR_ERRORS';
 
 
@@ -28,12 +28,12 @@ const removeListing = (listing) => {
   });
 };
 
-const receiveListingErrors = errors => {
-  return({
-    type: RECEIVE_LISTING_ERRORS,
-    errors,
-  });
-};
+// const receiveListingErrors = errors => {
+//   return({
+//     type: RECEIVE_LISTING_ERRORS,
+//     errors,
+//   });
+// };
 
 export const clearListingErrors = () => {
   return({
@@ -43,15 +43,6 @@ export const clearListingErrors = () => {
 
 
 //thunk action creators
-
-// export const createListing = listing => dispatch => {
-//   //listing above             ^      is the listing the user creates
-//   return (ListingApiUtil.createListing(listing).then(
-//     listing => {
-//       // same listing just sending to backend
-//       dispatch(receiveListing(listing))
-//   }));
-// };
 
 export const createPhotoListing = listing => dispatch => {
   return ListingApiUtil.createPhotoListing(listing).then(listing => {

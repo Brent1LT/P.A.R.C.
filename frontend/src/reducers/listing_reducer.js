@@ -15,7 +15,7 @@ const listingReducer = (state = {}, action) => {
         case RECEIVE_ALL_LISTINGS:
             let obj = {};
             action.listings.map(listing => {
-                obj[listing._id] = listing;
+                return obj[listing._id] = listing;
             });
             return obj;
         case DELETE_LISTING:

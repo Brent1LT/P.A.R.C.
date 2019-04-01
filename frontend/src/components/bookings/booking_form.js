@@ -36,10 +36,13 @@ class BookingForm extends Component {
       startDate: this.state.startDate._d,
       endDate: this.state.endDate._d,
       offMarket: true,
+      errors: false
     };
 
     if (this.errorDates(booking)) {
-      this.state.errors = true;
+      this.setState({
+        errors: true
+      });
       this.resetState();
     } else {
       this.createBooking(booking);

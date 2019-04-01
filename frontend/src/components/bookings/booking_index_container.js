@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import {filterBookings} from '../../actions/selectors';
 import BookingIndex from './booking_index';
 import {
   createBooking,
@@ -14,7 +13,6 @@ const mapStateToProps = (state, ownProps) => {
     currentUser: state.session.user,
     listings: state.entities.listings,
     bookings
-    // bookings: filterBookings(state, state.session.user.id, 'user'),
   });
 };
 

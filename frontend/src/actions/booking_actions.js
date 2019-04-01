@@ -38,18 +38,18 @@ const removeBooking = (id) => {
   });
 };
 
-const receiveBookingErrors = (errors) => {
-  return ({
-    type: RECEIVE_BOOKING_ERRORS,
-    errors,
-  });
-};
+// const receiveBookingErrors = (errors) => {
+//   return ({
+//     type: RECEIVE_BOOKING_ERRORS,
+//     errors,
+//   });
+// };
 
-const clearBookingErrors = () => {
-  return ({
-    type: CLEAR_BOOKING_ERRORS,
-  });
-};
+// const clearBookingErrors = () => {
+//   return ({
+//     type: CLEAR_BOOKING_ERRORS,
+//   });
+// };
 
 /* ---------------------------------------------
 // THUNK ACTION CREATORS
