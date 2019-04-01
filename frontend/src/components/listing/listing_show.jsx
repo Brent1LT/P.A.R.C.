@@ -35,7 +35,6 @@ class ListingShow extends React.Component{
                 <div>{this.props.listing.description}</div>
                 <div>Flat Rate of: ${this.props.listing.price}</div>
                 <div>
-                  
                 </div>
               </div>
             </div>        

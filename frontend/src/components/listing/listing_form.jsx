@@ -144,8 +144,10 @@ handleFile(e){
           <input id='text-box' type="text" value={this.state.description} placeholder='P.a.r.c is amazing' onChange={this.update('description')}/>
           <div className='attribute-titles'>Price: </div>
           <input id='text-box' type="text" value={this.state.price} />
-          <div className='attribute-titles'>Photo:</div>
-          <input id='text-box' type="file" onChange={this.handleFile.bind(this)} />
+          <div className='attribute-titles'>Photo: </div>
+          <div>
+            <input id='text-box' type="file" onChange={this.handleFile.bind(this)} />
+          </div>
           <input className='photo-submit-button' type="submit"/>
         </form>
         <img className='photo-preview' src={this.state.imageUrl} />

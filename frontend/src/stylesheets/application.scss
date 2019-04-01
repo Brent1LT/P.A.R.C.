@@ -88,8 +88,6 @@ h1#main-logo{
 }
 
 .signin-stuff:hover{
-    border-right: 3px solid black;
-    border-bottom: 3px solid black;
     background: white;
     color: #009900;
 }
@@ -191,12 +189,10 @@ footer{
 .signup-form{
     width: 300px;
     margin-top: -22px;
-    // height: 400px;
 }
 .log-form{
     width: 300px;
     margin-top: 15px;
-    // height: 300px;
 
 }
 
@@ -223,7 +219,7 @@ footer{
 
 input#text-box {
     width: 200px;
-    height: 18px;
+    height: 24px;
     border-radius: 3px;
     align-self: center;
     border: 1px solid lightgray;
@@ -259,46 +255,48 @@ input#text-box {
     margin-bottom: 20px
 }
 
+//@@@@@@@@@@@@@@@@@@@@@@@@@--new listing--@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+.main-title-new{
+    padding-top: 10px;
+    text-align: center;
+    color: black;
+    margin: 0 20%;
+}
+
 .listing-form-title{
     padding-left: 30px;
-    color: white;
+    // color: white;
     text-decoration: underline;
 }
 .listing-form{
-    // margin-left: 30px;
     text-align: center;
-    border: 2px solid #009900;
-    margin: 0px 300px;
-    padding-right: 220px;
-    margin-right: 296px;
+    width: 40%;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    margin: 0px 30%;
     margin-top: 20px;
     padding-bottom: 10px;
-    background: #009900
+    // background: #009900
 }
 .attribute-titles{
     padding-left: 30px;
-    color: white;
+    // color: white;
     text-decoration: underline;
     padding-bottom: 5px;
 }
 
 input.photo-submit-button{
-    width: 222px;
     margin-left: 30px;
     // padding: 20px;
-    font-size: 80px;
+    font-size: 20px;
 }
 
-.main-title-new{
-    text-align: center;
-    // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    text-shadow: 4px 4px rgba(0, 0, 0, 0.9);
-}
 
 .entire-listing-form{
-    margin: 0px 500px;
     padding: 10px;
-    color: white;
+    // color: white;
 }
 
 #root{

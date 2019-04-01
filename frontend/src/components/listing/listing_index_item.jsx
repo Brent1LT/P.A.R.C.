@@ -7,7 +7,7 @@ class ListingIndexItem extends React.Component{
         <div className="listing-item" >
           <img className='parking-logo' src={this.props.listing.photo}/>
           <div className="listing-info">
-            <h3>Location:</h3>
+            <h3>Location: </h3>
             <div className='location-info'>{this.props.listing.street}</div>
             <div className='location-info'>{this.props.listing.city}, {this.props.listing.state}</div>
             <div className='description-listing'>Description: {this.props.listing.description}</div>
