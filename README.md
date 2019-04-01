@@ -15,12 +15,12 @@ The beta version took 6 days from start to finish.
 
 
 ## AWS S3 Integration
-Adding Amazon Web Services was a huge part of application and allowed our users
+Adding Amazon Web Services was a huge part of our application and allowed our users
 to add a photo onto their listing. This was difficult to implement due to the fact 
 that there are hardly any guides available online and I had to collaborate with 
-several other developers in order to get it fully functional. Once it was functional,
+several other developers in order to get it fully functional. Once functional,
 it proved to be an integral feature of our app. It also helps with scalability 
-since we don't need to host all the images in the database which would increase 
+since we don't need to host all of the images in the database which would increase 
 server-load.
 
 ![AWS image](https://github.com/Brent1LT/P.A.R.C./blob/master/documents/assets/design_docs/readme-s3.png)
