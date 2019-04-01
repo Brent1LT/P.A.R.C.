@@ -50,9 +50,10 @@ class Navbar extends React.Component{
                 </Link>
                 <a
                   className="signin-stuff"
+                  href=''
                   onClick={this.logout}
                 >
-                  <p>Log Out</p>
+                  <p className='logout'>Log Out</p>
                 </a>
               </div>
             );

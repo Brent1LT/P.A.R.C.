@@ -77,12 +77,14 @@ h1#main-logo{
     color: white;
     padding: 5px;
     border-radius: 3px;
+    cursor: pointer;
 }
 .signin-stuff-logout{
     color: white;
     width: inherit;
     height: inherit;
 }
+
 .signin-stuff-logout:hover{
     color: #009900;
 }
