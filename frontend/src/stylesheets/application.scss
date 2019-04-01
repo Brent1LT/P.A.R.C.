@@ -351,13 +351,14 @@ input.photo-submit-button{
     }
     .show-listing-flex{
         display: flex;
-        width: 45%;
+        width: 40%;
         margin: auto;
         .parking-info{
             text-align: center;
             font-size: 20px;
-            // margin-left: 20%;
-            // margin-right: 5%;
+            div{
+                text-transform: capitalize;
+            }
             .promotion{
                 margin-top: 10%;
             

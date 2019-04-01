@@ -25,13 +25,13 @@ class Navbar extends React.Component{
             return (
                 <div className='login-signup'>
                     <Link to='/listings' className='signin-stuff'><p>Parkings</p></Link> 
-                    <a className='signin-stuff' href=''
+                    <a className='signin-stuff'
                         onClick={e => {
                             this.handleEvent(e);
                             this.props.openModal("signup")
                         }}><p>Sign up</p>
                     </a>
-                    <a className='signin-stuff' href=''
+                    <a className='signin-stuff'
                         onClick={e => {
                             this.handleEvent(e);
                             this.props.openModal("login")
@@ -50,7 +50,6 @@ class Navbar extends React.Component{
                 </Link>
                 <a
                   className="signin-stuff"
-                  href=""
                   onClick={this.logout}
                 >
                   <p>Log Out</p>

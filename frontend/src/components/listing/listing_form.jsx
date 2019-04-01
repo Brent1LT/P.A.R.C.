@@ -62,8 +62,6 @@ handleSubmit(e) {
                 lat: response.lat,
                 lng: response.lng
             }, () => {
-                // let createdListing = Object.assign({}, this.state);
-                // this.props.createListing(createdListing);
                 const formData = new FormData();
                 formData.append('street', this.state.street);
                 formData.append('state', this.state.state);
@@ -74,18 +72,16 @@ handleSubmit(e) {
                 formData.append('description', this.state.description);
                 formData.append('price', this.state.price);
                 formData.append('image', this.state.image);
-                
-                this.props.createPhotoListing(formData);
+
+                this.props.createPhotoListing(formData)
+                  .then(payload => {
+                    let listing = payload.listing;
+                    this.props.history.push(`/listings/${listing._id}`);
+                  });
             });
         }
     });
 }
-
-// photoPreview(){
-//   return (
-//     <img className='photo-preview' src={this.state.imageUrl}/>
-//   )
-// }
 
 handleFile(e){
     const fileReader = new FileReader();
