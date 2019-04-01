@@ -4,7 +4,7 @@ import SearchContainer from './search_container'
 
 class Navbar extends React.Component{
     constructor(props){
-        super(props)
+        super(props);
 
         this.handleEvent = this.handleEvent.bind(this);
         this.logout = this.logout.bind(this);
@@ -21,7 +21,6 @@ class Navbar extends React.Component{
     }
 
     loggedInCheck(){
-        // if(this.props.id !== null){
         if(this.props.loggedIn === false){
             return (
                 <div className='login-signup'>
@@ -41,14 +40,23 @@ class Navbar extends React.Component{
                 </div>
             )
         } else  {
-            return(
-                <div className='login-signup'>
-                    <Link to='/listings' className='signin-stuff'><p>Parkings</p></Link> 
-                    <a className='signin-stuff' href=''
-                        onClick={this.logout}><p>Log Out</p>
-                    </a>
-                </div>
-            )
+            return (
+              <div className="login-signup">
+                <Link to="/listings" className="signin-stuff">
+                  <p>Parkings</p>
+                </Link>
+                <Link to="/listings/new" className="signin-stuff">
+                  <p>Create a Listing</p>
+                </Link>
+                <a
+                  className="signin-stuff"
+                  href=""
+                  onClick={this.logout}
+                >
+                  <p>Log Out</p>
+                </a>
+              </div>
+            );
         }
     }
 
