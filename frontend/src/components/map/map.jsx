@@ -25,7 +25,7 @@ class GoogleMap extends Component {
       this.props.changeListing(props.id);
       this.smoothScroll(document.getElementById('goHere'));
     }
-    
+
   }
 
   smoothScroll(target) {
@@ -74,7 +74,7 @@ class GoogleMap extends Component {
 
     const defaultStyle = {
       width: '65vw',
-      height: '50vh',
+      height: '45vh',
       'marginLeft': 'auto',
       'marginRight': 'auto',
     };
