@@ -1,10 +1,6 @@
 import React from 'react';
 import ListingIndexItem from './listing_index_item';
 import GoogleMapContainer from '../map/map_container';
-import {Link} from 'react-router-dom';
-import axios from 'axios';
-
-
 
 class ListingIndex extends React.Component{
   constructor(props){
@@ -52,7 +48,7 @@ class ListingIndex extends React.Component{
     });
   }
 
-  
+
   geocodeRequest(address){
     return fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U`,
@@ -81,7 +77,7 @@ class ListingIndex extends React.Component{
       'marginRight': 'auto',
       'zIndex': '0',
     };
-    
+
 
     return(
       <>
@@ -95,9 +91,9 @@ class ListingIndex extends React.Component{
             {/* {listingsArray.map(listing => {
               return <ListingIndexItem listing={listing} key={listing.id} />
             })} */}
-            <ListingIndexItem listing={this.state.listing} /> 
+            <ListingIndexItem listing={this.state.listing} />
           </div>
-        
+
     </>
     )
   }

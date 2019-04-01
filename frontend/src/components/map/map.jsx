@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
+import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
+// import { InfoWindow } from 'google-maps-react';
 import frontendKeys from '../../config/frontend_keys';
 
 class GoogleMap extends Component {
@@ -34,13 +35,13 @@ class GoogleMap extends Component {
       scrollContainer = scrollContainer.parentNode;
       if (!scrollContainer) return;
       scrollContainer.scrollTop += 1;
-    } while (scrollContainer.scrollTop == 0);
+    } while (scrollContainer.scrollTop === 0);
 
     var targetY = 0;
     do { //find the top of target relatively to the container
-      if (target == scrollContainer) break;
+      if (target === scrollContainer) break;
       targetY += target.offsetTop;
-    } while (target = target.offsetParent);
+    } while (target === target.offsetParent);
 
     const scroll = (c, a, b, i) => {
       i++; if (i > 30) return;
@@ -82,7 +83,7 @@ class GoogleMap extends Component {
     const markers = this.props.listings.map((listing) => {
       return (
         <Marker
-          key={listing.id}
+          key={listing._id}
           onClick={this.onMarkerClick}
           title={listing.street}
           position={{lat: listing.lat, lng: listing.lng}}
@@ -92,26 +93,26 @@ class GoogleMap extends Component {
       );
     });
 
-    const infoWindows = this.props.listings.map((listing) => {
-      return (
-        <InfoWindow
-          key={listing.id}
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
-        >
-          <p>
-            {listing.street}<br />
-            {listing.city}, {listing.state} {listing.zip}
-          </p>
-        </InfoWindow>
-      );
-    });
+    // const infoWindows = this.props.listings.map((listing) => {
+    //   return (
+    //     <InfoWindow
+    //       key={listing.id}
+    //       marker={this.state.activeMarker}
+    //       visible={this.state.showingInfoWindow}
+    //     >
+    //       <p>
+    //         {listing.street}<br />
+    //         {listing.city}, {listing.state} {listing.zip}
+    //       </p>
+    //     </InfoWindow>
+    //   );
+    // });
 
-    const zipped = [];
-    markers.forEach((m, i) => {
-      zipped.push(m);
-      zipped.push(infoWindows[i]);
-    });
+    // const zipped = [];
+    // markers.forEach((m, i) => {
+    //   zipped.push(m);
+    //   zipped.push(infoWindows[i]);
+    // });
 
     const currentStyle = this.props.style ? this.props.style : defaultStyle;
     return (
@@ -126,7 +127,7 @@ class GoogleMap extends Component {
           initialCenter={{lat: 37.7599043, lng: -122.4256016}}
           >
           { markers }
-          { infoWindows }
+          {/* { infoWindows } */}
         </Map>
       </div>
     );

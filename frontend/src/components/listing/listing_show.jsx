@@ -1,5 +1,5 @@
 import React from 'react';
-import GoogleMapContainer from '../map/map';
+// import GoogleMapContainer from '../map/map';
 import BookingFormContainer from '../bookings/booking_form_container';
 import "react-dates/initialize";
 
@@ -12,18 +12,18 @@ class ListingShow extends React.Component{
     if(this.props.listing === undefined){
       return null;
     }
-    const listingMapStyle = {
-      width: '40%',
-      height: '60%',
-      'marginLeft': 'auto',
-      'marginRight': '6%',
-      'zIndex': '0',
-    };
+    // const listingMapStyle = {
+    //   width: '40%',
+    //   height: '60%',
+    //   'marginLeft': 'auto',
+    //   'marginRight': '6%',
+    //   'zIndex': '0',
+    // };
     return(
       <div className="listing-show">
           {/* <GoogleMapContainer listings={[this.props.listing]} style={listingMapStyle} /> */}
           <div className='show-image-container'>
-            <img className='parking-images' src={this.props.listing.photo} />
+            <img alt="" className='parking-images' src={this.props.listing.photo} />
           </div>
           <div className='show-info'>
             <div className='show-listing-flex'>
@@ -37,12 +37,12 @@ class ListingShow extends React.Component{
                 <div>
                 </div>
               </div>
-            </div>        
+            </div>
           </div>
           <div className='booking-form-container'>
             <BookingFormContainer listing={this.props.listing}/>
           </div>
-          
+
       </div>
     );
   };

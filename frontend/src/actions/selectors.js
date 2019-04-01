@@ -1,6 +1,3 @@
-//THIS NEEDS TO BE IMPORTED TO LISTING INDEX CONTAINER AND MAP STATE TO PROPS pass in state
-import axios from 'axios';
-
 export const filterBookings = (state, id, type) => {
   let bookings = state.entities.bookings;
   let bookingsArray = Object.values(bookings);
@@ -8,7 +5,3 @@ export const filterBookings = (state, id, type) => {
   const result = bookingsArray.filter((booking) => booking[type].id === id);
   return result;
 };
-
-
-// export default filterListings;
-
