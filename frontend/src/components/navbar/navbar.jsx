@@ -4,7 +4,7 @@ import SearchContainer from './search_container'
 
 class Navbar extends React.Component{
     constructor(props){
-        super(props)
+        super(props);
 
         this.handleEvent = this.handleEvent.bind(this);
         this.logout = this.logout.bind(this);
