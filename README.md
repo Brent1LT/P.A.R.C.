@@ -59,7 +59,8 @@ The beta version took 6 days from start to finish.
       </div>
     );
   };
-}; ```
+};
+```
 
 ## Project Design
 Our goal in creating PARC was to create a quick, stable MERN stack build that utilized an external API--google maps. We gave ourselves 6 days to learn and utilize the stack.
