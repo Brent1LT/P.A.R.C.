@@ -20,7 +20,7 @@ class ListingForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.geocodeRequest = this.geocodeRequest.bind(this);
-  };
+  }
 
 
 geocodeRequest(address) {
@@ -61,8 +61,6 @@ handleSubmit(e) {
                 lat: response.lat,
                 lng: response.lng
             }, () => {
-                // let createdListing = Object.assign({}, this.state);
-                // this.props.createListing(createdListing);
                 const formData = new FormData();
                 formData.append('street', this.state.street);
                 formData.append('state', this.state.state);
@@ -74,17 +72,15 @@ handleSubmit(e) {
                 formData.append('price', this.state.price);
                 formData.append('image', this.state.image);
 
-                this.props.createPhotoListing(formData);
+                this.props.createPhotoListing(formData)
+                  .then(payload => {
+                    let listing = payload.listing;
+                    this.props.history.push(`/listings/${listing._id}`);
+                  });
             });
         }
     });
 }
-
-// photoPreview(){
-//   return (
-//     <img className='photo-preview' src={this.state.imageUrl}/>
-//   )
-// }
 
 handleFile(e){
     const fileReader = new FileReader();
@@ -147,9 +143,11 @@ handleFile(e){
           <div>
             <input id='text-box' type="file" onChange={this.handleFile.bind(this)} />
           </div>
+          <div>
+            <img className='photo-preview' src={this.state.imageUrl} />
+          </div>
           <input className='photo-submit-button' type="submit"/>
         </form>
-        <img alt="" className='photo-preview' src={this.state.imageUrl} />
       </div>
     );
   };

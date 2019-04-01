@@ -8,10 +8,9 @@ import {
 const listingReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState;
-
     switch(action.type){
         case RECEIVE_LISTING:
-            return Object.assign({}, state, {[action.listing._id]: action.listing})
+            return Object.assign({}, state, {[action.listing._id]: action.listing});
         case RECEIVE_ALL_LISTINGS:
             let obj = {};
             action.listings.map(listing => {
@@ -25,6 +24,6 @@ const listingReducer = (state = {}, action) => {
         default:
             return state;
     }
-}
+};
 
 export default listingReducer;

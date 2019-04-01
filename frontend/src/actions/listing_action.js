@@ -44,6 +44,10 @@ export const clearListingErrors = () => {
 
 //thunk action creators
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> deployment
 export const createPhotoListing = listing => dispatch => {
   return ListingApiUtil.createPhotoListing(listing).then(listing => {
     return dispatch(receiveListing(listing));
