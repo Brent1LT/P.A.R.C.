@@ -44,14 +44,6 @@ export const clearListingErrors = () => {
 
 //thunk action creators
 
-// export const createListing = listing => dispatch => {
-//   //listing above             ^      is the listing the user creates
-//   return (ListingApiUtil.createListing(listing).then(
-//     listing => {
-//       // same listing just sending to backend
-//       dispatch(receiveListing(listing))
-//   }));
-// };
 
 export const createPhotoListing = listing => dispatch => {
   return ListingApiUtil.createPhotoListing(listing).then(listing => {
