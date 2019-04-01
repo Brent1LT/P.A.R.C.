@@ -92,26 +92,26 @@ class GoogleMap extends Component {
       );
     });
 
-    const infoWindows = this.props.listings.map((listing) => {
-      return (
-        <InfoWindow
-          key={listing.id}
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
-        >
-          <p>
-            {listing.street}<br />
-            {listing.city}, {listing.state} {listing.zip}
-          </p>
-        </InfoWindow>
-      );
-    });
+    // const infoWindows = this.props.listings.map((listing) => {
+    //   return (
+    //     <InfoWindow
+    //       key={listing.id}
+    //       marker={this.state.activeMarker}
+    //       visible={this.state.showingInfoWindow}
+    //     >
+    //       <p>
+    //         {listing.street}<br />
+    //         {listing.city}, {listing.state} {listing.zip}
+    //       </p>
+    //     </InfoWindow>
+    //   );
+    // });
 
-    const zipped = [];
-    markers.forEach((m, i) => {
-      zipped.push(m);
-      zipped.push(infoWindows[i]);
-    });
+    // const zipped = [];
+    // markers.forEach((m, i) => {
+    //   zipped.push(m);
+    //   zipped.push(infoWindows[i]);
+    // });
 
     const currentStyle = this.props.style ? this.props.style : defaultStyle;
     return (
@@ -126,7 +126,7 @@ class GoogleMap extends Component {
           initialCenter={{lat: 37.7599043, lng: -122.4256016}}
           >
           { markers }
-          { infoWindows }
+          {/* { infoWindows } */}
         </Map>
       </div>
     );

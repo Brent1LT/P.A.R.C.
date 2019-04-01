@@ -73,7 +73,6 @@ router.post("/image-upload",
 );
 ```
 
-
 ## AirBNB Calendar API Integration
 
 Integrated AirBNB's calendar API. Able to block out previously booked dates and highlight the range of dates currently looking at for booking.
@@ -126,7 +125,6 @@ Integrated AirBNB's calendar API. Able to block out previously booked dates and 
   };
 };
 ```
-
 
 ## Project Design
 Our goal in creating PARC was to create a quick, stable MERN stack build that utilized an external API--google maps. We gave ourselves 6 days to learn and utilize the stack.
