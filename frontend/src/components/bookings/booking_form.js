@@ -27,6 +27,10 @@ class BookingForm extends Component {
     this.props.fetchAllListingBookings(this.props.listing); //listing.id
   }
 
+  componentDidUpdate() {
+    this.props.fetchAllListingBookings(this.props.listing); //listing.id
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const booking = {
