@@ -25,6 +25,8 @@ class GoogleMap extends Component {
     if(this.props.changeListing){
       this.props.changeListing(props.id);
       this.smoothScroll(document.getElementById('goHere'));
+    }else{
+      this.props.changeUrl(props.id);
     }
 
   }

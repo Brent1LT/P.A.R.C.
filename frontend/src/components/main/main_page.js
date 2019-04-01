@@ -6,6 +6,10 @@ class MainPage extends React.Component {
     this.props.fetchListings();
   }
 
+  changeUrl(id){
+    this.props.history.push(`/listings/${id}`);
+  }
+
   render() {
     if (this.props.listings === undefined) {
       return null;
@@ -14,7 +18,7 @@ class MainPage extends React.Component {
 
   return (
       <div className='map-and-info'>
-        <GoogleMapContainer listings={this.props.listings} />
+        <GoogleMapContainer changeUrl={this.changeUrl.bind(this)} listings={this.props.listings} />
         <br/>
         <div className='our-description'>
           <h2 className='home-title'>What is P.A.R.C.</h2>
