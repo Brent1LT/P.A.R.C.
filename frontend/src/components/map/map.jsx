@@ -28,7 +28,6 @@ class GoogleMap extends Component {
     }else{
       this.props.changeUrl(props.id);
     }
-
   }
 
   smoothScroll(target) {
