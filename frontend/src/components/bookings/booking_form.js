@@ -27,6 +27,10 @@ class BookingForm extends Component {
     this.props.fetchAllListingBookings(this.props.listing); //listing.id
   }
 
+  componentDidUpdate() {
+    this.props.fetchAllListingBookings(this.props.listing); //listing.id
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const booking = {
@@ -91,7 +95,7 @@ class BookingForm extends Component {
     Object.keys(this.props.bookings).map(booking => (
       BAD_DATES.push(moment.range(
         moment(this.props.bookings[booking].startDate, 'YYYY-MM-DD'),
-        moment(this.props.bookings[booking].endDate, 'YYYY-MM-DD').add(1, 'day')
+        moment(this.props.bookings[booking].endDate, 'YYYY-MM-DD')
       ))
     ));
 
