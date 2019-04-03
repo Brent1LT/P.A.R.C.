@@ -25,6 +25,7 @@ class Navbar extends React.Component{
             return (
                 <div className='login-signup'>
                     <Link to='/listings' className='signin-stuff'><p>Parkings</p></Link> 
+                    <div className='vertical-divider'>|</div>
                     <a className='signin-stuff'
                         href=''
                         onClick={e => {
@@ -32,6 +33,7 @@ class Navbar extends React.Component{
                             this.props.openModal("signup")
                         }}><p>Sign up</p>
                     </a>
+                    <div className='vertical-divider'>|</div>
                     <a className='signin-stuff'
                         href=''
                         onClick={e => {
@@ -47,9 +49,11 @@ class Navbar extends React.Component{
                 <Link to="/listings" className="signin-stuff">
                   <p>Parkings</p>
                 </Link>
+                <div className='vertical-divider'>|</div>
                 <Link to="/listings/new" className="signin-stuff">
                   <p>Create a Listing</p>
                 </Link>
+                <div className='vertical-divider'>|</div>
                 <a
                   className="signin-stuff"
                   href=''
@@ -67,16 +71,14 @@ class Navbar extends React.Component{
             <>
                 <header className='main-navbar'>
                     <div>
-                        {/* just having it so if someone clicks logo it redirects */}
-                        <div className='search-bar'>
-                            <img src="" alt=""/>
-                            <Link to='/'><h1 id='main-logo' className='main-logo'>P.A.R.C.</h1></Link>
+                        <div className='logo-bar'>
+                            <Link to='/'><h1 id='main-logo' className='main-logo'></h1></Link>
                         </div>
                     </div>
                     <div >
-                        <header>
+                        <div>
                             {this.loggedInCheck()}
-                        </header>
+                        </div>
                     </div >
                 </header >
                 {/* the above gray bar is just a divider */}
