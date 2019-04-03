@@ -23,13 +23,15 @@ class BookingIndex extends Component {
       <div className="booking-index">
         {bookingsArray.map((booking) => {
           return (
+            <div key={booking._id}>
+
             <BookingIndexItem
               listing={this.props.listings[booking.listing]}
               booking={booking}
-              key={booking.id}
               deleteBooking={this.props.deleteBooking}
               history={this.props.history}
             />
+            </div>
           )
         })}
       </div>

@@ -19,17 +19,6 @@ class ListingIndex extends React.Component{
       this.results = [];
     }
   }
-  // constructor(props){
-  //   super(props);
-  //   this.geocodeRequest.bind(this);
-  //   this.filterListings.bind(this);
-
-  //   this.state = {
-  //     listing: null
-  //   };
-  //   this.changeListing = this.changeListing.bind(this);
-  // }
-
 
   changeListing(id) {
     let newListing = this.props.listings[id];
@@ -41,8 +30,6 @@ class ListingIndex extends React.Component{
       this.setState({ listing: action.listings[0] });
     });
   }
-
-
 
   filterListings() {
     this.geocodeRequest(this.props.search).then(response => {
@@ -102,7 +89,6 @@ class ListingIndex extends React.Component{
             })} */}
             <ListingIndexItem listing={this.state.listing} />
           </div>
-
     </>
     )
   }

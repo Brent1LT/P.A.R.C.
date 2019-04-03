@@ -84,7 +84,7 @@ class SessionForm extends React.Component {
 
     changeModal() {
         if (this.props.formType === 'Sign up') {
-            return (<Link to="/login" onClick={(e) => this.props.otherForm('signup')}>Log in</Link>)
+            return (<Link to="/" onClick={(e) => this.props.otherForm('signup')}>Log in</Link>)
         } else {
             return (<Link to="/signup" onClick={(e) => this.props.otherForm('login')}>Sign up</Link>)
         }
