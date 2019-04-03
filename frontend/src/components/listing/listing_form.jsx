@@ -28,24 +28,11 @@ geocodeRequest(address) {
         `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U`,
         {
             method: "post",
-            // body: JSON.stringify({
-            //   params: {
-            //     address: address,
-            //     key: "AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U"
-            //   }
-            // })
         }
     )
         .then(res => res.json())
         .then(response => {
-            //response is the object the api returns
-            //refer to this if you need help
-            //https://developers.google.com/maps/documentation/geocoding/intro
-            // console.log(response.data.results[0].geometry.location)
             return response.results[0].geometry.location;
-            // return coordinates;
-            //this is where we get an object with the results inside
-            //response.data.results[0].
         });
 }
 
@@ -118,36 +105,36 @@ handleFile(e){
 
   render(){
     return(
-      <div className='entire-listing-form'>
-      <h1 className='main-title-new'>Make your very own listing! </h1>
-      <div className='main-title-new'>You're one step away from earning yourself some extra cash! Please fill
-          out the form below so we can get you settled in and ready to see the cash
-          come in to your pockets. We hope that you spread the word and bring your
-          friends and family as new users so they can start earning as well.
-      </div>
-        <form className='listing-form' onSubmit={(e) => this.handleSubmit(e)}>
-          <h3 className='listing-form-title'>Address</h3>
-          <div className='attribute-titles'>Street: </div>
-          <input id='text-box' type="text" value={this.state.street} placeholder='123 street...' onChange={this.update('street')}/>
-          <div className='attribute-titles'>City: </div>
-          <input id='text-box' type="text" value={this.state.city} placeholder='San Francisco' onChange={this.update('city')} />
-          <div className='attribute-titles'>State: </div>
-          <input id='text-box' type="text" value={this.state.state} placeholder='CA' onChange={this.update('state')} />
-          <div className='attribute-titles'>Zip: </div>
-          <input id='text-box' type="text" value={this.state.zip} placeholder='12345' onChange={this.update('zip')} />
-          <div className='attribute-titles'>Description: </div>
-          <input id='text-box' type="text" value={this.state.description} placeholder='P.a.r.c is amazing' onChange={this.update('description')}/>
-          <div className='attribute-titles'>Price: </div>
-          <input id='text-box' type="text" value={this.state.price} />
-          <div className='attribute-titles'>Photo: </div>
-          <div>
-            <input id='text-box' type="file" onChange={this.handleFile.bind(this)} />
+      <div className='corner-design'>
+        <div className='background-gif'>
+          <div className='entire-listing-form'>
+            <h1 className='main-title-new'>Make your very own listing! </h1>
+            <h2 className='main-description-new'>You're one step away from earning yourself some extra cash! Please fill
+                out the form below so we can get you settled in!
+            </h2>
+            <form className='listing-form' onSubmit={(e) => this.handleSubmit(e)}>
+                <h3 className='listing-form-title'>Parking Location</h3>
+                <div className='flexing-text-box'>
+                  <input id='new-text-box' type="text" value={this.state.street} placeholder='Street...' onChange={this.update('street')}/>
+                  <input id='new-text-box' type="text" value={this.state.city} placeholder='City...' onChange={this.update('city')} />
+                </div>
+                <div className='flexing-text-box'>
+                  <input id='new-text-box' type="text" value={this.state.state} placeholder='State...' onChange={this.update('state')} />
+                  <input id='new-text-box' type="text" value={this.state.zip} placeholder='Zip Code...' onChange={this.update('zip')} />
+                </div>
+                <textarea id='new-description'  value={this.state.description} placeholder='Description...' onChange={this.update('description')}></textarea>
+
+                <div className='flexing-text-box'>
+                  <input id='new-text-box' type="text" value={this.state.price} />
+                  <div className='attribute-titles'>Photo: <input id='picture-upload' type="file" onChange={this.handleFile.bind(this)} /></div>
+                </div>
+                <div>
+                  <img className='photo-preview' src={this.state.imageUrl} />
+                </div>
+                <input className='new-submit' type="submit"/>
+            </form>
           </div>
-          <div>
-            <img className='photo-preview' src={this.state.imageUrl} />
-          </div>
-          <input className='photo-submit-button' type="submit"/>
-        </form>
+        </div>
       </div>
     );
   };

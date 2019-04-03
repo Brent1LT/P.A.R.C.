@@ -17,17 +17,15 @@ class BookingForm extends Component {
       focusedInput: null,
       errors: false
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.createBooking = this.createBooking.bind(this);
     this.errorDates = this.errorDates.bind(this);
     this.resetState = this.resetState.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchAllListingBookings(this.props.listing); //listing.id
-  }
-
-  componentDidUpdate() {
     this.props.fetchAllListingBookings(this.props.listing); //listing.id
   }
 
@@ -42,11 +40,9 @@ class BookingForm extends Component {
       offMarket: true,
       errors: false
     };
+    debugger;
 
     if (this.errorDates(booking)) {
-      this.setState({
-        errors: true
-      });
       this.resetState();
     } else {
       this.createBooking(booking);
@@ -54,24 +50,36 @@ class BookingForm extends Component {
   }
 
   errorDates(booking) {
-    let thing = false;
+    let doubleBooking = false
+    let book = this.props.bookings;
+
+    let newBookingStart = new Date(booking.startDate);
+    let newBookingEnd = new Date(booking.endDate);
     Object.keys(this.props.bookings).forEach((id) => {
-      if (booking.startDate <= this.props.bookings[id].endDate &&
-          booking.startDate >= this.props.bookings[id].startDate) {
-          thing =  true;
-        } else if (booking.endDate <= this.props.bookings[id].endDate &&
-                   booking.endDate >= this.props.bookings[id].startDate) {
-          thing =  true;
-        } else {
-          thing =  false;
-        }
+      let oldBookingStart = new Date(book[id].startDate);
+      let oldBookingEnd = new Date (book[id].endDate);
+
+      if (oldBookingStart >= newBookingStart &&
+          oldBookingStart <= newBookingEnd) {
+        doubleBooking = true;
+        return null;
+      } else if (oldBookingEnd >= newBookingStart &&
+                oldBookingEnd <= newBookingEnd) {
+        doubleBooking = true;
+        return null;
+      }
     });
-    return thing;
+    return doubleBooking;
   }
 
   createBooking(booking) {
     this.props.createBooking(booking)
-      .then(this.resetState);
+      .then(() => {
+        this.props.fetchAllListingBookings(this.props.listing); //listing.id
+      })
+      .then(() => {
+        this.props.history.push('/bookings');
+      });
   }
 
   resetState() {
@@ -82,7 +90,17 @@ class BookingForm extends Component {
       endDate: null,
       offMarket: false,
       focusedInput: null,
+      errors: true
     });
+  }
+
+  renderErrors() {
+    let errors = "Please choose a proper date";
+    if (!this.state.errors) errors = '';
+
+    return (
+      <div>{ errors }</div>
+    )
   }
 
   render() {
@@ -102,27 +120,28 @@ class BookingForm extends Component {
     const isBlocked = day => BAD_DATES.filter(d => d.contains(day, 'day')).length > 0;
 
     return (
-      <div className="booking-form" style={{width: 400 +'px', height: 400 +'px'}} >
+      <div className="booking-form" style={ {width: 400 +'px', height: 400 +'px'} } >
         <h2>Book This Spot</h2>
-        <form className='form-booking' onSubmit={this.handleSubmit}>
+        <form className='form-booking' onSubmit={ this.handleSubmit }>
           <DateRangePicker
-            required={true}
-            small={true}
-            startDate={this.state.startDate}
+            required={ false }
+            small={ true }
+            startDate={ this.state.startDate }
             startDateId="start-date-field"
             startDatePlaceholderText="Start Date"
-            endDate={this.state.endDate}
+            endDate={ this.state.endDate }
             endDateId="end-date-field"
             endDatePlaceholderText="End Date"
-            onDatesChange={({startDate, endDate}) => this.setState({ startDate, endDate })}
-            showClearDates={true}
-            isDayBlocked={isBlocked}
-            focusedInput={this.state.focusedInput}
-            onFocusChange={focusedInput => this.setState({ focusedInput })}
-            hideKeyboardShortcutsPanel={true}
+            onDatesChange={ ({ startDate, endDate }) => this.setState({ startDate, endDate }) }
+            showClearDates={ true }
+            isDayBlocked={ isBlocked }
+            focusedInput={ this.state.focusedInput }
+            onFocusChange={ focusedInput => this.setState({ focusedInput }) }
+            hideKeyboardShortcutsPanel={ true }
           />
           <button className="booking-button">Book Me!</button>
         </form>
+        <h2 className="booking-form-error" hidden={!this.state.errors}> { this.renderErrors() } </h2>
       </div>
     );
   };

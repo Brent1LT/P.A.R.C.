@@ -10,7 +10,6 @@ class BookingIndex extends Component {
     this.props.fetchListings().then( () =>
     this.props.fetchAllUserBookings(this.props.currentUser)
     );
-
   }
 
   render() {
@@ -20,17 +19,19 @@ class BookingIndex extends Component {
     }
 
     const bookingsArray = Object.values(this.props.bookings);
-
     return (
       <div className="booking-index">
         {bookingsArray.map((booking) => {
           return (
+            <div key={booking._id}>
+
             <BookingIndexItem
               listing={this.props.listings[booking.listing]}
               booking={booking}
-              key={booking.id}
               deleteBooking={this.props.deleteBooking}
+              history={this.props.history}
             />
+            </div>
           )
         })}
       </div>

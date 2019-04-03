@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import BookingIndex from './booking_index';
+import {withRouter} from 'react-router-dom'
 import {
   createBooking,
   fetchAllUserBookings,
@@ -25,6 +26,4 @@ const mapDispatchToProps = (dispatch) => {
   });
 };
 
-const BookingIndexContainer =
-  connect(mapStateToProps, mapDispatchToProps)(BookingIndex);
-export default BookingIndexContainer;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BookingIndex));
