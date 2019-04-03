@@ -361,50 +361,125 @@ input#text-box:focus{
 
 
 .main-title-new{
-    padding-top: 10px;
-    text-align: center;
-    color: black;
-    margin: 0 20%;
+    font-size: 36px;
+    margin: 10px 10px;
+    padding: 10px;
+    color: rgb(52, 114, 222);
+    padding-left: 0;
+    text-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+
+    font-weight: 800;
+}
+.main-description-new{
+    margin-left: 10px;
+    font-size: 16px;
+    font-style: italic;
+    color: rgb(123, 123, 123);
+}
+
+div.flexing-text-box{
+    display: flex;
+    margin: 5%;
+    margin-left: 0px;
+    margin-right: 10%;
+}
+#new-description{
+    width: 192%;
+    // height: 150px;
+    padding-bottom: 11%;
+    border-radius: 3%;
+    border: 2px solid lightgray;
 }
 
 .listing-form-title{
-    padding-left: 30px;
-    // color: white;
-    text-decoration: underline;
+    font-size: 20px;
+    width: 300px;
+    color: rgb(52, 114, 222);
+    font-weight: 800;
+    text-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+
 }
+
+// input#picture-upload:hover{
+//     cursor: pointer;
+//     padding: 10px;
+// }
+
 .listing-form{
-    text-align: center;
     width: 40%;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-    margin: 0px 30%;
     margin-top: 20px;
+    margin: 10px 10px;
     padding-bottom: 10px;
-    // background: #009900
 }
 .attribute-titles{
-    padding-left: 30px;
-    // color: white;
-    text-decoration: underline;
     padding-bottom: 5px;
+    font-size: 12px;
+    margin-right: 25px;
+    margin-left: -10px;
+    color: rgb(52, 114, 222);
 }
 
 input.photo-submit-button{
-    margin-left: 30px;
-    // padding: 20px;
-    font-size: 20px;
+    padding-top: 5px;
+    font-size: 18px;
+    width: 200px;
 }
 
+div input#picture-upload{
+    width: 160px;
+}
+div input#picture-upload:hover{
+    cursor: pointer;
+}
+
+input#new-text-box{
+    margin-right: 13%;
+    padding: 4.5%;
+    padding-left: 2%;
+    padding-right: 11%;
+}
 
 .entire-listing-form{
     padding: 10px;
-    // color: white;
+    margin-left: 20%;
+    margin-top: 5%;
+    width: 400px;
+    height: 600px;
+}
+.background-gif{
+    background-image: url(./newlistingBackground.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    // z-index: -1;
+    width: 100%;
+}
+
+.corner-design{
+    background-image: url(./circles.jpg);
+    margin-left: 5%;
+
 }
 
 .photo-preview{
     max-height: 350px;
     max-width: 350px;
-    margin-bottom: 20px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+input.new-submit{
+    width: 90%;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: -10px;
+    background-color: rgb(52, 114, 222);
+}
+
+input.new-submit:hover{
+    cursor: pointer;
+    opacity: .7;
 }
 
 #root{
@@ -449,7 +524,7 @@ input.photo-submit-button{
     h2{
         text-align: center;
         margin-bottom: 10px;
-        color: rgb(9, 65, 218);
+        color: rgb(52, 114, 222);
     }
     .show-listing-flex{
         display: flex;
@@ -484,7 +559,7 @@ input.photo-submit-button{
     color: white;
     
     h2{
-        color: rgb(9, 65, 218);
+        color: rgb(52, 114, 222);
     }
     .booking-button{
         margin-left: 5px;
