@@ -68,7 +68,7 @@ class Navbar extends React.Component{
                 <header className='main-navbar'>
                     <div>
                         {/* just having it so if someone clicks logo it redirects */}
-                        <div className='search-bar'>
+                        <div >
                             <img src="" alt=""/>
                             <Link to='/'><h1 id='main-logo' className='main-logo'>P.A.R.C.</h1></Link>
                         </div>

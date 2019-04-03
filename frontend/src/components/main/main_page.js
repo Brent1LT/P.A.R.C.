@@ -22,6 +22,7 @@ class MainPage extends React.Component {
         <div className='search-container'>
           <div className='search-margin'>
             <h2 className='search-title'>Parking At Residential Communities</h2>
+            <h4>Find a perfect spot near you!</h4>
             <div className='search-bar'>
               <SearchContainer />
             </div>

@@ -149,7 +149,7 @@ footer{
 }
 
 .search-container{
-    height: 60vh;
+    height: 100%;
     width: 100%;
     background: url('../assets/architecture-bungalow-daylight-1396122.jpg');
     background-repeat: no-repeat;
@@ -158,30 +158,47 @@ footer{
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.search-margin{
-    width: 50%;
-    margin: auto;
-}
-
-.search-title{
-    color: white;
     font-size: 72px;
     font-weight: 800;
     width: 100%;
     text-align: center;
+    color: white;
+
+    h4{
+        font-size: 24px;
+        color: white;
+        font-family: Georgia,Times,Times New Roman,serif;
+        letter-spacing: 1.5px;
+
+    }
+}
+
+.search-margin{
+    width: 60%;
+    margin: auto;
+
+}
+
+.search-title{
+    margin-top: 5%;
+    margin-bottom: 20px;
+    text-shadow: -1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
 
 .search-bar{
-    margin-top: 20px;
+
+    margin-bottom: 80px;
 }
+
 .main-search-bar{
     box-sizing: border-box;
     padding-left: 10px;
     padding-bottom: 10px;
     padding-top: 10px;
-    width: 100%;
+    width: 60%;
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
     font-size: 16px;
 }
