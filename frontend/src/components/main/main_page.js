@@ -28,6 +28,18 @@ class MainPage extends React.Component {
             </div>
           </div>
         </div>
+
+        <div className='what-is'>
+          <h3 className='section-title'>What is P.A.R.C?</h3>
+          <div className='discover-container'>
+            <div className='discover-parking'></div>
+            <div className='discover-text'>
+              <p>Parc is an app where anyone with a private
+        parking spot or driveway can list it so some other
+        driver could park their car there for a low flat rate.</p>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
