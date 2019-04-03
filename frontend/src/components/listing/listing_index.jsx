@@ -3,16 +3,32 @@ import ListingIndexItem from './listing_index_item';
 import GoogleMapContainer from '../map/map_container';
 
 class ListingIndex extends React.Component{
-  constructor(props){
+  constructor(props) {
     super(props);
     this.geocodeRequest.bind(this);
     this.filterListings.bind(this);
-
+    this.coordinates = { lat: 0, lng: 0 }
+    this.center = { lat: 37.7599043, lng: -122.4256016 };
     this.state = {
-      listing: null
+      listing: null,
+      search: null,
     };
     this.changeListing = this.changeListing.bind(this);
+    if (this.props.search) {
+      this.results = this.filterListings();
+      this.results = [];
+    }
   }
+  // constructor(props){
+  //   super(props);
+  //   this.geocodeRequest.bind(this);
+  //   this.filterListings.bind(this);
+
+  //   this.state = {
+  //     listing: null
+  //   };
+  //   this.changeListing = this.changeListing.bind(this);
+  // }
 
 
   changeListing(id) {
@@ -28,28 +44,18 @@ class ListingIndex extends React.Component{
 
 
 
-  filterListings(state){
-    let result = [];
-    let listings = state.entities.listings;
-    let search = state.ui.search;
-    let listingsArray = Object.values(listings);
-    let coordinates = { lat: 0, lng: 0 }
-    this.geocodeRequest(search).then(response => {
-      coordinates.lat = response.lat;
-      coordinates.lng = response.lng;
-      listingsArray.map(listing => {
-        if ((listing.lat <= coordinates.lat + .0055 && listing.lat >= coordinates.lat - .0055) &&
-          (listing.lng <= coordinates.lng + .0083 && listing.lng >= coordinates.lng - .0083)) {
-          result.push(listing);
-        }
-      });
-      console.log(result);
-      return result;
+  filterListings() {
+    this.geocodeRequest(this.props.search).then(response => {
+      this.coordinates.lat = response.lat;
+      this.coordinates.lng = response.lng;
+      this.center.lat = response.lat;
+      this.center.lng = response.lng;
+    }).catch(err => {
+      this.setState({ error: err })
     });
   }
 
-
-  geocodeRequest(address){
+  geocodeRequest(address) {
     return fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U`,
       {
@@ -58,8 +64,11 @@ class ListingIndex extends React.Component{
     ).then(res => res.json())
       .then(response => {
         return response.results[0].geometry.location;
-      });
-  }
+      }).catch(err => {
+        this.setState({ error: err })
+      })
+  };
+
 
   render(){
     if (Object.keys(this.props.listings).length === 0) {
