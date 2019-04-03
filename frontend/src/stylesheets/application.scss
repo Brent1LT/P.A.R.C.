@@ -17,6 +17,53 @@
 // @import "base/fonts.scss";
 // @import "base/reset.scss";
 
+//////////////-CSS Reset-//////////////// 
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+//////////////////////////////////////////////
+
 // base styles
 $font-stack: Verdana, sans-serif;
 
@@ -39,23 +86,6 @@ h1#main-logo{
 
 //search bar and navbar
 // @@@@@@@@@@@@@@@@@@@@@@search bar and navbar@@@@@@@@@@@@@@@@@@@@@@@@
-.search-bar{
-    display: flex;
-    align-items: center;
-}
-
-.main-search-bar{
-    padding-left: 20px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    width: 300px;
-    margin-left: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 2px 6px rgba(26, 26, 29, 0.08);
-    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-    font-size: 16px;
-
-}
-
 .main-navbar{
     display: flex;
     justify-content: space-between;
@@ -113,58 +143,49 @@ footer{
 
 //@@@@@@@@@@@@@@@@@@@@@ MAIN PAGE @@@@@@@@@@@@@@@@@@@@@@@@@@
 
-.home-title{
-    font-size: 40px;
-    text-align: center;
-    color: #009900;
-    border: 1px solid #009900;
-    width: 65vw;
-    padding: 20px 0px;
-    border-radius: 5px;
-    background: whitesmoke;
-    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+// font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+.main-page{
+
 }
 
-.mini-titles{
-    font-size: 25px;
-    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-}
-
-.map-and-info{
+.search-container{
+    height: 60vh;
     width: 100%;
-	height: 100%;
-    // margin-left: 17%;
-}
-
-.our-description{
-    margin-left: 17.4%;
-    margin-right: 200px;
-    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-    padding-top: 440px;
-}
-
-.main-description{
+    background: url('../assets/architecture-bungalow-daylight-1396122.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 80%;
     display: flex;
-    width: 65vw;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.description-content{
-	width: 58.5vh;
-    font-size: 22px;
-    justify-content: center;
-    border: 1px solid lightgreen;
-    padding: 20px;
-    background: #009900;
+.search-margin{
+    width: 50%;
+    margin: auto;
+}
+
+.search-title{
     color: white;
+    font-size: 72px;
+    font-weight: 800;
+    width: 100%;
+    text-align: center;
+}
+
+.search-bar{
     margin-top: 20px;
 }
+.main-search-bar{
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 100%;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    font-size: 16px;
+}
 
-.for-left{
-    // margin-left: 20px;
-}
-.for-right{
-    margin-right: 20px;
-}
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@--MODAL--@@@@@@@@@@@@@@@@@@@@@@@@@@@
 .modal-background {
@@ -362,7 +383,7 @@ input.photo-submit-button{
     // -webkit-background-size: cover;
     // -moz-background-size: cover;
     // -o-background-size: cover;
-    background-color: floralwhite;
+    // background-color: floralwhite;
     background-size: cover;
     z-index: -1;
 }
