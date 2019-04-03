@@ -104,7 +104,7 @@ class SessionForm extends React.Component {
         if (this.props.formType === 'Sign up') {
             message = "Already have an account? ";
         } else {
-            message = "Dont have an account? "
+            message = "Dont have an account yet? "
         }
 
         return (
@@ -123,8 +123,8 @@ class SessionForm extends React.Component {
                         </div>
                         <div className='change-forms'>
                             {message}
-                            {this.props.otherForm}
                         </div>
+                        {this.props.otherForm}
                         {/* {this.renderErrors()} */}
                     </div>
                 </form>
