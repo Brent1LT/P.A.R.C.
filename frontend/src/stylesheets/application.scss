@@ -86,12 +86,6 @@ h1#main-logo{
 
 //search bar and navbar
 // @@@@@@@@@@@@@@@@@@@@@@search bar and navbar@@@@@@@@@@@@@@@@@@@@@@@@
-.search-bar{
-    display: flex;
-    align-items: center;
-}
-
-
 .main-navbar{
     display: flex;
     justify-content: space-between;
@@ -160,23 +154,34 @@ footer{
     background: url('../assets/architecture-bungalow-daylight-1396122.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position-y: 50%;
+    background-position-y: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+.search-margin{
+    width: 50%;
+    margin: auto;
+}
+
 .search-title{
     color: white;
-    font-size: 32px;
-    
+    font-size: 72px;
+    font-weight: 800;
+    width: 100%;
+    text-align: center;
+}
+
+.search-bar{
+    margin-top: 20px;
 }
 .main-search-bar{
-    padding-left: 20px;
+    box-sizing: border-box;
+    padding-left: 10px;
     padding-bottom: 10px;
     padding-top: 10px;
-    width: 40%;
-    margin-left: 20px;
+    width: 100%;
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
     font-size: 16px;
 }

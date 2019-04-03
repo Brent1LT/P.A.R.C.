@@ -20,9 +20,11 @@ class MainPage extends React.Component {
   return (
       <div className='main-page'>
         <div className='search-container'>
-          <h2 className='search-title'>Parking At Residential Communities</h2>
-          <div className='search-bar'>
-            <SearchContainer />
+          <div className='search-margin'>
+            <h2 className='search-title'>Parking At Residential Communities</h2>
+            <div className='search-bar'>
+              <SearchContainer />
+            </div>
           </div>
         </div>
       </div>
