@@ -83,7 +83,6 @@ class Navbar extends React.Component{
                         </header>
                     </div >
                 </header >
-                <div className='gray-bar'></div>
                 {/* the above gray bar is just a divider */}
             </>
         )

@@ -17,6 +17,53 @@
 // @import "base/fonts.scss";
 // @import "base/reset.scss";
 
+//////////////-CSS Reset-//////////////// 
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+//////////////////////////////////////////////
+
 // base styles
 $font-stack: Verdana, sans-serif;
 
@@ -39,12 +86,6 @@ h1#main-logo{
 
 //search bar and navbar
 // @@@@@@@@@@@@@@@@@@@@@@search bar and navbar@@@@@@@@@@@@@@@@@@@@@@@@
-.search-bar{
-    display: flex;
-    align-items: center;
-}
-
-
 .main-navbar{
     display: flex;
     justify-content: space-between;
@@ -108,23 +149,45 @@ footer{
 }
 
 .search-container{
-    height: 30%;
+    height: 60vh;
     width: 100%;
-    background: url('../assets/parc-main-page.jpg');
+    background: url('../assets/architecture-bungalow-daylight-1396122.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.search-margin{
+    width: 50%;
+    margin: auto;
+}
+
+.search-title{
+    color: white;
+    font-size: 72px;
+    font-weight: 800;
+    width: 100%;
+    text-align: center;
+}
+
+.search-bar{
+    margin-top: 20px;
 }
 .main-search-bar{
-    padding-left: 20px;
+    box-sizing: border-box;
+    padding-left: 10px;
     padding-bottom: 10px;
     padding-top: 10px;
-    width: 40%;
-    margin-left: 20px;
+    width: 100%;
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
     font-size: 16px;
 }
 
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@--MODAL--@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
 .modal-background {
   position: fixed;
   top: 0;
@@ -135,10 +198,8 @@ footer{
   z-index: 10;
 }
 
-
 .modal-child {
   display: block;
-//   border: 2px, solid red;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -152,57 +213,107 @@ footer{
 .log-form{
     width: 300px;
     margin-top: 15px;
-
 }
 
 .signup-continue{
     margin-left: 30px;
     margin-top: 0px;
+    color: rgb(52, 114, 222);
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
 }
 
 .close-modal-x{
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
     border-radius: 50%;
-    border: 1px solid white;
+    border: 1px solid rgb(52, 114, 222);
+    margin-left: -20px;
+    margin-top: -5px;
+    padding: 12px;
+    padding-top: 0px;
+    padding-left: 6px;
+    padding-right: 6px;
     text-align: center;
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
+    background: rgb(52, 114, 222);
+    color: white;
+}
+.close-modal-x:hover{
+    cursor: pointer;
+}
+
+.switch-form{
+    background-color: rgb(52, 114, 222);
+    font-size: 16px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 3px;
+    color: white;
+    margin-left: 118px;
+}
+
+.switch-form:hover{
+    opacity: .7;
+    cursor: pointer;
 }
 
 .login-form-container{
-    border: 2px solid #009900;
+    border: 1px solid black;
     background: white;
+    border-radius: 6%;
+    padding: 20px;
+    padding-left: 35px;
 
 }
 
 input#text-box {
     width: 200px;
-    height: 24px;
+    height: 18px;
     border-radius: 3px;
     align-self: center;
     border: 1px solid lightgray;
     font-size: 16px;
     font-weight: 100;
-    padding: 10px;
+    padding: 15px;
     margin-bottom: 10px;
     margin-left: 30px;
+}
+
+input#text-box:focus{
+    border-color: rgb(52, 114, 222);
 }
 
 #session-submit {
-    width: 224px;
+    width: 233px;
     margin-left: 30px;
-    padding: 10px 0px;
+    padding: 15px;
     margin-bottom: 10px;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: rgb(52, 114, 222);
+}
+
+.change-buttons{
+    background-color: rgb(52, 114, 222);
 }
 
 .demo-button{
-    width: 224px;
+    width: 233px;
     margin-left: 30px;
-    padding: 10px 0px;
+    padding: 15px;
     margin-bottom: 10px;
+    font-size: 14px;
+    color: white;
+    border-radius: 5px;
+    background-color: rgb(52, 114, 222);
 }
 
+.demo-button:hover{
+    cursor: pointer;
+    opacity: .7;
+}
 #session-submit:hover{
     cursor: pointer;
     opacity: .7;
@@ -210,9 +321,12 @@ input#text-box {
 
 .change-forms{
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-    margin-left: 26px;
-    margin-bottom: 20px
+    margin-left: 30px;
+    margin-top: 10px;
+    font-size: 20px;
+    margin-bottom: 5px;
 }
+
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@--new-listing--@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
