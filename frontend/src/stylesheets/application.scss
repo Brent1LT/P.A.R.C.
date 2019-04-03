@@ -210,31 +210,53 @@ footer{
     margin-bottom: 40px;
 }
 
-.discover-container{
-    display: grid;
-    // justify-content: space-around;
-    grid-template-columns: 50% 30%;
-    grid-template-rows: 50vh;
+.center-col{
+    width: 50%;
+    margin: auto;
 }
 
-.discover-parking{
-    margin-left: auto;
-    display: block;
-    background: url('../assets/discover-parking.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 480px;
-    justify-content: flex-end;
+.discover-container{
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
 }
+
+.discovery{
+    width: 60%;
+    height: 100%;
+    object-fit: cover;
+}
+
+// .discover-parking{
+//     margin-left: auto;
+//     display: flex;
+//     justify-content: flex-end;
+//     // background: url('../assets/discover-parking.jpg');
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     width: 10%;
+//     height: 10%;
+//     justify-content: flex-end;
+// }
 
 .discover-text{
     text-align: center;
     font-size: 32px;
-    padding-top: 10px;
+    padding-top: 5%;
     font-weight: 600;
     line-height: 1.5;
+    h3{
+        display: flex;
+        color: rgb(52, 114, 222);
+        // margin-bottom: 10px;
+    }
+    h4{
+        padding-left: 30px;
+        color: rgb(3, 50, 129);
+    }
     p{
-        margin-bottom: 10px;
+        padding-top: 15%;
+        font-size: 14px;
     }
 
 }

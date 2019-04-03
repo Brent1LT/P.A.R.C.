@@ -1,6 +1,7 @@
 import React from 'react';
 import GoogleMapContainer from '../map/map_container';
 import SearchContainer from '../navbar/search_container';
+import discover from '../../assets/discover-parking.jpg';
 
 class MainPage extends React.Component {
   componentDidMount() {
@@ -18,30 +19,38 @@ class MainPage extends React.Component {
     }
 
   return (
-      <div className='main-page'>
-        <div className='search-container'>
-          <div className='search-margin'>
-            <h2 className='search-title'>Parking At Residential Communities</h2>
-            <h4>Find a perfect spot near you!</h4>
-            <div className='search-bar'>
-              <SearchContainer />
-            </div>
+    <div className="main-page">
+      <div className="search-container">
+        <div className="search-margin">
+          <h2 className="search-title">Parking At Residential Communities</h2>
+          <h4>Find a perfect spot near you!</h4>
+          <div className="search-bar">
+            <SearchContainer />
           </div>
         </div>
+      </div>
 
-        <div className='what-is'>
-          <h3 className='section-title'>What is P.A.R.C?</h3>
-          <div className='discover-container'>
-            <div className='discover-parking'></div>
-            <div className='discover-text'>
-              <p>Parc is an app where anyone with a private
-        parking spot or driveway can list it so some other
-        driver could park their car there for a low flat rate.</p>
+      <div className="what-is">
+        <div className="center-col">
+          <h3 className="section-title">What is P.A.R.C?</h3>
+          <div className="discover-container">
+            {/* <div className='discover-parking'></div> */}
+            <img className="discovery" src={discover} />
+            <div className="discover-text">
+              <h3>Discover</h3>
+              <h4>Convenient</h4>
+              <h3>Spaces</h3>
+              <p>
+                Parc is an app where anyone with a private parking spot or
+                driveway can list it so some other driver could park their car
+                there for a low flat rate.
+              </p>
             </div>
           </div>
         </div>
       </div>
-    );
+    </div>
+  );
   }
 }
 
