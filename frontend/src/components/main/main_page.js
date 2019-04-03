@@ -1,5 +1,6 @@
 import React from 'react';
 import GoogleMapContainer from '../map/map_container';
+import SearchContainer from '../navbar/search_container';
 
 class MainPage extends React.Component {
   componentDidMount() {
@@ -17,34 +18,10 @@ class MainPage extends React.Component {
     }
 
   return (
-      <div className='map-and-info'>
-        <GoogleMapContainer changeUrl={this.changeUrl.bind(this)} listings={this.props.listings} />
-        <br/>
-        <div className='our-description'>
-          <h2 className='home-title'>What is P.A.R.C.</h2>
-          <div className='main-description'>
-            <div className='description-content for-right'>
-              <h3 className='mini-titles'>What does P.A.R.C do?</h3>
-              <p>
-                P.A.R.C. stands for Parking At Residential Communities.
-                What is parc? Parc is an app where anyone with a private
-                parking spot or driveway can list it so some other
-                driver could park their car there for a low flat rate. Our
-                main goal is to provide users with a simple way to earn some
-                extra cash on the side. We also want to provide drivers with
-                an easy way to find cheap parking spots that can last more
-                than just the normal 2 hours.
-              </p>
-            </div>
-            <div className='description-content for-left'>
-              <h3 className='mini-titles'>Who are we?</h3>
-              <p>
-                We are a team of 3 developers that love to code and want
-                to provide a solution to the parking shortage that is happening
-                in cities. We hope to grow our idea and turn it into
-                something that can make a difference in the future.
-              </p>
-            </div>
+      <div className='main-page'>
+        <div className='search-container'>
+          <div className='search-bar'>
+            <SearchContainer />
           </div>
         </div>
       </div>
@@ -53,3 +30,25 @@ class MainPage extends React.Component {
 }
 
 export default MainPage;
+
+{/* <GoogleMapContainer changeUrl={this.changeUrl.bind(this)} listings={this.props.listings} /> */}
+  {/* <h2 className='home-title'>Parking At Residential Communities</h2>
+  <div className='main-description'>
+      <h3 className='mini-titles'>What does P.A.R.C do?</h3>
+      <p>
+        Parc is an app where anyone with a private
+        parking spot or driveway can list it so some other
+        driver could park their car there for a low flat rate. Our
+        main goal is to provide users with a simple way to earn some
+        extra cash on the side.
+      </p>
+    <div className='description-content for-left'>
+      <h3 className='mini-titles'>Who are we?</h3>
+      <p>
+        We are a team of 4 developers that love to code and want
+        to provide a solution to the parking shortage that is happening
+        in cities. We hope to grow our idea and turn it into
+        something that can make a difference in the future.
+      </p>
+    </div>
+</div> */}

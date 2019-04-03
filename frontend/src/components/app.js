@@ -25,7 +25,6 @@ const App = () => (
       <Route exact path="/" component={MainPageContainer} />
     </Switch>
     <footer>
-      Copyright &copy; 2019 B.V.G.S.
     </footer>
   </div>
 );

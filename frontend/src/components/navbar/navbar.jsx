@@ -71,7 +71,6 @@ class Navbar extends React.Component{
                         <div className='search-bar'>
                             <img src="" alt=""/>
                             <Link to='/'><h1 id='main-logo' className='main-logo'>P.A.R.C.</h1></Link>
-                            <SearchContainer />
                         </div>
                     </div>
                     <div >
