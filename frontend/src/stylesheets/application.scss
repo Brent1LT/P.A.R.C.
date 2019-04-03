@@ -215,7 +215,6 @@ footer{
 }
 
 .search-bar{
-
     margin-bottom: 80px;
 }
 
@@ -227,6 +226,65 @@ footer{
     width: 60%;
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
     font-size: 16px;
+}
+
+.section-title{
+    font-size: 50px;
+    text-align: center;
+    padding-top: 40px;
+    font-family: Freight, HoeflerText-Black, Times New Roman, serif;
+    margin-bottom: 40px;
+}
+
+.center-col{
+    width: 50%;
+    margin: auto;
+}
+
+.discover-container{
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.discovery{
+    width: 60%;
+    height: 100%;
+    object-fit: cover;
+}
+
+// .discover-parking{
+//     margin-left: auto;
+//     display: flex;
+//     justify-content: flex-end;
+//     // background: url('../assets/discover-parking.jpg');
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     width: 10%;
+//     height: 10%;
+//     justify-content: flex-end;
+// }
+
+.discover-text{
+    text-align: center;
+    font-size: 32px;
+    padding-top: 5%;
+    font-weight: 600;
+    line-height: 1.5;
+    h3{
+        display: flex;
+        color: rgb(52, 114, 222);
+        // margin-bottom: 10px;
+    }
+    h4{
+        padding-left: 30px;
+        color: rgb(3, 50, 129);
+    }
+    p{
+        padding-top: 15%;
+        font-size: 14px;
+    }
+
 }
 
 
