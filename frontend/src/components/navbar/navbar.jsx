@@ -24,7 +24,7 @@ class Navbar extends React.Component{
         if(this.props.loggedIn === false){
             return (
                 <div className='login-signup'>
-                    <Link to='/listings' className='signin-stuff'><p>Parkings</p></Link> 
+                    <Link to='/listings' className='signin-stuff'><p>Parkings</p></Link>
                     <a className='signin-stuff'
                         href=''
                         onClick={e => {
@@ -50,6 +50,10 @@ class Navbar extends React.Component{
                 <Link to="/listings/new" className="signin-stuff">
                   <p>Create a Listing</p>
                 </Link>
+                <Link to="/bookings/" className="signin-stuff">
+                  <p>My Bookings</p>
+                </Link>
+
                 <a
                   className="signin-stuff"
                   href=''
