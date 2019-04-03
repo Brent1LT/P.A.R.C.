@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
   return {
     signedIn: state.session.isSignedIn,
     formType: 'Sign up',
-    navLink: <Link to='/login' onClick={(e) => openModal('login')} >Log in?</Link>,
+    navLink: <Link to='/' onClick={(e) => openModal('login')} >Log in?</Link>,
     errors: state.errors.session
   };
 };

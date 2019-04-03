@@ -53,6 +53,9 @@ class Navbar extends React.Component{
                 <Link to="/listings/new" className="signin-stuff">
                   <p>Create a Listing</p>
                 </Link>
+                <Link to="/bookings/" className="signin-stuff">
+                  <p>My Bookings</p>
+                </Link>
                 <div className='vertical-divider'>|</div>
                 <a
                   className="signin-stuff"

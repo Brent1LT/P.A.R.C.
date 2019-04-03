@@ -40,7 +40,7 @@ class ListingShow extends React.Component{
             </div>
           </div>
           <div className='booking-form-container'>
-            <BookingFormContainer listing={this.props.listing}/>
+            <BookingFormContainer history={ this.props.history } listing={this.props.listing}/>
           </div>
 
       </div>
