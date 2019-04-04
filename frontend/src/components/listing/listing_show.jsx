@@ -15,6 +15,7 @@ class ListingShow extends React.Component{
 
     return(
       <div className="listing-show">
+        <div>
         <img alt="" className='parking-images' src={this.props.listing.photo} />
         <div className='show-info'>
           <div className='show-listing-flex'>
@@ -30,6 +31,10 @@ class ListingShow extends React.Component{
             <div className='booking-form-container'>
           </div>
           <BookingFormContainer history={ this.props.history } listing={this.props.listing}/>
+        </div>
+        </div>
+        <div className='map-div'>
+          <MapContainer listings={this.props.listing} />
         </div>
       </div>
     );
