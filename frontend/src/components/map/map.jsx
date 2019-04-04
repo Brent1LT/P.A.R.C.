@@ -13,11 +13,11 @@ class ParcMap extends Component {
         latitude: 37.7599034,
         longitude: -122.4183564,
         zoom: 13.25,
-        width: '100%',
-        height: '50vh',
+        width: '70vw',
+        height: '85vh',
       },
     };
-  };
+  }
 
   componentDidMount() {
     if (this.props.listings.length !== 1) {

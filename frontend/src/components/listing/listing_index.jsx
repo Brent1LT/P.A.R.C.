@@ -80,18 +80,22 @@ class ListingIndex extends React.Component{
         <div className='index-search'>
           <SearchBarContainer />
         </div>
-        <div>
-          <div className="listing-index">
-            <div className='map-div'>
-              <MapContainer changeListing={this.changeListing} listings={listingsArray} style={listingMapStyle} />
+        <div className='index-main-container'>
+          <div id='goHere' className="all-listings">
+            <div>
+              {listingsArray.map(listing => {
+                return <ListingIndexItem listing={listing} />
+              })}
             </div>
           </div>
-          <div id='goHere' className="all-listings">
-            <ListingIndexItem listing={this.state.listing} />
+          <div>
+            <div className="listing-index">
+              <div className='map-div'>
+                <MapContainer changeListing={this.changeListing} listings={listingsArray} />
+              </div>
+            </div>
           </div>
-        </div>
-        <div id='goHere' className="all-listings">
-          <ListingIndexItem listing={this.state.listing} />
+
         </div>
       </div>
     )
