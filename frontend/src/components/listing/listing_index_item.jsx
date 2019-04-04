@@ -14,7 +14,6 @@ class ListingIndexItem extends React.Component{
             <Link id='go-to-parking' to={`/listings/${this.props.listing._id}`}>Go to this parking!</Link>
           </div>
         </div>
-
     )
   };
 };

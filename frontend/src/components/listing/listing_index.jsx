@@ -1,6 +1,7 @@
 import React from 'react';
 import ListingIndexItem from './listing_index_item';
 import MapContainer from '../map/map_container';
+import SearchBarContainer from '../navbar/search_container';
 
 class ListingIndex extends React.Component{
   constructor(props) {
@@ -60,6 +61,7 @@ class ListingIndex extends React.Component{
       });
   }
 
+
   render() {
     if (Object.keys(this.props.listings).length === 0) {
       return null;
@@ -80,25 +82,25 @@ class ListingIndex extends React.Component{
 
     return (
       <div>
-        <div>
-          <div className="listing-index">
-
-            <div className='map-div'>
-              <MapContainer
-                lat={this.state.lat}
-                lng={this.state.lng}
-                changeListing={this.changeListing}
-                listings={listingsArray}
-                style={listingMapStyle}
-              />
+        <div className='index-search'>
+          <SearchBarContainer />
+        </div>
+        <div className='index-main-container'>
+          <div id='goHere' className="all-listings">
+            <div>
+              {listingsArray.map(listing => {
+                return <ListingIndexItem listing={listing} />
+              })}
             </div>
           </div>
-          <div id='goHere' className="all-listings">
-            <ListingIndexItem listing={this.state.listing} />
+          <div>
+            <div className="listing-index">
+              <div className='map-div'>
+                <MapContainer changeListing={this.changeListing} listings={listingsArray} />
+              </div>
+            </div>
           </div>
-        </div>
-        <div id='goHere' className="all-listings">
-          <ListingIndexItem listing={this.state.listing} />
+
         </div>
       </div>
     )
