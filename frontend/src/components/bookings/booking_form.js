@@ -40,7 +40,6 @@ class BookingForm extends Component {
       offMarket: true,
       errors: false
     };
-    debugger;
 
     if (this.errorDates(booking)) {
       this.resetState();

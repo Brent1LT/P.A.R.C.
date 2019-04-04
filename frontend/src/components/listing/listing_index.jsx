@@ -13,7 +13,7 @@ class ListingIndex extends React.Component{
       listing: null,
       search: null,
     };
-    // debugger
+
     if (this.props.search) {
       this.filterListings();
     }
@@ -96,7 +96,12 @@ class ListingIndex extends React.Component{
           <div>
             <div className="listing-index">
               <div className='map-div'>
-                <MapContainer changeListing={this.changeListing} listings={listingsArray} />
+                <MapContainer
+                  lat={this.state.lat}
+                  lng={this.state.lng}
+                  changeListing={this.changeListing}
+                  listings={listingsArray}
+                />
               </div>
             </div>
           </div>
