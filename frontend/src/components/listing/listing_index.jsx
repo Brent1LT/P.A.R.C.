@@ -6,19 +6,21 @@ import SearchBarContainer from '../navbar/search_container';
 class ListingIndex extends React.Component{
   constructor(props) {
     super(props);
-    this.geocodeRequest.bind(this);
-    this.filterListings.bind(this);
-    this.coordinates = { lat: 0, lng: 0 }
-    this.center = { lat: 37.7599043, lng: -122.4256016 };
+
     this.state = {
+      lat: 37.7599043,
+      lng: -122.4256016,
       listing: null,
       search: null,
     };
-    this.changeListing = this.changeListing.bind(this);
+    // debugger
     if (this.props.search) {
-      this.results = this.filterListings();
-      this.results = [];
+      this.filterListings();
     }
+
+    this.geocodeRequest = this.geocodeRequest.bind(this);
+    this.filterListings = this.filterListings.bind(this);
+    this.changeListing = this.changeListing.bind(this);
   }
 
   changeListing(id) {
@@ -34,12 +36,14 @@ class ListingIndex extends React.Component{
 
   filterListings() {
     this.geocodeRequest(this.props.search).then(response => {
-      this.coordinates.lat = response.lat;
-      this.coordinates.lng = response.lng;
-      this.center.lat = response.lat;
-      this.center.lng = response.lng;
+      this.lat = response.lat;
+      this.setState({
+        lat: response.lat,
+        lng: response.lng
+      });
+      this.state.lng = response.lng;
     }).catch(err => {
-      this.setState({ error: err })
+      this.setState({ error: err });
     });
   }
 
@@ -58,6 +62,9 @@ class ListingIndex extends React.Component{
   }
 
 
+
+
+
   render() {
     if (Object.keys(this.props.listings).length === 0) {
       return null;
@@ -67,6 +74,7 @@ class ListingIndex extends React.Component{
     if(this.state.listing === null){
       return null;
     }
+
     const listingMapStyle = {
       width: '80%',
       height: '80%',
@@ -86,6 +94,19 @@ class ListingIndex extends React.Component{
               {listingsArray.map(listing => {
                 return <ListingIndexItem listing={listing} />
               })}
+
+        <div>
+          <div className="listing-index">
+
+            <div className='map-div'>
+              <MapContainer
+                lat={this.state.lat}
+                lng={this.state.lng}
+                changeListing={this.changeListing}
+                listings={listingsArray}
+                style={listingMapStyle}
+              />
+
             </div>
           </div>
           <div>
