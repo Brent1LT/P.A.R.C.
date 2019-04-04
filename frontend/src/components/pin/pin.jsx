@@ -6,7 +6,7 @@ class Pin extends Component {
       <div>
         <img
           className="marker-pin"
-          src="/marker-pin-blackStroke.png"
+          src="/assets/marker-pin-blackStroke.png"
           draggable="false"
           alt="Bueller lives here."
         />
