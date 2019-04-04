@@ -9,7 +9,7 @@ class ParcMap extends Component {
 
     this.state = {
       viewport: {
-        // This LAT & LNG are the coords that the map centers on
+        // These default LAT & LNG coords are what the map centers on
         latitude: 37.7599034,
         longitude: -122.4183564,
         zoom: 13.25,
@@ -32,7 +32,7 @@ class ParcMap extends Component {
     } else {
       this.props.changeUrl(props.id);
     }
-  }
+  };
 
   smoothScroll(target) {
     let scrollContainer = target;
@@ -55,7 +55,7 @@ class ParcMap extends Component {
     };
     // start scrolling
     scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
-  }
+  };
 
   render() {
     if (this.props.listings.length === 0) {
@@ -77,21 +77,6 @@ class ParcMap extends Component {
             >
               <Pin />
           </Marker>
-          {/*
-          <Popup
-            tipSize={6}
-            anchor="bottom"
-            offsetLeft={10.5}
-            offsetTop={-4}
-            dynamicPosition={true}
-            latitude={listing.lat}
-            longitude={listing.lng}
-            closeButton={true}
-            closeOnClick={true}
-          >
-            <p>{listing.street}</p>
-          </Popup>
-          */}
         </div>
       );
     });
