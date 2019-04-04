@@ -371,13 +371,28 @@ footer{
 }
 
 .image2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background: url('https://images.wallpaperscraft.com/image/parking_underground_marking_118795_3840x2160.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     width: 600px;
     height: 500px;
+    h4{
+        color: white;
+        font-size: 48px;
+        text-align: center;
+        margin-bottom: 35%;
+        padding-top: 20%;
+        font-family: Freight, HoeflerText-Black, Times New Roman, serif;
+        line-height: 1.5;
+    }
 }
+
+
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@--MODAL--@@@@@@@@@@@@@@@@@@@@@@@@@@@
 .modal-background {

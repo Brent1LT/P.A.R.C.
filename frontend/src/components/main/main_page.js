@@ -74,14 +74,20 @@ class MainPage extends React.Component {
             <div className="bottom-container">
               <div className="image-containers">
                 {/* <img className='image1' src="/assets/main-page-bg.jpg" /> */}
-                <div className='image1'>
+                <div className="image1">
                   <h4>Your perfect spot is waiting for you!</h4>
-                  <button className='started-button'>Check out Listings!</button>
+                  <button className="started-button"
+                    onClick={() => this.props.history.push('/listings')}
+                    >Check out Listings!
+                  </button>
                 </div>
               </div>
               <div className="image-containers">
-                <div className='image2'>
-
+                <div className="image2">
+                  <h4>Create an account!</h4>
+                  <button className="started-button" 
+                    onClick={() => this.props.openModal('signup')}
+                    >Sign up!</button>
                 </div>
                 {/* <img className='image2' src="/assets/parc-main-page.jpg" /> */}
               </div>
