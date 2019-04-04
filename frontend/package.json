@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": "https://lets-parc.herokuapp.com",
   "dependencies": {
     "axios": "^0.18.0",
     "jwt-decode": "^2.2.0",
