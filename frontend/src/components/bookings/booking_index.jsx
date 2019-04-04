@@ -17,19 +17,22 @@ class BookingIndex extends Component {
     const bookingsArray = Object.values(this.props.bookings);
     return (
       <div className="booking-index">
-        {bookingsArray.map((booking) => {
-          return (
-            <div key={booking._id}>
-
-            <BookingIndexItem
-              listing={this.props.listings[booking.listing]}
-              booking={booking}
-              deleteBooking={this.props.deleteBooking}
-              history={this.props.history}
-            />
-            </div>
-          )
-        })}
+      <h1 id='booking-main-img'></h1>
+      <div className='count-info'>
+          {bookingsArray.map((booking) => {
+            return (
+              <div key={booking._id}>
+                <BookingIndexItem
+                  listing={this.props.listings[booking.listing]}
+                  booking={booking}
+                  deleteBooking={this.props.deleteBooking}
+                  history={this.props.history}
+                />
+              </div>
+            )
+          })}
+      </div>
+        
       </div>
     );
   };
