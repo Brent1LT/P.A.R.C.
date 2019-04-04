@@ -59,7 +59,9 @@ class MainPage extends React.Component {
                   something that can make a difference in the future.
                 </p>
               </div>
-              <img className='team-photo' src="/assets/the-team.jpg" />
+              <div className='image-div'>
+                <img className='team-photo' src="/assets/the-team.jpg" />
+              </div>
             </div>
           </div>
         </div>
