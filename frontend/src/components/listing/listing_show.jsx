@@ -1,6 +1,7 @@
 import React from 'react';
 import BookingFormContainer from '../bookings/booking_form_container';
 import "react-dates/initialize";
+import MapContainer from '../map/map_container';
 
 class ListingShow extends React.Component{
   componentDidMount() {
@@ -14,24 +15,21 @@ class ListingShow extends React.Component{
 
     return(
       <div className="listing-show">
-        <div className='show-image-container'>
-          <img alt="" className='parking-images' src={this.props.listing.photo} />
-        </div>
+        <img alt="" className='parking-images' src={this.props.listing.photo} />
         <div className='show-info'>
           <div className='show-listing-flex'>
-            <div className='parking-info'>
-              <h2>Take a look at this!</h2>
-              <div>{this.props.listing.street}, {this.props.listing.city}</div>
-              <div>{this.props.listing.state} {this.props.listing.zip}</div>
-              <div>Description: </div>
-              <div>{this.props.listing.description}</div>
-              <div>Flat Rate of: ${this.props.listing.price}</div>
-              <div></div>
+              <div className='parking-info'>
+                <div>{this.props.listing.street}, {this.props.listing.city}</div>
+                <div>{this.props.listing.state} {this.props.listing.zip}</div>
+                <div>Description: </div>
+                <div>{this.props.listing.description}</div>
+                <div>Flat Rate of: ${this.props.listing.price}</div>
+                <div></div>
+              </div>
             </div>
+            <div className='booking-form-container'>
           </div>
-          <div className='booking-form-container'>
-            <BookingFormContainer history={ this.props.history } listing={this.props.listing}/>
-          </div>
+          <BookingFormContainer history={ this.props.history } listing={this.props.listing}/>
         </div>
       </div>
     );
