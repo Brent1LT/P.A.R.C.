@@ -10,6 +10,7 @@ const mapStateToProps = (state, ownProps) => {
     changeListing: ownProps.changeListing
   });
 };
+
 const mapDispatchToProps = (dispatch) => {
   return ({
     fetchAllListings: () => dispatch(fetchListings())
