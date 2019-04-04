@@ -62,9 +62,6 @@ class ListingIndex extends React.Component{
   }
 
 
-
-
-
   render() {
     if (Object.keys(this.props.listings).length === 0) {
       return null;
@@ -96,18 +93,6 @@ class ListingIndex extends React.Component{
               })}
             </div>
           </div>
-        <div>
-          <div className="listing-index">
-            <div className='map-div'>
-              <MapContainer
-                lat={this.state.lat}
-                lng={this.state.lng}
-                changeListing={this.changeListing}
-                listings={listingsArray}
-                style={listingMapStyle}
-              />
-            </div>
-          </div>
           <div>
             <div className="listing-index">
               <div className='map-div'>
@@ -122,7 +107,6 @@ class ListingIndex extends React.Component{
           </div>
         </div>
       </div>
-    </div>
     )
   };
 };
