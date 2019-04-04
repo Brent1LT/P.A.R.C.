@@ -244,7 +244,7 @@ footer{
 .discover-container{
     display: flex;
     justify-content: space-around;
-    margin: auto;
+    margin-bottom: 5%;
 }
 
 .discovery{
@@ -266,22 +266,19 @@ footer{
 // }
 
 .discover-text{
-    text-align: center;
     font-size: 32px;
-    padding-top: 5%;
+    padding-top: 8%;
     font-weight: 600;
     line-height: 1.5;
     h3{
-        display: flex;
         color: rgb(52, 114, 222);
-        // margin-bottom: 10px;
     }
     h4{
         padding-left: 30px;
         color: rgb(3, 50, 129);
     }
     p{
-        padding-top: 15%;
+        padding-top: 12%;
         font-size: 14px;
     }
 

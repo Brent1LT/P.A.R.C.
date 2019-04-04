@@ -33,7 +33,6 @@ class MainPage extends React.Component {
           <div className="center-col">
             <h3 className="section-title">What is P.A.R.C?</h3>
             <div className="discover-container">
-              {/* <div className='discover-parking'></div> */}
               <img className="discovery" src="/assets/discover-parking.jpg" />
               <div className="discover-text">
                 <h3>Discover</h3>
@@ -41,11 +40,12 @@ class MainPage extends React.Component {
                 <h3>Spaces</h3>
                 <p>
                   Parc is an app where anyone with a private parking spot or
-                  driveway can list it so some other driver could park their car
+                  driveway can list it so another driver could park their car
                   there for a low flat rate.
                 </p>
               </div>
             </div>
+            <h3 className='section-title' >Get to know the team!</h3>
           </div>
         </div>
       </div>
