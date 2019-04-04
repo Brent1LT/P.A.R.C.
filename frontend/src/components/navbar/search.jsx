@@ -3,14 +3,15 @@ import React from 'react';
 
 class Search extends React.Component{
     constructor(props){
-        super(props)
+        super(props);
         this.state={
             searchField: '',
             empty: ''
-        }
+        };
+        
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    
+
     componentDidMount(){
         // this.props.fetchListings();     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     }
@@ -20,13 +21,13 @@ class Search extends React.Component{
         e.preventDefault();
         this.props.newSearch(this.state.searchField);
         //dispatch action passed by mapdispatchtoprops
-        this.props.history.push('/listings')
+        this.props.history.push('/listings');
         //sending the search to the /listings index page
     }
-    
+
     update(field){
         return e => this.setState({
-            [field]: e.currentTarget.value 
+            [field]: e.currentTarget.value
         });
     }
 
@@ -34,9 +35,9 @@ class Search extends React.Component{
         return(
             <div>
                 <form onSubmit={(e) => this.handleSubmit(e)}>
-                    <input 
+                    <input
                         className='main-search-bar'
-                        type='text' 
+                        type='text'
                         value={this.state.searchField}
                         placeholder='Search...'
                         onChange={this.update('searchField')}/>
