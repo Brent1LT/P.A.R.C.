@@ -80,9 +80,10 @@ class ParcMap extends Component {
         </div>
       );
     });
-    debugger;
+
     return (
       <div className="map-container">
+        <p>{frontendKeys}</p>
         <ReactMapGL
           {...viewport}
           mapStyle="mapbox://styles/mapbox/streets-v11"
