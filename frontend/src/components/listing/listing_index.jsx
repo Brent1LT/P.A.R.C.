@@ -108,13 +108,6 @@ class ListingIndex extends React.Component{
               />
             </div>
           </div>
-          <div>
-            <div className="listing-index">
-              <div className='map-div'>
-                <MapContainer changeListing={this.changeListing} listings={listingsArray} />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

@@ -31,7 +31,7 @@ class MainPage extends React.Component {
           </div>
         </div>
 
-        <div className="what-is">
+        <div className="main-content">
           <div className="center-col">
             <h3 className="section-title">What is P.A.R.C?</h3>
             <div className="section-container">
@@ -73,27 +73,72 @@ class MainPage extends React.Component {
             <h3 className="section-title">Let's Get Started!</h3>
             <div className="bottom-container">
               <div className="image-containers">
-                {/* <img className='image1' src="/assets/main-page-bg.jpg" /> */}
                 <div className="image1">
                   <h4>Your perfect spot is waiting for you!</h4>
-                  <button className="started-button"
-                    onClick={() => this.props.history.push('/listings')}
-                    >Check out Listings!
+                  <button
+                    className="started-button"
+                    onClick={() => this.props.history.push("/listings")}
+                  >
+                    Check out Listings!
                   </button>
                 </div>
               </div>
               <div className="image-containers">
                 <div className="image2">
                   <h4>Create an account!</h4>
-                  <button className="started-button" 
-                    onClick={() => this.props.openModal('signup')}
-                    >Sign up!</button>
+                  <button
+                    className="started-button"
+                    onClick={() => this.props.openModal("signup")}
+                  >
+                    Sign up!
+                  </button>
                 </div>
-                {/* <img className='image2' src="/assets/parc-main-page.jpg" /> */}
               </div>
             </div>
           </div>
         </div>
+
+        <footer className="footer">
+          <div className="footer-container">
+            <h2>Check us out!</h2>
+            <a
+              target="_blank"
+              className="link-tags"
+              href="https://github.com/Brent1LT/P.A.R.C."
+            >
+              <i class="fa fa-github" />
+              Github
+            </a>
+            <a
+              target="_blank"
+              className="link-tags"
+              href="https://brentbumann.dev"
+            >
+              Brent
+            </a>
+            <a
+              target="_blank"
+              className="link-tags"
+              href="https://samardrey.dev"
+            >
+              Sam
+            </a>
+            <a
+              target="_blank"
+              className="link-tags"
+              href="https://gflujan.com"
+            >
+              Gabe
+            </a>
+            <a
+              target="_blank"
+              className="link-tags"
+              href="https://vishavpreetsandhu.com"
+            >
+              Vishal
+            </a>
+          </div>
+        </footer>
       </div>
     );
   }
