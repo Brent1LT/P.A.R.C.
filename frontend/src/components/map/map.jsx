@@ -13,8 +13,8 @@ class ParcMap extends Component {
         latitude: this.props.lat,
         longitude: this.props.lng,
         zoom: 13.25,
-        width: '100%',
-        height: '50vh',
+        width: '60vw',
+        height: '85vh',
       },
     };
   }
