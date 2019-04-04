@@ -30,10 +30,11 @@ class BookingIndexItem extends Component {
     //   endYear: year[this.props.booking.startDate.getYear()],
     // };
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleDeleteClick = this.handleDeleteClick.bind(this);
+    this.handleVisitClick = this.handleVisitClick.bind(this);
   }
 
-  handleClick(e) {
+  handleDeleteClick(e) {
     e.preventDefault();
     this.props.deleteBooking(this.props.booking._id)
     .then(() => {
@@ -41,23 +42,39 @@ class BookingIndexItem extends Component {
     });
   }
 
+  handleVisitClick(e) {
+    this.props.history.push(`/listings/${this.props.listing._id}`)
+  }
+
   render() {
     if (!this.props.listing) {
       return null;
     }
-
     return (
       <div key={this.props.key} className="booking-index-item">
         {/* ADD A SRC FOR THIS IMG */}
         {/* USE THE ATTACHED LISTING IMG */}
-        <img alt="" src={this.props.listing.photo} />
-        <h3>Booked Listing</h3>
-        <div>{this.props.listing.street}</div>
-        {/* <h3>Start Date: {this.state.startMonth} {this.state.startDay} {this.state.startYear}</h3> */}
-        <h3>End Date: {this.props.booking.endDate}</h3>
-        <h3>Cost per Day</h3>
-        <div>{this.props.listing.price}</div>
-        <button onClick={this.handleClick}>Delete Booking</button>
+        <img className='booking-photo' alt="" src={this.props.listing.photo} />
+        <div className='booking-index-info'>
+          <div className='left-info'>
+            <div className='capitalizing'>{this.props.listing.street}</div>
+            <div className='capitalizing'>{this.props.listing.city}</div>
+            <div className='uppercasing'>{`${this.props.listing.state} ${this.props.listing.zip}`}</div>
+          </div>
+          <div className='right-info'>
+            <div className='flexing'>
+              <h3>From: </h3><div className='enddate'>{this.props.booking.startDate.slice(0, 10)}</div>
+            </div>
+            <div className='flexing'>
+                <h3>To : </h3> <div>{this.props.booking.endDate.slice(0, 10)}</div>
+            </div>
+            <div className='flexing'>
+              <h3 className='capitalizing'>Cost: </h3> <div>{this.props.listing.price}</div> 
+            </div>
+          </div>
+        </div>
+        <button className='delete-booking' onClick={this.handleDeleteClick}>Delete Booking</button>
+        <button className='delete-booking' onClick={this.handleVisitClick}>Visit Booking</button>
       </div>
     );
   };
