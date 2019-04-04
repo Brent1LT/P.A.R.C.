@@ -1,6 +1,6 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
-import SearchContainer from './search_container'
+import React from 'react';
+import {Link} from 'react-router-dom';
+import SearchContainer from './search_container';
 
 class Navbar extends React.Component{
     constructor(props){
@@ -8,7 +8,7 @@ class Navbar extends React.Component{
 
         this.handleEvent = this.handleEvent.bind(this);
         this.logout = this.logout.bind(this);
-        this.loggedInCheck = this.loggedInCheck.bind(this)
+        this.loggedInCheck = this.loggedInCheck.bind(this);
     }
 
     handleEvent(e) {

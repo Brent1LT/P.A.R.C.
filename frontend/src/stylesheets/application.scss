@@ -157,15 +157,16 @@ h1#main-logo{
     margin-bottom: 30px;
 }
 
-footer{
-    margin-top: 300px;
-    display: flex;
-    justify-content: center;
-    position: sticky;
-    bottom: 10px;
-    z-index: -1;
-    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-}
+// footer{
+//     background-color: rgb(52, 114, 222);
+//     margin-top: 300px;
+//     display: flex;
+//     justify-content: center;
+//     // position: sticky;
+//     bottom: 10px;
+//     z-index: -1;
+//     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+// }
 
 //@@@@@@@@@@@@@@@@@@@@@ MAIN PAGE @@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -237,20 +238,20 @@ footer{
 }
 
 .center-col{
-    width: 50%;
+    width: 70%;
     margin: auto;
 }
 
-.discover-container{
+.section-container{
     display: flex;
-    justify-content: space-around;
-    margin: auto;
+    margin-bottom: 5%;
 }
 
 .discovery{
     width: 60%;
     height: 100%;
     object-fit: cover;
+    flex-shrink: 0;
 }
 
 // .discover-parking{
@@ -266,26 +267,131 @@ footer{
 // }
 
 .discover-text{
-    text-align: center;
     font-size: 32px;
-    padding-top: 5%;
+    padding-top: 8%;
     font-weight: 600;
     line-height: 1.5;
     h3{
-        display: flex;
         color: rgb(52, 114, 222);
-        // margin-bottom: 10px;
     }
     h4{
         padding-left: 30px;
         color: rgb(3, 50, 129);
     }
     p{
+        text-align: center;
         padding-top: 15%;
         font-size: 14px;
     }
-
 }
+
+.team-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5%;
+}
+.image-div{
+    width: 100%;
+}
+.team-photo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.team-text{
+    // display: flex;
+    // flex-direction: column;
+    // align-items: flex-end;
+    // text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-right: 5%;
+    h3{
+        color: rgb(52, 114, 222);
+    }
+    h4{
+        padding-left: 30px;
+        color: rgb(3, 50, 129);
+    }
+    p{
+        text-align: center;
+        padding-top: 10%;
+        font-size: 14px;
+    }
+}
+
+.bottom-container{
+    // display: grid;
+    // grid-template-columns: 50% 50%;
+    // grid-template-rows: 350px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.image-containers{
+    margin-left: 5%;
+}
+
+.image1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url("/assets/main-page-bg.jpg");
+    width: 600px;
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    h4{
+        color: white;
+        font-size: 48px;
+        text-align: center;
+        margin-bottom: 20%;
+        padding-top: 20%;
+        font-family: Freight, HoeflerText-Black, Times New Roman, serif;
+        line-height: 1.5;
+    }
+}
+
+.started-button{
+    top: 70%;
+    right: 35%;
+    width: 200px;
+    height: 50px;
+    background-color: rgb(52, 114, 222);
+    font-weight: 500;
+    font-size: 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.image2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('https://images.wallpaperscraft.com/image/parking_underground_marking_118795_3840x2160.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 600px;
+    height: 500px;
+    h4{
+        color: white;
+        font-size: 48px;
+        text-align: center;
+        margin-bottom: 35%;
+        padding-top: 20%;
+        font-family: Freight, HoeflerText-Black, Times New Roman, serif;
+        line-height: 1.5;
+    }
+}
+
 
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@--MODAL--@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -432,6 +538,30 @@ input#text-box:focus{
 }
 
 
+//@@@@@@@@@@@@@@@@@@@@@@@@--Booking-Index--@@@@@@@@@@@@@@@@@@@@@@@
+
+#booking-main-img{
+    width: 100%;
+    height: 40vh;
+    background-image: url(./bookingHeaderImg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.count-info{
+    width: 60%;
+    // height: 700px;
+    display: flex;
+    flex-wrap: wrap;
+
+    background: white;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -175px;
+
+}
+
 //@@@@@@@@@@@@@@@@@@@@@@@@@--new-listing--@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
@@ -463,7 +593,7 @@ div.flexing-text-box{
     // height: 150px;
     padding-bottom: 11%;
     border-radius: 3%;
-    border: 2px solid lightgray;
+    border: 1px solid lightgray;
 }
 
 .listing-form-title{
@@ -516,23 +646,18 @@ input#new-text-box{
 
 .entire-listing-form{
     padding: 10px;
-    margin-left: 20%;
+    margin-left: 550px;
     margin-top: 5%;
+    margin-right: auto;
     width: 400px;
     height: 600px;
 }
 .background-gif{
     background-image: url('/assets/newlistingBackground.gif');
     background-repeat: no-repeat;
-    background-size: contain;
-    // z-index: -1;
-    width: 100%;
-}
-
-.corner-design{
-    background-image: url('/assets/circles.jpg');
-    margin-left: 5%;
-
+    background-size: cover;
+    width: 100vw;
+    height: 900px;
 }
 
 .photo-preview{
@@ -558,11 +683,6 @@ input.new-submit:hover{
 }
 
 #root{
-    // background: url('https://img.sunset02.com/sites/default/files/styles/4_3_horizontal_inbody_900x506/public/image/2016/12/main/driveway-trees-jason-liske-0117.jpg') no-repeat center center fixed;
-    // -webkit-background-size: cover;
-    // -moz-background-size: cover;
-    // -o-background-size: cover;
-    // background-color: floralwhite;
     background-size: cover;
     z-index: -1;
 }
