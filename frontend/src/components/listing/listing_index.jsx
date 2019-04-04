@@ -1,6 +1,7 @@
 import React from 'react';
 import ListingIndexItem from './listing_index_item';
 import MapContainer from '../map/map_container';
+import SearchBarContainer from '../navbar/search_container';
 
 class ListingIndex extends React.Component{
   constructor(props) {
@@ -52,9 +53,9 @@ class ListingIndex extends React.Component{
       .then(response => {
         return response.results[0].geometry.location;
       }).catch(err => {
-        this.setState({ error: err })
-      })
-  };
+        this.setState({ error: err });
+      });
+  }
 
 
   render() {
@@ -76,6 +77,9 @@ class ListingIndex extends React.Component{
 
     return (
       <div>
+        <div className='index-search'>
+          <SearchBarContainer />
+        </div>
         <div>
           <div className="listing-index">
             <div className='map-div'>
