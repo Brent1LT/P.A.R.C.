@@ -32,7 +32,7 @@ class MainPage extends React.Component {
         <div className="what-is">
           <div className="center-col">
             <h3 className="section-title">What is P.A.R.C?</h3>
-            <div className="discover-container">
+            <div className="section-container">
               <img className="discovery" src="/assets/discover-parking.jpg" />
               <div className="discover-text">
                 <h3>Discover</h3>
@@ -46,6 +46,21 @@ class MainPage extends React.Component {
               </div>
             </div>
             <h3 className='section-title' >Get to know the team!</h3>
+            <div className='team-container'>
+              <div className='team-text'>
+                <h3>Brent</h3>
+                <h4>Gabe</h4>
+                <h3>Sam</h3>
+                <h4>Vishal</h4>
+                <p>
+                  We are a team of 4 developers that love to code and want
+                  to provide a solution to the parking shortage that is happening
+                  in cities. We hope to grow our idea and turn it into
+                  something that can make a difference in the future.
+                </p>
+              </div>
+              <img className='team-photo' src="/assets/the-team.jpg" />
+            </div>
           </div>
         </div>
       </div>

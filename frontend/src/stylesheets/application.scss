@@ -241,9 +241,8 @@ footer{
     margin: auto;
 }
 
-.discover-container{
+.section-container{
     display: flex;
-    justify-content: space-around;
     margin-bottom: 5%;
 }
 
@@ -251,6 +250,7 @@ footer{
     width: 60%;
     height: 100%;
     object-fit: cover;
+    flex-shrink: 0;
 }
 
 // .discover-parking{
@@ -281,7 +281,34 @@ footer{
         padding-top: 12%;
         font-size: 14px;
     }
+}
 
+.team-container{
+    display: flex;
+    justify-content: space-between;
+}
+.team-photo{
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+}
+
+.team-text{
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-right: 8%;
+    h3{
+        color: rgb(52, 114, 222);
+    }
+    h4{
+        padding-left: 30px;
+        color: rgb(3, 50, 129);
+    }
+    p{
+        padding-top: 5%;
+        font-size: 14px;
+    }
 }
 
 
