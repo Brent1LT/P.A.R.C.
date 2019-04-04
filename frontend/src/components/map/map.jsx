@@ -80,7 +80,7 @@ class ParcMap extends Component {
         </div>
       );
     });
-
+    debugger;
     return (
       <div className="map-container">
         <ReactMapGL
