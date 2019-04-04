@@ -558,7 +558,7 @@ input.new-submit:hover{
 }
 
 #root{
-    // background: url('https://img.sunset02.com/sites/default/files/styles/4_3_horizontal_inbody_900x506/public/image/2016/12/main/driveway-trees-jason-liske-0117.jpg') no-repeat center center fixed; 
+    // background: url('https://img.sunset02.com/sites/default/files/styles/4_3_horizontal_inbody_900x506/public/image/2016/12/main/driveway-trees-jason-liske-0117.jpg') no-repeat center center fixed;
     // -webkit-background-size: cover;
     // -moz-background-size: cover;
     // -o-background-size: cover;
@@ -613,7 +613,7 @@ input.new-submit:hover{
             }
             .promotion{
                 margin-top: 10%;
-            
+
                 .fine-print{
                     font-size: 10px;
                 }
@@ -632,7 +632,7 @@ input.new-submit:hover{
 
 .booking-form{
     color: white;
-    
+
     h2{
         color: rgb(52, 114, 222);
     }
@@ -657,4 +657,27 @@ input.new-submit:hover{
     #end-date-field{
         border-left: 1px solid lightgray;
     }
+}
+
+.map-nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: .6em;
+}
+
+.map-marker {
+  color: #f00;
+}
+
+.marker-text {
+  background-color: white;
+  border: 1px solid red;
+  color: black;
+  padding: .7em;
+}
+
+.marker-pin {
+  cursor: pointer;
+  width: 22px;
 }

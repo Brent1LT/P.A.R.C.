@@ -103,8 +103,8 @@ handleFile(e){
   //   }
   // };
 
-  render(){
-    return(
+  render() {
+    return (
       <div className='corner-design'>
         <div className='background-gif'>
           <div className='entire-listing-form'>

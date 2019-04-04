@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import GoogleMapFinal from './map';
+import ParcMap from './map';
 import { fetchListings } from '../../actions/listing_action';
 
 const mapStateToProps = (state, ownProps) => {
@@ -16,6 +16,6 @@ const mapDispatchToProps = (dispatch) => {
   });
 };
 
-const GoogleMapContainer =
-  connect(mapStateToProps, mapDispatchToProps)(GoogleMapFinal);
-export default GoogleMapContainer;
+const MapContainer =
+  connect(mapStateToProps, mapDispatchToProps)(ParcMap);
+export default MapContainer;
