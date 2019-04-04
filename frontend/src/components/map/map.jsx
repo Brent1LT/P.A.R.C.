@@ -10,20 +10,20 @@ class ParcMap extends Component {
     this.state = {
       viewport: {
         // These default LAT & LNG coords are what the map centers on
-        latitude: 37.7599034,
-        longitude: -122.4183564,
+        latitude: this.props.lat,
+        longitude: this.props.lng,
         zoom: 13.25,
         width: '100%',
         height: '50vh',
       },
     };
-  };
+  }
 
   componentDidMount() {
     if (this.props.listings.length !== 1) {
       this.props.fetchAllListings();
     }
-  };
+  }
 
   onMarkerClick(props, marker, e) {
     if (this.props.changeListing) {
@@ -32,7 +32,7 @@ class ParcMap extends Component {
     } else {
       this.props.changeUrl(props.id);
     }
-  };
+  }
 
   smoothScroll(target) {
     let scrollContainer = target;
@@ -55,7 +55,7 @@ class ParcMap extends Component {
     };
     // start scrolling
     scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
-  };
+  }
 
   render() {
     if (this.props.listings.length === 0) {
@@ -103,6 +103,6 @@ class ParcMap extends Component {
       </div>
     );
   };
-};
+}
 
 export default ParcMap;
