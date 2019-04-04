@@ -86,7 +86,7 @@ class ParcMap extends Component {
         <ReactMapGL
           {...viewport}
           mapStyle="mapbox://styles/mapbox/streets-v11"
-          mapboxApiAccessToken={frontendKeys.mapApiKey}
+          mapboxApiAccessToken={k.mapApiKey}
           onViewportChange={(viewport) => this.setState({viewport})}
         >
           {markers}
