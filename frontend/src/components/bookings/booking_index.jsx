@@ -2,15 +2,10 @@ import React, { Component } from 'react';
 import BookingIndexItem from './booking_index_item';
 
 class BookingIndex extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.fetchListings().then( () =>
     this.props.fetchAllUserBookings(this.props.currentUser)
     );
-
   }
 
   render() {

@@ -144,7 +144,7 @@ handleFile(e){
             <input id='text-box' type="file" onChange={this.handleFile.bind(this)} />
           </div>
           <div>
-            <img className='photo-preview' src={this.state.imageUrl} />
+            <img className='photo-preview' src={this.state.imageUrl} alt="" />
           </div>
           <input className='photo-submit-button' type="submit"/>
         </form>

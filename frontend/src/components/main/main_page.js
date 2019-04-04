@@ -1,5 +1,5 @@
 import React from 'react';
-import GoogleMapContainer from '../map/map_container';
+import MapContainer from '../map/map_container';
 
 class MainPage extends React.Component {
   componentDidMount() {
@@ -18,7 +18,7 @@ class MainPage extends React.Component {
 
   return (
       <div className='map-and-info'>
-        <GoogleMapContainer changeUrl={this.changeUrl.bind(this)} listings={this.props.listings} />
+        <MapContainer changeUrl={this.changeUrl.bind(this)} listings={this.props.listings} />
         <br/>
         <div className='our-description'>
           <h2 className='home-title'>What is P.A.R.C.</h2>

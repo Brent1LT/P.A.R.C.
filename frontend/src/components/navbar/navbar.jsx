@@ -24,9 +24,9 @@ class Navbar extends React.Component{
         if(this.props.loggedIn === false){
             return (
                 <div className='login-signup'>
-                    <Link to='/listings' className='signin-stuff'><p>Parkings</p></Link> 
+                    <Link to='/listings' className='signin-stuff'><p>Parkings</p></Link>
                     <a className='signin-stuff'
-                        href=''
+                        href='#'
                         onClick={e => {
                             this.handleEvent(e);
                             this.props.openModal("signup")
@@ -52,7 +52,7 @@ class Navbar extends React.Component{
                 </Link>
                 <a
                   className="signin-stuff"
-                  href=''
+                  href='#'
                   onClick={this.logout}
                 >
                   <p className='logout'>Log Out</p>
