@@ -1,74 +1,134 @@
-# parc
-An application/website that gives users the ability to host a private parking spot (e.g. driveway, garage) and for other users to book those parking spots for a time frame (hourly, daily, weekly, monthly, etc).
+# PARC
 
-## Proposal
-### Title
-P.A.R.C.
-* Parking At Residential Communities
+[Live Site](https://lets-parc.herokuapp.com)
 
-### Members
-* Brent Bumann, Gabriel Lujan, Sam Ardrey, Vishal Sandhu
+PARC is a garage-share website. It uses MongoDB, Express, React and Node.js.
 
-### Description
-* An application/website that gives users the ability to host a private parking spot (e.g. driveway, garage) and for other users to book those parking spots for a specified time frame (hourly, daily, weekly, monthly, etc).
+The beta version took 6 days from start to finish.
 
-### Backup Idea
-* Paper Smash Bros.
-  * Think “Paper Mario” meets “Super Smash Bros.”
+## Technologies
+On the backend, MongoDB, Node.js, Express and Heroku were chosen for ease and versatility.
 
-## Timeline & Division of Work
-### MVP’s
-1) User Auth
-2) Search
-3) Map / Locations
-4) Listings
-5) Bookings
+For the front, Redux was used for state and reducers, React for components and Axios for backend and API calls.
 
-### Sample State & Schema Layout
-* Entities
-  * Users
-    * :create, :show, :update (potentially)
-  * Listings
-    * :index, :show, :create, :delete
-    * user_id
-    * has_one / has_many :location
-    * has_many_attached :photos
-    * searchable?
-  * Bookings
-    * availability
-    * user_id
-    * listing_id
-    * daily / hourly
-    * calendar
-* Session
-  * user_id
-* Errors
-  * User Auth
-  * Bookings
-* UI
-  * Modal
-  * Search Selector(s)
+Images were hosted using AWS S3.
 
-### Timeline & Breakdown of MVP's
-1) Day One - User Auth
-  * Backend (Brent, Sam)
-    * MVC Framework
-    * Controllers, Actions, Schema, Seeds
-  * Frontend (Gabe, Vishal)
-    * Bootstrap
-    * Session Slice, Reducers, Thunks
+## Features
 
-2) Day Two - Search
-  * AJAX calls (Vishal)
-  * Setting up API/utils (Brent)
-  * Selectors (Sam)
-  * Components & Containers (Gabe)
+* Users can create and view listings
+* Users can rent parkings spots
+* Users can create accounts with salted passwords
+* Users can view their bookings
 
-3) Day Three - Map (Brent, Vishal, Gabe, Sam)
-  * Google API
-  * Embedding
+## AWS S3 Integration
 
-4) Day Four - Listings & Bookings
-  * Forms Components & Containers (Gabe)
-  * Splash Page Components (Sam)
-  * CSS (Brent & Vishal)
+Adding Amazon Web Services was a huge part of our application and allowed our users
+to add a photo onto their listing. This was difficult to implement due to the fact
+that there are hardly any guides available online and I had to collaborate with
+several other developers in order to get it fully functional. Once functional,
+it proved to be an integral feature of our app. It also helps with scalability
+since we don't need to host all of the images in the database which would increase
+server-load.
+
+![AWS image](https://github.com/Brent1LT/P.A.R.C./blob/master/documents/assets/design_docs/readme-s3.png)
+```
+router.post("/image-upload",
+  passport.authenticate("jwt", { session: false }),
+  upload.single('image'),
+  (req, res) => {
+      // let photo = res.json({ imageUrl: req.file.location });
+
+    Listing.findOne({street: req.body.street})
+        .then(listing => {
+          if (listing) {
+            return res
+              .status(400)
+              .json({ address: "This address is already listed" });
+          } else {
+            const newListing = new Listing({
+              user: req.user.id,
+              lat: req.body.lat,
+              lng: req.body.lng,
+              price: req.body.price,
+              description: req.body.description,
+              street: req.body.street,
+              city: req.body.city,
+              state: req.body.state,
+              zip: req.body.zip,
+              photo: req.file.location
+            });
+            const { isValid, errors } =  validateListingInput(newListing);
+
+            if (!isValid) {
+              return res.status(400).json(errors);
+            }
+            newListing
+              .save()
+              .then(listing => res.json(listing))
+              .catch(err => res.status(400).json(err));
+          }
+        })
+        .catch(err => console.log("FindOne Failed", err));
+  }
+);
+```
+
+## AirBNB Calendar API Integration
+
+Integrated AirBNB's calendar API. Able to block out previously booked dates and highlight the range of dates currently looking at for booking.
+
+![Calendar API](https://github.com/Brent1LT/P.A.R.C./blob/master/documents/assets/design_docs/readme-bookings.png)
+
+``` render() {
+    if (this.props.bookings === undefined) return null;
+    // ITERATE THROUGH THIS.PROPS.BOOKINGS
+    // TO CREATE THE MOMENT RANGE OBJECTS AS SEEN BELOW
+    const BAD_DATES = [];
+    const moment = extendMoment(Moment);
+
+    Object.keys(this.props.bookings).map(booking => (
+      BAD_DATES.push(moment.range(
+        moment(this.props.bookings[booking].startDate, 'YYYY-MM-DD'),
+        moment(this.props.bookings[booking].endDate, 'YYYY-MM-DD').add(1, 'day')
+      ))
+    ));
+
+    const isBlocked = day => BAD_DATES.filter(d => d.contains(day, 'day')).length > 0;
+
+    return (
+      <div className="booking-form" style={{width: 400 +'px', height: 400 +'px'}} >
+        <h2>Book This Spot</h2>
+        <div hidden={!this.state.errors}>
+          THIS IS A FUCKING ERROR
+        </div>
+        <form className='form-booking' onSubmit={this.handleSubmit}>
+          <DateRangePicker
+            required={true}
+            small={true}
+            startDate={this.state.startDate}
+            startDateId="start-date-field"
+            startDatePlaceholderText="Start Date"
+            endDate={this.state.endDate}
+            endDateId="end-date-field"
+            endDatePlaceholderText="End Date"
+            onDatesChange={({startDate, endDate}) => this.setState({ startDate, endDate })}
+            showClearDates={true}
+            isDayBlocked={isBlocked}
+            focusedInput={this.state.focusedInput}
+            onFocusChange={focusedInput => this.setState({ focusedInput })}
+            hideKeyboardShortcutsPanel={true}
+          />
+          <button className="booking-button">Book Me!</button>
+        </form>
+      </div>
+    );
+  };
+};
+```
+
+## Project Design
+Our goal in creating PARC was to create a quick, stable MERN stack build that utilized an external API--google maps. We gave ourselves 6 days to learn and utilize the stack.
+
+## Planned Features
+* Cleanup bookings
+* Redesign UI

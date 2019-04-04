@@ -17,6 +17,53 @@
 // @import "base/fonts.scss";
 // @import "base/reset.scss";
 
+//////////////-CSS Reset-////////////////
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+//////////////////////////////////////////////
+
 // base styles
 $font-stack: Verdana, sans-serif;
 
@@ -33,38 +80,39 @@ html header h1.main-logo{
     text-decoration: none;
 }
 
-h1#main-logo{
-    text-decoration: none;
+
+.parclogo{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+}
+.logoimg{
+    width: 100px;
+    height: 100px;
 }
 
 //search bar and navbar
 // @@@@@@@@@@@@@@@@@@@@@@search bar and navbar@@@@@@@@@@@@@@@@@@@@@@@@
-.search-bar{
-    display: flex;
-    align-items: center;
-}
-
-.main-search-bar{
-    padding-left: 20px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    width: 300px;
-    margin-left: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 2px 6px rgba(26, 26, 29, 0.08);
-    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-    font-size: 16px;
-
-}
-
 .main-navbar{
     display: flex;
     justify-content: space-between;
-    background: #009900;
-    border-radius: 3px;
+    height: 55px;
+    background: rgb(52, 114, 222);
     padding: 5px;
     top: 0px;
     position: sticky;
 }
+h1#main-logo{
+    text-decoration: none;
+    background: url('/assets/parc-logo.png') center no-repeat;
+    background-size: contain;
+    height: 55px;
+    width: 100px;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 20px;
+}
+
 
 .login-signup{
     display: flex;
@@ -74,24 +122,32 @@ h1#main-logo{
 
 .signin-stuff{
     margin: 5px;
+    margin-bottom: 10px;
     color: white;
-    padding: 5px;
+    padding: 10px;
     border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none !important ;
+}
+
+.vertical-divider{
+    margin-top: -10px;
+    font-size: 30px;
+    color: white;
 }
 .signin-stuff-logout{
     color: white;
     width: inherit;
     height: inherit;
 }
+
 .signin-stuff-logout:hover{
-    color: #009900;
+    color: rgb(52, 114, 222);
 }
 
 .signin-stuff:hover{
-    border-right: 3px solid black;
-    border-bottom: 3px solid black;
     background: white;
-    color: #009900;
+    color: rgb(52, 114, 222);
 }
 
 .gray-bar{
@@ -102,10 +158,11 @@ h1#main-logo{
 }
 
 footer{
+    background-color: rgb(52, 114, 222);
     margin-top: 300px;
     display: flex;
     justify-content: center;
-    position: sticky;
+    // position: sticky;
     bottom: 10px;
     z-index: -1;
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
@@ -113,61 +170,231 @@ footer{
 
 //@@@@@@@@@@@@@@@@@@@@@ MAIN PAGE @@@@@@@@@@@@@@@@@@@@@@@@@@
 
-.home-title{
-    font-size: 40px;
-    text-align: center;
-    color: #009900;
-    border: 1px solid #009900;
-    width: 65vw;
-    padding: 20px 0px;
-    border-radius: 5px;
-    background: whitesmoke;
-    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+// font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+.main-page{
+
 }
 
-.mini-titles{
-    font-size: 25px;
-    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-}
-
-.map-and-info{
+.search-container{
+    height: 100%;
     width: 100%;
-	height: 100%;
-    // margin-left: 17%;
-}
-
-.our-description{
-    margin-left: 17.4%;
-    margin-right: 200px;
-    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-    padding-top: 440px;
-}
-
-.main-description{
+    background: url('/assets/main-page-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 80%;
     display: flex;
-    width: 65vw;
-}
-
-.description-content{
-	width: 58.5vh;
-    font-size: 22px;
+    flex-direction: column;
     justify-content: center;
-    border: 1px solid lightgreen;
-    padding: 20px;
-    background: #009900;
+    font-size: 72px;
+    font-weight: 800;
+    width: 100%;
+    text-align: center;
     color: white;
-    margin-top: 20px;
+
+    h4{
+        font-size: 24px;
+        color: white;
+        font-family: Georgia,Times,Times New Roman,serif;
+        letter-spacing: 1.5px;
+
+    }
 }
 
-.for-left{
-    // margin-left: 20px;
+.search-margin{
+    width: 60%;
+    margin: auto;
+
 }
-.for-right{
-    margin-right: 20px;
+
+.search-title{
+    margin-top: 5%;
+    margin-bottom: 20px;
+    text-shadow: -1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
+
+.search-bar{
+    margin-bottom: 80px;
+}
+
+.main-search-bar{
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 60%;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    font-size: 16px;
+}
+
+.section-title{
+    font-size: 50px;
+    text-align: center;
+    padding-top: 40px;
+    font-family: Freight, HoeflerText-Black, Times New Roman, serif;
+    margin-bottom: 40px;
+}
+
+.center-col{
+    width: 70%;
+    margin: auto;
+}
+
+.section-container{
+    display: flex;
+    margin-bottom: 5%;
+}
+
+.discovery{
+    width: 60%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+// .discover-parking{
+//     margin-left: auto;
+//     display: flex;
+//     justify-content: flex-end;
+//     // background: url('../assets/discover-parking.jpg');
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     width: 10%;
+//     height: 10%;
+//     justify-content: flex-end;
+// }
+
+.discover-text{
+    font-size: 32px;
+    padding-top: 8%;
+    font-weight: 600;
+    line-height: 1.5;
+    h3{
+        color: rgb(52, 114, 222);
+    }
+    h4{
+        padding-left: 30px;
+        color: rgb(3, 50, 129);
+    }
+    p{
+        text-align: center;
+        padding-top: 15%;
+        font-size: 14px;
+    }
+}
+
+.team-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5%;
+}
+.image-div{
+    width: 100%;
+}
+.team-photo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.team-text{
+    // display: flex;
+    // flex-direction: column;
+    // align-items: flex-end;
+    // text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-right: 5%;
+    h3{
+        color: rgb(52, 114, 222);
+    }
+    h4{
+        padding-left: 30px;
+        color: rgb(3, 50, 129);
+    }
+    p{
+        text-align: center;
+        padding-top: 10%;
+        font-size: 14px;
+    }
+}
+
+.bottom-container{
+    // display: grid;
+    // grid-template-columns: 50% 50%;
+    // grid-template-rows: 350px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.image-containers{
+    margin-left: 5%;
+}
+
+.image1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url("/assets/main-page-bg.jpg");
+    width: 600px;
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    h4{
+        color: white;
+        font-size: 48px;
+        text-align: center;
+        margin-bottom: 20%;
+        padding-top: 20%;
+        font-family: Freight, HoeflerText-Black, Times New Roman, serif;
+        line-height: 1.5;
+    }
+}
+
+.started-button{
+    top: 70%;
+    right: 35%;
+    width: 200px;
+    height: 50px;
+    background-color: rgb(52, 114, 222);
+    font-weight: 500;
+    font-size: 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.image2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('https://images.wallpaperscraft.com/image/parking_underground_marking_118795_3840x2160.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 600px;
+    height: 500px;
+    h4{
+        color: white;
+        font-size: 48px;
+        text-align: center;
+        margin-bottom: 35%;
+        padding-top: 20%;
+        font-family: Freight, HoeflerText-Black, Times New Roman, serif;
+        line-height: 1.5;
+    }
+}
+
+
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@--MODAL--@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
 .modal-background {
   position: fixed;
   top: 0;
@@ -178,10 +405,8 @@ footer{
   z-index: 10;
 }
 
-
 .modal-child {
   display: block;
-//   border: 2px, solid red;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -191,33 +416,64 @@ footer{
 .signup-form{
     width: 300px;
     margin-top: -22px;
-    // height: 400px;
 }
 .log-form{
     width: 300px;
     margin-top: 15px;
-    // height: 300px;
-
 }
 
 .signup-continue{
     margin-left: 30px;
     margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: 700;
+    color: rgb(52, 114, 222);
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
 }
 
 .close-modal-x{
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
     border-radius: 50%;
-    border: 1px solid white;
+    border: 1px solid rgb(52, 114, 222);
+    margin-left: -20px;
+    margin-top: -5px;
+    padding: 11px;
+    padding-top: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
     text-align: center;
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
+    background: rgb(52, 114, 222);
+    color: white;
+}
+.close-modal-x:hover{
+    cursor: pointer;
+}
+
+.switch-form{
+    background-color: rgb(52, 114, 222);
+    font-size: 14px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 3px;
+    color: white;
+    margin-left: 118px;
+}
+
+.switch-form:hover{
+    opacity: .7;
+    cursor: pointer;
 }
 
 .login-form-container{
-    border: 2px solid #009900;
+    border: 1px solid black;
     background: white;
+    border-radius: 6%;
+    padding: 20px;
+    padding-left: 35px;
 
 }
 
@@ -229,25 +485,45 @@ input#text-box {
     border: 1px solid lightgray;
     font-size: 16px;
     font-weight: 100;
-    padding: 10px;
+    padding: 15px;
     margin-bottom: 10px;
     margin-left: 30px;
+}
+
+input#text-box:focus{
+    border-color: rgb(52, 114, 222);
 }
 
 #session-submit {
-    width: 224px;
+    width: 233px;
     margin-left: 30px;
-    padding: 10px 0px;
+    padding: 15px;
     margin-bottom: 10px;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: rgb(52, 114, 222);
+}
+
+.change-buttons{
+    background-color: rgb(52, 114, 222);
 }
 
 .demo-button{
-    width: 224px;
+    width: 233px;
     margin-left: 30px;
-    padding: 10px 0px;
+    padding: 15px;
     margin-bottom: 10px;
+    font-size: 14px;
+    color: white;
+    border-radius: 5px;
+    background-color: rgb(52, 114, 222);
 }
 
+.demo-button:hover{
+    cursor: pointer;
+    opacity: .7;
+}
 #session-submit:hover{
     cursor: pointer;
     opacity: .7;
@@ -255,58 +531,158 @@ input#text-box {
 
 .change-forms{
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
-    margin-left: 26px;
-    margin-bottom: 20px
+    margin-left: 30px;
+    margin-top: 10px;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+
+//@@@@@@@@@@@@@@@@@@@@@@@@--Booking-Index--@@@@@@@@@@@@@@@@@@@@@@@
+
+#booking-main-img{
+    width: 100%;
+    height: 40vh;
+    background-image: url(./bookingHeaderImg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.count-info{
+    width: 60%;
+    // height: 700px;
+    display: flex;
+    flex-wrap: wrap;
+
+    background: white;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -175px;
+
+}
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@--new-listing--@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+.main-title-new{
+    font-size: 36px;
+    margin: 10px 10px;
+    padding: 10px;
+    color: rgb(52, 114, 222);
+    padding-left: 0;
+    text-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+
+    font-weight: 800;
+}
+.main-description-new{
+    margin-left: 10px;
+    font-size: 16px;
+    font-style: italic;
+    color: rgb(123, 123, 123);
+}
+
+div.flexing-text-box{
+    display: flex;
+    margin: 5%;
+    margin-left: 0px;
+    margin-right: 10%;
+}
+#new-description{
+    width: 192%;
+    // height: 150px;
+    padding-bottom: 11%;
+    border-radius: 3%;
+    border: 1px solid lightgray;
 }
 
 .listing-form-title{
-    padding-left: 30px;
-    color: white;
-    text-decoration: underline;
+    font-size: 20px;
+    width: 300px;
+    color: rgb(52, 114, 222);
+    font-weight: 800;
+    text-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+
 }
+
+// input#picture-upload:hover{
+//     cursor: pointer;
+//     padding: 10px;
+// }
+
 .listing-form{
-    // margin-left: 30px;
-    text-align: center;
-    border: 2px solid #009900;
-    margin: 0px 300px;
-    padding-right: 220px;
-    margin-right: 296px;
+    width: 40%;
     margin-top: 20px;
+    margin: 10px 10px;
     padding-bottom: 10px;
-    background: #009900
 }
 .attribute-titles{
-    padding-left: 30px;
-    color: white;
-    text-decoration: underline;
     padding-bottom: 5px;
+    font-size: 12px;
+    margin-right: 25px;
+    margin-left: -10px;
+    color: rgb(52, 114, 222);
 }
 
 input.photo-submit-button{
-    width: 222px;
-    margin-left: 30px;
-    // padding: 20px;
-    font-size: 80px;
+    padding-top: 5px;
+    font-size: 18px;
+    width: 200px;
 }
 
-.main-title-new{
-    text-align: center;
-    // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    text-shadow: 4px 4px rgba(0, 0, 0, 0.9);
+div input#picture-upload{
+    width: 160px;
+}
+div input#picture-upload:hover{
+    cursor: pointer;
+}
+
+input#new-text-box{
+    margin-right: 13%;
+    padding: 4.5%;
+    padding-left: 2%;
+    padding-right: 11%;
 }
 
 .entire-listing-form{
-    margin: 0px 500px;
+    padding: 10px;
+    margin-left: 550px;
+    margin-top: 5%;
+    margin-right: auto;
+    width: 400px;
+    height: 600px;
+}
+.background-gif{
+    background-image: url('/assets/newlistingBackground.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 900px;
+}
+
+.photo-preview{
+    max-height: 350px;
+    max-width: 350px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+input.new-submit{
+    width: 90%;
     padding: 10px;
     color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: -10px;
+    background-color: rgb(52, 114, 222);
+}
+
+input.new-submit:hover{
+    cursor: pointer;
+    opacity: .7;
 }
 
 #root{
-    // background: url('https://img.sunset02.com/sites/default/files/styles/4_3_horizontal_inbody_900x506/public/image/2016/12/main/driveway-trees-jason-liske-0117.jpg') no-repeat center center fixed; 
-    // -webkit-background-size: cover;
-    // -moz-background-size: cover;
-    // -o-background-size: cover;
-    background-color: floralwhite;
     background-size: cover;
     z-index: -1;
 }
@@ -314,71 +690,71 @@ input.photo-submit-button{
 
 
 // @@@@@@@@@@@@@@@@@@@@@@@@ SHOW PAGE @@@@@@@@@@@@@@@@@@@
+.listing-show{
+    width: 50%;
+    margin: auto;
+}
+
+.show-image-container{
+    margin: auto;
+    width: 100%;
+}
+
+.parking-images{
+    // box-sizing: border-box;
+    width: 90%;
+    height: 80%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
 
 .show-info{
     background: rgba(167, 201, 160, 0.4);
     border: 1px solid white;
     border-radius: 2px;
-    width: 50%;
-    margin-left: 40px;
-    color: white;
-    text-shadow:
-	    -1px -1px 0 #000,
-	    1px -1px 0 #000,
-	    -1px 1px 0 #000,
-        1px 1px 0 #000;
+    width: 100%;
+    div{
+        margin-bottom: 5px
+    }
     h2{
         text-align: center;
         margin-bottom: 10px;
-        color: rgb(200, 218, 9);
+        color: rgb(52, 114, 222);
     }
-
     .show-listing-flex{
         display: flex;
-
-        img.parking-images{
-            // box-sizing: border-box;
-            width: 350px;
-            height: 350px;
-        }
-        img.parking-images:hover{
-            // transform: scale(1.05) ;
-            width: 350px;
-            height: 350px;
-            // overflow: hidden;
-        }
-
+        width: 40%;
+        margin: auto;
         .parking-info{
+            text-align: center;
             font-size: 20px;
-            margin-left: 5%;
-            margin-right: 5%;
+            div{
+                text-transform: capitalize;
+            }
             .promotion{
                 margin-top: 10%;
-            
+
                 .fine-print{
                     font-size: 10px;
                 }
             }
         }
     }
-
-    
 }
 
 .booking-form-container{
-    margin-left: 2.1%;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
 }
+
 
 .booking-form{
     color: white;
 
     h2{
-        color: rgb(200, 218, 9);
-        text-shadow:
-            -1px -1px 0 #000,
-            1px -1px 0 #000,
-            -1px 1px 0 #000,
-            1px 1px 0 #000;
+        color: rgb(52, 114, 222);
     }
     .booking-button{
         margin-left: 5px;
@@ -391,4 +767,37 @@ input.photo-submit-button{
         cursor: pointer;
         opacity: .7;
     }
+}
+
+.DateRangePickerInput__showClearDates {
+    padding-right: 15px;
+}
+
+.DateInput{
+    #end-date-field{
+        border-left: 1px solid lightgray;
+    }
+}
+
+.map-nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: .6em;
+}
+
+.map-marker {
+  color: #f00;
+}
+
+.marker-text {
+  background-color: white;
+  border: 1px solid red;
+  color: black;
+  padding: .7em;
+}
+
+.marker-pin {
+  cursor: pointer;
+  width: 22px;
 }

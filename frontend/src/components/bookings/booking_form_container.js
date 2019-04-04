@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import {filterBookings} from '../../actions/selectors';
 import BookingForm from './booking_form';
 import {
   createBooking,

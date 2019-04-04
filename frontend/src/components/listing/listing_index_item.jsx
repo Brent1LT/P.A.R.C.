@@ -2,12 +2,12 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 class ListingIndexItem extends React.Component{
-  render() { 
+  render() {
     return(
         <div className="listing-item" >
-          <img className='parking-logo' src={this.props.listing.photo}/>
+          <img className='parking-logo' src={this.props.listing.photo} alt={this.props.listing.description} />
           <div className="listing-info">
-            <h3>Location:</h3>
+            <h3>Location: </h3>
             <div className='location-info'>{this.props.listing.street}</div>
             <div className='location-info'>{this.props.listing.city}, {this.props.listing.state}</div>
             <div className='description-listing'>Description: {this.props.listing.description}</div>
@@ -16,7 +16,7 @@ class ListingIndexItem extends React.Component{
         </div>
 
     )
-  }; 
+  };
 };
 
 export default ListingIndexItem;

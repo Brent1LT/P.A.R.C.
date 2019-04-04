@@ -21,7 +21,9 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user).then(() => { this.props.closeModal() });
+        this.props.processForm(user).then(() => {
+            this.props.closeModal();
+        });
     }
 
     update(field) {
@@ -51,15 +53,15 @@ class SessionForm extends React.Component {
                     <br />
                     <br />
                     <h2 className='signup-continue'>Sign up to continue</h2>
-                    <input id='text-box' type="text" placeholder="First name" value={this.state.first_name} onChange={this.update('first_name')} />
+                    <input id='text-box' type="text" placeholder="First name" value={this.state.firstname} onChange={this.update('firstname')} />
                     <br />
-                    <input id='text-box' type="text" placeholder="Last name" value={this.state.last_name} onChange={this.update('last_name')} />
+                    <input id='text-box' type="text" placeholder="Last name" value={this.state.lastname} onChange={this.update('lastname')} />
                     <br />
                     <input id='text-box' type="text" placeholder="Email Address" value={this.state.email} onChange={this.update('email')} />
                     <br />
                     <input id='text-box' type="password" placeholder="Password" value={this.state.password} onChange={this.update('password')} />
                     <br />
-                    <input id='text-box' type="password" placeholder="Re-enter Password" value={this.state.password} onChange={this.update('password2')} />
+                    <input id='text-box' type="password" placeholder="Re-enter Password" value={this.state.password2} onChange={this.update('password2')} />
                 </div>
             );
         }
@@ -82,7 +84,7 @@ class SessionForm extends React.Component {
 
     changeModal() {
         if (this.props.formType === 'Sign up') {
-            return (<Link to="/login" onClick={(e) => this.props.otherForm('signup')}>Log in</Link>)
+            return (<Link to="/" onClick={(e) => this.props.otherForm('signup')}>Log in</Link>)
         } else {
             return (<Link to="/signup" onClick={(e) => this.props.otherForm('login')}>Sign up</Link>)
         }
@@ -102,7 +104,7 @@ class SessionForm extends React.Component {
         if (this.props.formType === 'Sign up') {
             message = "Already have an account? ";
         } else {
-            message = "Dont have an account? "
+            message = "Dont have an account yet? "
         }
 
         return (
@@ -121,8 +123,8 @@ class SessionForm extends React.Component {
                         </div>
                         <div className='change-forms'>
                             {message}
-                            {this.props.otherForm}
                         </div>
+                        {this.props.otherForm}
                         {/* {this.renderErrors()} */}
                     </div>
                 </form>

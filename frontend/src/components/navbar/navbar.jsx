@@ -1,14 +1,14 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
-import SearchContainer from './search_container'
+import React from 'react';
+import {Link} from 'react-router-dom';
+import SearchContainer from './search_container';
 
 class Navbar extends React.Component{
     constructor(props){
-        super(props)
+        super(props);
 
         this.handleEvent = this.handleEvent.bind(this);
         this.logout = this.logout.bind(this);
-        this.loggedInCheck = this.loggedInCheck.bind(this)
+        this.loggedInCheck = this.loggedInCheck.bind(this);
     }
 
     handleEvent(e) {
@@ -21,18 +21,21 @@ class Navbar extends React.Component{
     }
 
     loggedInCheck(){
-        // if(this.props.id !== null){
         if(this.props.loggedIn === false){
             return (
                 <div className='login-signup'>
-                    <Link to='/listings' className='signin-stuff'><p>Parkings</p></Link> 
-                    <a className='signin-stuff' href=''
+                    <Link to='/listings' className='signin-stuff'><p>Parkings</p></Link>
+                    <div className='vertical-divider'>|</div>
+                    <a className='signin-stuff'
+                        href='#'
                         onClick={e => {
                             this.handleEvent(e);
                             this.props.openModal("signup")
                         }}><p>Sign up</p>
                     </a>
-                    <a className='signin-stuff' href=''
+                    <div className='vertical-divider'>|</div>
+                    <a className='signin-stuff'
+                        href=''
                         onClick={e => {
                             this.handleEvent(e);
                             this.props.openModal("login")
@@ -41,38 +44,49 @@ class Navbar extends React.Component{
                 </div>
             )
         } else  {
-            return(
-                <div className='login-signup'>
-                    <Link to='/listings' className='signin-stuff'><p>Parkings</p></Link> 
-                    <a className='signin-stuff' href=''
-                        onClick={this.logout}><p>Log Out</p>
-                    </a>
-                </div>
-            )
+            return (
+              <div className="login-signup">
+                <Link to="/listings" className="signin-stuff">
+                  <p>Parkings</p>
+                </Link>
+                <div className='vertical-divider'>|</div>
+                <Link to="/listings/new" className="signin-stuff">
+                  <p>Create a Listing</p>
+                </Link>
+                <div className='vertical-divider'>|</div>
+                <Link to="/bookings/" className="signin-stuff">
+                  <p>My Bookings</p>
+                </Link>
+                <div className='vertical-divider'>|</div>
+                <a
+                  className="signin-stuff"
+                  href='#'
+                  onClick={this.logout}
+                >
+                  <p className='logout'>Log Out</p>
+                </a>
+              </div>
+            );
         }
     }
 
     render(){
         return (
-            <>
+            <div>
                 <header className='main-navbar'>
                     <div>
-                        {/* just having it so if someone clicks logo it redirects */}
-                        <div className='search-bar'>
-                            <img src="" alt=""/>
-                            <Link to='/'><h1 id='main-logo' className='main-logo'>P.A.R.C.</h1></Link>
-                            <SearchContainer />
+                        <div className='logo-bar'>
+                            <Link to='/'><h1 id='main-logo' className='main-logo'></h1></Link>
                         </div>
                     </div>
                     <div >
-                        <header>
+                        <div>
                             {this.loggedInCheck()}
-                        </header>
+                        </div>
                     </div >
                 </header >
-                <div className='gray-bar'></div>
                 {/* the above gray bar is just a divider */}
-            </>
+            </div>
         )
     }
 }
