@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactMapGL, { Marker, Popup, FullscreenControl, NavigationControl } from 'react-map-gl';
-import frontendKeys from '../../config/frontend_keys';
 import Pin from '../pin/pin';
+const frontendKeys = require('../../config/frontend_keys').mapApiKey;
 
 class ParcMap extends Component {
   constructor(props) {
@@ -9,21 +9,21 @@ class ParcMap extends Component {
 
     this.state = {
       viewport: {
-        // This LAT & LNG are the coords that the map centers on
-        latitude: 37.7599034,
-        longitude: -122.4183564,
+        // These default LAT & LNG coords are what the map centers on
+        latitude: this.props.lat,
+        longitude: this.props.lng,
         zoom: 13.25,
         width: '100%',
         height: '50vh',
       },
     };
-  };
+  }
 
   componentDidMount() {
     if (this.props.listings.length !== 1) {
       this.props.fetchAllListings();
     }
-  };
+  }
 
   onMarkerClick(props, marker, e) {
     if (this.props.changeListing) {
@@ -77,21 +77,6 @@ class ParcMap extends Component {
             >
               <Pin />
           </Marker>
-          {/*
-          <Popup
-            tipSize={6}
-            anchor="bottom"
-            offsetLeft={10.5}
-            offsetTop={-4}
-            dynamicPosition={true}
-            latitude={listing.lat}
-            longitude={listing.lng}
-            closeButton={true}
-            closeOnClick={true}
-          >
-            <p>{listing.street}</p>
-          </Popup>
-          */}
         </div>
       );
     });
@@ -101,7 +86,7 @@ class ParcMap extends Component {
         <ReactMapGL
           {...viewport}
           mapStyle="mapbox://styles/mapbox/streets-v11"
-          mapboxApiAccessToken={frontendKeys.mapApiKey}
+          mapboxApiAccessToken={frontendKeys}
           onViewportChange={(viewport) => this.setState({viewport})}
         >
           {markers}
@@ -118,6 +103,6 @@ class ParcMap extends Component {
       </div>
     );
   };
-};
+}
 
 export default ParcMap;
