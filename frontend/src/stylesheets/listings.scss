@@ -27,6 +27,8 @@
   display: flex;
   flex-direction: column;
   height: 85vh;
+  width: 40vw;
+  min-width: 500px;
   overflow: auto;
   .listing-item {
     flex-direction: column;
@@ -45,8 +47,8 @@
     .parking-logo{
       padding-top: 20px;
       height: 60%;
-      width: 80%;
-      margin-bottom: 15px;
+      width: 90%;
+      margin-bottom: 5%;
     }
     .listing-info {
       text-align: center;
