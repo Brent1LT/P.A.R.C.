@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactMapGL, { Marker, Popup, FullscreenControl, NavigationControl } from 'react-map-gl';
 import Pin from '../pin/pin';
-const frontendKeys = require('../../config/frontend_keys').mapApiKey;
+const frontendKeys = require("../../config/frontend_keys").mapApiKey;
 
 class ParcMap extends Component {
   constructor(props) {
