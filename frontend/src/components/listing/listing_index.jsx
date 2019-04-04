@@ -33,13 +33,6 @@ class ListingIndex extends React.Component{
     });
   }
 
-  // componentDidUpdate(){
-  //   if (this.props.search) {
-  //     this.filterListings();
-  //     this.setState();
-  //   }
-  // }
-
   filterListings() {
     this.geocodeRequest(this.props.search).then(response => {
       this.lat = response.lat;
@@ -89,7 +82,7 @@ class ListingIndex extends React.Component{
       <div>
         <div>
           <div className="listing-index">
-          
+
             <div className='map-div'>
               <MapContainer
                 lat={this.state.lat}

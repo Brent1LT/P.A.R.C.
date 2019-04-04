@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import ReactMapGL, { Marker, Popup, FullscreenControl, NavigationControl } from 'react-map-gl';
-import frontendKeys from '../../config/frontend_keys';
 import Pin from '../pin/pin';
-const keys = require("../../../../config/keys");
-const k = keys.mapApiKey;
+const frontendKeys = require("../../config/frontend_keys").mapApiKey;
 
 class ParcMap extends Component {
   constructor(props) {
@@ -88,7 +86,7 @@ class ParcMap extends Component {
         <ReactMapGL
           {...viewport}
           mapStyle="mapbox://styles/mapbox/streets-v11"
-          mapboxApiAccessToken={k.mapApiKey}
+          mapboxApiAccessToken={frontendKeys}
           onViewportChange={(viewport) => this.setState({viewport})}
         >
           {markers}
