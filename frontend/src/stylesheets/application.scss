@@ -795,11 +795,14 @@ input.new-submit:hover{
 
 // @@@@@@@@@@@@@@@@@@@@@@@@ SHOW PAGE @@@@@@@@@@@@@@@@@@@
 .listing-show{
-    width: 70%;
-    margin: auto;
+    width: 100%;
     display: flex;
-    margin-top: 10%;
+    justify-content: space-between;
 
+}
+.left-info-container{
+    width: 100%;
+    height: 88vh;
 }
 
 .show-image-container{
@@ -807,50 +810,66 @@ input.new-submit:hover{
     width: 100%;
 }
 
+.address-info{
+    font-style: italic;
+    text-transform: capitalize;
+}
+.address-info2{
+    font-style: italic;
+    text-transform: uppercase;
+}
+
 .parking-images{
     width: 100%;
-    height: 80%;
+    height: 57%;
+}
+.graybar{
+    width: 100%;
+    height: 1px;
+    margin: 3% 0px;
+    border-bottom: 3px solid rgba(52, 114, 222, .7);
+    border-radius: 50%;
 }
 
 .show-info{
     background: rgba(167, 201, 160, 0.4);
+    font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif; 
     border: 1px solid white;
     border-radius: 2px;
-    width: 100%;
-    height: 300px;
+    width: 96%;
+    height: 38.2%;
     padding-left: 2%;
     padding-right: 2%;
     padding-top: 2%;
+    margin-top: -5px;
+    margin-right: auto;
 }
-//     div{
-//         margin-bottom: 5px
-//     }
-//     h2{
-//         text-align: center;
-//         margin-bottom: 10px;
-//         color: rgb(52, 114, 222);
-//     }
-//     .show-listing-flex{
-//         display: flex;
-//         width: 40%;
-//         margin: auto;
 
-//         .parking-info{
-//             text-align: center;
-//             font-size: 20px;
-//             div{
-//                 text-transform: capitalize;
-//             }
-//             .promotion{
-//                 margin-top: 10%;
+.show-listing-flex{
+    display: flex;
+    margin-bottom: 2%;
+}
 
-//                 .fine-print{
-//                     font-size: 10px;
-//                 }
-//             }
-//         }
-//     }
-// }
+.booking-form-holder{
+    margin-top: 5%;
+}
+
+.showpage-gif{
+    width: 50%;
+    margin-top: 50px;
+    background-image: url(./showpage.gif);
+    height: 272px;
+}
+
+.gif-title{
+    margin-top: -40px;
+}
+
+.parking-info{
+    color: black;
+    width: 50%;
+    margin-right: 10px;
+}
 
 .booking-form-container{
     text-align: center;
