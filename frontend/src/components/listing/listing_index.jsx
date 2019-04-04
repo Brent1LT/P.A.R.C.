@@ -1,6 +1,6 @@
 import React from 'react';
 import ListingIndexItem from './listing_index_item';
-import GoogleMapContainer from '../map/map_container';
+import MapContainer from '../map/map_container';
 
 class ListingIndex extends React.Component{
   constructor(props) {
@@ -57,11 +57,11 @@ class ListingIndex extends React.Component{
   };
 
 
-  render(){
+  render() {
     if (Object.keys(this.props.listings).length === 0) {
       return null;
-      // can add little loading screen here
     }
+
     const listingsArray = Object.values(this.props.listings);
     if(this.state.listing === null){
       return null;
@@ -74,24 +74,24 @@ class ListingIndex extends React.Component{
       'zIndex': '0',
     };
 
-
-    return(
-      <>
-      <div className="listing-index">
-        {/* <h1>Available Parking Spots</h1> */}
-          <div className='map-div'>
-            <GoogleMapContainer changeListing={this.changeListing} listings={listingsArray} style={listingMapStyle} />
+    return (
+      <div>
+        <div>
+          <div className="listing-index">
+            <div className='map-div'>
+              <MapContainer changeListing={this.changeListing} listings={listingsArray} style={listingMapStyle} />
+            </div>
           </div>
-      </div>
           <div id='goHere' className="all-listings">
-            {/* {listingsArray.map(listing => {
-              return <ListingIndexItem listing={listing} key={listing.id} />
-            })} */}
             <ListingIndexItem listing={this.state.listing} />
           </div>
-    </>
+        </div>
+        <div id='goHere' className="all-listings">
+          <ListingIndexItem listing={this.state.listing} />
+        </div>
+      </div>
     )
-  }
+  };
 };
 
 export default ListingIndex;

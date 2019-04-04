@@ -24,10 +24,10 @@ class Navbar extends React.Component{
         if(this.props.loggedIn === false){
             return (
                 <div className='login-signup'>
-                    <Link to='/listings' className='signin-stuff'><p>Parkings</p></Link> 
+                    <Link to='/listings' className='signin-stuff'><p>Parkings</p></Link>
                     <div className='vertical-divider'>|</div>
                     <a className='signin-stuff'
-                        href=''
+                        href='#'
                         onClick={e => {
                             this.handleEvent(e);
                             this.props.openModal("signup")
@@ -60,7 +60,7 @@ class Navbar extends React.Component{
                 <div className='vertical-divider'>|</div>
                 <a
                   className="signin-stuff"
-                  href=''
+                  href='#'
                   onClick={this.logout}
                 >
                   <p className='logout'>Log Out</p>
@@ -72,7 +72,7 @@ class Navbar extends React.Component{
 
     render(){
         return (
-            <>
+            <div>
                 <header className='main-navbar'>
                     <div>
                         <div className='logo-bar'>
@@ -86,7 +86,7 @@ class Navbar extends React.Component{
                     </div >
                 </header >
                 {/* the above gray bar is just a divider */}
-            </>
+            </div>
         )
     }
 }

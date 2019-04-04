@@ -1,48 +1,38 @@
 import React from 'react';
-// import GoogleMapContainer from '../map/map';
 import BookingFormContainer from '../bookings/booking_form_container';
 import "react-dates/initialize";
 
 class ListingShow extends React.Component{
-  componentDidMount(){
+  componentDidMount() {
     this.props.fetchListing(this.props.listingId);
   }
 
-  render(){
-    if(this.props.listing === undefined){
+  render() {
+    if (this.props.listing === undefined) {
       return null;
     }
-    // const listingMapStyle = {
-    //   width: '40%',
-    //   height: '60%',
-    //   'marginLeft': 'auto',
-    //   'marginRight': '6%',
-    //   'zIndex': '0',
-    // };
+
     return(
       <div className="listing-show">
-          {/* <GoogleMapContainer listings={[this.props.listing]} style={listingMapStyle} /> */}
-          <div className='show-image-container'>
-            <img alt="" className='parking-images' src={this.props.listing.photo} />
-          </div>
-          <div className='show-info'>
-            <div className='show-listing-flex'>
-              <div className='parking-info'>
+        <div className='show-image-container'>
+          <img alt="" className='parking-images' src={this.props.listing.photo} />
+        </div>
+        <div className='show-info'>
+          <div className='show-listing-flex'>
+            <div className='parking-info'>
               <h2>Take a look at this!</h2>
-                <div>{this.props.listing.street}, {this.props.listing.city}</div>
-                <div>{this.props.listing.state} {this.props.listing.zip} </div>
-                <div>Description: </div>
-                <div>{this.props.listing.description}</div>
-                <div>Flat Rate of: ${this.props.listing.price}</div>
-                <div>
-                </div>
-              </div>
+              <div>{this.props.listing.street}, {this.props.listing.city}</div>
+              <div>{this.props.listing.state} {this.props.listing.zip}</div>
+              <div>Description: </div>
+              <div>{this.props.listing.description}</div>
+              <div>Flat Rate of: ${this.props.listing.price}</div>
+              <div></div>
             </div>
           </div>
           <div className='booking-form-container'>
             <BookingFormContainer history={ this.props.history } listing={this.props.listing}/>
           </div>
-
+        </div>
       </div>
     );
   };

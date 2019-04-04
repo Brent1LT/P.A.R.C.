@@ -175,7 +175,7 @@ footer{
 }
 
 .search-container{
-    height: 60vh;
+    height: 100%;
     width: 100%;
     background: url('../assets/architecture-bungalow-daylight-1396122.jpg');
     background-repeat: no-repeat;
@@ -184,32 +184,107 @@ footer{
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.search-margin{
-    width: 50%;
-    margin: auto;
-}
-
-.search-title{
-    color: white;
     font-size: 72px;
     font-weight: 800;
     width: 100%;
     text-align: center;
+    color: white;
+
+    h4{
+        font-size: 24px;
+        color: white;
+        font-family: Georgia,Times,Times New Roman,serif;
+        letter-spacing: 1.5px;
+
+    }
+}
+
+.search-margin{
+    width: 60%;
+    margin: auto;
+
+}
+
+.search-title{
+    margin-top: 5%;
+    margin-bottom: 20px;
+    text-shadow: -1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
 
 .search-bar{
-    margin-top: 20px;
+    margin-bottom: 80px;
 }
+
 .main-search-bar{
     box-sizing: border-box;
     padding-left: 10px;
     padding-bottom: 10px;
     padding-top: 10px;
-    width: 100%;
+    width: 60%;
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
     font-size: 16px;
+}
+
+.section-title{
+    font-size: 50px;
+    text-align: center;
+    padding-top: 40px;
+    font-family: Freight, HoeflerText-Black, Times New Roman, serif;
+    margin-bottom: 40px;
+}
+
+.center-col{
+    width: 50%;
+    margin: auto;
+}
+
+.discover-container{
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.discovery{
+    width: 60%;
+    height: 100%;
+    object-fit: cover;
+}
+
+// .discover-parking{
+//     margin-left: auto;
+//     display: flex;
+//     justify-content: flex-end;
+//     // background: url('../assets/discover-parking.jpg');
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     width: 10%;
+//     height: 10%;
+//     justify-content: flex-end;
+// }
+
+.discover-text{
+    text-align: center;
+    font-size: 32px;
+    padding-top: 5%;
+    font-weight: 600;
+    line-height: 1.5;
+    h3{
+        display: flex;
+        color: rgb(52, 114, 222);
+        // margin-bottom: 10px;
+    }
+    h4{
+        padding-left: 30px;
+        color: rgb(3, 50, 129);
+    }
+    p{
+        padding-top: 15%;
+        font-size: 14px;
+    }
+
 }
 
 
@@ -484,7 +559,7 @@ input.new-submit:hover{
 }
 
 #root{
-    // background: url('https://img.sunset02.com/sites/default/files/styles/4_3_horizontal_inbody_900x506/public/image/2016/12/main/driveway-trees-jason-liske-0117.jpg') no-repeat center center fixed; 
+    // background: url('https://img.sunset02.com/sites/default/files/styles/4_3_horizontal_inbody_900x506/public/image/2016/12/main/driveway-trees-jason-liske-0117.jpg') no-repeat center center fixed;
     // -webkit-background-size: cover;
     // -moz-background-size: cover;
     // -o-background-size: cover;
@@ -539,7 +614,7 @@ input.new-submit:hover{
             }
             .promotion{
                 margin-top: 10%;
-            
+
                 .fine-print{
                     font-size: 10px;
                 }
@@ -558,7 +633,7 @@ input.new-submit:hover{
 
 .booking-form{
     color: white;
-    
+
     h2{
         color: rgb(52, 114, 222);
     }
@@ -583,4 +658,27 @@ input.new-submit:hover{
     #end-date-field{
         border-left: 1px solid lightgray;
     }
+}
+
+.map-nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: .6em;
+}
+
+.map-marker {
+  color: #f00;
+}
+
+.marker-text {
+  background-color: white;
+  border: 1px solid red;
+  color: black;
+  padding: .7em;
+}
+
+.marker-pin {
+  cursor: pointer;
+  width: 22px;
 }
