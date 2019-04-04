@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import MainPage from './main_page';
 import { fetchListings } from '../../actions/listing_action';
+import {openModal} from '../../actions/modal_action';
 
 const mapStateToProps = (state) => {
   return ({
@@ -8,9 +9,11 @@ const mapStateToProps = (state) => {
   });
 };
 const mapDispatchToProps = (dispatch) => {
-  return ({
+  return {
     fetchListings: () => dispatch(fetchListings()),
-  });
+    openModal: modal => dispatch(openModal(modal)),
+
+  };
 };
 
 const MainPageContainer =
