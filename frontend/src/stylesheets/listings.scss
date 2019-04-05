@@ -32,14 +32,16 @@
 .all-listings {
   display: flex;
   flex-direction: column;
+  color: white;
   height: 85vh;
   width: 40vw;
   min-width: 500px;
   overflow: auto;
   .listing-item {
     flex-direction: column;
+    font-family: 'Rancho', cursive;
     align-items: center;
-    background: rgba(167, 201, 160, 0.4);
+    background: rgba(52, 114, 222, .75);
     border-radius: 3px;
     display: flex;
     padding: .5em;
@@ -49,7 +51,9 @@
     width: 95%;
     border-bottom: 1px solid black;
     border-right: 1px solid black;
-    
+    p{
+      margin: 0px;
+    }
     .parking-logo{
       padding-top: 20px;
       height: 60%;
@@ -65,16 +69,26 @@
       margin: 0 auto;
     }
     #go-to-parking{
-      color: blue;
+      color: white;
       text-shadow: none;
-      font-size: 16px;
+      font-size: 20px;
+      text-decoration: none;
+      padding: 5px;
     }
+
+    #go-to-parking:hover{
+      background: white;
+      color: rgb(52, 114, 222);
+      border-radius: 5px;
+    }
+    
     h3{
       margin-bottom: 15px;
     }
     .location-info{
       text-transform: capitalize;
       margin-bottom: 5px;
+      font-size: 26px;
     }
     
     .description-listing{
