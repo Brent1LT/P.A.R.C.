@@ -107,7 +107,7 @@ class ListingIndex extends React.Component{
                   lat={this.state.lat}
                   lng={this.state.lng}
                   changeListing={this.changeListing}
-                  listings={listings}
+                  indexList={listings}
                 />
               </div>
             </div>
