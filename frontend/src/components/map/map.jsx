@@ -25,6 +25,20 @@ class ParcMap extends Component {
     }
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.lat !== this.props.lat ||
+        prevProps.lng !== this.props.lng) {
+          this.setState(oldState => ({
+            viewport: {
+              ...oldState.viewport,
+              latitude: this.props.lat,
+              longitude: this.props.lng
+            }
+          })
+        );
+    }
+  }
+
   onMarkerClick(props, marker, e) {
     if (this.props.changeListing) {
       this.props.changeListing(props.id);
@@ -83,7 +97,6 @@ class ParcMap extends Component {
 
     return (
       <div className="map-container">
-        {/* <p>{frontendKeys}</p> */}
         <ReactMapGL
           {...viewport}
           mapStyle="mapbox://styles/mapbox/streets-v11"

@@ -1,5 +1,5 @@
 const frontendKeys = {
-  mapApiKey: process.env.MAP_API_KEY,
+  mapApiKey: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN,
 };
 
 module.exports = frontendKeys;

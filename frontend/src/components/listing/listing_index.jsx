@@ -34,14 +34,18 @@ class ListingIndex extends React.Component{
     });
   }
 
+  componentDidUpdate(oldProps) {
+    if (oldProps.search !== this.props.search) {
+      this.filterListings();
+    }
+  }
+
   filterListings() {
     this.geocodeRequest(this.props.search).then(response => {
-      this.lat = response.lat;
       this.setState({
         lat: response.lat,
         lng: response.lng
       });
-      this.state.lng = response.lng;
     }).catch(err => {
       this.setState({ error: err });
     });
@@ -61,7 +65,6 @@ class ListingIndex extends React.Component{
       });
   }
 
-
   render() {
     if (Object.keys(this.props.listings).length === 0) {
       return null;
@@ -71,14 +74,6 @@ class ListingIndex extends React.Component{
     if(this.state.listing === null){
       return null;
     }
-
-    const listingMapStyle = {
-      width: '80%',
-      height: '80%',
-      'marginLeft': 'auto',
-      'marginRight': 'auto',
-      'zIndex': '0',
-    };
 
     return (
       <div>
@@ -93,20 +88,21 @@ class ListingIndex extends React.Component{
               })}
             </div>
           </div>
-          <div>
-            <div className="listing-index">
-              <div className='map-div'>
-                <MapContainer
-                  lat={this.state.lat}
-                  lng={this.state.lng}
-                  changeListing={this.changeListing}
-                  listings={listingsArray}
-                />
-              </div>
+        <div>
+          <div className="listing-index">
+            <div className='map-div'>
+              <MapContainer
+                lat={this.state.lat}
+                lng={this.state.lng}
+                changeListing={this.changeListing}
+                listings={listingsArray}
+                style={listingMapStyle}
+              />
             </div>
           </div>
         </div>
       </div>
+    </div>
     )
   };
 };

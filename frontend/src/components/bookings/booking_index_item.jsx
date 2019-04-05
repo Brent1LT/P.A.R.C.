@@ -17,18 +17,6 @@ class BookingIndexItem extends Component {
       10: "November",
       11: "December"
     };
-    // console.log(this.props.booking.startDate);
-    // console.log(this.props.booking.startDate.getDay());
-
-    // this.state = {
-    //   startDay: this.props.booking.startDate.getDay(),
-    //   startMonth: this.props.booking.startDate.getMonth(),
-    //   startYear: year[this.props.booking.startDate.getYear()],
-
-    //   endDay: this.props.booking.startDate.getDay(),
-    //   endMonth: this.props.booking.startDate.getMonth(),
-    //   endYear: year[this.props.booking.startDate.getYear()],
-    // };
 
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
     this.handleVisitClick = this.handleVisitClick.bind(this);
@@ -69,7 +57,7 @@ class BookingIndexItem extends Component {
                 <h3>To : </h3> <div>{this.props.booking.endDate.slice(0, 10)}</div>
             </div>
             <div className='flexing'>
-              <h3 className='capitalizing'>Cost: </h3> <div>{this.props.listing.price}</div> 
+              <h3 className='capitalizing'>Cost: </h3> <div>{this.props.listing.price}</div>
             </div>
           </div>
         </div>
