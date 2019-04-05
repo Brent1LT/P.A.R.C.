@@ -17,6 +17,8 @@ class ParcMap extends Component {
         height: '85vh',
       },
     };
+
+    this.onMarkerClick = this.onMarkerClick.bind(this);
   }
 
   componentDidMount() {
@@ -39,13 +41,13 @@ class ParcMap extends Component {
     }
   }
 
-  onMarkerClick(props, marker, e) {
-    if (this.props.changeListing) {
-      this.props.changeListing(props.id);
-      this.smoothScroll(document.getElementById('goHere'));
-    } else {
-      this.props.changeUrl(props.id);
+  onMarkerClick(listing) {
+    let test = document.getElementById(listing._id);
+    if(test === null){
+      //in case not on listing index
+      return;
     }
+    this.smoothScroll(test)
   }
 
   smoothScroll(target) {
@@ -80,16 +82,16 @@ class ParcMap extends Component {
 
     const markers = this.props.listings.map((listing) => {
       return (
-        <div>
+        <div onClick={() => this.onMarkerClick(listing)}>
           <Marker
-              className="map-marker"
-              latitude={listing.lat}
-              longitude={listing.lng}
-              captureClick={false}
-              captureDoubleClick={false}
-              captureDrag={false}
-            >
-              <Pin />
+            className="map-marker"
+            latitude={listing.lat}
+            longitude={listing.lng}
+            captureClick={false}
+            captureDoubleClick={false}
+            captureDrag={false}
+          >
+            <Pin />
           </Marker>
         </div>
       );

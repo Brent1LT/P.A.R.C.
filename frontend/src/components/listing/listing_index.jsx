@@ -95,8 +95,8 @@ class ListingIndex extends React.Component{
         <div className='index-main-container'>
           <div id='goHere' className="all-listings">
             {/* <div className='prevent-overflow'> */}
-              {listings.map(listing => {
-                return <ListingIndexItem listing={listing} />
+              {listings.map((listing, idx) => {
+                return <ListingIndexItem key={idx} listing={listing} />
               })}
             {/* </div> */}
           </div>

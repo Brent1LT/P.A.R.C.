@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 class ListingIndexItem extends React.Component{
   render() {
     return(
-        <div className="listing-item" >
+        <div id={this.props.listing._id} className="listing-item" >
           <img className='parking-logo' src={this.props.listing.photo} alt={this.props.listing.description} />
           <div className="listing-info">
             <h3>Location: </h3>
