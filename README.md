@@ -16,9 +16,9 @@ On the backend, the following technologies were chosen for their ease-of-use and
 * *Heroku*
 
 For the frontend, we used the following libraries to take advantage of their specific features.
-* *React*, for it's modular & re-usable components
-* *Redux*, for it's global store and dynamic reducers
-* *Axios*, for it's backend connection & flexible API calls
+* *React* -- for it's modular & re-usable components
+* *Redux* -- for it's global store and dynamic reducers
+* *Axios* -- for it's backend connection & flexible API calls
 
 Images were hosted using Amazon Web Services (AWS) S3.
 
