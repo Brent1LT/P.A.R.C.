@@ -853,12 +853,18 @@ input.new-submit:hover{
 }
 
 .address-info{
-    font-style: italic;
+    // font-style: italic;
+    font-size: 25px;
     text-transform: capitalize;
 }
+.also{
+    font-size: 20px;
+    font-style: none;
+}
 .address-info2{
-    font-style: italic;
+    // font-style: italic;
     text-transform: uppercase;
+    font-size: 20px;
 }
 
 .parking-images{
@@ -869,17 +875,17 @@ input.new-submit:hover{
     width: 100%;
     height: 1px;
     margin: 3% 0px;
-    border-bottom: 3px solid rgba(52, 114, 222, .7);
+    border-bottom: 3px solid rgba(52, 114, 222, 1.0);
     border-radius: 50%;
 }
 
 .show-info{
-    background: rgba(167, 201, 160, 0.4);
-    font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif;
+    background: rgba(52, 114, 222, .75);
     border: 1px solid white;
+    font-family: 'Rancho', cursive;
     border-radius: 2px;
     width: 96%;
-    height: 38.2%;
+    height: 38.1%;
     padding-left: 2%;
     padding-right: 2%;
     padding-top: 2%;
@@ -904,14 +910,32 @@ input.new-submit:hover{
     height: 272px;
 }
 
+
 .gif-title{
     margin-top: -40px;
+    font-size: 25px;
+    padding-left: 5px;
+    font-family: 'Rancho', cursive;
+    color: white;
+    
+}
+
+.info-headings{
+    font-size: 25px;
+    p{
+        font-size: 18px;
+        text-decoration: none;
+        margin-left: 5%;
+    }
 }
 
 .parking-info{
-    color: black;
+    color: white;
     width: 50%;
     margin-right: 10px;
+    min-width: 50%;
+    font-size: 30px;
+    
 }
 
 .booking-form-container{
@@ -926,8 +950,10 @@ input.new-submit:hover{
     color: white;
 
     h2{
-        color: rgb(52, 114, 222);
-        font-size: 22px;
+        display: inline-block;
+        border-bottom: 1px solid white;
+        color: white;
+        font-size: 25px;
         margin-bottom: 2%;
     }
     .booking-button{
