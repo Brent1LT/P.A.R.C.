@@ -96,7 +96,6 @@ class ListingIndex extends React.Component{
                 lng={this.state.lng}
                 changeListing={this.changeListing}
                 listings={listingsArray}
-                style={listingMapStyle}
               />
             </div>
           </div>
