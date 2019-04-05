@@ -66,7 +66,6 @@ class ListingIndex extends React.Component{
   }
 
   render() {
-    console.log(this.state.lat);
     if (Object.keys(this.props.listings).length === 0) {
       return null;
     }

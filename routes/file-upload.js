@@ -5,15 +5,14 @@ const Listing = require('../models/Listing');
 const passport = require("passport");
 const validateListingInput = require("../validation/listings");
 
-
 const singleUpload = upload.single("image");
 
 router.post("/image-upload",
   passport.authenticate("jwt", { session: false }),
   upload.single('image'),
   (req, res) => {
-      // let photo = res.json({ imageUrl: req.file.location });   
-       
+      // let photo = res.json({ imageUrl: req.file.location });
+
     Listing.findOne({street: req.body.street})
         .then(listing => {
           if (listing) {
