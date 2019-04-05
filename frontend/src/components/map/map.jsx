@@ -6,7 +6,6 @@ const frontendKeys = require("../../config/frontend_keys").mapApiKey;
 class ParcMap extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props)
 
     this.state = {
       viewport: {

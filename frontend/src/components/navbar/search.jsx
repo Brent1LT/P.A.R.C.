@@ -31,9 +31,9 @@ class Search extends React.Component{
     }
 
     render(){
-      let location = window.location.pathname.split('/').includes('location');
+      let location = window.location.href.split('/').includes('listings');
 
-        if (this.state.redirect && location) {
+        if (this.state.redirect && !location) {
           return (<Redirect to="/listings"/>)
         }
 
