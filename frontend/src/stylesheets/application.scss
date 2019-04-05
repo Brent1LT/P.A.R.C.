@@ -623,7 +623,7 @@ input#text-box:focus{
 .flexing-booking{
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: space-around;
 }
 
 .booking-index-info{
