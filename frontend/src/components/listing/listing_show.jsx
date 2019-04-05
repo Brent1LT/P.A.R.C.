@@ -20,12 +20,13 @@ class ListingShow extends React.Component{
           <div className='show-info'>
             <div className='show-listing-flex'>
                 <div className='parking-info'>
-                  <div className='address-info'>{this.props.listing.street}, {this.props.listing.city}</div>
+                  <div className='address-info'>{this.props.listing.street}</div>
+                  <div className='address-info also'>{this.props.listing.city}</div>
                   <div className='address-info2'>{this.props.listing.state} {this.props.listing.zip}</div>
                   <div className='graybar'></div>
-                  <div>Description: {this.props.listing.description} </div>
+                  <div className='info-headings'>Description: <p>{this.props.listing.description}</p> </div>
                   <div className='graybar'></div>
-                  <div>Flat Rate of: ${this.props.listing.price}</div>
+                  <div className='info-headings'>Flat Rate of: ${this.props.listing.price}</div>
                   <div className='graybar'></div>
                   <div className='booking-form-holder'>
                     <BookingFormContainer history={this.props.history} listing={this.props.listing} />  
@@ -38,7 +39,7 @@ class ListingShow extends React.Component{
           </div>
         </div>
         <div className='map-div'>
-          <MapContainer listings={this.props.listing} lat={this.props.listing.lat} lng={this.props.listing.lng} />
+          <MapContainer listings={this.props.listing} lat={this.props.listing.lat} lng={this.props.listing.lng} indexList={[this.props.listing]}/>
         </div>
       </div>
     );
