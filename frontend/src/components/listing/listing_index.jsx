@@ -93,7 +93,7 @@ class ListingIndex extends React.Component{
           <SearchBarContainer />
         </div>
         <div className='index-main-container'>
-          <div id='goHere' className="all-listings">
+           <div id='goHere' className="all-listings">
             <div>
               {listings.map(listing => {
                 return <ListingIndexItem listing={listing} />
@@ -107,7 +107,7 @@ class ListingIndex extends React.Component{
                   lat={this.state.lat}
                   lng={this.state.lng}
                   changeListing={this.changeListing}
-                  listings={listings}
+                  indexList={listings}
                 />
               </div>
             </div>
