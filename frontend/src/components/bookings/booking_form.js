@@ -31,6 +31,10 @@ class BookingForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    if(!this.state.startDate || !this.state.endDate){
+      alert("Cant book without proper dates");
+      return;
+    }
     const booking = {
       user: this.state.user.id,
       listingId: this.props.listing._id,

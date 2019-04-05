@@ -38,7 +38,10 @@ geocodeRequest(address) {
 
 handleSubmit(e) {
     e.preventDefault();
-
+    if(this.state.street= '' || this.state.city === '' || this.state.zip === '' || this.state.state === ''){
+      alert("Some information is missing!");
+      return;
+    }
     let address = `${this.state.street} ${this.state.city}, ${this.state.state}`;
     this.geocodeRequest(address).then(response => {
         if (response === undefined) {
