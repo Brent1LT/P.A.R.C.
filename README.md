@@ -26,7 +26,7 @@ Images were hosted using Amazon Web Services (AWS) S3.
 * Users can create and view listings
 * Parking spot listings can be found through a search bar
 * Parking spot listings can be found through an interactive map
-* Users can book parking spots via a dynamic calendar*
+* Users can book parking spots via a dynamic calendar
 * User accounts are secured with hashed & salted passwords
 * Users are able to view & delete their bookings
 
