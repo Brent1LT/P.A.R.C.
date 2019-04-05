@@ -989,7 +989,6 @@ input.new-submit:hover{
   height: 300px;
   width: 500px;
   margin: auto;
-  position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
   perspective: 9999px;
   transform-style: preserve-3d;
@@ -999,7 +998,9 @@ input.new-submit:hover{
 .layer {
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
+  margin-top: 20%;
+  margin-bottom: 120%;
   transform-style: preserve-3d;
   animation-fill-mode: forwards;
 }
@@ -1011,8 +1012,8 @@ input.new-submit:hover{
   text-align: center;
   height: 100%;
   width: 100%;
-  position: absolute;
-  top: -170px;
+  top: 0px;
+  margin-bottom: 100px;
   color: darken(#fff, 4%);
   letter-spacing: -2px;
   text-shadow: 4px 0 10px hsla(0, 0%, 0%, .13);

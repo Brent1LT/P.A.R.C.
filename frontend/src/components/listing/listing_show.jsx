@@ -38,7 +38,7 @@ class ListingShow extends React.Component{
           </div>
         </div>
         <div className='map-div'>
-          <MapContainer listings={this.props.listing} lat={this.props.listing.lat} lng={this.props.listing.lng} />
+          <MapContainer listings={this.props.listing} lat={this.props.listing.lat} lng={this.props.listing.lng} indexList={[this.props.listing]}/>
         </div>
       </div>
     );
