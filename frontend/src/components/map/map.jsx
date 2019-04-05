@@ -6,6 +6,7 @@ const frontendKeys = require("../../config/frontend_keys").mapApiKey;
 class ParcMap extends Component {
   constructor(props) {
     super(props);
+    console.log(this.props)
 
     this.state = {
       viewport: {
@@ -22,6 +23,20 @@ class ParcMap extends Component {
   componentDidMount() {
     if (this.props.listings.length !== 1) {
       this.props.fetchAllListings();
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.lat !== this.props.lat ||
+        prevProps.lng !== this.props.lng) {
+          this.setState(oldState => ({
+            viewport: {
+              ...oldState.viewport,
+              latitude: this.props.lat,
+              longitude: this.props.lng
+            }
+          })
+        );
     }
   }
 
@@ -83,7 +98,6 @@ class ParcMap extends Component {
 
     return (
       <div className="map-container">
-        {/* <p>{frontendKeys}</p> */}
         <ReactMapGL
           {...viewport}
           mapStyle="mapbox://styles/mapbox/streets-v11"

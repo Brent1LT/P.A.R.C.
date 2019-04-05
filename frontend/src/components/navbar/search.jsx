@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 
 class Search extends React.Component{
@@ -6,14 +7,12 @@ class Search extends React.Component{
         super(props);
         this.state={
             searchField: '',
-            empty: ''
-        };
-        
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+            empty: '',
+            redirect: false,
 
-    componentDidMount(){
-        // this.props.fetchListings();     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        };
+
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(e){
@@ -21,7 +20,7 @@ class Search extends React.Component{
         e.preventDefault();
         this.props.newSearch(this.state.searchField);
         //dispatch action passed by mapdispatchtoprops
-        this.props.history.push('/listings');
+        this.setState({ redirect: true });
         //sending the search to the /listings index page
     }
 
@@ -32,6 +31,12 @@ class Search extends React.Component{
     }
 
     render(){
+      let location = window.location.pathname.split('/').includes('location');
+
+        if (this.state.redirect && location) {
+          return (<Redirect to="/listings"/>)
+        }
+
         return(
             <div>
                 <form onSubmit={(e) => this.handleSubmit(e)}>
