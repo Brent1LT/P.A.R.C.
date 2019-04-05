@@ -15,26 +15,30 @@ class ListingShow extends React.Component{
 
     return(
       <div className="listing-show">
-        <div>
-        <img alt="" className='parking-images' src={this.props.listing.photo} />
-        <div className='show-info'>
-          <div className='show-listing-flex'>
-              <div className='parking-info'>
-                <div>{this.props.listing.street}, {this.props.listing.city}</div>
-                <div>{this.props.listing.state} {this.props.listing.zip}</div>
-                <div>Description: </div>
-                <div>{this.props.listing.description}</div>
-                <div>Flat Rate of: ${this.props.listing.price}</div>
-                <div></div>
-              </div>
+        <div className='left-info-container'>
+          <img alt="" className='parking-images' src={this.props.listing.photo} />
+          <div className='show-info'>
+            <div className='show-listing-flex'>
+                <div className='parking-info'>
+                  <div className='address-info'>{this.props.listing.street}, {this.props.listing.city}</div>
+                  <div className='address-info2'>{this.props.listing.state} {this.props.listing.zip}</div>
+                  <div className='graybar'></div>
+                  <div>Description: {this.props.listing.description} </div>
+                  <div className='graybar'></div>
+                  <div>Flat Rate of: ${this.props.listing.price}</div>
+                  <div className='graybar'></div>
+                  <div className='booking-form-holder'>
+                    <BookingFormContainer history={this.props.history} listing={this.props.listing} />  
+                  </div>
+                </div>
+                <div className='showpage-gif'>
+                  <div className='gif-title'>No need to rush when your parking is secured</div>
+                </div>
             </div>
-            <div className='booking-form-container'>
           </div>
-          <BookingFormContainer history={ this.props.history } listing={this.props.listing}/>
-        </div>
         </div>
         <div className='map-div'>
-          <MapContainer listings={this.props.listing} />
+          <MapContainer listings={this.props.listing} lat={this.props.listing.lat} lng={this.props.listing.lng} />
         </div>
       </div>
     );
