@@ -94,11 +94,11 @@ class ListingIndex extends React.Component{
         </div>
         <div className='index-main-container'>
           <div id='goHere' className="all-listings">
-            <div>
+            {/* <div className='prevent-overflow'> */}
               {listings.map(listing => {
                 return <ListingIndexItem listing={listing} />
               })}
-            </div>
+            {/* </div> */}
           </div>
           <div>
             <div className="listing-index">
@@ -107,7 +107,7 @@ class ListingIndex extends React.Component{
                   lat={this.state.lat}
                   lng={this.state.lng}
                   changeListing={this.changeListing}
-                  listings={listings}
+                  indexList={listings}
                 />
               </div>
             </div>

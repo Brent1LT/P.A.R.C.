@@ -23,6 +23,12 @@
   }
 
 }
+
+// .prevent-overflow{
+//   width: 100%;
+//   height: 100%;
+//   overflow: hidden;
+// }
 .all-listings {
   display: flex;
   flex-direction: column;
@@ -39,10 +45,10 @@
     padding: .5em;
     padding-left: 20px;
     height: 5%;
+    min-height: 810px;
     width: 95%;
     border-bottom: 1px solid black;
     border-right: 1px solid black;
-    
     
     .parking-logo{
       padding-top: 20px;
