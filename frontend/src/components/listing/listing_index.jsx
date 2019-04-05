@@ -70,10 +70,22 @@ class ListingIndex extends React.Component{
       return null;
     }
 
-    const listingsArray = Object.values(this.props.listings);
     if(this.state.listing === null){
       return null;
     }
+
+    const listingsArray = Object.values(this.props.listings); //for mapping purposes
+    let listings; //for display purposes
+    if(this.state.lat !== 37.7599043 || this.state.lng !== -122.4256016){
+      listings = [];
+      listingsArray.map(listing => {
+        if ((listing.lat <= this.state.lat + .0055 && listing.lat >= this.state.lat - .0055) &&
+          (listing.lng <= this.state.lng + .0083 && listing.lng >= this.state.lng - .0083)) {
+          listings.push(listing);
+        }
+      });
+    }
+    if (!listings || listings.length === 0) listings = listingsArray;
 
     return (
       <div>
@@ -83,23 +95,23 @@ class ListingIndex extends React.Component{
         <div className='index-main-container'>
           <div id='goHere' className="all-listings">
             <div>
-              {listingsArray.map(listing => {
+              {listings.map(listing => {
                 return <ListingIndexItem listing={listing} />
               })}
             </div>
           </div>
-        <div>
-          <div className="listing-index">
-            <div className='map-div'>
-              <MapContainer
-                lat={this.state.lat}
-                lng={this.state.lng}
-                changeListing={this.changeListing}
-                listings={listingsArray}
-              />
+          <div>
+            <div className="listing-index">
+              <div className='map-div'>
+                <MapContainer
+                  lat={this.state.lat}
+                  lng={this.state.lng}
+                  changeListing={this.changeListing}
+                  listings={listings}
+                />
+              </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
     )
