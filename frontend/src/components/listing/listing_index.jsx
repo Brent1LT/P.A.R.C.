@@ -93,12 +93,12 @@ class ListingIndex extends React.Component{
           <SearchBarContainer />
         </div>
         <div className='index-main-container'>
-           <div id='goHere' className="all-listings">
-            <div>
+          <div id='goHere' className="all-listings">
+            {/* <div className='prevent-overflow'> */}
               {listings.map(listing => {
                 return <ListingIndexItem listing={listing} />
               })}
-            </div>
+            {/* </div> */}
           </div>
           <div>
             <div className="listing-index">
