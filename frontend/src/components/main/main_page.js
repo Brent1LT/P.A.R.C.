@@ -102,15 +102,16 @@ class MainPage extends React.Component {
           <div className="footer-container">
             <h2>Check us out!</h2>
             <a
-              target="_blank"
-              className="link-tags"
-              href="https://github.com/Brent1LT/P.A.R.C."
-            >
-              <i class="fa fa-github" />
-              Github
-            </a>
+                target="_blank"
+                id='main-icon'
+                className="link-tags"
+                href="https://github.com/Brent1LT/P.A.R.C."
+              >
+                <i class="fa fa-github"/>
+              </a>
             <a
               target="_blank"
+              id='portfolio-names'
               className="link-tags"
               href="https://brentbumann.dev"
             >
@@ -118,6 +119,7 @@ class MainPage extends React.Component {
             </a>
             <a
               target="_blank"
+              id='portfolio-names'
               className="link-tags"
               href="https://samardrey.dev"
             >
@@ -125,6 +127,7 @@ class MainPage extends React.Component {
             </a>
             <a
               target="_blank"
+              id='portfolio-names'
               className="link-tags"
               href="https://gflujan.com"
             >
@@ -132,6 +135,7 @@ class MainPage extends React.Component {
             </a>
             <a
               target="_blank"
+              id='portfolio-names'
               className="link-tags"
               href="https://vishavpreetsandhu.com"
             >
