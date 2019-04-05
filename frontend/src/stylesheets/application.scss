@@ -354,7 +354,7 @@ h1#main-logo{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url('https://images.wallpaperscraft.com/image/parking_underground_marking_118795_3840x2160.jpg');
+    background: url('/assets/image2.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -549,18 +549,18 @@ input#text-box:focus{
 //@@@@@@@@@@@@@@@@@@@@@@@@--Booking-Index--@@@@@@@@@@@@@@@@@@@@@@@
 
 .booking-index{
-    background: linear-gradient(rgb(10, 0, 19), white);
+    background: linear-gradient(rgb(10, 0, 19), #ccc);
 }
 
 #booking-main-img{
     width: 100%;
     height: 40vh;
-    background-image: url(./bookingHeaderImg.jpg);
+    background-image: url('/assets/bookingHeaderImg.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     z-index: -5;
-    
+
 }
 .actual-title{
     text-align: center;
@@ -593,8 +593,8 @@ input#text-box:focus{
     margin-bottom: 2%;
     font-weight: 800;
     color: rgb(52, 114, 222);
-    border-bottom: 4px solid rgba(52, 114, 222, .8); 
-    border-right: 4px solid rgba(52, 114, 222, .8); 
+    border-bottom: 4px solid rgba(52, 114, 222, .8);
+    border-right: 4px solid rgba(52, 114, 222, .8);
     border-radius: 5px;
     text-shadow: 1px 2px rgba(0, 0, 0, 0.5);
     width: 49%;
@@ -607,7 +607,7 @@ input#text-box:focus{
     padding: 10px;
     margin-left: 9px;
     margin-right: 9px;
-    font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif; 
+    font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif;
     font-size: 12px;
     color: white;
 }
@@ -623,7 +623,7 @@ input#text-box:focus{
 .flexing-booking{
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: space-around;
 }
 
 .booking-index-info{
@@ -836,7 +836,7 @@ input.new-submit:hover{
 
 .show-info{
     background: rgba(167, 201, 160, 0.4);
-    font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif; 
+    font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif;
     border: 1px solid white;
     border-radius: 2px;
     width: 96%;
@@ -861,7 +861,7 @@ input.new-submit:hover{
 .showpage-gif{
     width: 50%;
     margin-top: 50px;
-    background-image: url(./showpage.gif);
+    background-image: url('/assets/showpage.gif');
     height: 272px;
 }
 
@@ -888,6 +888,8 @@ input.new-submit:hover{
 
     h2{
         color: rgb(52, 114, 222);
+        font-size: 22px;
+        margin-bottom: 2%;
     }
     .booking-button{
         margin-left: 5px;
@@ -937,7 +939,7 @@ input.new-submit:hover{
 }
 
 
-// body { 
+// body {
 //   min-height: 450px;
 //   height: 100vh;
 //   margin: 0;
@@ -971,7 +973,7 @@ input.new-submit:hover{
   height: 100%;
   width: 100%;
   position: absolute;
-  top: -170px; 
+  top: -170px;
   color: darken(#fff, 4%);
   letter-spacing: -2px;
   text-shadow: 4px 0 10px hsla(0, 0%, 0%, .13);

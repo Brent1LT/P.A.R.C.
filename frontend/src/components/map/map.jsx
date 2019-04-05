@@ -80,7 +80,9 @@ class ParcMap extends Component {
 
     const { viewport } = this.state;
 
-    const markers = this.props.listings.map((listing) => {
+    const mapper = this.props.indexList || this.props.listings
+
+    const markers = mapper.map((listing) => {
       return (
         <div onClick={() => this.onMarkerClick(listing)}>
           <Marker
@@ -96,6 +98,7 @@ class ParcMap extends Component {
         </div>
       );
     });
+
 
     return (
       <div className="map-container">
