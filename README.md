@@ -2,7 +2,9 @@
 
 [Live Site](https://lets-parc.herokuapp.com)
 
-P.A.R.C. is a garage-share website. It utilizes MongoDB, Express, React/Redux and Node.js.
+P.A.R.C. is a parking-share web app where anyone with a private spot, or driveway, can list it to make it publicly available to others who want to rent that space for various defined periods of time (e.g. hour, day, week, month).
+
+This project utilizes MongoDB, Express.js, React/Redux and Node.js.
 
 From start to finish, the beta version was completed in 6 days.
 
@@ -78,6 +80,74 @@ router.post("/image-upload",
 );
 ```
 
+## Mapbox GL JS Integration
+To display our listings we incorporated the [Mapbox GL JS](https://github.com/mapbox) API into our app. Because this library and map use WebGL to render everything, it allowed us the ability to create custom elements and have cross-platform compatibility.
+
+![Mapbox Integration](https://github.com/Brent1LT/P.A.R.C./blob/master/documents/assets/design_docs/readme-map.png)
+```
+constructor(props) {
+  super(props);
+
+  this.state = {
+    viewport: {
+      // These default LAT & LNG coords are what the map centers on
+      latitude: 37.7599034,
+      longitude: -122.4183564,
+      zoom: 13.25,
+      width: '100%',
+      height: '50vh',
+    },
+  };
+};
+
+render() {
+  if (this.props.listings.length === 0) {
+    return (null);
+  }
+
+  const { viewport } = this.state;
+
+  const markers = this.props.listings.map((listing) => {
+    return (
+      <div>
+        <Marker
+            className="map-marker"
+            latitude={listing.lat}
+            longitude={listing.lng}
+            captureClick={false}
+            captureDoubleClick={false}
+            captureDrag={false}
+          >
+            <Pin />
+        </Marker>
+      </div>
+    );
+  });
+
+  return (
+    <div className="map-container">
+      <ReactMapGL
+        {...viewport}
+        mapStyle="mapbox://styles/mapbox/streets-v11"
+        mapboxApiAccessToken={frontendKeys.mapApiKey}
+        onViewportChange={(viewport) => this.setState({viewport})}
+      >
+        {markers}
+        <div className="map-nav">
+          <NavigationControl
+            showCompass={false}
+            captureClick={false}
+            captureDoubleClick={false}
+            captureDrag={false}
+            onViewportChange={(viewport) => this.setState({viewport})}
+          />
+        </div>
+      </ReactMapGL>
+    </div>
+  );
+};
+```
+
 ## AirBNB Calendar API Integration
 We integrated AirBNB's calendar API ([react-dates](https://github.com/airbnb/react-dates)) so that we could show a listings currently booked dates, as well as highlight the range of dates that a current user was looking at.
 
@@ -128,8 +198,10 @@ render() {
 ```
 
 ## Project Design
-Our goal when designing P.A.R.C. was to create a quick, stable MERN stack build that utilized an external API--google maps. We gave ourselves 6 days to learn and utilize the stack.
+When designing P.A.R.C., our goal was to create a quick & stable MERN stack build that utilized an external API (Mapbox). We also wanted to offer an intuitive, friendly and clean user interface & experience. We gave ourselves 6 days to learn the technologies, implement everything and provide a working Beta version.
 
-## Planned Features & Tasks
-* Cleanup Bookings
+## Future Features & Tasks
+* Add more cities
+* Implement a payment system
+* Google/Apple calendar integration
 * Re-design UI
