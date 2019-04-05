@@ -39,9 +39,8 @@
   overflow: auto;
   .listing-item {
     flex-direction: column;
-    font-family: 'Rancho', cursive;
     align-items: center;
-    background: rgba(52, 114, 222, .75);
+    background: linear-gradient( white, rgba(52, 114, 222, .75));
     border-radius: 3px;
     display: flex;
     padding: .5em;
@@ -49,8 +48,8 @@
     height: 5%;
     min-height: 810px;
     width: 95%;
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
     p{
       margin: 0px;
     }
@@ -71,7 +70,7 @@
     #go-to-parking{
       color: white;
       text-shadow: none;
-      font-size: 20px;
+      font-size: 18px;
       text-decoration: none;
       padding: 5px;
     }

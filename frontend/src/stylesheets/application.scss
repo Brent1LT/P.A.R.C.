@@ -846,8 +846,9 @@ input.new-submit:hover{
 
 }
 .left-info-container{
+    background: linear-gradient( white, rgba(52, 114, 222, .75));
     width: 100%;
-    height: 88vh;
+    height: 85vh;
 }
 
 .show-image-container{
@@ -883,9 +884,7 @@ input.new-submit:hover{
 }
 
 .show-info{
-    background: rgba(52, 114, 222, .75);
-    border: 1px solid white;
-    font-family: 'Rancho', cursive;
+    // font-family: 'Rancho', cursive;
     border-radius: 2px;
     width: 96%;
     height: 38.1%;
@@ -924,9 +923,9 @@ input.new-submit:hover{
 }
 
 .info-headings{
-    font-size: 25px;
+    font-size: 18px;
     p{
-        font-size: 18px;
+        font-size: 14px;
         text-decoration: none;
         margin-left: 5%;
     }
@@ -951,12 +950,19 @@ input.new-submit:hover{
 
 .booking-form{
     color: white;
+    height: 200px !important;
+
+    .form-booking{
+        display: flex;
+        width: 95%;
+        justify-content: flex-start;
+    }
 
     h2{
         display: inline-block;
         border-bottom: 1px solid white;
         color: white;
-        font-size: 25px;
+        font-size: 20px;
         margin-bottom: 2%;
     }
     .booking-button{
