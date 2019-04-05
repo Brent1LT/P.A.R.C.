@@ -10,7 +10,6 @@ class ListingIndex extends React.Component{
     this.state = {
       lat: 37.7599043,
       lng: -122.4256016,
-      listing: null,
       search: null,
     };
 
@@ -20,18 +19,11 @@ class ListingIndex extends React.Component{
 
     this.geocodeRequest = this.geocodeRequest.bind(this);
     this.filterListings = this.filterListings.bind(this);
-    this.changeListing = this.changeListing.bind(this);
-  }
-
-  changeListing(id) {
-    let newListing = this.props.listings[id];
-    this.setState({listing: newListing});
   }
 
   componentDidMount(){
-    this.props.fetchListings().then(action =>{
-      this.setState({ listing: action.listings[0] });
-    });
+    // debugger
+    this.props.fetchListings();
   }
 
   componentDidUpdate(oldProps) {
@@ -65,14 +57,15 @@ class ListingIndex extends React.Component{
       });
   }
 
+  componentWillUnmount(){
+    this.props.newSearch('');
+  }
+
   render() {
     if (Object.keys(this.props.listings).length === 0) {
       return null;
     }
 
-    if(this.state.listing === null){
-      return null;
-    }
 
     const listingsArray = Object.values(this.props.listings); //for mapping purposes
     let listings; //for display purposes
@@ -86,7 +79,9 @@ class ListingIndex extends React.Component{
       });
     }
     if (!listings || listings.length === 0) listings = listingsArray;
-
+    if(this.props.search === ""){
+      listings = listingsArray;
+    }
     return (
       <div>
         <div className='index-search'>

@@ -4,6 +4,6 @@ export const newSearch = search => {
     return({
         type: RECEIVE_SEARCH,
         search
-    })
-}
+    });
+};
 
