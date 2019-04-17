@@ -123,7 +123,7 @@ class BookingForm extends Component {
     const isBlocked = day => BAD_DATES.filter(d => d.contains(day, 'day')).length > 0;
 
     return (
-      <div className="booking-form" style={ {width: 400 +'px', height: 400 +'px'} } >
+      <div className="booking-form">
         <h2>Book This Spot</h2>
         <form className='form-booking' onSubmit={ this.handleSubmit }>
           <DateRangePicker

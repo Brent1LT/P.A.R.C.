@@ -29,18 +29,22 @@ class ListingShow extends React.Component{
                   <div className='info-headings'>Flat Rate of: ${this.props.listing.price}</div>
                   <div className='graybar'></div>
                   <div className='booking-form-holder'>
-                    <BookingFormContainer history={this.props.history} listing={this.props.listing} />  
+                    <BookingFormContainer history={this.props.history} listing={this.props.listing} />
                   </div>
                 </div>
-                <div className='showpage-gif'>
+                <div className="gif-container">
                   <div className='gif-title'>No need to rush when your parking is secured</div>
+                  <div className='showpage-gif'></div>
                 </div>
             </div>
           </div>
         </div>
-        <div className='map-div'>
-          <MapContainer listings={this.props.listing} lat={this.props.listing.lat} lng={this.props.listing.lng} indexList={[this.props.listing]}/>
-        </div>
+        <MapContainer
+          listings={this.props.listing}
+          lat={this.props.listing.lat}
+          lng={this.props.listing.lng}
+          indexList={[this.props.listing]}
+        />
       </div>
     );
   };

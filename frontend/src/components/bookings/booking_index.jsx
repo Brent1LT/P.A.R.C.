@@ -35,10 +35,7 @@ class BookingIndex extends Component {
   }
 
   render() {
-    if (this.props.bookings.length === 0) {
-      return null;
-      // can add little loading screen here
-    }
+    if (this.props.bookings.length === 0) return null;
 
     let bookingsArray = Object.values(this.props.bookings);
     bookingsArray = this.mostRecent(bookingsArray);
@@ -46,31 +43,12 @@ class BookingIndex extends Component {
 
     return (
       <div className="booking-index">
-        <h1 id='booking-main-img'><div class="stage">
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-          <div class="layer"></div>
-        </div></h1>
+        <h1 id='booking-main-img'>
+          <div className="booking-title">
+            <p>This Month's Bookings</p>
+          </div>
+        </h1>
         <div className='count-info'>
-          <h2 className='month-bookings-title'>All your bookings for this month!</h2>
-          
           <div className='flexing-booking'>
               {bookingsArray.map((booking) => {
                 return (

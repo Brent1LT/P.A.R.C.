@@ -390,14 +390,15 @@ h1#main-logo{
     }
 }
 
-.footer{
-    height: 100px;
-    width: 100%;
-    text-align: center;
-    background: rgb(52, 114, 222);
+footer {
+  background: rgb(52, 114, 222);
+  height: 100px;
+  padding: 1.25em 0;
+  text-align: center;
+  width: 100%;
 }
 
-.footer-container{
+.footer-container {
     display: block;
     align-items: center;
     h2{
@@ -591,7 +592,8 @@ input#text-box:focus{
 //@@@@@@@@@@@@@@@@@@@@@@@@--Booking-Index--@@@@@@@@@@@@@@@@@@@@@@@
 
 .booking-index{
-    background: linear-gradient(rgb(10, 0, 19), #ccc);
+  background-image: linear-gradient(rgb(10, 0, 19), #fff);
+  height: 100vh;
 }
 
 #booking-main-img{
@@ -602,44 +604,37 @@ input#text-box:focus{
     background-repeat: no-repeat;
     background-size: cover;
     z-index: -5;
-
 }
+
+.booking-title {
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding-top: 5%;
+
+  p {
+    color: dodgerblue;
+    font: 80px 'Pacifico', 'Kaushan Script', Futura, 'Roboto', 'Trebuchet MS', Helvetica, sans-serif;
+    text-decoration: underline;
+    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px  1px 0 white, 1px  1px 0 white;
+  }
+}
+
 .actual-title{
-    text-align: center;
-    padding-top: 130px;
-    font-size: 48px;
-    color: rgb(52, 114, 222);
-    // font-weight: 500;
+  color: rgb(52, 114, 222);
+  font-size: 48px;
+  padding-top: 130px;
+  text-align: center;
 }
 
 .count-info{
-    width: 60%;
-    background: white;
-    // border: 1px solid black;
-    border-radius: 3px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -110px;
-    padding: 4.2%;
-    padding-top: .5%;
-    padding-bottom: 0;
-    padding-right: 4%;
-    z-index: 6;
-}
-
-.month-bookings-title{
-    font-size: 30px;
-    padding: 3%;
-    padding-left: 0px;
-    margin-left: 1.5%;
-    margin-bottom: 2%;
-    font-weight: 800;
-    color: rgb(52, 114, 222);
-    border-bottom: 4px solid rgba(52, 114, 222, .8);
-    border-right: 4px solid rgba(52, 114, 222, .8);
-    border-radius: 5px;
-    text-shadow: 1px 2px rgba(0, 0, 0, 0.5);
-    width: 49%;
+  background: white;
+  border-radius: 3px;
+  margin: 0 auto;
+  margin-top: -8%;
+  padding: 1.5% 2.5% 2.5%;
+  width: 60%;
+  z-index: 6;
 }
 
 //@@@@@@@@@@@@@@@@@@@@@@@@--Booking-Index-Item--@@@@@@@@@@@@@@@@@@@@@@@
@@ -719,22 +714,21 @@ input#text-box:focus{
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@--new-listing--@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-
-.main-title-new{
-    font-size: 36px;
-    margin: 10px 10px;
-    padding: 10px;
-    color: rgb(52, 114, 222);
-    padding-left: 0;
-    text-shadow: 1px 2px rgba(0, 0, 0, 0.5);
-
-    font-weight: 800;
+.main-title-new {
+  color: white;
+  font-size: 36px;
+  font-weight: 800;
+  margin: 10px 10px;
+  padding: 10px;
+  padding-left: 0;
+  text-shadow: 1px 2px rgba(0, 0, 0, 0.5);
 }
-.main-description-new{
-    margin-left: 10px;
-    font-size: 16px;
-    font-style: italic;
-    color: rgb(123, 123, 123);
+
+.main-description-new {
+  color: #ccc;
+  font-size: 16px;
+  font-style: italic;
+  margin-left: 10px;
 }
 
 div.flexing-text-box{
@@ -752,19 +746,16 @@ div.flexing-text-box{
 }
 
 .listing-form-title{
-    font-size: 20px;
-    width: 300px;
-    color: rgb(52, 114, 222);
-    font-weight: 800;
-    text-shadow: 1px 2px rgba(0, 0, 0, 0.5);
-
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+  text-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+  width: 300px;
 }
 
 .listing-form{
     width: 40%;
     margin-top: 20px;
-    margin: 10px 10px;
-    padding-bottom: 10px;
 }
 .attribute-titles{
     padding-bottom: 5px;
@@ -795,20 +786,25 @@ input#new-text-box{
     padding-right: 11%;
 }
 
-.entire-listing-form{
-    padding: 10px;
-    margin-left: 550px;
-    margin-top: 5%;
-    margin-right: auto;
-    width: 400px;
-    height: 600px;
+.background-gif {
+  background-image: url('/assets/newlistingBackground.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
 }
-.background-gif{
-    background-image: url('/assets/newlistingBackground.gif');
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100vw;
-    height: 900px;
+
+.entire-listing-form {
+  background-color: rgba(52, 114, 222, .9);
+  height: 60%;
+  padding: 10px;
+  margin-left: 30%;
+  margin-top: 12%;
+  width: 30%;
 }
 
 .photo-preview{
@@ -883,43 +879,44 @@ input.new-submit:hover{
     border-radius: 50%;
 }
 
-.show-info{
-    // font-family: 'Rancho', cursive;
-    border-radius: 2px;
-    width: 96%;
-    height: 38.1%;
-    padding-left: 2%;
-    padding-right: 2%;
-    padding-top: 2%;
-    margin-top: -5px;
-    margin-right: auto;
+.show-info {
+  border-radius: 2px;
+  height: 38.1%;
+  margin-right: auto;
+  margin-top: -5px;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 2%;
+  width: 96%;
 }
 
 .show-listing-flex{
-    display: flex;
-    margin-bottom: 2%;
-    height: inherit;
+  display: flex;
+  height: 100%;
+  margin-bottom: 2%;
 }
 
-.booking-form-holder{
-    margin-top: 5%;
+.booking-form-holder{}
+
+.gif-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.gif-title{
+  color: white;
+  font-family: 'Rancho', cursive;
+  font-size: 25px;
+  padding-left: 5px;
 }
 
 .showpage-gif{
-    width: 50%;
-    margin-top: 50px;
-    background-image: url('/assets/showpage.gif');
-    height: 272px;
-}
-
-
-.gif-title{
-    margin-top: -40px;
-    font-size: 25px;
-    padding-left: 5px;
-    font-family: 'Rancho', cursive;
-    color: white;
-    
+  background-image: url('/assets/showpage.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
 }
 
 .info-headings{
@@ -937,7 +934,7 @@ input.new-submit:hover{
     margin-right: 10px;
     min-width: 50%;
     font-size: 30px;
-    
+
 }
 
 .booking-form-container{
@@ -950,11 +947,10 @@ input.new-submit:hover{
 
 .booking-form{
     color: white;
-    height: 200px !important;
 
     .form-booking{
         display: flex;
-        width: 95%;
+        width: 100%;
         justify-content: flex-start;
     }
 
@@ -976,6 +972,10 @@ input.new-submit:hover{
         cursor: pointer;
         opacity: .7;
     }
+}
+
+.map-container {
+  outline: 1px dashed red;
 }
 
 
@@ -1012,80 +1012,17 @@ input.new-submit:hover{
   width: 22px;
 }
 
+/* ---------------------------------------------
+// MEDIA QUERIES && RESPONSIVENESS
+--------------------------------------------- */
+@media screen and ( max-width: 1024px ) {
+  .map-container { width: 50%; }
 
-// body {
-//   min-height: 450px;
-//   height: 100vh;
-//   margin: 0;
-// //   background: radial-gradient(circle, darken(dodgerblue, 10%), #1f4f96, #1b2949, #000);
-// }
-
-.stage {
-  height: 300px;
-  width: 500px;
-  margin: auto;
-  top: 0; right: 0; bottom: 0; left: 0;
-  perspective: 9999px;
-  transform-style: preserve-3d;
-  padding-bottom: 50px;
+  .address-info { font-size: 22px; }
 }
 
-.layer {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  margin-top: 20%;
-  margin-bottom: 120%;
-  transform-style: preserve-3d;
-  animation-fill-mode: forwards;
-}
-
-.layer:after {
-  font: 80px/0.65 'Pacifico', 'Kaushan Script', Futura, 'Roboto', 'Trebuchet MS', Helvetica, sans-serif;
-  content: 'This Months\A    Bookings!';
-  white-space: pre;
-  text-align: center;
-  height: 100%;
-  width: 100%;
-  top: 0px;
-  margin-bottom: 100px;
-  color: darken(#fff, 4%);
-  letter-spacing: -2px;
-  text-shadow: 4px 0 10px hsla(0, 0%, 0%, .13);
-}
-
-$i: 1;
-$NUM_LAYERS: 20;
-@for $i from 1 through $NUM_LAYERS {
-  .layer:nth-child(#{$i}):after{
-    transform: translateZ(($i - 1) * -1.5px);
+@media screen and ( max-width: 960px ) {
+  #booking-main-img {
+    height: 20%;
   }
-}
-
-.layer:nth-child(n+#{round($NUM_LAYERS/2)}):after {
-  -webkit-text-stroke: 3px hsla(0, 0%, 0%, .25);
-}
-
-.layer:nth-child(n+#{round($NUM_LAYERS/2 + 1)}):after {
-  -webkit-text-stroke: 15px dodgerblue;
-  text-shadow: 6px 0 6px darken(dodgerblue,35%),
-               5px 5px 5px darken(dodgerblue,40%),
-               0 6px 6px darken(dodgerblue,35%);
-}
-
-.layer:nth-child(n+#{round($NUM_LAYERS/2 + 2)}):after {
-  -webkit-text-stroke: 15px darken(dodgerblue, 10%);
-}
-
-.layer:last-child:after {
-  -webkit-text-stroke: 17px hsla(0, 0%, 0%, .1);
-}
-
-.layer:first-child:after{
-  color: #fff;
-  text-shadow: none;
-}
-
-@keyframes ಠ_ಠ {
-  100% { transform: rotateY(-40deg) rotateX(-43deg); }
 }

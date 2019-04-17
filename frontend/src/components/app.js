@@ -24,8 +24,6 @@ const App = () => (
       <ProtectedRoute exact path="/bookings" component={BookingIndexContainer} />
       <Route exact path="/" component={MainPageContainer} />
     </Switch>
-    <footer>
-    </footer>
   </div>
 );
 
