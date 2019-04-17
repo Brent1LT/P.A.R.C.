@@ -1053,5 +1053,7 @@ input.new-submit:hover {
 @media screen and ( max-width: 960px ) {
   #booking-main-img {
     height: 20%;
+
+    .booking-title { padding-top: 0; }
   }
 }
