@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactMapGL, { Marker, Popup, FullscreenControl, NavigationControl } from 'react-map-gl';
+import ReactMapGL, { Marker } from 'react-map-gl';
 import Pin from '../pin/pin';
 const frontendKeys = require("../../config/frontend_keys").mapApiKey;
 
@@ -12,9 +12,9 @@ class ParcMap extends Component {
         // These default LAT & LNG coords are what the map centers on
         latitude: this.props.lat,
         longitude: this.props.lng,
+        height: '100vh',
+        width: '100vh',
         zoom: 13.25,
-        width: '60vw',
-        height: '85vh',
       },
     };
 
@@ -109,15 +109,6 @@ class ParcMap extends Component {
           onViewportChange={(viewport) => this.setState({viewport})}
         >
           {markers}
-          <div className="map-nav">
-            <NavigationControl
-              showCompass={false}
-              captureClick={false}
-              captureDoubleClick={false}
-              captureDrag={false}
-              onViewportChange={(viewport) => this.setState({viewport})}
-            />
-          </div>
         </ReactMapGL>
       </div>
     );

@@ -20,6 +20,7 @@ class ListingShow extends React.Component{
           <div className='show-info'>
             <div className='show-listing-flex'>
                 <div className='parking-info'>
+                  <BookingFormContainer history={this.props.history} listing={this.props.listing} />
                   <div className='address-info'>{this.props.listing.street}</div>
                   <div className='address-info also'>{this.props.listing.city}</div>
                   <div className='address-info2'>{this.props.listing.state} {this.props.listing.zip}</div>
@@ -28,9 +29,6 @@ class ListingShow extends React.Component{
                   <div className='graybar'></div>
                   <div className='info-headings'>Flat Rate of: ${this.props.listing.price}</div>
                   <div className='graybar'></div>
-                  <div className='booking-form-holder'>
-                    <BookingFormContainer history={this.props.history} listing={this.props.listing} />
-                  </div>
                 </div>
                 <div className="gif-container">
                   <div className='gif-title'>No need to rush when your parking is secured</div>

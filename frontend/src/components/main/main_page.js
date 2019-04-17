@@ -1,21 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import SearchContainer from '../navbar/search_container';
 import Footer from '../footer';
 
-class MainPage extends React.Component {
+class MainPage extends Component {
   componentDidMount() {
     this.props.fetchListings();
   }
 
-  changeUrl(id){
+  changeUrl(id) {
     this.props.history.push(`/listings/${id}`);
   }
 
   render() {
-    if (this.props.listings === undefined) {
-      return null;
-      // can add a little loading screen here
-    }
+    if (this.props.listings === undefined) return null;
 
     return (
       <div className="main-page">
@@ -38,6 +35,7 @@ class MainPage extends React.Component {
               <img
                 className="discovery"
                 src="/assets/discover-parking.jpg"
+                alt="Discover new parking spots!"
               />
               <div className="discover-text">
                 <h3>Discover</h3>
@@ -66,7 +64,11 @@ class MainPage extends React.Component {
                 </p>
               </div>
               <div className="image-div">
-                <img className="team-photo" src="/assets/the-team.jpg" />
+                <img
+                  className="team-photo"
+                  src="/assets/the-team.jpg"
+                  alt="Meet the Team"
+                />
               </div>
             </div>
 

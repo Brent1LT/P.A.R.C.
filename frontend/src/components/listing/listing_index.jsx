@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ListingIndexItem from './listing_index_item';
 import MapContainer from '../map/map_container';
 import SearchBarContainer from '../navbar/search_container';
 
-class ListingIndex extends React.Component{
+class ListingIndex extends Component {
   constructor(props) {
     super(props);
 
@@ -21,7 +21,7 @@ class ListingIndex extends React.Component{
     this.filterListings = this.filterListings.bind(this);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     // debugger
     this.props.fetchListings();
   }
@@ -57,7 +57,7 @@ class ListingIndex extends React.Component{
       });
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.props.newSearch('');
   }
 
@@ -76,6 +76,7 @@ class ListingIndex extends React.Component{
           (listing.lng <= this.state.lng + .0083 && listing.lng >= this.state.lng - .0083)) {
           listings.push(listing);
         }
+        return null;
       });
     }
     if (!listings || listings.length === 0) listings = listingsArray;

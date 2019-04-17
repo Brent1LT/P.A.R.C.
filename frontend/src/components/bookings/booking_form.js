@@ -108,8 +108,6 @@ class BookingForm extends Component {
 
   render() {
     if (this.props.bookings === undefined) return null;
-    // ITERATE THROUGH THIS.PROPS.BOOKINGS
-    // TO CREATE THE MOMENT RANGE OBJECTS AS SEEN BELOW
     const BAD_DATES = [];
     const moment = extendMoment(Moment);
 

@@ -3,20 +3,6 @@ import React, { Component } from 'react';
 class BookingIndexItem extends Component {
   constructor(props) {
     super(props);
-    const year = {
-      0: "January",
-      1: "February",
-      2: "March",
-      3: "April",
-      4: "May",
-      5: "June",
-      6: "July",
-      7: "August",
-      8: "September",
-      9: "October",
-      10: "November",
-      11: "December"
-    };
 
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
     this.handleVisitClick = this.handleVisitClick.bind(this);

@@ -632,7 +632,7 @@ input#text-box:focus{
   border-radius: 3px;
   margin: 0 auto;
   margin-top: -8%;
-  padding: 1.5% 2.5% 2.5%;
+  padding: 1.5% 2.5% 3%;
   width: 60%;
   z-index: 6;
 }
@@ -706,10 +706,10 @@ input#text-box:focus{
     background-color: white;
 }
 
-.delete-booking:hover{
-    background: rgb(52, 114, 222);
-    color: white;
-    cursor: pointer;
+.delete-booking:hover {
+  background: rgb(52, 114, 222);
+  color: white;
+  cursor: pointer;
 }
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@--new-listing--@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -731,21 +731,21 @@ input#text-box:focus{
   margin-left: 10px;
 }
 
-div.flexing-text-box{
-    display: flex;
-    margin: 5%;
-    margin-left: 0px;
-    margin-right: 10%;
-}
-#new-description{
-    width: 192%;
-    // height: 150px;
-    padding-bottom: 11%;
-    border-radius: 3%;
-    border: 1px solid lightgray;
+div.flexing-text-box {
+  display: flex;
+  margin: 5%;
+  margin-left: 0px;
+  margin-right: 10%;
 }
 
-.listing-form-title{
+#new-description {
+  border: 1px solid lightgray;
+  border-radius: 3%;
+  padding-bottom: 11%;
+  width: 192%;
+}
+
+.listing-form-title {
   color: white;
   font-size: 20px;
   font-weight: 800;
@@ -753,16 +753,17 @@ div.flexing-text-box{
   width: 300px;
 }
 
-.listing-form{
-    width: 40%;
-    margin-top: 20px;
+.listing-form {
+  margin-top: 20px;
+  width: 40%;
 }
-.attribute-titles{
-    padding-bottom: 5px;
-    font-size: 12px;
-    margin-right: 25px;
-    margin-left: -10px;
-    color: rgb(52, 114, 222);
+
+.attribute-titles {
+  color: white;
+  font-size: 12px;
+  margin-left: -10px;
+  margin-right: 25px;
+  padding-bottom: 5px;
 }
 
 input.photo-submit-button{
@@ -803,7 +804,7 @@ input#new-text-box{
   height: 60%;
   padding: 10px;
   margin-left: 30%;
-  margin-top: 12%;
+  margin-top: 8%;
   width: 30%;
 }
 
@@ -814,69 +815,73 @@ input#new-text-box{
     margin-bottom: 10px;
 }
 
-input.new-submit{
-    width: 90%;
-    padding: 10px;
-    color: white;
-    border-radius: 5px;
-    font-size: 14px;
-    margin-top: -10px;
-    background-color: rgb(52, 114, 222);
+input.new-submit {
+  background-color: rgb(52, 114, 222);
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  margin-top: -10px;
+  padding: 10px;
+  width: 90%;
 }
 
-input.new-submit:hover{
-    cursor: pointer;
-    opacity: .7;
+input.new-submit:hover {
+  cursor: pointer;
+  opacity: .7;
 }
 
-#root{
-    background-size: cover;
-    z-index: -1;
+#root {
+  background-size: cover;
+  z-index: -1;
 }
 
 // @@@@@@@@@@@@@@@@@@@@@@@@ SHOW PAGE @@@@@@@@@@@@@@@@@@@
-.listing-show{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-
-}
-.left-info-container{
-    background: linear-gradient( white, rgba(52, 114, 222, .75));
-    width: 100%;
-    height: 85vh;
+.listing-show {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
 }
 
-.show-image-container{
-    margin: auto;
-    width: 100%;
+.left-info-container {
+  background: linear-gradient( white, rgba(52, 114, 222, .75));
+  height: 100%;
 }
 
-.address-info{
-    // font-style: italic;
-    font-size: 25px;
-    text-transform: capitalize;
-}
-.also{
-    font-size: 20px;
-    font-style: none;
-}
-.address-info2{
-    // font-style: italic;
-    text-transform: uppercase;
-    font-size: 20px;
+.show-image-container {
+  margin: auto;
+  width: 100%;
 }
 
-.parking-images{
-    width: 100%;
-    height: 57%;
+.address-info {
+  font-size: 25px;
+  text-transform: capitalize;
 }
-.graybar{
-    width: 100%;
-    height: 1px;
-    margin: 3% 0px;
-    border-bottom: 3px solid rgba(52, 114, 222, 1.0);
-    border-radius: 50%;
+
+.also {
+  font-size: 20px;
+  font-style: none;
+}
+
+.address-info2 {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.parking-images {
+  height: 57%;
+  width: 100%;
+}
+
+.graybar {
+  border-bottom: 3px solid rgba(52, 114, 222, 1.0);
+  border-radius: 50%;
+  height: 1px;
+  margin: 3% 0px;
+  width: 100%;
 }
 
 .show-info {
@@ -896,22 +901,20 @@ input.new-submit:hover{
   margin-bottom: 2%;
 }
 
-.booking-form-holder{}
-
 .gif-container {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.gif-title{
+.gif-title {
   color: white;
   font-family: 'Rancho', cursive;
   font-size: 25px;
   padding-left: 5px;
 }
 
-.showpage-gif{
+.showpage-gif {
   background-image: url('/assets/showpage.gif');
   background-position: center;
   background-repeat: no-repeat;
@@ -919,81 +922,77 @@ input.new-submit:hover{
   width: 100%;
 }
 
-.info-headings{
-    font-size: 18px;
-    p{
-        font-size: 14px;
-        text-decoration: none;
-        margin-left: 5%;
-    }
+.info-headings {
+  font-size: 18px;
+
+  p {
+    font-size: 14px;
+    margin-left: 5%;
+    text-decoration: none;
+  }
 }
 
-.parking-info{
+.parking-info {
+  color: white;
+  font-size: 30px;
+  margin-right: 10px;
+  min-width: 50%;
+  width: 50%;
+}
+
+.booking-form-container {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+}
+
+
+.booking-form {
+  color: white;
+
+  .form-booking{
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+  }
+
+  h2 {
+    border-bottom: 1px solid white;
     color: white;
-    width: 50%;
-    margin-right: 10px;
-    min-width: 50%;
-    font-size: 30px;
+    display: inline-block;
+    font-size: 20px;
+    margin-bottom: 2%;
+  }
 
-}
-
-.booking-form-container{
+  .booking-button {
+    margin-left: 5px;
+    padding: 9.2px;
+    padding-right: 25px;
+    padding-left: 25px;
     text-align: center;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-}
+  }
 
-
-.booking-form{
-    color: white;
-
-    .form-booking{
-        display: flex;
-        width: 100%;
-        justify-content: flex-start;
+  .booking-button {
+    &:hover {
+      cursor: pointer;
+      opacity: .7;
     }
-
-    h2{
-        display: inline-block;
-        border-bottom: 1px solid white;
-        color: white;
-        font-size: 20px;
-        margin-bottom: 2%;
-    }
-    .booking-button{
-        margin-left: 5px;
-        padding: 9.2px;
-        padding-right: 25px;
-        padding-left: 25px;
-        text-align: center;
-    }
-    .booking-button:hover{
-        cursor: pointer;
-        opacity: .7;
-    }
+  }
 }
 
 .map-container {
-  outline: 1px dashed red;
+  height: 100%;
 }
-
 
 .DateRangePickerInput__showClearDates {
-    padding-right: 15px;
+  padding-right: 15px;
 }
 
-.DateInput{
-    #end-date-field{
-        border-left: 1px solid lightgray;
-    }
-}
-
-.map-nav {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: .6em;
+.DateInput {
+  #end-date-field {
+    border-left: 1px solid lightgray;
+  }
 }
 
 .map-marker {
@@ -1015,10 +1014,25 @@ input.new-submit:hover{
 /* ---------------------------------------------
 // MEDIA QUERIES && RESPONSIVENESS
 --------------------------------------------- */
+@media screen and ( max-width: 1440px ) {
+  .count-info {
+    padding-bottom: 10%;
+  }
+}
+
 @media screen and ( max-width: 1024px ) {
+  .left-info-container { width: 50%; }
   .map-container { width: 50%; }
 
   .address-info { font-size: 22px; }
+
+  #booking-main-img {
+    .booking-title {
+      p {
+        font-size: 64px;
+      }
+    }
+  }
 }
 
 @media screen and ( max-width: 960px ) {

@@ -22,13 +22,14 @@ class BookingIndex extends Component {
       return bookingsArray;
     }else{
       let count = 0;
-      bookingsArray.map( (booking) => {
+      bookingsArray.map((booking) => {
         if(parseInt(booking.startDate.slice(5,7)) === todayMonth+1){
           if((parseInt(booking.startDate.slice(8,10)) > todayDay) && count < 15){
             results.push(booking);
             count++;
           }
         }
+        return (null);
       });
       return results;
     }
