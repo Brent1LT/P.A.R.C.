@@ -92,6 +92,20 @@ class ListingForm extends Component {
     });
   }
 
+  imagePreview(){
+    if(this.state.imageUrl){
+      return (
+        <img
+          className="photo-preview"
+          src={this.state.imageUrl}
+          alt="Listing Form Preview"
+        />
+      );
+    }else{
+      return null;
+    }
+  }
+
   render() {
     return (
       <div className='corner-design'>
@@ -118,7 +132,7 @@ class ListingForm extends Component {
                 <div className='attribute-titles'>Photo: <input id='picture-upload' type="file" onChange={this.handleFile.bind(this)} /></div>
               </div>
               <div>
-                <img className='photo-preview' src={this.state.imageUrl} alt="Listing Form Preview" />
+                {this.imagePreview()}
               </div>
               <input className='new-submit' type="submit"/>
           </form>
