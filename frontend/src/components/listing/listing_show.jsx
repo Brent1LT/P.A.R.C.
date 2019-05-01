@@ -4,15 +4,29 @@ import "react-dates/initialize";
 import MapContainer from '../map/map_container';
 
 class ListingShow extends React.Component{
+  constructor(props){
+    super(props);
+
+    this.state = {
+      currentLat: null,
+      currentLong: null
+    };
+
+  }
   componentDidMount() {
     this.props.fetchListing(this.props.listingId);
+    let that = this;
+    navigator.geolocation.getCurrentPosition(position => {
+      let currentLat = position.coords.latitude;
+      let currentLong = position.coords.longitude;
+      that.setState({currentLat, currentLong});
+    });
   }
 
   render() {
     if (this.props.listing === undefined) {
       return null;
     }
-
     return(
       <div className="listing-show">
         <div className='left-info-container'>
