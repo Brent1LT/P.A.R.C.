@@ -31,7 +31,9 @@ class ListingShow extends React.Component{
     return fetch(
       "https://api.rideos.ai/path/v2/GetPath",
       {
-        header: rideOSKey,
+        headers: {
+          "X-Api-Key": rideOSKey
+        },
         method: "post",
         "waypoints": [
           {
@@ -46,7 +48,8 @@ class ListingShow extends React.Component{
               'longitude': that.props.listing.lng
             }
           }
-        ]
+        ],
+        "geometryFormat": "LINESTRING"
       }
     );
   }
