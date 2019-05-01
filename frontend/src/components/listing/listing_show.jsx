@@ -2,14 +2,15 @@ import React from 'react';
 import BookingFormContainer from '../bookings/booking_form_container';
 import "react-dates/initialize";
 import MapContainer from '../map/map_container';
+const rideOSKey = require('../../config/fe_keys_dev').rideOSKey;
 
 class ListingShow extends React.Component{
   constructor(props){
     super(props);
 
     this.state = {
-      currentLat: null,
-      currentLong: null
+      currentLat: 37.7987788,
+      currentLong: -122.40142789999999
     };
 
   }
@@ -21,6 +22,33 @@ class ListingShow extends React.Component{
       let currentLong = position.coords.longitude;
       that.setState({currentLat, currentLong});
     });
+  }
+
+  componentDidUpdate(){
+    let that = this;
+    if(!this.props.listing) return null;
+    
+    return fetch(
+      "https://api.rideos.ai/path/v2/GetPath",
+      {
+        header: rideOSKey,
+        method: "post",
+        "waypoints": [
+          {
+            position: {
+              'latitude': that.state.currentLat,
+              'longitude': that.state.currentLong
+            }
+          },
+          {
+            position: {
+              'latitude': that.props.listing.lat,
+              'longitude': that.props.listing.lng
+            }
+          }
+        ]
+      }
+    );
   }
 
   render() {
