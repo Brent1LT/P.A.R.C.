@@ -10,10 +10,11 @@ class ListingShow extends React.Component{
 
     this.state = {
       currentLat: 37.7987788,
-      currentLong: -122.40142789999999
+      currentLong: -122.40142789999999,
     };
-
   }
+
+  
   componentDidMount() {
     this.props.fetchListing(this.props.listingId);
     let that = this;
@@ -26,35 +27,35 @@ class ListingShow extends React.Component{
 
   componentDidUpdate(){
     if(!this.props.listing) return null;
-    
+
     let that = this;
-    return fetch("https://api.rideos.ai/path/v2/GetPath", {
-      headers: {
-        "Content-Type": "application/json",
-        "X-Api-Key": rideOSKey
-      },
-      method: "post",
-      body: JSON.stringify({
-        waypoints: [
-          {
-            position: {
-              latitude: that.state.currentLat,
-              longitude: that.state.currentLong
-            },
-            heading: 120
-          },
-          {
-            position: {
-              latitude: that.props.listing.lat,
-              longitude: that.props.listing.lng
-            }
-          }
-        ],
-        geometryFormat: "LINESTRING"
-      })
-    })
-      .then(res => res.json())
-      .then(response => console.log(response));
+    // return fetch("https://api.rideos.ai/path/v2/GetPath", {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     "X-Api-Key": rideOSKey
+    //   },
+    //   method: "post",
+    //   body: JSON.stringify({
+    //     waypoints: [
+    //       {
+    //         position: {
+    //           latitude: that.state.currentLat,
+    //           longitude: that.state.currentLong
+    //         },
+    //         heading: 120
+    //       },
+    //       {
+    //         position: {
+    //           latitude: that.props.listing.lat,
+    //           longitude: that.props.listing.lng
+    //         }
+    //       }
+    //     ],
+    //     geometryFormat: "LINESTRING"
+    //   })
+    // })
+    //   .then(res => res.json())
+    //   .then(response => console.log(response));
   }
 
   render() {
@@ -90,6 +91,8 @@ class ListingShow extends React.Component{
           lat={this.props.listing.lat}
           lng={this.props.listing.lng}
           indexList={[this.props.listing]}
+          ref={map => this.map = map}
+          currentLocation={this.state}
         />
       </div>
     );

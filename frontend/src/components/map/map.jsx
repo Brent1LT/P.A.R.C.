@@ -17,14 +17,21 @@ class ParcMap extends Component {
         zoom: 13.25,
       },
     };
-
+    this.map = null;
     this.onMarkerClick = this.onMarkerClick.bind(this);
+  }
+
+  getMap() {
+    let myMap = this.map.getMap();
+    this.setState({ myMap });
+    console.log(this.props);
   }
 
   componentDidMount() {
     if (this.props.listings.length !== 1) {
       this.props.fetchAllListings();
     }
+    this.getMap();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -107,6 +114,7 @@ class ParcMap extends Component {
           mapStyle="mapbox://styles/mapbox/streets-v11"
           mapboxApiAccessToken={frontendKeys}
           onViewportChange={(viewport) => this.setState({viewport})}
+          ref={map => this.map = map}
         >
           {markers}
         </ReactMapGL>
