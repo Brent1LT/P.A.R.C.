@@ -25,33 +25,36 @@ class ListingShow extends React.Component{
   }
 
   componentDidUpdate(){
-    let that = this;
     if(!this.props.listing) return null;
     
-    return fetch(
-      "https://api.rideos.ai/path/v2/GetPath",
-      {
-        headers: {
-          "X-Api-Key": rideOSKey
-        },
-        method: "post",
-        "waypoints": [
+    let that = this;
+    return fetch("https://api.rideos.ai/path/v2/GetPath", {
+      headers: {
+        "Content-Type": "application/json",
+        "X-Api-Key": rideOSKey
+      },
+      method: "post",
+      body: JSON.stringify({
+        waypoints: [
           {
             position: {
-              'latitude': that.state.currentLat,
-              'longitude': that.state.currentLong
-            }
+              latitude: that.state.currentLat,
+              longitude: that.state.currentLong
+            },
+            heading: 120
           },
           {
             position: {
-              'latitude': that.props.listing.lat,
-              'longitude': that.props.listing.lng
+              latitude: that.props.listing.lat,
+              longitude: that.props.listing.lng
             }
           }
         ],
-        "geometryFormat": "LINESTRING"
-      }
-    );
+        geometryFormat: "LINESTRING"
+      })
+    })
+      .then(res => res.json())
+      .then(response => console.log(response));
   }
 
   render() {
