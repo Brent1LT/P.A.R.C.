@@ -42,12 +42,12 @@ class ParcMap extends Component {
   }
 
   onMarkerClick(listing) {
-    let test = document.getElementById(listing._id);
-    if(test === null){
+    let listingId = document.getElementById(listing._id);
+    if(listingId === null){
       //in case not on listing index
       return;
     }
-    this.smoothScroll(test)
+    this.smoothScroll(listingId)
   }
 
   smoothScroll(target) {
