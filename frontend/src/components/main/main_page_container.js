@@ -8,11 +8,11 @@ const mapStateToProps = (state) => {
     listings: state.entities.listings,
   });
 };
+
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchListings: () => dispatch(fetchListings()),
     openModal: modal => dispatch(openModal(modal)),
-
   };
 };
 

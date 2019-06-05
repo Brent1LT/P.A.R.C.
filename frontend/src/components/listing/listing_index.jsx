@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ListingIndexItem from './listing_index_item';
 import MapContainer from '../map/map_container';
 import SearchBarContainer from '../navbar/search_container';
+const keys = require("../../config/keys");
 
 class ListingIndex extends Component {
   constructor(props) {
@@ -45,7 +46,7 @@ class ListingIndex extends Component {
 
   geocodeRequest(address) {
     return fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U`,
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${keys.geocodeKey}`,
       {
         method: "post",
       }
@@ -79,10 +80,10 @@ class ListingIndex extends Component {
         return null;
       });
     }
+
     if (!listings || listings.length === 0) listings = listingsArray;
-    if(this.props.search === ""){
-      listings = listingsArray;
-    }
+    if(this.props.search === "") listings = listingsArray;
+
     return (
       <div>
         <div className='index-search'>
@@ -90,11 +91,9 @@ class ListingIndex extends Component {
         </div>
         <div className='index-main-container'>
           <div id='goHere' className="all-listings">
-            {/* <div className='prevent-overflow'> */}
               {listings.map((listing, idx) => {
                 return <ListingIndexItem key={idx} listing={listing} />
               })}
-            {/* </div> */}
           </div>
           <div>
             <div className="listing-index">
