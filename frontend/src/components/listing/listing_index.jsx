@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ListingIndexItem from './listing_index_item';
 import MapContainer from '../map/map_container';
 import SearchBarContainer from '../navbar/search_container';
-const keys = require("../../config/keys");
+const keys = require("../../../../config/keys");
 
 class ListingIndex extends Component {
   constructor(props) {
