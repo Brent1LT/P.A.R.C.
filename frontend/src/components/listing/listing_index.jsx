@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ListingIndexItem from './listing_index_item';
 import MapContainer from '../map/map_container';
 import SearchBarContainer from '../navbar/search_container';
+const keys = require("../../config/frontend_keys");
 
 class ListingIndex extends Component {
   constructor(props) {
@@ -22,7 +23,6 @@ class ListingIndex extends Component {
   }
 
   componentDidMount() {
-    // debugger
     this.props.fetchListings();
   }
 
@@ -45,14 +45,16 @@ class ListingIndex extends Component {
 
   geocodeRequest(address) {
     return fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U`,
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${keys.geocodeKey}`,
       {
-        method: "post",
+        method: "post"
       }
-    ).then(res => res.json())
+    )
+      .then(res => res.json())
       .then(response => {
         return response.results[0].geometry.location;
-      }).catch(err => {
+      })
+      .catch(err => {
         this.setState({ error: err });
       });
   }
