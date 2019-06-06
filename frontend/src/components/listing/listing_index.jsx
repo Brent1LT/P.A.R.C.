@@ -23,7 +23,6 @@ class ListingIndex extends Component {
   }
 
   componentDidMount() {
-    // debugger
     this.props.fetchListings();
   }
 
@@ -48,12 +47,14 @@ class ListingIndex extends Component {
     return fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${keys.geocodeKey}`,
       {
-        method: "post",
+        method: "post"
       }
-    ).then(res => res.json())
+    )
+      .then(res => res.json())
       .then(response => {
         return response.results[0].geometry.location;
-      }).catch(err => {
+      })
+      .catch(err => {
         this.setState({ error: err });
       });
   }
