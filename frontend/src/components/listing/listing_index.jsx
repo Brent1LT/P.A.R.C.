@@ -45,7 +45,7 @@ class ListingIndex extends Component {
 
   geocodeRequest(address) {
     return fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${keys}`,
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyDXN1zpY-LaT5aT7ijWGNzvTkoPLDoKMMo`,
       {
         method: "post"
       }
