@@ -9,7 +9,6 @@ class Search extends React.Component{
             searchField: '',
             empty: '',
             redirect: false,
-
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);

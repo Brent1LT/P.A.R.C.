@@ -81,10 +81,10 @@ class ListingIndex extends Component {
         return null;
       });
     }
+
     if (!listings || listings.length === 0) listings = listingsArray;
-    if(this.props.search === ""){
-      listings = listingsArray;
-    }
+    if(this.props.search === "") listings = listingsArray;
+
     return (
       <div>
         <div className='index-search'>
@@ -92,11 +92,9 @@ class ListingIndex extends Component {
         </div>
         <div className='index-main-container'>
           <div id='goHere' className="all-listings">
-            {/* <div className='prevent-overflow'> */}
               {listings.map((listing, idx) => {
                 return <ListingIndexItem key={idx} listing={listing} />
               })}
-            {/* </div> */}
           </div>
           <div>
             <div className="listing-index">
