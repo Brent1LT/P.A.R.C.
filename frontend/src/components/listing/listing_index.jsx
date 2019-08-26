@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ListingIndexItem from './listing_index_item';
 import MapContainer from '../map/map_container';
 import SearchBarContainer from '../navbar/search_container';
-const keys = require("../../config/frontend_keys");
+const keys = require("../../config/frontend_keys").geocodeKey;
 
 class ListingIndex extends Component {
   constructor(props) {
@@ -45,7 +45,7 @@ class ListingIndex extends Component {
 
   geocodeRequest(address) {
     return fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${keys.geocodeKey}`,
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${keys}`,
       {
         method: "post"
       }
