@@ -66,6 +66,12 @@ class ListingForm extends Component {
           formData.append('price', this.state.price);
           formData.append('image', this.state.image);
 
+          //can also do it this way
+          // let state = this.state;
+          // for (let key in state) {
+          //   formData.append(key, state[key]);
+          // }
+
           this.props.createPhotoListing(formData)
             .then(payload => {
               let listing = payload.listing;
