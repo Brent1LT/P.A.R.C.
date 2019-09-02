@@ -2,3 +2,6 @@
 /node_modules
 /frontend/node_modules
 /frontend/src/config/fe_keys_dev.js
+
+*.sublime-project
+*.sublime-workspace
